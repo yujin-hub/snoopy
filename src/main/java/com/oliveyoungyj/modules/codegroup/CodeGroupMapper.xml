@@ -9,11 +9,19 @@
     <resultMap id="resultMapObj" type="com.oliveyoungyj.modules.codegroup.CodeGroup"></resultMap>
 	
 	<select id="selectList" resultMap="resultMapObj">
-		SELECT
-			a.*
-		FROM CodeGroup a
-		WHERE 1=1
-			AND delNy = 0
+		SELECT 
+			a.seq
+		    , a.num
+		    , a.propertyKor
+		    , property
+		    , (SELECT COUNT(b.codeGroup_seq) FROM Code b WHERE a.num = b.codeGroup_seq) as codeNum
+		    , a.regDate
+		    , a.modDate
+		    , a.useNY
+		    , a.delNY
+		From CodeGroup a
+		;
+
 	</select>
 
 </mapper>	
