@@ -323,7 +323,7 @@
 		<div class="container mydiv2">
 			<br>
 			<br>
-			<span id="font">코드그룹 관리</span>
+			<span id="font">코드 관리</span>
 			<br>
 			<br>
 			<br>
@@ -352,17 +352,17 @@
 				<span class="font">Code</span>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link" href="codeGroup.html">코드 그룹 관리</a>
+						<a class="nav-link" href="codeGroupList">코드 그룹 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">코드 관리</a>
+						<a class="nav-link" href="codeList">코드 관리</a>
 					</li>
 				</ul>
 			</div>
 			<div class="col-10">
 				<div class="main left2">
 					<input class="input" id="tab1" type="radio" name="tabs" checked> 
-					<label for="tab1">코드그룹</label>
+					<label for="tab1">코드</label>
 					
 					<section id="content1">
 						<div class="container wid2">
@@ -441,12 +441,14 @@
 										<th>#</th>
 										<th>코드그룹 코드</th>
 										<th>코드그룹 이름(한글)</th>
-										<th>코드그룹 이름(영문)</th>
-										<th>코드갯수</th>
+										<th>코드</th>
+										<th>대체코드</th>
+										<th>코드 이름(한글)</th>
+										<th>코드 이름(영문)</th>
+										<th>사용</th>
+										<th>순서</th>
 										<th>등록일</th>
 										<th>수정일</th>
-										<th>사용여부</th>
-										<th>삭제여부</th>
 									</tr>
 								</thead>
 								<tbody class="table-group-divider">
@@ -454,14 +456,16 @@
 										<tr class="cursor" onClick="form()">
 											<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
 											<td><c:out value="${list.seq }"/></td>
-											<td><c:out value="${list.num }"/></td>
+											<td><c:out value="${list.codeGroup_seq }"/></td>
 											<td><c:out value="${list.propertyKor }"/></td>
-											<td><c:out value="${list.property }"/></td>
-											<td><c:out value="${list.codeNum }"/></td>
+											<td><c:out value="${list.codeseq }"/></td>
 											<td></td>
-											<td></td>
+											<td><c:out value="${list.name }"/></td>
+											<td><c:out value="${list.nameEng }"/></td>
 											<td><c:out value="${list.useNY }"/></td>
-											<td><c:out value="${list.delNY }"/></td>
+											<td></td>
+											<td></td>
+											<td></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -588,7 +592,7 @@
 	 
 	 function form()
 		{
-		     location.href = "codeGroupForm.html";
+		     location.href = "codeForm.html";
 		}
 	 
 </script>
