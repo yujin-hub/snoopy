@@ -13,7 +13,7 @@
 			a.*
 		FROM CodeGroup a
 		WHERE 1=1
-			AND delNY = 0
+			AND delNy = 0
 	</select>
 
 </mapper>	
