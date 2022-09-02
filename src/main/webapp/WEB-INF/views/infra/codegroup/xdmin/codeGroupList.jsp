@@ -392,25 +392,25 @@
 										</div>
 									</div>
 									<br>
-									<div class="row">
-										<div class="col-4">
-											<select class="form-select wid3" aria-label="Default select example">
-												<option selected>::검색 구분::</option>
-												<option value="1">#</option>
-												<option value="2">코드그룹 코드</option>
-												<option value="3">코드그룹 이름(한글)</option>
-												<option value="4">코드그룹 이름(영문)</option>
-												<option value="5">코드갯수</option>
-											</select>
+									<form method="post" action="/codeGroup/codeGroupList">
+										<div class="row">
+											<div class="col-4">
+												<select  id="shOption" name="shOption" class="form-select wid3" aria-label="Default select example">
+													<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색 구분::</option>
+													<option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>코드그룹 코드</option>
+													<option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>코드그룹 이름(한글)</option>
+													<option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>코드그룹 이름(영문)</option>
+												</select>
+											</div>
+											<div class="col-6">
+												<input type="text" class="form-control mid" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력">
+											</div>
+											<div class="col-2">
+												<a class="btn btn1 btn-space" role="button" style="margin-left: 10px;"><i class="fa-solid fa-arrow-rotate-left"></i></a> 
+												<a class="btn btn1 btn-space" role="button"><i class="fa-solid fa-magnifying-glass"></i></a>
+											</div>
 										</div>
-										<div class="col-6">
-											<input type="text" class="form-control mid wid5" aria-label="date" aria-describedby="basic-addon1" placeholder="검색어 입력">
-										</div>
-										<div class="col-2">
-											<a class="btn btn1 btn-space" role="button" style="margin-left: 10px;"><i class="fa-solid fa-arrow-rotate-left"></i></a> 
-											<a class="btn btn1 btn-space" role="button"><i class="fa-solid fa-magnifying-glass"></i></a>
-										</div>
-									</div>
+									</form>
 								</div>
 								<br>
 							</div>
@@ -450,20 +450,36 @@
 									</tr>
 								</thead>
 								<tbody class="table-group-divider">
-									<c:forEach items="${list}" var="list" varStatus="status">
-										<tr class="cursor" onClick="form()">
-											<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
-											<td><c:out value="${list.seq }"/></td>
-											<td><c:out value="${list.num }"/></td>
-											<td><c:out value="${list.propertyKor }"/></td>
-											<td><c:out value="${list.property }"/></td>
-											<td><c:out value="${list.codeNum }"/></td>
-											<td></td>
-											<td></td>
-											<td><c:out value="${list.useNY }"/></td>
-											<td><c:out value="${list.delNY }"/></td>
-										</tr>
-									</c:forEach>
+									<c:choose>
+										<c:when test="${fn:length(list) eq 0 }">
+											<td class="text-center" colspan="10">There is no data!</td>
+										</c:when>
+										<c:otherwise>
+											<c:forEach items="${list}" var="list" varStatus="status">
+												<tr class="cursor" onClick="form()">
+													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
+													<td><c:out value="${list.seq }"/></td>
+													<td><c:out value="${list.num }"/></td>
+													<td><c:out value="${list.propertyKor }"/></td>
+													<td><c:out value="${list.property }"/></td>
+													<td><c:out value="${list.codeNum }"/></td>
+													<td></td>
+													<td></td>
+													<td>
+														<c:choose>
+															<c:when test="${list.useNY eq 0 }">N</c:when>
+															<c:otherwise>Y</c:otherwise>
+														</c:choose></td>
+													<td>
+														<c:choose>
+															<c:when test="${list.delNY eq 0 }">N</c:when>
+															<c:otherwise>Y</c:otherwise>
+														</c:choose>
+													</td>
+												</tr>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
 								</tbody>
 							</table>
 							<br>

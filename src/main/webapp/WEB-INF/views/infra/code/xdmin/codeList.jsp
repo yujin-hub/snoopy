@@ -20,7 +20,7 @@
 	<meta property="og:title" content="올리브영 공식 온라인몰">
 	<meta property="og:description" content="대한민국 NO.1 헬스&뷰티 스토어 OLIVEYOUNG" >
 
-	<title>코드그룹 관리</title>
+	<title>코드 관리</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
@@ -452,22 +452,34 @@
 									</tr>
 								</thead>
 								<tbody class="table-group-divider">
-									<c:forEach items="${list}" var="list" varStatus="status">
-										<tr class="cursor" onClick="form()">
-											<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
-											<td><c:out value="${list.seq }"/></td>
-											<td><c:out value="${list.codeGroup_seq }"/></td>
-											<td><c:out value="${list.propertyKor }"/></td>
-											<td><c:out value="${list.codeseq }"/></td>
-											<td></td>
-											<td><c:out value="${list.name }"/></td>
-											<td><c:out value="${list.nameEng }"/></td>
-											<td><c:out value="${list.useNY }"/></td>
-											<td></td>
-											<td></td>
-											<td></td>
-										</tr>
-									</c:forEach>
+									<c:choose>
+										<c:when test="${fn:length(list) eq 0 }">
+											<td class="text-center" colspan="12">There is no data!</td>
+										</c:when>
+										<c:otherwise>
+											<c:forEach items="${list}" var="list" varStatus="status">
+												<tr class="cursor" onClick="form()">
+													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
+													<td><c:out value="${list.seq }"/></td>
+													<td><c:out value="${list.codeGroup_seq }"/></td>
+													<td><c:out value="${list.propertyKor }"/></td>
+													<td><c:out value="${list.codeseq }"/></td>
+													<td></td>
+													<td><c:out value="${list.name }"/></td>
+													<td><c:out value="${list.nameEng }"/></td>
+													<td>
+														<c:choose>
+															<c:when test="${list.useNY eq 0 }">N</c:when>
+															<c:otherwise>Y</c:otherwise>
+														</c:choose>
+													</td>
+													<td></td>
+													<td></td>
+													<td></td>
+												</tr>
+											</c:forEach>
+											</c:otherwise>
+									</c:choose>
 								</tbody>
 							</table>
 							<br>
