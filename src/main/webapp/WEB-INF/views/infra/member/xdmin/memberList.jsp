@@ -20,7 +20,7 @@
 	<meta property="og:title" content="올리브영 공식 온라인몰">
 	<meta property="og:description" content="대한민국 NO.1 헬스&뷰티 스토어 OLIVEYOUNG" >
 
-	<title>코드 관리</title>
+	<title>회원 관리</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
@@ -37,8 +37,8 @@
     <!-- user css -->
     <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
     
-    <style type ="text/css">
-		.back-to-top-css { 
+     <style type ="text/css">
+		.back-to-top-css {
 		    position: fixed;
 		    bottom: 20px;
 		    right: 20px;
@@ -64,6 +64,14 @@
 		
 		.wid2{
 			width: 800px;
+		}
+		
+		.wid3{
+			width: 200px;
+		}
+		
+		.wid4{
+			width: 207px;
 		}
 		
 		.wid5{
@@ -173,11 +181,6 @@
 		.font{
 			font-size: 23px;
 		}
-
-		.font2{
-			margin-top: 10px;
-			font-size: 14px;
-		}
 		
 		.nav-link{
 			color: #353535;;
@@ -187,18 +190,6 @@
 		
 		.nav-link:hover {
 			color: #ce63be;
-		}
-		
-		.btn-success{
-			float: right;
-		}
-
-		.btn3{
-			float: left;
-		}
-			
-		.form-select-sm{
-			font-size: 12px;		
 		}
 		
 	</style>
@@ -323,7 +314,7 @@
 		<div class="container mydiv2">
 			<br>
 			<br>
-			<span id="font">코드 관리</span>
+			<span id="font">회원관리</span>
 			<br>
 			<br>
 			<br>
@@ -338,7 +329,7 @@
 				<br>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link" href="../member/memberlist.html">회원 관리</a>
+						<a class="nav-link" href="memberlist.html">회원 관리</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="../item/itemlist.html">상품 관리</a>
@@ -352,17 +343,24 @@
 				<span class="font">Code</span>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link" href="codeGroupList">코드 그룹 관리</a>
+						<a class="nav-link" href="../code/codeGroup.html">코드 그룹 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="codeList">코드 관리</a>
+						<a class="nav-link" href="#">코드 관리</a>
 					</li>
 				</ul>
 			</div>
 			<div class="col-10">
 				<div class="main left2">
 					<input class="input" id="tab1" type="radio" name="tabs" checked> 
-					<label for="tab1">코드</label>
+					<label for="tab1">회원 목록</label>
+					
+					<input class="input" id="tab2" type="radio" name="tabs" disabled>
+					<label for="tab2">회원정보 확인</label>
+					
+					<input class="input" id="tab3" type="radio" name="tabs" disabled>
+					<label for="tab3">회원정보 수정</label>
+					
 					
 					<section id="content1">
 						<div class="container wid2">
@@ -372,36 +370,28 @@
 								<br>
 								<div class="container wid6">
 									<div class="row">
-										<div class="col-3">
-											<select class="form-select wid3" aria-label="Default select example">
-												<option selected>N</option>
-												<option value="1">Y</option>
-											</select>
+										<div class="col-4">
+											<input type="text" class="form-control mid wid3" aria-label="accessdate" aria-describedby="basic-addon1" value="최근접속일" readonly>
 										</div>
-										<div class="col-3">
-											<select class="form-select wid3" aria-label="Default select example">
-												<option selected>수정일</option>
-												<option value="1">등록일</option>
-											</select>
+										<div class="col-4">
+											<input type="date" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
 										</div>
-										<div class="col-3">
-											<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
-										</div>
-										<div class="col-3">
-											<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+										<div class="col-4">
+											<input type="date" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
 										</div>
 									</div>
 									<br>
 									<div class="row">
 										<div class="col-4">
-											<select class="form-select wid3" aria-label="Default select example">
-												<option selected>::검색 구분::</option>
-												<option value="1">#</option>
-												<option value="2">코드그룹 코드</option>
-												<option value="3">코드그룹 이름(한글)</option>
-												<option value="4">코드그룹 이름(영문)</option>
-												<option value="5">코드갯수</option>
-											</select>
+										<select class="form-select wid3" aria-label="Default select example">
+											<option selected class="mid">::검색 조건::</option>
+											<option value="1">회원번호</option>
+											<option value="2">회원등급</option>
+											<option value="3">이름</option>
+											<option value="4">성별</option>
+											<option value="5">이메일</option>
+											<option value="6">탈퇴여부</option>
+										</select>
 										</div>
 										<div class="col-6">
 											<input type="text" class="form-control mid wid5" aria-label="date" aria-describedby="basic-addon1" placeholder="검색어 입력">
@@ -419,36 +409,18 @@
 						<br>
 						<br>
 						<div class="container wid7">
-							<div class="row">
-								<div class="col-2 font2">
-									<spant2">Total : </span>
-								</div>
-								<div class="col-9">
-								</div>
-								<div class="col-1">
-									<select class="form-select form-select-sm" aria-label="Default select example">
-										<option selected>10</option>
-										<option value="1">15</option>
-										<option value="2">20</option>
-									</select>
-								</div>
-							</div>
-							<br>
 							<table class="table table-striped table-hover">
 								<thead>
 							  		<tr>
 							  			<th><input type="checkbox" id="chkAll" name="chkAll"></th>
-										<th>#</th>
-										<th>코드그룹 코드</th>
-										<th>코드그룹 이름(한글)</th>
-										<th>코드</th>
-										<th>대체코드</th>
-										<th>코드 이름(한글)</th>
-										<th>코드 이름(영문)</th>
-										<th>사용</th>
-										<th>순서</th>
-										<th>등록일</th>
-										<th>수정일</th>
+										<th>회원번호</th>
+										<th>회원등급</th>
+										<th>이름</th>
+										<th>성별</th>
+										<th>연락처</th>
+										<th>이메일</th>
+										<th>최근접속일</th>
+										<th>탈퇴여부</th>
 									</tr>
 								</thead>
 								<tbody class="table-group-divider">
@@ -458,24 +430,21 @@
 										</c:when>
 										<c:otherwise>
 											<c:forEach items="${list}" var="list" varStatus="status">
-												<tr class="cursor" onClick="form()">
+												<tr class="cursor" onClick="mem()">
 													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
-													<td><c:out value="${list.seq }"/></td>
-													<td><c:out value="${list.codeGroup_seq }"/></td>
-													<td><c:out value="${list.propertyKor }"/></td>
-													<td><c:out value="${list.codeseq }"/></td>
-													<td></td>
+													<td><c:out value="${list.userSeq }"/></td>
+													<td><c:out value="${list.userGrade }"/></td>
 													<td><c:out value="${list.name }"/></td>
-													<td><c:out value="${list.nameEng }"/></td>
+													<td><c:out value="${list.gender }"/></td>
+													<td><c:out value="${list.tel }"/></td>
+													<td><c:out value="${list.email }"/></td>
+													<td><c:out value="${list.accessDate }"/></td>
 													<td>
 														<c:choose>
-															<c:when test="${list.useNY eq 0 }">N</c:when>
+															<c:when test="${list.userDelNY eq 0 }">N</c:when>
 															<c:otherwise>Y</c:otherwise>
 														</c:choose>
 													</td>
-													<td></td>
-													<td></td>
-													<td></td>
 												</tr>
 											</c:forEach>
 										</c:otherwise>
@@ -488,15 +457,11 @@
 									<li class="page-item active" aria-current="page">
 										<span class="page-link">1</span>
 									</li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-    								<li class="page-item"><a class="page-link" href="#">3</a></li>
 								</ul>
 							</nav>
 							<br>
-							<a class="btn btn3 btn-space btn-danger" role="button"><i class="fa-solid fa-trash-can"></i></a> 
-							<a class="btn btn3 btn-space btn-danger" role="button"><i class="fa-solid fa-x"></i></a>			
-							<a class="btn btn2 btn-space" role="button" onClick="form()"><i class="fa-solid fa-plus"></i></a> 
-							<a class="btn btn-success btn-space" role="button"><i class="fa-solid fa-file-excel"></i></a>							
+							<a class="btn btn2 btn-space" role="button"><i class="fa-solid fa-trash-can"></i></a>							
+							<a class="btn btn2 btn-space" role="button"><i class="fa-solid fa-plus"></i></a> 
 							<br>
 							<br>
 							<br>
@@ -600,11 +565,6 @@
 	 function mem()
 		{
 		     location.href = "memberView.html";
-		}
-	 
-	 function form()
-		{
-		     location.href = "codeForm.html";
 		}
 	 
 </script>

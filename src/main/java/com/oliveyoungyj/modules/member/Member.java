@@ -1,5 +1,67 @@
 package com.oliveyoungyj.modules.member;
 
+import java.util.Date;
+
 public class Member {
+	public Integer userSeq;
+	public String userGrade;
+	public String name;
+	public String gender;
+	public String tel;
+	public String email;
+	public Date accessDate;
+	public Integer userDelNY;
 	
+	
+	public Integer getUserSeq() {
+		return userSeq;
+	}
+	public void setUserSeq(Integer userSeq) {
+		this.userSeq = userSeq;
+	}
+	public String getUserGrade() {
+		return userGrade;
+	}
+	public void setUserGrade(String userGrade) {
+		this.userGrade = userGrade;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Date getAccessDate() {
+		return accessDate;
+	}
+	public void setAccessDate(Date accessDate) {
+		this.accessDate = accessDate;
+	}
+	public Integer getUserDelNY() {
+		return userDelNY;
+	}
+	public void setUserDelNY(Integer userDelNY) {
+		this.userDelNY = userDelNY;
+	}
+	
+
+
 }
