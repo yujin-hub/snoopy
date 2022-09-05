@@ -142,7 +142,6 @@
 		}
 		
 		table{
-			height: 500px;	
 			font-size: 15px;
 		}
 
@@ -367,31 +366,32 @@
 							<div class="container box">
 								<br>
 								<div class="container wid6">
-									<div class="row">
-										<div class="col-3">
-											<select class="form-select wid3" aria-label="Default select example">
-												<option selected>N</option>
-												<option value="1">Y</option>
-											</select>
-										</div>
-										<div class="col-3">
-											<select class="form-select wid3" aria-label="Default select example">
-												<option selected>수정일</option>
-												<option value="1">등록일</option>
-											</select>
-										</div>
-										<div class="col-3">
-											<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
-										</div>
-										<div class="col-3">
-											<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
-										</div>
-									</div>
-									<br>
 									<form method="post" action="/codeGroup/codeGroupList">
 										<div class="row">
+											<div class="col-3">
+												<select id="shDelNY" name="shDelNY" class="form-select wid3" aria-label="Default select example">
+													<option value="" <c:if test="${empty vo.shDelNY}">selected</c:if>>삭제여부</option>
+													<option value="0" <c:if test="${vo.shDelNY eq 0}">selected</c:if>>N</option>
+													<option value="1" <c:if test="${vo.shDelNY eq 1}">selected</c:if>>Y</option>
+												</select>
+											</div>
+											<div class="col-3">
+												<select class="form-select wid3" aria-label="Default select example">
+													<option selected>수정일</option>
+													<option value="1">등록일</option>
+												</select>
+											</div>
+											<div class="col-3">
+												<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+											</div>
+											<div class="col-3">
+												<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+											</div>
+										</div>
+										<br>
+										<div class="row">
 											<div class="col-4">
-												<select  id="shOption" name="shOption" class="form-select wid3" aria-label="Default select example">
+												<select id="shOption" name="shOption" class="form-select wid3" aria-label="Default select example">
 													<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색 구분::</option>
 													<option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>코드그룹 코드</option>
 													<option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>코드그룹 이름(한글)</option>
@@ -402,13 +402,13 @@
 												<input type="text" class="form-control mid" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력" autocomplete="off">
 											</div>
 											<div class="col-2">
-												<a class="btn btn1 btn-space" role="button" style="margin-left: 10px;"><i class="fa-solid fa-arrow-rotate-left"></i></a> 
-												<a class="btn btn1 btn-space" role="button"><i class="fa-solid fa-magnifying-glass"></i></a>
+												<button class="btn btn1 btn-space" role="button"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
+												<button class="btn btn1 btn-space" type="submit" role="button"><i class="fa-solid fa-magnifying-glass"></i></button>
 											</div>
 										</div>
 									</form>
 								</div>
-								<br>
+							<br>
 							</div>
 						</div>
 						<br>
@@ -465,7 +465,8 @@
 														<c:choose>
 															<c:when test="${list.useNY eq 0 }">N</c:when>
 															<c:otherwise>Y</c:otherwise>
-														</c:choose></td>
+														</c:choose>
+														</td>
 													<td>
 														<c:choose>
 															<c:when test="${list.delNY eq 0 }">N</c:when>
