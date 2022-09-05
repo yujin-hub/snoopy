@@ -82,10 +82,6 @@
 			width: 700px;
 		}
 		
-		.wid7{
-			width: 990px;
-		}
-		
 		section {
 			display: none;
 			padding: 20px 0 0;
@@ -408,7 +404,22 @@
 						<br>
 						<br>
 						<br>
-						<div class="container wid7">
+						<div class="container">
+							<div class="row">
+								<div class="col-2 font2">
+									<spant2">Total : </span>
+								</div>
+								<div class="col-9">
+								</div>
+								<div class="col-1">
+									<select class="form-select form-select-sm" aria-label="Default select example">
+										<option selected>10</option>
+										<option value="1">15</option>
+										<option value="2">20</option>
+									</select>
+								</div>
+							</div>
+							<br>
 							<table class="table table-striped table-hover">
 								<thead>
 							  		<tr>

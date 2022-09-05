@@ -414,7 +414,7 @@
 						<br>
 						<br>
 						<br>
-						<div class="container wid7">
+						<div class="container">
 							<div class="row">
 								<div class="col-2 font2">
 									<spant2">Total : </span>

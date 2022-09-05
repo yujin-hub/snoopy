@@ -74,10 +74,6 @@
 			width: 700px;
 		}
 		
-		.wid7{
-			width: 990px;
-		}
-		
 		section {
 			display: none;
 			padding: 20px 0 0;
@@ -418,7 +414,7 @@
 						<br>
 						<br>
 						<br>
-						<div class="container wid7">
+						<div class="container">
 							<div class="row">
 								<div class="col-2 font2">
 									<spant2">Total : </span>
