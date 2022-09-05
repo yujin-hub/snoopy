@@ -27,7 +27,7 @@
 				<when test="shOption == 3">AND a.name LIKE CONCAT('%',#{shValue },'%')</when>
 				<when test="shOption == 1">AND gender= #{shValue }</when>
 				<when test="shOption == 2">AND a.email LIKE CONCAT('%',#{shValue },'%')</when>
-				<when test="shOption == 3">AND a.userDelNY = #{shValue }</when>
+				<when test="shOption == 3">AND a.userDelNY LIKE CONCAT('%',#{shValue },'%')</when>
 			</choose>		
 	</select>
 
