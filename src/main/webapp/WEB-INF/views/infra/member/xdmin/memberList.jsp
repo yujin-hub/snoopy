@@ -40,7 +40,7 @@
     <style type ="text/css">
 		.back-to-top-css {
 		    position: fixed;
-		    bottom: 20px;
+		    bottom: 20px; 
 		    right: 20px;
 		}
 
