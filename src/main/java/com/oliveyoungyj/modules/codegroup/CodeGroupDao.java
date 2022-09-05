@@ -17,8 +17,14 @@ public class CodeGroupDao {
 	
 	private static String namespace = "com.oliveyoungyj.modules.codegroup.CodeGroupMapper";
 	
+	
+	// public List<CodeGroup> selectList(CodeGroupVo vo){ return sqlSession.selectList(namespace + ".selectList", vo); }
+	
+	// public 
 	public List<CodeGroup> selectList(CodeGroupVo vo){ 
-		return sqlSession.selectList(namespace + ".selectList", vo); 
+		// List<CodeGroup> list = sqlSession.selectList(namespace + ".selectList", vo);
+		List<CodeGroup> list = sqlSession.selectList("com.oliveyoungyj.modules.codegroup.CodeGroupMapper.selectList", vo);
+		return list; 
 	}
 
 }
