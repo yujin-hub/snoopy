@@ -20,7 +20,6 @@ public class MemberController {
 
 		System.out.println("vo.getShValue(): " + vo.getShValue());
 		System.out.println("vo.getShOption(): " + vo.getShOption());
-		System.out.println("vo.getShDelNY(): " + vo.getShDelNY());
 		
 		List<Member> list = service.selectList(vo);
 		model.addAttribute("list", list);

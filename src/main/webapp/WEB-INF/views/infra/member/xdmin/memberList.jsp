@@ -37,7 +37,7 @@
     <!-- user css -->
     <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
     
-     <style type ="text/css">
+    <style type ="text/css">
 		.back-to-top-css {
 		    position: fixed;
 		    bottom: 20px;
@@ -72,10 +72,6 @@
 		
 		.wid4{
 			width: 207px;
-		}
-		
-		.wid5{
-			width: 350px;
 		}
 		
 		.wid6{
@@ -364,38 +360,40 @@
 							<div class="container box">
 								<br>
 								<div class="container wid6">
-									<div class="row">
-										<div class="col-4">
-											<input type="text" class="form-control mid wid3" aria-label="accessdate" aria-describedby="basic-addon1" value="최근접속일" readonly>
+									<form method="post" action="/member/memberList">
+										<div class="row">
+											<div class="col-4">
+												<input type="text" class="form-control mid wid3" aria-label="accessdate" aria-describedby="basic-addon1" value="최근접속일" readonly>
+											</div>
+											<div class="col-4">
+												<input type="date" id="startDate" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
+											</div>
+											<div class="col-4">
+												<input type="date" id="endDate" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
+											</div>
 										</div>
-										<div class="col-4">
-											<input type="date" id="startDate" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
+										<br>
+										<div class="row">
+											<div class="col-4">
+												<select id="shOption" name="shOption" class="form-select wid3" aria-label="Default select example">
+													<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색 조건::</option>
+													<option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>회원번호</option>
+													<option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>회원등급</option>
+													<option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>이름</option>
+													<option value="4" <c:if test="${vo.shOption eq 4 }">selected</c:if>>성별</option>
+													<option value="5" <c:if test="${vo.shOption eq 5 }">selected</c:if>>이메일</option>
+													<option value="6" <c:if test="${vo.shOption eq 6 }">selected</c:if>>탈퇴여부</option>
+												</select>
+											</div>
+											<div class="col-6">
+												<input type="text" class="form-control mid" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력" autocomplete="off">
+											</div>
+											<div class="col-2">
+												<button class="btn btn1 btn-space" role="button" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
+												<button class="btn btn1 btn-space" type="submit" role="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+											</div>
 										</div>
-										<div class="col-4">
-											<input type="date" id="endDate" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-4">
-											<select class="form-select wid3" aria-label="Default select example">
-												<option selected class="mid">::검색 조건::</option>
-												<option value="1">회원번호</option>
-												<option value="2">회원등급</option>
-												<option value="3">이름</option>
-												<option value="4">성별</option>
-												<option value="5">이메일</option>
-												<option value="6">탈퇴여부</option>
-											</select>
-										</div>
-										<div class="col-6">
-											<input type="text" class="form-control mid wid5" aria-label="date" aria-describedby="basic-addon1" placeholder="검색어 입력">
-										</div>
-										<div class="col-2">
-											<button class="btn btn1 btn-space" role="button" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
-											<button class="btn btn1 btn-space" type="submit" role="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-										</div>
-									</div>
+									</form>
 								</div>
 								<br>
 							</div>

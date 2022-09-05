@@ -402,13 +402,13 @@
 												<input type="text" class="form-control mid" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력" autocomplete="off">
 											</div>
 											<div class="col-2">
-												<button class="btn btn1 btn-space" role="button" style="margin-left: 8px"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
+												<button class="btn btn1 btn-space" role="button" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
 												<button class="btn btn1 btn-space" type="submit" role="button"><i class="fa-solid fa-magnifying-glass"></i></button>
 											</div>
 										</div>
 									</form>
 								</div>
-							<br>
+								<br>
 							</div>
 						</div>
 						<br>
