@@ -150,7 +150,6 @@
 		}
 		
 		table{
-			height: 500px;	
 			font-size: 15px;
 		}
 
@@ -370,31 +369,31 @@
 											<input type="text" class="form-control mid wid3" aria-label="accessdate" aria-describedby="basic-addon1" value="최근접속일" readonly>
 										</div>
 										<div class="col-4">
-											<input type="date" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
+											<input type="date" id="startDate" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
 										</div>
 										<div class="col-4">
-											<input type="date" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
+											<input type="date" id="endDate" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
 										</div>
 									</div>
 									<br>
 									<div class="row">
 										<div class="col-4">
-										<select class="form-select wid3" aria-label="Default select example">
-											<option selected class="mid">::검색 조건::</option>
-											<option value="1">회원번호</option>
-											<option value="2">회원등급</option>
-											<option value="3">이름</option>
-											<option value="4">성별</option>
-											<option value="5">이메일</option>
-											<option value="6">탈퇴여부</option>
-										</select>
+											<select class="form-select wid3" aria-label="Default select example">
+												<option selected class="mid">::검색 조건::</option>
+												<option value="1">회원번호</option>
+												<option value="2">회원등급</option>
+												<option value="3">이름</option>
+												<option value="4">성별</option>
+												<option value="5">이메일</option>
+												<option value="6">탈퇴여부</option>
+											</select>
 										</div>
 										<div class="col-6">
 											<input type="text" class="form-control mid wid5" aria-label="date" aria-describedby="basic-addon1" placeholder="검색어 입력">
 										</div>
 										<div class="col-2">
-											<a class="btn btn1 btn-space" role="button" style="margin-left: 10px;"><i class="fa-solid fa-arrow-rotate-left"></i></a> 
-											<a class="btn btn1 btn-space" role="button"><i class="fa-solid fa-magnifying-glass"></i></a>
+											<button class="btn btn1 btn-space" role="button" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
+											<button class="btn btn1 btn-space" type="submit" role="button"><i class="fa-solid fa-magnifying-glass"></i></button>
 										</div>
 									</div>
 								</div>
@@ -577,6 +576,24 @@
 		{
 		     location.href = "memberView.html";
 		}
+	 
+	 
+	 $( function() {
+		    $( "#startDate" ).datepicker({
+		    	changeMonth: true, // 월을 바꿀수 있는 셀렉트 박스를 표시한다.
+		    	changeYear: true, // 년을 바꿀 수 있는 셀렉트 박스를 표시한다.
+		    	dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
+		    	yearRange: "1950:2023"
+		    });
+		  } );
+		  $( function() {
+		    $( "#endDate" ).datepicker({
+		    	changeMonth: true, // 월을 바꿀수 있는 셀렉트 박스를 표시한다.
+		    	changeYear: true, // 년을 바꿀 수 있는 셀렉트 박스를 표시한다.
+		    	dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
+		    	minDate: '-100y'
+		    });
+		  } );
 	 
 </script>
 

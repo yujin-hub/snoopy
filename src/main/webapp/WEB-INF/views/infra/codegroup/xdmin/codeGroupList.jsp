@@ -382,10 +382,10 @@
 												</select>
 											</div>
 											<div class="col-3">
-												<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+												<input type="date" id="startDate" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
 											</div>
 											<div class="col-3">
-												<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+												<input type="date" id="endDate"class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
 											</div>
 										</div>
 										<br>
@@ -402,7 +402,7 @@
 												<input type="text" class="form-control mid" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력" autocomplete="off">
 											</div>
 											<div class="col-2">
-												<button class="btn btn1 btn-space" role="button"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
+												<button class="btn btn1 btn-space" role="button" style="margin-left: 8px"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
 												<button class="btn btn1 btn-space" type="submit" role="button"><i class="fa-solid fa-magnifying-glass"></i></button>
 											</div>
 										</div>
@@ -603,6 +603,24 @@
 		{
 		     location.href = "codeGroupForm.html";
 		}
+	 
+	 
+	  $( function() {
+	    $( "#startDate" ).datepicker({
+	    	changeMonth: true, // 월을 바꿀수 있는 셀렉트 박스를 표시한다.
+	    	changeYear: true, // 년을 바꿀 수 있는 셀렉트 박스를 표시한다.
+	    	dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
+	    	yearRange: "1950:2023"
+	    });
+	  } );
+	  $( function() {
+	    $( "#endDate" ).datepicker({
+	    	changeMonth: true, // 월을 바꿀수 있는 셀렉트 박스를 표시한다.
+	    	changeYear: true, // 년을 바꿀 수 있는 셀렉트 박스를 표시한다.
+	    	dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
+	    	minDate: '-100y'
+	    });
+	  } );
 	 
 </script>
 

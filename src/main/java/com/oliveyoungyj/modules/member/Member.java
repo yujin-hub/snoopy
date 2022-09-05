@@ -1,7 +1,5 @@
 package com.oliveyoungyj.modules.member;
 
-import java.sql.Date;
-
 public class Member {
 	public Integer userSeq;
 	public String userGrade;
@@ -9,9 +7,8 @@ public class Member {
 	public String gender;
 	public String tel;
 	public String email;
-	public Date accessDate;
+	public String accessDate;
 	public Integer userDelNY;
-	
 	
 	public Integer getUserSeq() {
 		return userSeq;
@@ -49,10 +46,10 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getAccessDate() {
+	public String getAccessDate() {
 		return accessDate;
 	}
-	public void setAccessDate(Date accessDate) {
+	public void setAccessString(String accessDate) {
 		this.accessDate = accessDate;
 	}
 	public Integer getUserDelNY() {
@@ -61,6 +58,9 @@ public class Member {
 	public void setUserDelNY(Integer userDelNY) {
 		this.userDelNY = userDelNY;
 	}
+	
+
+	
 	
 
 

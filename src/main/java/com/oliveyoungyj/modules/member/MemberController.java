@@ -10,14 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/member/")
 public class MemberController {
+	
 	@Autowired
 	MemberServiceImpl service;
 	
 
 	@RequestMapping(value = "memberList")
-	public String codeList(Model model) throws Exception {
+	public String codeList(Model model, MemberVo vo) throws Exception {
 
-		List<Member> list = service.selectList();
+		System.out.println("vo.getShValue(): " + vo.getShValue());
+		System.out.println("vo.getShOption(): " + vo.getShOption());
+		System.out.println("vo.getShDelNY(): " + vo.getShDelNY());
+		
+		List<Member> list = service.selectList(vo);
 		model.addAttribute("list", list);
 		
 		return "infra/member/xdmin/memberList";
