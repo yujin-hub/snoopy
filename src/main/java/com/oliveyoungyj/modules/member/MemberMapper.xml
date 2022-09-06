@@ -16,7 +16,7 @@
 			, (SELECT b.name FROM Code b WHERE a.gender = b.codeseq) as gender
 			, a.tel
 			, a.email
-			, DATE_FORMAT(a.accessDate,'%Y-%m-%d %T') as accessDate
+			, a.accessDate
 			, a.userDelNY
 		FROM user a
 		WHERE 1=1
