@@ -2,7 +2,7 @@ package com.oliveyoungyj.modules.code;
 
 public class Code {
 
-	public Integer seq;
+	public String seq;
 	public Integer codeGroup_seq;
 	public String propertyKor;
 	public Integer codeseq;
@@ -10,12 +10,13 @@ public class Code {
 	public String name;
 	public String nameEng;
 	public Integer useNY;
+	public String codeGroupName;
 	
 	
-	public Integer getSeq() {
+	public String getSeq() {
 		return seq;
 	}
-	public void setSeq(Integer seq) {
+	public void setSeq(String seq) {
 		this.seq = seq;
 	}
 	public Integer getCodeGroup_seq() {
@@ -60,11 +61,12 @@ public class Code {
 	public void setUseNY(Integer useNY) {
 		this.useNY = useNY;
 	}
+	public String getCodeGroupName() {
+		return codeGroupName;
+	}
+	public void setCodeGroupName(String codeGroupName) {
+		this.codeGroupName = codeGroupName;
+	}
 	
-	
-	
-	
-	
-
 	
 }

@@ -21,9 +21,37 @@
 		    , b.regDate
 		    , b.modDate
 		FROM CodeGroup a
-		-- LEFT JOIN Code b on a.seq = b.CodeGroup_seq
 		INNER JOIN Code b on a.seq = b.CodeGroup_seq
-		-- JOIN Code b on a.seq = b.CodeGroup_seq
+		
+		
+		
+		<if test="shDelNY != null and !shDelNY.equals('')">AND a.delNY = #{shDelNY}</if>
+			
+		<choose>
+			<when test="shOption == 1">AND a.num = #{shValue }</when>
+			<when test="shOption == 2">AND a.propertyKor LIKE CONCAT('%',#{shValue },'%')</when>
+			<when test="shOption == 3">AND property LIKE CONCAT('%',#{shValue },'%')</when>
+		</choose>
 	</select>
 
+	<insert id="insert">
+		INSERT INTO Code (
+			codeGroup_seq
+			, codeseq
+			, name
+			, nameEng
+			, useNY
+		)
+		VALUES (
+			#{codeGroup_seq}
+			,#{codeseq}
+			,#{name}
+			,#{nameEng}
+			,1
+		)
+		
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
 </mapper>	
