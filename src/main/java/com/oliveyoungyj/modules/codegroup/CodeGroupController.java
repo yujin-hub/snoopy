@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(value = "/codeGroup/")
+
 public class CodeGroupController {
 	
 	@Autowired
@@ -25,5 +26,22 @@ public class CodeGroupController {
 		model.addAttribute("list", list);
 		
 		return "infra/codegroup/xdmin/codeGroupList";
+	}	
+	
+	@RequestMapping(value = "codeGroupForm")
+	public String codeGroupForm() throws Exception {
+		
+		return "infra/codegroup/xdmin/codeGroupForm";
 	}
+	
+	
+	@RequestMapping(value = "codeGroupInst")
+	public String codeGroupInst(CodeGroup dto) throws Exception {
+		
+		int result = service.insert(dto);
+		System.out.println("Controller result: " + result);
+		
+		return "redirect:/codeGroup/codeGroupList";
+	}
+	
 }

@@ -37,7 +37,27 @@
 				<when test="shOption == 3">AND property LIKE CONCAT('%',#{shValue },'%')</when>
 			</choose>
 			
-			
 	</select>
+	
+	<insert id="insert">
+		INSERT INTO CodeGroup (
+			num
+			,propertyKor
+			,property
+			,useNY
+			,delNY
+		)
+		VALUES (
+			#{num}
+			,#{propertyKor}
+			,#{property}
+			,1
+			,0
+		)
+		
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
 
 </mapper>	

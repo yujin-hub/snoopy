@@ -3,7 +3,7 @@ package com.oliveyoungyj.modules.codegroup;
 
 public class CodeGroup {
 
-	public Integer seq;
+	public String seq;
 	public Integer num;
 	public String propertyKor;
 	public String property;
@@ -11,11 +11,10 @@ public class CodeGroup {
 	public Integer useNY;
 	public Integer delNY;
 	
-	
-	public Integer getSeq() {
+	public String getSeq() {
 		return seq;
 	}
-	public void setSeq(Integer seq) {
+	public void setSeq(String seq) {
 		this.seq = seq;
 	}
 	public Integer getNum() {

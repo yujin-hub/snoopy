@@ -26,5 +26,11 @@ public class CodeGroupDao {
 		List<CodeGroup> list = sqlSession.selectList("com.oliveyoungyj.modules.codegroup.CodeGroupMapper.selectList", vo);
 		return list; 
 	}
+	
+	public int insert(CodeGroup dto) {
+		int result = sqlSession.insert(namespace + ".insert", dto);
+		System.out.println("dao result: " + result);
+		return result;
+	}
 
 }
