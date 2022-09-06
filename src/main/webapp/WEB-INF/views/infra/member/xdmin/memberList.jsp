@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
 	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2091/PNG/512/settings_icon_128522.png">
+	
     
    	<script src="https://kit.fontawesome.com/15c84217dd.js" crossorigin="anonymous"></script>
 	<!-- Bootstrap CSS -->
@@ -36,6 +37,11 @@
     <link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">    
     <!-- user css -->
     <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     
     <style type ="text/css">
 		.back-to-top-css {
@@ -363,13 +369,15 @@
 									<form method="post" action="/member/memberList">
 										<div class="row">
 											<div class="col-4">
-												<input type="text" class="form-control mid wid3" aria-label="accessdate" aria-describedby="basic-addon1" value="최근접속일" readonly>
+												<select name="shOptionDate" class="form-select wid3">
+													<option value="7" type="text" name="shOptionDate" class="form-control mid wid3" readonly>최근접속일</option>
+												</select>
 											</div>
 											<div class="col-4">
-												<input type="date" id="startDate" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
+												<input type="text" id="shDateStart" class="form-control mid wid4 shDate" name="shDateStart" value="${vo.shDateStart}" placeholder="시작일" autocomplete="off">
 											</div>
 											<div class="col-4">
-												<input type="date" id="endDate" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
+												<input type="text" class="form-control mid wid4 shDate" id="shDateEnd" name="shDateEnd" value="${vo.shDateEnd}" placeholder="종료일" autocomplete="off">
 											</div>
 										</div>
 										<br>
@@ -576,22 +584,22 @@
 		}
 	 
 	 
-	 $( function() {
-		    $( "#startDate" ).datepicker({
-		    	changeMonth: true, // 월을 바꿀수 있는 셀렉트 박스를 표시한다.
-		    	changeYear: true, // 년을 바꿀 수 있는 셀렉트 박스를 표시한다.
-		    	dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
-		    	yearRange: "1950:2023"
-		    });
-		  } );
-		  $( function() {
-		    $( "#endDate" ).datepicker({
-		    	changeMonth: true, // 월을 바꿀수 있는 셀렉트 박스를 표시한다.
-		    	changeYear: true, // 년을 바꿀 수 있는 셀렉트 박스를 표시한다.
-		    	dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
-		    	minDate: '-100y'
-		    });
-		  } );
+		$(document).ready(function(){
+			 $("input.shDate").datepicker();
+		}); 
+
+		$.datepicker.setDefaults({
+		    dateFormat: 'yy-mm-dd',
+		    prevText: '이전 달',
+		    nextText: '다음 달',
+		    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		    showMonthAfterYear: true,
+		    yearSuffix: '년'
+		});
 	 
 </script>
 

@@ -20,6 +20,13 @@ public class MemberController {
 
 		System.out.println("vo.getShValue(): " + vo.getShValue());
 		System.out.println("vo.getShOption(): " + vo.getShOption());
+		System.out.println("vo.getShDateStart(): " + vo.getShDateStart());
+		System.out.println("vo.getShDateEnd(): " + vo.getShDateEnd());
+		System.out.println("vo.getShOptionDate(): " + vo.getShOptionDate());
+		
+		vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());
+		vo.setShDateStart(vo.getShDateStart() == null ? utilDateTime.calculateDayString(utilDateTime.nowLocalDateTime(), Constants.DATE_INTERVAL) : vo.getShDateStart());  	
+		vo.setShDateEnd(vo.getShDateEnd() == null ? utilDateTime.nowString() : vo.getShDateEnd());
 		
 		List<Member> list = service.selectList(vo);
 		model.addAttribute("list", list);
