@@ -3,7 +3,7 @@ package com.oliveyoungyj.modules.code;
 public class CodeVo {
 
 	private Integer shOption;
-	private Integer shDelNY;
+	private Integer shUseNY;
 	private String shValue;
 	
 	public Integer getShOption() {
@@ -12,11 +12,11 @@ public class CodeVo {
 	public void setShOption(Integer shOption) {
 		this.shOption = shOption;
 	}
-	public Integer getShDelNY() {
-		return shDelNY;
+	public Integer getShUseNY() {
+		return shUseNY;
 	}
-	public void setShDelNY(Integer shDelNY) {
-		this.shDelNY = shDelNY;
+	public void setShUseNY(Integer shUseNY) {
+		this.shUseNY = shUseNY;
 	}
 	public String getShValue() {
 		return shValue;
@@ -24,5 +24,7 @@ public class CodeVo {
 	public void setShValue(String shValue) {
 		this.shValue = shValue;
 	}
+	
+	
 	
 }

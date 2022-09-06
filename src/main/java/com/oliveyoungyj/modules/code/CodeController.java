@@ -20,7 +20,7 @@ public class CodeController {
 
 		System.out.println("vo.getShValue(): " + vo.getShValue());
 		System.out.println("vo.getShOption(): " + vo.getShOption());
-		System.out.println("vo.getShDelNY(): " + vo.getShDelNY());
+		System.out.println("vo.getShUseNY(): " + vo.getShUseNY());
 		
 		List<Code> list = service.selectList(vo);
 		model.addAttribute("list", list);

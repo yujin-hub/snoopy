@@ -22,16 +22,18 @@
 		    , b.modDate
 		FROM CodeGroup a
 		INNER JOIN Code b on a.seq = b.CodeGroup_seq
+		WHERE 1=1
+
 		
-		
-		
-		<if test="shDelNY != null and !shDelNY.equals('')">AND a.delNY = #{shDelNY}</if>
+		<if test="shUseNY != null and !shUseNY.equals('')">AND b.useNY = #{shUseNY}</if>
 			
 		<choose>
-			<when test="shOption == 1">AND a.num = #{shValue }</when>
-			<when test="shOption == 2">AND a.propertyKor LIKE CONCAT('%',#{shValue },'%')</when>
-			<when test="shOption == 3">AND property LIKE CONCAT('%',#{shValue },'%')</when>
+			<when test="shOption == 1">AND b.codeGroup_seq = #{shValue }</when>
+			<when test="shOption == 2">AND b.name LIKE CONCAT('%',#{shValue },'%')</when>
+			<when test="shOption == 3">AND b.nameEng LIKE CONCAT('%',#{shValue },'%')</when>
+			<when test="shOption == 4">AND a.propertyKor LIKE CONCAT('%',#{shValue },'%')</when>
 		</choose>
+		
 	</select>
 
 	<insert id="insert">

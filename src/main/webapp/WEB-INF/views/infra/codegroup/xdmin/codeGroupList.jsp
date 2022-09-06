@@ -391,7 +391,7 @@
 										<br>
 										<div class="row">
 											<div class="col-4">
-												<select id="shOption" name="shOption" class="form-select wid3" aria-label="Default select example">
+												<select id="shOption" name="shOption" class="form-select wid3">
 													<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색 구분::</option>
 													<option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>코드그룹 코드</option>
 													<option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>코드그룹 이름(한글)</option>

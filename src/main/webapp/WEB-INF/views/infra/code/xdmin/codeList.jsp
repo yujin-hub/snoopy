@@ -142,7 +142,6 @@
 		}
 		
 		table{
-			height: 500px;	
 			font-size: 15px;
 		}
 
@@ -367,46 +366,48 @@
 							<div class="container box">
 								<br>
 								<div class="container wid6">
-									<div class="row">
-										<div class="col-3">
-											<select class="form-select wid3" aria-label="Default select example">
-												<option selected>N</option>
-												<option value="1">Y</option>
-											</select>
+									<form method="post" action="/code/codeList" autocomplete="off">
+										<div class="row">
+											<div class="col-3">
+												<select id="shUseNY" name="shUseNY"class="form-select wid3" aria-label="Default select example">
+													<option value="" <c:if test="${empty vo.shUseNY}">selected</c:if>>사용여부</option>
+													<option value="0" <c:if test="${vo.shUseNY eq 0}">selected</c:if>>N</option>
+													<option value="1" <c:if test="${vo.shUseNY eq 1}">selected</c:if>>Y</option>
+												</select>
+											</div>
+											<div class="col-3">
+												<select class="form-select wid3" aria-label="Default select example">
+													<option selected>수정일</option>
+													<option value="1">등록일</option>
+												</select>
+											</div>
+											<div class="col-3">
+												<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+											</div>
+											<div class="col-3">
+												<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+											</div>
 										</div>
-										<div class="col-3">
-											<select class="form-select wid3" aria-label="Default select example">
-												<option selected>수정일</option>
-												<option value="1">등록일</option>
-											</select>
+										<br>
+										<div class="row">
+											<div class="col-4">
+												<select id="shOption" name="shOption" class="form-select wid3">
+													<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색 구분::</option>
+													<option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>코드그룹 코드</option>
+													<option value="4" <c:if test="${vo.shOption eq 4 }">selected</c:if>>코드그룹 이름(한글)</option>
+													<option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>코드 이름(한글)</option>
+													<option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>코드 이름(영문)</option>
+												</select>
+											</div>
+											<div class="col-6">
+												<input type="text" class="form-control mid wid5" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력">
+											</div>
+											<div class="col-2">
+												<button class="btn btn1 btn-space" role="button" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
+												<button class="btn btn1 btn-space" type="submit" role="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+											</div>
 										</div>
-										<div class="col-3">
-											<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
-										</div>
-										<div class="col-3">
-											<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-4">
-											<select class="form-select wid3" aria-label="Default select example">
-												<option selected>::검색 구분::</option>
-												<option value="1">#</option>
-												<option value="2">코드그룹 코드</option>
-												<option value="3">코드그룹 이름(한글)</option>
-												<option value="4">코드그룹 이름(영문)</option>
-												<option value="5">코드갯수</option>
-											</select>
-										</div>
-										<div class="col-6">
-											<input type="text" class="form-control mid wid5" aria-label="date" aria-describedby="basic-addon1" placeholder="검색어 입력">
-										</div>
-										<div class="col-2">
-											<a class="btn btn1 btn-space" role="button" style="margin-left: 10px;"><i class="fa-solid fa-arrow-rotate-left"></i></a> 
-											<a class="btn btn1 btn-space" role="button"><i class="fa-solid fa-magnifying-glass"></i></a>
-										</div>
-									</div>
+									</form>
 								</div>
 								<br>
 							</div>
@@ -497,6 +498,7 @@
 							<br>
 							<br>
 						</div>
+						
 					</section>
 				</div>
 			</div>
