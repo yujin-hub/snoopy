@@ -20,7 +20,7 @@
 	<meta property="og:title" content="올리브영 공식 온라인몰">
 	<meta property="og:description" content="대한민국 NO.1 헬스&뷰티 스토어 OLIVEYOUNG" >
 
-	<title>회원 관리</title>
+	<title>코드그룹 관리</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
@@ -365,6 +365,9 @@
 				<div class="main left2">
 					<input class="input" id="tab1" type="radio" name="tabs" checked> 
 					<label for="tab1">코드그룹</label>
+					
+					<input class="input" id="tab1" type="radio" name="tabs" disabled> 
+					<label for="tab1">코드그룹 등록</label>
 					
 					<section id="content1">
 						<div class="container wid2">

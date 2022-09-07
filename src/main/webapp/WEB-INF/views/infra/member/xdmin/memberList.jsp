@@ -383,7 +383,7 @@
 										<br>
 										<div class="row">
 											<div class="col-4">
-												<select id="shOption" name="shOption" class="form-select wid3" aria-label="Default select example">
+												<select id="shOption" name="shOption" class="form-select wid3">
 													<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색 조건::</option>
 													<option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>회원번호</option>
 													<option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>회원등급</option>
@@ -397,10 +397,8 @@
 												<input type="text" class="form-control mid" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력" autocomplete="off">
 											</div>
 											<div class="col-2">
-												<a href="/member/memberList">
-													<button class="btn btn1 btn-space" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button>
-												</a> 
-												<button class="btn btn1 btn-space" type="submit" role="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+												<button class="btn btn1 btn-space" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
+												<button class="btn btn1 btn-space" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
 											</div>
 										</div>
 									</form>
