@@ -90,6 +90,12 @@
 			border-top: 1px solid #9DCC30;
 		}
 		
+		.form-label {
+		    margin-bottom: 0;
+		    padding: 5px;
+		    color: #595959;
+		}
+		
 		.input {
 			display: none;
 		} 
@@ -112,9 +118,17 @@
 			 border-bottom: 1px solid #ffffff;
 		  }
 		
-		#tab1:checked ~ #content1 {
+		#tab1:checked ~ #content1,
+		#tab2:checked ~ #content2 {
 			display: block;
 		}	
+		
+		.form-control:disabled, .form-control[readonly]{
+		    background-color: #ffffff;
+		    color: black;
+		    font-weight: bold;
+		    opacity: 1;
+		}
 		
 	</style>
 </head>
@@ -275,38 +289,42 @@
 				</ul>
 			</div>
 			<div class="col-10">
-				<form method="post" action="/codeGroup/codeGroupInst">
+				<form method="post" action="/codeGroup/codeGroupInst" autocomplete="off" id="form11" name="form11">
 					<div class="main left2">
-						<input class="input" id="tab1" type="radio" name="tabs" checked> 
+						<input class="input" id="tab1" type="radio" name="tabs" disabled> 
 						<label for="tab1" class="label1">코드그룹</label>
 						
-						<section id="content1">
+						<input class="input" id="tab2" type="radio" name="tabs" checked> 
+						<label for="tab2" class="label1">코드그룹 등록</label>
+
+						<section id="content2">
 							<div class="row">
 								<div class="col-6">
 									<br>
 									<label for="code" class="form-label">코드그룹 코드</label>
-									<input type="text" class="form-control" aria-label="codeA" name="num" placeholder="영문(대소문자), 숫자">
+									<input type="text" class="form-control" id="num" name="num" placeholder="영문(대소문자), 숫자">
 								</div>
 								<div class="col-6">
 									<br>
 									<label for="codeA" class="form-label">코드그룹 코드 (Another)</label>
-									<input type="text" class="form-control" aria-label="codeA" placeholder="영문(대소문자), 숫자">
+									<input type="text" class="form-control" placeholder="영문(대소문자), 숫자">
 								</div>
 								<div class="col-6">
 									<br>
 									<label for="codename" class="form-label">코드그룹 이름(한글)</label>
-									<input type="text" class="form-control" aria-label="codename" name="propertyKor" placeholder="한글, 숫자">
+									<input type="text" class="form-control" id="propertyKor" name="propertyKor" placeholder="한글, 숫자">
 								</div>
 								<div class="col-6">
 									<br>
 									<label for="codenameEng" class="form-label">코드그룹 이름 (영문)</label>
-									<input type="text" class="form-control" aria-label="codenameEng" name="property" placeholder="영문(대소문자), 숫자">
+									<input type="text" class="form-control" id="property" name="property" placeholder="영문(대소문자), 숫자">
 								</div>
 								<div class="col-6">
 									<br>
 									<label for="useNY2" class="form-label">사용여부</label>
-									<select class="form-select" aria-label="Default select example">
-										<option selected>Y</option>
+									<select class="form-select" name="use" id="use">
+										<option>::선택하세요::</option>
+										<option value="1">Y</option>
 										<option value="2">N</option>
 									</select>
 								</div>
@@ -362,12 +380,32 @@
 								</div>
 								<div class="col-6">
 								</div>
+								<div class="col-6">
+									<br>
+									<br>
+									<label for="gender12" class="form-label">분야</label>
+									<input class="form-check-input" type="radio" name="rad" id="rad1" value="chooseHi">
+									<label for="inlineRadio1">hi</label>
+									<input class="form-check-input" type="radio" name="rad" id="rad2" value="chooseHello">
+									<label for="inlineRadio2">hello</label>
+								</div>
+								<div class="col-6">
+									<br>
+									<br>
+									<label for="sel" class="form-label">선택</label>
+									<input class="form-check-input" type="checkbox" id="ch1" name="sel" value="건성">
+				  					<label class="form-check-label" for="inlineCheckbox1">건성</label>
+				  					<input class="form-check-input" type="checkbox" id="ch2" name="sel" value="oily">
+				  					<label class="form-check-label" for="inlineCheckbox2">지성</label>
+				  					<input class="form-check-input" type="checkbox" id="ch3" name="sel" value="multi">
+				  					<label class="form-check-label" for="inlineCheckbox3">복합성</label>
+								</div>
 							</div>
 							<br>
 							<br>
 						</div>
-						<button class="btn btn-secondary" onClick="list()"><i class="fa-solid fa-list-ul"></i></button>
-						<button class="btn btn-space btn-success right" type="submit"><i class="fa-solid fa-bookmark"></i></button>		
+						<button class="btn btn-secondary" onClick="list();"><i class="fa-solid fa-list-ul"></i></button>
+						<button class="btn btn-space btn-success right" type="submit" onClick="save();"><i class="fa-solid fa-bookmark"></i></button>		
 						<button class="btn btn-space btn-danger right" ><i class="fa-solid fa-trash-can"></i></button>			
 						<button class="btn btn-space btn-danger right"><i class="fa-solid fa-x"></i></button> 
 					</section>
@@ -478,6 +516,53 @@
 		     location.href = "codeGroupList";
 		}
 	 
+	 function save()
+	 {
+			alert(document.getElementById("num").value);
+			alert(document.getElementById("propertyKor").value);
+			alert(document.getElementById("property").value);
+			alert(document.getElementById("use").options[document.getElementById("use").selectedIndex].value);
+			alert(document.querySelector("input[name='rad']:checked").value);
+			
+ 			var obj_length = document.getElementsByName("sel").length;
+			for (var i=0; i<obj_length; i++) {
+			    if (document.getElementsByName("sel")[i].checked == true) {
+			        alert(document.getElementsByName("sel")[i].value);
+			    }
+			}
+			
+			
+			if(document.getElementById("num").value == '' || document.getElementById("num").value == null){
+				alert("코드그룹 코드 값을 입력해주세요");
+				document.getElementById("num").value = "";
+				document.getElementById("num").focus();
+				return false;
+			} 
+								
+			if(document.getElementById("propertyKor").value == '' || document.getElementById("propertyKor").value == null){
+				alert("코드그룹 이름(한글) 값을 입력해주세요");
+				document.getElementById("propertyKor").value = "";
+				document.getElementById("propertyKor").focus();
+				return false;
+			} 
+			
+			if(document.getElementById("property").value == '' || document.getElementById("property").value == null){
+				alert("코드그룹 이름(영문) 값을 입력해주세요");
+				document.getElementById("property").value = "";
+				document.getElementById("property").focus();
+				return false;
+			}
+			
+			if($("input:checkbox[name='sel']").is(":checked") == false) {
+				alert("선택란에서 적어도 하나는 선택하여 주십시오.");
+				return false;
+			}
+			
+			alert("저장되었습니다.");
+			
+			document.getElementById("form11").submit();
+	 }
+	
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

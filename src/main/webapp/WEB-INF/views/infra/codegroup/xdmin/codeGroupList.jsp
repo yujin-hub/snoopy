@@ -413,7 +413,7 @@
 												<input type="text" class="form-control mid" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력" autocomplete="off">
 											</div>
 											<div class="col-2">
-												<button class="btn btn1 btn-space" role="button" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
+												<button class="btn btn1 btn-space" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
 												<button class="btn btn1 btn-space" type="submit" role="button"><i class="fa-solid fa-magnifying-glass"></i></button>
 											</div>
 										</div>
@@ -501,8 +501,8 @@
 								</ul>
 							</nav>
 							<br>
-							<a class="btn btn3 btn-space btn-danger" role="button"><i class="fa-solid fa-trash-can"></i></a> 
-							<a class="btn btn3 btn-space btn-danger" role="button"><i class="fa-solid fa-x"></i></a>			
+							<button class="btn btn3 btn-space btn-danger"><i class="fa-solid fa-trash-can"></i></button> 
+							<a class="btn btn3 btn-space btn-danger" role="button" ><i class="fa-solid fa-x"></i></a>			
 							<a href="codeGroupForm" class="btn btn2 btn-space" role="button"><i class="fa-solid fa-plus"></i></a> 
 							<a class="btn btn-success btn-space" role="button"><i class="fa-solid fa-file-excel"></i></a>							
 							<br>
@@ -627,7 +627,9 @@
 		    showMonthAfterYear: true,
 		    yearSuffix: '년'
 		});
-	 
+		
+		
+		
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
