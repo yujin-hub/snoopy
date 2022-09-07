@@ -397,7 +397,9 @@
 												<input type="text" class="form-control mid" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력" autocomplete="off">
 											</div>
 											<div class="col-2">
-												<button class="btn btn1 btn-space" role="button" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
+												<a href="/member/memberList">
+													<button class="btn btn1 btn-space" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+												</a> 
 												<button class="btn btn1 btn-space" type="submit" role="button"><i class="fa-solid fa-magnifying-glass"></i></button>
 											</div>
 										</div>
@@ -451,7 +453,7 @@
 													<td><c:out value="${list.userSeq }"/></td>
 													<td><c:out value="${list.userGrade }"/></td>
 													<td><c:out value="${list.name }"/></td>
-													<td><c:out value="${list.gender }"/></td>
+													<td><c:out value="${list.gender}"/></td>
 													<td><c:out value="${list.tel }"/></td>
 													<td><c:out value="${list.email }"/></td>
 													<td><c:out value="${list.accessDate }"/></td>

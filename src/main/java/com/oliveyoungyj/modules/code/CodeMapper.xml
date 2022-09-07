@@ -32,6 +32,8 @@
 			<when test="shOption == 2">AND b.name LIKE CONCAT('%',#{shValue },'%')</when>
 			<when test="shOption == 3">AND b.nameEng LIKE CONCAT('%',#{shValue },'%')</when>
 			<when test="shOption == 4">AND a.propertyKor LIKE CONCAT('%',#{shValue },'%')</when>
+			<when test="shOptionDate == 5">AND b.regDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			<when test="shOptionDate == 6">AND b.modDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 		</choose>
 		
 	</select>

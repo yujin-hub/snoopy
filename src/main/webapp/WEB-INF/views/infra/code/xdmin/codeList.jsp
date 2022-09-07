@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
 	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2091/PNG/512/settings_icon_128522.png">
+	
     
    	<script src="https://kit.fontawesome.com/15c84217dd.js" crossorigin="anonymous"></script>
 	<!-- Bootstrap CSS -->
@@ -36,6 +37,11 @@
     <link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">    
     <!-- user css -->
     <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     
     <style type ="text/css">
 		.back-to-top-css { 
@@ -376,16 +382,17 @@
 												</select>
 											</div>
 											<div class="col-3">
-												<select class="form-select wid3" aria-label="Default select example">
-													<option selected>수정일</option>
-													<option value="1">등록일</option>
+												<select class="form-select wid3" name="shOptionDate">
+													<option value="">::날짜 선택::</option>
+													<option value="5">등록일</option>
+													<option value="6">수정일</option>
 												</select>
 											</div>
 											<div class="col-3">
-												<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+												<input type="text" id="shDateStart" class="form-control mid wid4 shDate" name="shDateStart" value="${vo.shDateStart}" placeholder="시작일" autocomplete="off">
 											</div>
 											<div class="col-3">
-												<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+												<input type="text" class="form-control mid wid4 shDate" id="shDateEnd" name="shDateEnd" value="${vo.shDateEnd}" placeholder="종료일" autocomplete="off">
 											</div>
 										</div>
 										<br>
@@ -604,6 +611,24 @@
 		{
 		     location.href = "codeForm.html";
 		}
+	 
+		$(document).ready(function(){
+			$("input.shDate").datepicker();
+		}); 
+		
+		$.datepicker.setDefaults({
+		    dateFormat: 'yy-mm-dd',
+		    prevText: '이전 달',
+		    nextText: '다음 달',
+		    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		    showMonthAfterYear: true,
+		    yearSuffix: '년'
+		});
+	
 	 
 </script>
 
