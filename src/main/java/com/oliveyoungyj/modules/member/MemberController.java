@@ -23,6 +23,8 @@ public class MemberController {
 		System.out.println("vo.getShDateStart(): " + vo.getShDateStart());
 		System.out.println("vo.getShDateEnd(): " + vo.getShDateEnd());
 		System.out.println("vo.getShOptionDate(): " + vo.getShOptionDate());
+		System.out.println("vo.getShGender(): " + vo.getShGender());
+		System.out.println("vo.getShUserDelNY(): " + vo.getShUserDelNY());
 		
 		vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());
 		vo.setShDateStart(vo.getShDateStart() == null ? utilDateTime.calculateDayString(utilDateTime.nowLocalDateTime(), Constants.DATE_INTERVAL) : vo.getShDateStart());  	

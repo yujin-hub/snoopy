@@ -7,7 +7,8 @@ public class MemberVo {
 	private String shDateStart;
 	private String shDateEnd;
 	private Integer shOptionDate;
-	private Integer shDelNY;
+	private Integer shUserDelNY;
+	private Integer shGender;
 	
 	public Integer getShOption() {
 		return shOption;
@@ -39,13 +40,20 @@ public class MemberVo {
 	public void setShOptionDate(Integer shOptionDate) {
 		this.shOptionDate = shOptionDate;
 	}
+	public Integer getShUserDelNY() {
+		return shUserDelNY;
+	}
+	public void setShUserDelNY(Integer shUserDelNY) {
+		this.shUserDelNY = shUserDelNY;
+	}
+	public Integer getShGender() {
+		return shGender;
+	}
+	public void setShGender(Integer shGender) {
+		this.shGender = shGender;
+	}
 	
-	public Integer getShDelNY() {
-		return shDelNY;
-	}
-	public void setShDelNY(Integer shDelNY) {
-		this.shDelNY = shDelNY;
-	}
+	
 	
 	
 }

@@ -51,7 +51,7 @@
 		}
 
 		.mydiv{
-			background-image: url('../../resources/images/head.jpg');
+			background-image: url('../../resources/images/head2.jpg');
 			background-size: cover;
 		}
 		
@@ -200,6 +200,14 @@
 			
 		.form-select-sm{
 			font-size: 12px;		
+		}
+		
+		a:hover{
+			color: #ce63be;
+		}
+		
+		a{
+			color: black;		
 		}
 		
 	</style>
@@ -465,14 +473,16 @@
 										</c:when>
 										<c:otherwise>
 											<c:forEach items="${list}" var="list" varStatus="status">
-												<tr class="cursor" onClick="form()">
+												<tr class="cursor">
 													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
 													<td><c:out value="${list.seq }"/></td>
 													<td><c:out value="${list.codeGroup_seq }"/></td>
 													<td><c:out value="${list.propertyKor }"/></td>
 													<td><c:out value="${list.codeseq }"/></td>
 													<td></td>
-													<td><c:out value="${list.name }"/></td>
+													<td>
+														<a href="/code/codeView?name=<c:out value="${list.name }"/>"><c:out value="${list.name }"/></a>
+													</td>
 													<td><c:out value="${list.nameEng }"/></td>
 													<td>
 														<c:choose>
@@ -481,8 +491,8 @@
 														</c:choose>
 													</td>
 													<td></td>
-													<td></td>
-													<td></td>
+													<td><c:out value="${list.regDate }"/></td>
+													<td><c:out value="${list.modDate }"/></td>
 												</tr>
 											</c:forEach>
 										</c:otherwise>
@@ -610,10 +620,6 @@
 		     location.href = "memberView.html";
 		}
 	 
-	 function form()
-		{
-		     location.href = "codeForm";
-		}
 	 
 		$(document).ready(function(){
 			$("input.shDate").datepicker();

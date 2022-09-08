@@ -41,10 +41,12 @@
 	<insert id="insert">
 		INSERT INTO Code (
 			codeGroup_seq
-			, codeseq
-			, name
-			, nameEng
-			, useNY
+			,codeseq
+			,name
+			,nameEng
+			,useNY
+			,regDate
+			,modDate
 		)
 		VALUES (
 			#{codeGroup_seq}
@@ -52,10 +54,21 @@
 			,#{name}
 			,#{nameEng}
 			,1
+			,#{regDate}
+			,#{modDate}
 		)
 		
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
+	
+	<select id="selectOne" resultMap ="resultMapObj">
+		SELECT 
+			a.*
+		FROM Code a
+		WHERE 1=1
+			AND a.name = #{name}
+	</select>
+	
 </mapper>	

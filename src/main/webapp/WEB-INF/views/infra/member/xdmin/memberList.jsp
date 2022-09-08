@@ -51,7 +51,7 @@
 		}
 
 		.mydiv{
-			background-image: url('../../resources/images/head.jpg');
+			background-image: url('../../resources/images/head2.jpg');
 			background-size: cover;
 		}
 		
@@ -65,19 +65,11 @@
 		}
 		
 		.wid{
-			width: 1200px;
+			width: 1800px;
 		}
 		
 		.wid2{
-			width: 800px;
-		}
-		
-		.wid3{
-			width: 200px;
-		}
-		
-		.wid4{
-			width: 207px;
+			width: 1000px;
 		}
 		
 		.wid6{
@@ -368,29 +360,42 @@
 								<div class="container wid6">
 									<form method="post" action="/member/memberList">
 										<div class="row">
-											<div class="col-4">
-												<select name="shOptionDate" class="form-select wid3">
-													<option value="7" type="text" name="shOptionDate" class="form-control mid wid3" readonly>최근접속일</option>
+											<div class="col-2">
+												<select name="shGender" class="form-select">
+													<option value="" <c:if test="${empty vo.shGender}">selected</c:if>>::성별::</option>
+													<option value="21" <c:if test="${vo.shGender eq 21 }">selected</c:if>>남성</option>
+													<option value="22" <c:if test="${vo.shGender eq 22 }">selected</c:if>>여성</option>
 												</select>
 											</div>
-											<div class="col-4">
-												<input type="text" id="shDateStart" class="form-control mid wid4 shDate" name="shDateStart" value="${vo.shDateStart}" placeholder="시작일" autocomplete="off">
+											<div class="col-2">
+												<select name="shUserDelNY" class="form-select">
+													<option value="" <c:if test="${empty vo.shUserDelNY}"></c:if>>::탈퇴::</option>
+													<option value="0" <c:if test="${vo.shUserDelNY eq 0 }"></c:if>>N</option>
+													<option value="1" <c:if test="${vo.shUserDelNY eq 1 }"></c:if>>Y</option>
+												</select>
 											</div>
-											<div class="col-4">
-												<input type="text" class="form-control mid wid4 shDate" id="shDateEnd" name="shDateEnd" value="${vo.shDateEnd}" placeholder="종료일" autocomplete="off">
+											<div class="col-2">
+												<select name="shOptionDate" class="form-select">
+													<option value="" <c:if test="${empty vo.shOptionDate}"></c:if>>::날짜::</option>
+													<option value="7" class="form-control">최근접속일</option>
+												</select>
+											</div>
+											<div class="col-3">
+												<input type="text" id="shDateStart" class="form-control mid shDate" name="shDateStart" value="${vo.shDateStart}" placeholder="시작일" autocomplete="off">
+											</div>
+											<div class="col-3">
+												<input type="text" class="form-control mid shDate" id="shDateEnd" name="shDateEnd" value="${vo.shDateEnd}" placeholder="종료일" autocomplete="off">
 											</div>
 										</div>
 										<br>
 										<div class="row">
 											<div class="col-4">
 												<select id="shOption" name="shOption" class="form-select wid3">
-													<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색 조건::</option>
-													<option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>회원번호</option>
-													<option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>회원등급</option>
-													<option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>이름</option>
-													<option value="4" <c:if test="${vo.shOption eq 4 }">selected</c:if>>성별</option>
-													<option value="5" <c:if test="${vo.shOption eq 5 }">selected</c:if>>이메일</option>
-													<option value="6" <c:if test="${vo.shOption eq 6 }">selected</c:if>>탈퇴여부</option>
+													<option value="" <c:if test="${empty vo.shOption}"></c:if>>::검색 조건::</option>
+													<option value="1" <c:if test="${vo.shOption eq 1 }"></c:if>>회원번호</option>
+													<option value="2" <c:if test="${vo.shOption eq 2 }"></c:if>>회원등급</option>
+													<option value="3" <c:if test="${vo.shOption eq 3 }"></c:if>>이름</option>
+													<option value="4" <c:if test="${vo.shOption eq 4 }"></c:if>>이메일</option>
 												</select>
 											</div>
 											<div class="col-6">
@@ -451,7 +456,7 @@
 													<td><c:out value="${list.userSeq }"/></td>
 													<td><c:out value="${list.userGrade }"/></td>
 													<td><c:out value="${list.name }"/></td>
-													<td><c:out value="${list.gender}"/></td>
+													<td><c:out value="${list.gen}"/></td>
 													<td><c:out value="${list.tel }"/></td>
 													<td><c:out value="${list.email }"/></td>
 													<td><c:out value="${list.accessDate }"/></td>

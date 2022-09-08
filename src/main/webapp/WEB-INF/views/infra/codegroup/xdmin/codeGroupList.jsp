@@ -52,7 +52,7 @@
 		}
 
 		.mydiv{
-			background-image: url('../../resources/images/head.jpg');
+			background-image: url('../../resources/images/head2.jpg');
 			background-size: cover;
 		}
 		
@@ -203,6 +203,13 @@
 			font-size: 12px;		
 		}
 		
+		a:hover{
+			color: #ce63be;
+		}
+		
+		a{
+			color: black;		
+		}
 	</style>
 </head>
     
@@ -441,6 +448,9 @@
 								</div>
 							</div>
 							<br>
+							<c:forEach items="${list }" var="list" varStatus="status"> 
+															
+														</c:forEach>
 							<table class="table table-striped table-hover">
 								<thead>
 							  		<tr>
@@ -463,11 +473,13 @@
 										</c:when>
 										<c:otherwise>
 											<c:forEach items="${list}" var="list" varStatus="status">
-												<tr class="cursor" onClick="form()">
+												<tr class="cursor">
 													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
 													<td><c:out value="${list.seq }"/></td>
 													<td><c:out value="${list.num }"/></td>
-													<td><c:out value="${list.propertyKor }"/></td>
+													<td>
+														<a href="/codeGroup/codeGroupView?propertyKor=<c:out value="${list.propertyKor }"/>"><c:out value="${list.propertyKor }"/></a>
+													</td>
 													<td><c:out value="${list.property }"/></td>
 													<td><c:out value="${list.codeNum }"/></td>
 													<td><c:out value="${list.regDate }"/></td>

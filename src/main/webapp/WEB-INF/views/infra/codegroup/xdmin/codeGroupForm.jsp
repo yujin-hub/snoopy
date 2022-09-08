@@ -45,7 +45,7 @@
 		}
 
 		.mydiv{
-			background-image: url('../../resources/images/head.jpg');
+			background-image: url('../../resources/images/head2.jpg');
 			background-size: cover;
 		}
 		
@@ -302,7 +302,7 @@
 								<div class="col-6">
 									<br>
 									<label for="code" class="form-label">코드그룹 코드</label>
-									<input type="text" class="form-control" id="num" name="num" placeholder="영문(대소문자), 숫자">
+									<input type="text" class="form-control" id="num" name="num" placeholder="영문(대소문자), 숫자" value="<c:out value="${item.num }"/>">
 								</div>
 								<div class="col-6">
 									<br>
@@ -312,12 +312,12 @@
 								<div class="col-6">
 									<br>
 									<label for="codename" class="form-label">코드그룹 이름(한글)</label>
-									<input type="text" class="form-control" id="propertyKor" name="propertyKor" placeholder="한글, 숫자">
+									<input type="text" class="form-control" id="propertyKor" name="propertyKor" placeholder="한글, 숫자" value="<c:out value="${item.propertyKor }"/>">
 								</div>
 								<div class="col-6">
 									<br>
 									<label for="codenameEng" class="form-label">코드그룹 이름 (영문)</label>
-									<input type="text" class="form-control" id="property" name="property" placeholder="영문(대소문자), 숫자">
+									<input type="text" class="form-control" id="property" name="property" placeholder="영문(대소문자), 숫자" value="<c:out value="${item.property }"/>">
 								</div>
 								<div class="col-6">
 									<br>
@@ -406,7 +406,7 @@
 						</div>
 						<button class="btn btn-secondary" onClick="list();"><i class="fa-solid fa-list-ul"></i></button>
 						<button class="btn btn-space btn-success right" type="submit" onClick="save();"><i class="fa-solid fa-bookmark"></i></button>		
-						<button class="btn btn-space btn-danger right" ><i class="fa-solid fa-trash-can"></i></button>			
+						<button class="btn btn-space btn-danger right"><i class="fa-solid fa-trash-can"></i></button>			
 						<button class="btn btn-space btn-danger right"><i class="fa-solid fa-x"></i></button> 
 					</section>
 				</form>

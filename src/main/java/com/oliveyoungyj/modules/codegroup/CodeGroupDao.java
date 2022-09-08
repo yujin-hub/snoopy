@@ -25,12 +25,18 @@ public class CodeGroupDao {
 		// List<CodeGroup> list = sqlSession.selectList(namespace + ".selectList", vo);
 		List<CodeGroup> list = sqlSession.selectList("com.oliveyoungyj.modules.codegroup.CodeGroupMapper.selectList", vo);
 		return list; 
-	}
+	}   // codegroup값 여러개 리턴
 	
 	public int insert(CodeGroup dto) {
 		int result = sqlSession.insert(namespace + ".insert", dto);
 		System.out.println("dao result: " + result);
 		return result;
+	}
+	
+	public CodeGroup selectOne(CodeGroupVo vo) {
+		CodeGroup result = sqlSession.selectOne(namespace + ".selectOne", vo);
+		System.out.println("dao result: " + result);
+		return result;    //codegroup 객체 하나 리턴
 	}
 
 }

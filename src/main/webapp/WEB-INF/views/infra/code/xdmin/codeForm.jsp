@@ -45,7 +45,7 @@
 		}
 
 		.mydiv{
-			background-image: url('../../resources/images/head.jpg');
+			background-image: url('../../resources/images/head2.jpg');
 			background-size: cover;
 		}
 		
@@ -296,7 +296,7 @@
 								<div class="col-6">
 									<br>
 									<label for="code" class="form-label">코드그룹 번호</label>
-									<input type="text" class="form-control" name="codeGroup_seq">
+									<input type="text" class="form-control" name="codeGroup_seq" value="<c:out value="${item.codeGroup_seq }"/>">
 								</div>
 								<div class="col-6">
 									<br>
@@ -311,12 +311,12 @@
 								<div class="col-6">
 									<br>
 									<label for="codename" class="form-label">코드 이름(한글)</label>
-									<input type="text" class="form-control" name="name" >
+									<input type="text" class="form-control" name="name" value="<c:out value="${item.name }"/>">
 								</div>
 								<div class="col-6">
 									<br>
 									<label for="codenameEng" class="form-label">코드 이름 (영문)</label>
-									<input type="text" class="form-control" name="nameEng">
+									<input type="text" class="form-control" name="nameEng" value="<c:out value="${item.nameEng }"/>">
 								</div>
 								<div class="col-6">
 									<br>

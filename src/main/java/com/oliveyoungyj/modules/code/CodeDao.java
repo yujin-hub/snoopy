@@ -34,5 +34,11 @@ public class CodeDao {
 		System.out.println("dao result: " + result);
 		return result;
 	}
+	
+	public Code selectOne(CodeVo vo) {
+		Code result = sqlSession.selectOne(namespace + ".selectOne", vo);
+		System.out.println("dao result: " + result);
+		return result;    //codegroup 객체 하나 리턴
+	}
 }
 

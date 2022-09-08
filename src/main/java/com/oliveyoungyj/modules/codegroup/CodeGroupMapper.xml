@@ -66,4 +66,12 @@
 		</selectKey>
 	</insert>
 
+	<select id="selectOne" resultMap ="resultMapObj">
+		SELECT 
+			a.*
+		FROM CodeGroup a
+		WHERE 1=1
+			AND a.propertyKor = #{propertyKor}
+	</select>
+	
 </mapper>	

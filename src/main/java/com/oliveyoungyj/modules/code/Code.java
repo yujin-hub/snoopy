@@ -1,5 +1,7 @@
 package com.oliveyoungyj.modules.code;
 
+import java.sql.Date;
+
 public class Code {
 
 	public String seq;
@@ -11,6 +13,8 @@ public class Code {
 	public String nameEng;
 	public Integer useNY;
 	public String codeGroupName;
+	public Date regDate;
+	public Date modDate;
 	
 	
 	public String getSeq() {
@@ -66,6 +70,18 @@ public class Code {
 	}
 	public void setCodeGroupName(String codeGroupName) {
 		this.codeGroupName = codeGroupName;
+	}
+	public Date getRegDate() {
+		return regDate;
+	}
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
+	public Date getModDate() {
+		return modDate;
+	}
+	public void setModDate(Date modDate) {
+		this.modDate = modDate;
 	}
 	
 	

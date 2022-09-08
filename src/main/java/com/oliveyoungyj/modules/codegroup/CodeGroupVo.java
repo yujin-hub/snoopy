@@ -9,6 +9,10 @@ public class CodeGroupVo {
 	private String shDateEnd;
 	private Integer shOptionDate;
 	
+	private String propertyKor;
+	private String property;
+	private Integer num;
+	
 	public Integer getShOption() {
 		return shOption;
 	}
@@ -44,6 +48,24 @@ public class CodeGroupVo {
 	}
 	public void setShOptionDate(Integer shOptionDate) {
 		this.shOptionDate = shOptionDate;
+	}
+	public String getPropertyKor() {
+		return propertyKor;
+	}
+	public void setPropertyKor(String propertyKor) {
+		this.propertyKor = propertyKor;
+	}
+	public String getProperty() {
+		return property;
+	}
+	public void setProperty(String property) {
+		this.property = property;
+	}
+	public Integer getNum() {
+		return num;
+	}
+	public void setNum(Integer num) {
+		this.num = num;
 	}
 	
 	
