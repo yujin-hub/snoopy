@@ -65,11 +65,11 @@
 		}
 		
 		.wid{
-			width: 1200px;
+			width: 1800px;
 		}
 		
 		.wid2{
-			width: 800px;
+			width: 1000px;
 		}
 		
 		.wid5{
@@ -365,6 +365,9 @@
 					<input class="input" id="tab1" type="radio" name="tabs" checked> 
 					<label for="tab1">코드</label>
 					
+					<input class="input" id="tab2" type="radio" name="tabs" disabled> 
+					<label for="tab1">코드 등록</label>
+					
 					<section id="content1">
 						<div class="container wid2">
 							<br>
@@ -609,7 +612,7 @@
 	 
 	 function form()
 		{
-		     location.href = "codeForm.html";
+		     location.href = "codeForm";
 		}
 	 
 		$(document).ready(function(){

@@ -59,7 +59,7 @@
 		}
 		
 		.wid{
-			width: 1600px;
+			width: 1800px;
 		}
 		
 		.font{

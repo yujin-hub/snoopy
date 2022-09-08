@@ -366,7 +366,7 @@
 					<input class="input" id="tab1" type="radio" name="tabs" checked> 
 					<label for="tab1">코드그룹</label>
 					
-					<input class="input" id="tab1" type="radio" name="tabs" disabled> 
+					<input class="input" id="tab2" type="radio" name="tabs" disabled> 
 					<label for="tab1">코드그룹 등록</label>
 					
 					<section id="content1">
