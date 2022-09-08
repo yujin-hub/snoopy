@@ -35,4 +35,17 @@ public class MemberController {
 		
 		return "infra/member/xdmin/memberList";
 	}
+	
+	@RequestMapping(value = "login")
+	public String login() throws Exception {
+		
+		return "infra/member/user/login";
+	}
+	
+	@RequestMapping(value = "regForm")
+	public String regForm() throws Exception {
+		
+		return "infra/member/user/regForm";
+	}
+	
 }
