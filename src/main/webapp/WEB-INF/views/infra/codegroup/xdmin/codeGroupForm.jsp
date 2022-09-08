@@ -59,7 +59,7 @@
 		}
 		
 		.wid{
-			width: 1200px;
+			width: 1600px;
 		}
 		
 		.font{
@@ -517,18 +517,19 @@
 		}
 	 
 	 function save()
-	 {
+	 	{
 			alert(document.getElementById("num").value);
 			alert(document.getElementById("propertyKor").value);
 			alert(document.getElementById("property").value);
 			alert(document.getElementById("use").options[document.getElementById("use").selectedIndex].value);
 			alert(document.querySelector("input[name='rad']:checked").value);
 			
- 			var obj_length = document.getElementsByName("sel").length;
+			var obj_length = document.getElementsByName("sel").length;
 			for (var i=0; i<obj_length; i++) {
 			    if (document.getElementsByName("sel")[i].checked == true) {
 			        alert(document.getElementsByName("sel")[i].value);
 			    }
+			    return false;
 			}
 			
 			
@@ -561,7 +562,7 @@
 			alert("저장되었습니다.");
 			
 			document.getElementById("form11").submit();
-	 }
+	 	}
 	
 </script>
 

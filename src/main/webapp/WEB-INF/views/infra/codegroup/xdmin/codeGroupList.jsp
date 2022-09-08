@@ -66,11 +66,11 @@
 		}
 		
 		.wid{
-			width: 1200px;
+			width: 1800px;
 		}
 		
 		.wid2{
-			width: 800px;
+			width: 1000px;
 		}
 		
 		.wid5{
@@ -380,7 +380,7 @@
 										<div class="row">
 											<div class="col-3">
 												<select id="shDelNY" name="shDelNY" class="form-select wid3" aria-label="Default select example">
-													<option value="" <c:if test="${empty vo.shDelNY}">selected</c:if>>삭제여부</option>
+													<option value="" <c:if test="${empty vo.shDelNY}">selected</c:if>>::삭제여부::</option>
 													<option value="0" <c:if test="${vo.shDelNY eq 0}">selected</c:if>>N</option>
 													<option value="1" <c:if test="${vo.shDelNY eq 1}">selected</c:if>>Y</option>
 												</select>
@@ -470,8 +470,8 @@
 													<td><c:out value="${list.propertyKor }"/></td>
 													<td><c:out value="${list.property }"/></td>
 													<td><c:out value="${list.codeNum }"/></td>
-													<td></td>
-													<td></td>
+													<td><c:out value="${list.regDate }"/></td>
+													<td><c:out value="${list.modDate }"/></td>
 													<td>
 														<c:choose>
 															<c:when test="${list.useNY eq 0 }">N</c:when>

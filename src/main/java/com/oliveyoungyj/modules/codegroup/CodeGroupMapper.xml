@@ -46,6 +46,8 @@
 			num
 			,propertyKor
 			,property
+			,regDate
+			,modDate
 			,useNY
 			,delNY
 		)
@@ -53,6 +55,8 @@
 			#{num}
 			,#{propertyKor}
 			,#{property}
+			,#{regDate}
+			,#{modDate}
 			,1
 			,0
 		)
