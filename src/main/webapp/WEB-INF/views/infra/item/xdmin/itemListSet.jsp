@@ -20,13 +20,12 @@
 	<meta property="og:title" content="올리브영 공식 온라인몰">
 	<meta property="og:description" content="대한민국 NO.1 헬스&뷰티 스토어 OLIVEYOUNG" >
 
-	<title>코드그룹 관리</title>
+	<title>상품 관리</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
 	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2091/PNG/512/settings_icon_128522.png">
-	
     
    	<script src="https://kit.fontawesome.com/15c84217dd.js" crossorigin="anonymous"></script>
 	<!-- Bootstrap CSS -->
@@ -38,14 +37,8 @@
     <!-- user css -->
     <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
     
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="/resources/demos/style.css">
-	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    
-    
     <style type ="text/css">
-		.back-to-top-css { 
+		.back-to-top-css {
 		    position: fixed;
 		    bottom: 20px;
 		    right: 20px;
@@ -66,11 +59,19 @@
 		}
 		
 		.wid{
-			width: 1800px;
+			width: 1200px;
 		}
 		
 		.wid2{
-			width: 1000px;
+			width: 800px;
+		}
+		
+		.wid3{
+			width: 200px;
+		}
+		
+		.wid4{
+			width: 207px;
 		}
 		
 		.wid5{
@@ -83,7 +84,6 @@
 		
 		section {
 			display: none;
-			padding: 20px 0 0;
 			border-top: 1px solid #9DCC30;
 		}
 		
@@ -149,6 +149,7 @@
 		}
 		
 		table{
+			height: 500px;	
 			font-size: 15px;
 		}
 
@@ -175,11 +176,6 @@
 		.font{
 			font-size: 23px;
 		}
-
-		.font2{
-			margin-top: 10px;
-			font-size: 14px;
-		}
 		
 		.nav-link{
 			color: #353535;;
@@ -191,25 +187,6 @@
 			color: #ce63be;
 		}
 		
-		.btn-success{
-			float: right;
-		}
-
-		.btn3{
-			float: left;
-		}
-			
-		.form-select-sm{
-			font-size: 12px;		
-		}
-		
-		a:hover{
-			color: #ce63be;
-		}
-		
-		a{
-			color: black;		
-		}
 	</style>
 </head>
     
@@ -332,7 +309,7 @@
 		<div class="container mydiv2">
 			<br>
 			<br>
-			<span id="font">코드그룹 관리</span>
+			<span id="font">상품관리</span>
 			<br>
 			<br>
 			<br>
@@ -350,18 +327,17 @@
 						<a class="nav-link" href="../member/memberlist.html">회원 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../item/itemlist.html">상품 관리</a>
+						<a class="nav-link" href="itemlist.html">상품 관리</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="../order/orderList.html">주문 관리</a>
 					</li>
-				</ul>
 				<br>
 				<br>
 				<span class="font">Code</span>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link" href="codeGroup.html">코드 그룹 관리</a>
+						<a class="nav-link" href="../code/codeGroup.html">코드 그룹 관리</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">코드 관리</a>
@@ -371,10 +347,14 @@
 			<div class="col-10">
 				<div class="main left2">
 					<input class="input" id="tab1" type="radio" name="tabs" checked> 
-					<label for="tab1">코드그룹</label>
+					<label for="tab1">상품 목록</label>
 					
-					<input class="input" id="tab2" type="radio" name="tabs" disabled> 
-					<label for="tab1">코드그룹 등록</label>
+					<input class="input" id="tab2" type="radio" name="tabs" disabled>
+					<label for="tab2">상품정보 확인</label>
+					
+					<input class="input" id="tab3" type="radio" name="tabs" disabled>
+					<label for="tab3">상품정보 수정</label>
+					
 					
 					<section id="content1">
 						<div class="container wid2">
@@ -383,48 +363,38 @@
 							<div class="container box">
 								<br>
 								<div class="container wid6">
-									<form method="post" action="/codeGroup/codeGroupList">
-										<div class="row">
-											<div class="col-3">
-												<select id="shDelNY" name="shDelNY" class="form-select wid3" aria-label="Default select example">
-													<option value="" <c:if test="${empty vo.shDelNY}">selected</c:if>>::삭제여부::</option>
-													<option value="0" <c:if test="${vo.shDelNY eq 0}">selected</c:if>>N</option>
-													<option value="1" <c:if test="${vo.shDelNY eq 1}">selected</c:if>>Y</option>
-												</select>
-											</div>
-											<div class="col-3">
-												<select class="form-select wid3" name="shOptionDate">
-													<option value="">::날짜 선택::</option>
-													<option value="4">등록일</option>
-													<option value="5">수정일</option>
-												</select>
-											</div>
-											<div class="col-3">
-												<input type="text" id="shDateStart" class="form-control mid wid4 shDate" name="shDateStart" value="${vo.shDateStart}" placeholder="시작일" autocomplete="off">
-											</div>
-											<div class="col-3">
-												<input type="text" class="form-control mid wid4 shDate" id="shDateEnd" name="shDateEnd" value="${vo.shDateEnd}" placeholder="종료일" autocomplete="off">
-											</div>
+									<div class="row">
+										<div class="col-4">
+											<input type="text" class="form-control mid wid3" aria-label="accessdate" aria-describedby="basic-addon1" value="상품등록일" readonly>
 										</div>
-										<br>
-										<div class="row">
-											<div class="col-4">
-												<select id="shOption" name="shOption" class="form-select wid3">
-													<option value="" <c:if test="${empty vo.shOption}">selected</c:if>>::검색 구분::</option>
-													<option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>코드그룹 코드</option>
-													<option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>코드그룹 이름(한글)</option>
-													<option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>코드그룹 이름(영문)</option>
-												</select>
-											</div>
-											<div class="col-6">
-												<input type="text" class="form-control mid" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력" autocomplete="off">
-											</div>
-											<div class="col-2">
-												<button class="btn btn1 btn-space" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
-												<button class="btn btn1 btn-space" type="submit" role="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-											</div>
+										<div class="col-4">
+											<input type="date" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
 										</div>
-									</form>
+										<div class="col-4">
+											<input type="date" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
+										</div>
+									</div>
+									<br>
+									<div class="row">
+										<div class="col-4">
+										<select class="form-select wid3" aria-label="Default select example">
+											<option selected class="mid">::검색 조건::</option>
+											<option value="1">브랜드</option>
+											<option value="2">상품명</option>
+											<option value="3">원가</option>
+											<option value="4">판매가</option>
+											<option value="5">총 구매수량</option>
+											<option value="6">재고</option>
+										</select>
+										</div>
+										<div class="col-6">
+											<input type="text" class="form-control mid wid5" aria-label="date" aria-describedby="basic-addon1" placeholder="검색어 입력">
+										</div>
+										<div class="col-2">
+											<a class="btn btn1 btn-space" role="button" style="margin-left: 10px;"><i class="fa-solid fa-arrow-rotate-left"></i></a> 
+											<a class="btn btn1 btn-space" role="button"><i class="fa-solid fa-magnifying-glass"></i></a>
+										</div>
+									</div>
 								</div>
 								<br>
 							</div>
@@ -448,51 +418,39 @@
 								</div>
 							</div>
 							<br>
-							<c:forEach items="${list }" var="list" varStatus="status"> 
-															
-														</c:forEach>
 							<table class="table table-striped table-hover">
 								<thead>
 							  		<tr>
 							  			<th><input type="checkbox" id="chkAll" name="chkAll"></th>
-										<th>#</th>
-										<th>코드그룹 코드</th>
-										<th>코드그룹 이름(한글)</th>
-										<th>코드그룹 이름(영문)</th>
-										<th>코드갯수</th>
-										<th>등록일</th>
-										<th>수정일</th>
-										<th>사용여부</th>
-										<th>삭제여부</th>
+										<th>NO</th>
+										<th>브랜드</th>
+										<th>상품명</th>
+										<th>원가</th>
+										<th>판매가</th>
+										<th>상품등록일</th>
+										<th>총 구매수량</th>
+										<th>재고</th>
 									</tr>
 								</thead>
 								<tbody class="table-group-divider">
 									<c:choose>
 										<c:when test="${fn:length(list) eq 0 }">
-											<td class="text-center" colspan="10">There is no data!</td>
+											<td class="text-center" colspan="12">There is no data!</td>
 										</c:when>
 										<c:otherwise>
 											<c:forEach items="${list}" var="list" varStatus="status">
-												<tr class="cursor">
+												<tr class="cursor" onClick="item()">
 													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
 													<td><c:out value="${list.seq }"/></td>
-													<td><c:out value="${list.num }"/></td>
-													<td>
-														<a href="/codeGroup/codeGroupForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.propertyKor}"/></a>
-													</td>
-													<td><c:out value="${list.property }"/></td>
-													<td><c:out value="${list.codeNum }"/></td>
-													<td><c:out value="${list.regDate }"/></td>
-													<td><c:out value="${list.modDate }"/></td>
+													<td><c:out value="${list.brand }"/></td>
+													<td><c:out value="${list.name }"/></td>
+													<td><c:out value="${list.price }"/>원</td>
+													<td><c:out value="${list.salePrice }"/>원</td>
+													<td><c:out value="${list.regist }"/></td>
+													<td><c:out value="${list.numPurchase }"/>개</td>
 													<td>
 														<c:choose>
-															<c:when test="${list.useNY eq 0 }">N</c:when>
-															<c:otherwise>Y</c:otherwise>
-														</c:choose>
-														</td>
-													<td>
-														<c:choose>
-															<c:when test="${list.delNY eq 0 }">N</c:when>
+															<c:when test="${list.stock eq 0 }">N</c:when>
 															<c:otherwise>Y</c:otherwise>
 														</c:choose>
 													</td>
@@ -508,15 +466,11 @@
 									<li class="page-item active" aria-current="page">
 										<span class="page-link">1</span>
 									</li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-    								<li class="page-item"><a class="page-link" href="#">3</a></li>
 								</ul>
 							</nav>
 							<br>
-							<button class="btn btn3 btn-space btn-danger"><i class="fa-solid fa-trash-can"></i></button> 
-							<a class="btn btn3 btn-space btn-danger" role="button" ><i class="fa-solid fa-x"></i></a>			
-							<a href="codeGroupForm" class="btn btn2 btn-space" role="button"><i class="fa-solid fa-plus"></i></a> 
-							<a class="btn btn-success btn-space" role="button"><i class="fa-solid fa-file-excel"></i></a>							
+							<a class="btn btn2 btn-space" role="button"><i class="fa-solid fa-trash-can"></i></a>							
+							<a class="btn btn2 btn-space" role="button"><i class="fa-solid fa-plus"></i></a> 
 							<br>
 							<br>
 							<br>
@@ -622,26 +576,11 @@
 		     location.href = "memberView.html";
 		}
 	 
+	 function item()
+		{
+		     location.href = "itemView.html";
+		}
 	 
-		$(document).ready(function(){
-			 $("input.shDate").datepicker();
-		}); 
-		
-		$.datepicker.setDefaults({
-		    dateFormat: 'yy-mm-dd',
-		    prevText: '이전 달',
-		    nextText: '다음 달',
-		    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-		    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-		    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-		    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-		    showMonthAfterYear: true,
-		    yearSuffix: '년'
-		});
-		
-		
-		
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

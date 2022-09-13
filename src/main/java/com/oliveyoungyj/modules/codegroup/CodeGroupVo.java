@@ -13,6 +13,8 @@ public class CodeGroupVo {
 	private String property;
 	private Integer num;
 	
+	private String seq;
+	
 	public Integer getShOption() {
 		return shOption;
 	}
@@ -66,6 +68,12 @@ public class CodeGroupVo {
 	}
 	public void setNum(Integer num) {
 		this.num = num;
+	}
+	public String getSeq() {
+		return seq;
+	}
+	public void setSeq(String seq) {
+		this.seq = seq;
 	}
 	
 	

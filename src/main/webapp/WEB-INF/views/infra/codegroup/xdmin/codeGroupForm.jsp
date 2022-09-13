@@ -289,7 +289,9 @@
 				</ul>
 			</div>
 			<div class="col-10">
-				<form method="post" action="/codeGroup/codeGroupInst" autocomplete="off" id="form11" name="form11">
+				<form name="form" method="post" action="/codeGroup/codeGroupInst">
+				<!-- <form name="form" method="post" > -->
+					<input type="hidden" name="seq" value="<c:out value="${vo.seq }"/>">
 					<div class="main left2">
 						<input class="input" id="tab1" type="radio" name="tabs" disabled> 
 						<label for="tab1" class="label1">코드그룹</label>
@@ -302,7 +304,7 @@
 								<div class="col-6">
 									<br>
 									<label for="code" class="form-label">코드그룹 코드</label>
-									<input type="text" class="form-control" id="num" name="num" placeholder="영문(대소문자), 숫자" value="<c:out value="${item.num }"/>">
+									<input type="text" class="form-control" value="<c:out value="${item.seq}"/>" placeholder="영문(대소문자), 숫자" id="seq">
 								</div>
 								<div class="col-6">
 									<br>
@@ -321,7 +323,7 @@
 								</div>
 								<div class="col-6">
 									<br>
-									<label for="useNY2" class="form-label">사용여부</label>
+									<label for="useNY" class="form-label">사용여부</label>
 									<select class="form-select" name="use" id="use">
 										<option>::선택하세요::</option>
 										<option value="1">Y</option>
@@ -404,10 +406,29 @@
 							<br>
 							<br>
 						</div>
-						<button class="btn btn-secondary" onClick="list();"><i class="fa-solid fa-list-ul"></i></button>
-						<button class="btn btn-space btn-success right" type="submit" onClick="save();"><i class="fa-solid fa-bookmark"></i></button>		
-						<button class="btn btn-space btn-danger right"><i class="fa-solid fa-trash-can"></i></button>			
-						<button class="btn btn-space btn-danger right"><i class="fa-solid fa-x"></i></button> 
+						<button class="btn btn-secondary" onClick="list()"><i class="fa-solid fa-list-ul"></i></button>
+						<button type="button" class="btn btn-space btn-success right" id="btnSave"><i class="fa-solid fa-bookmark"></i></button>		
+						<button class="btn btn-space btn-danger right"><i class="fa-solid fa-trash-can"></i></button>		
+						<button type="button" class="btn btn-space btn-danger right" id="btnSave">
+	   						<i class="fa-solid fa-x"></i>
+						</button>
+						
+						<!-- Button trigger modal -->
+						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticBackdropLabel">Data Delete</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+								<div class="modal-body"> 정말 삭제하시겠습니까? </div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+										<button type="button" class="btn btn-primary">Yes</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</section>
 				</form>
 			</div>
@@ -469,33 +490,59 @@
 
 <script type="text/javascript">
 	 $(document).ready(function () {
-	        $(window).scroll(function () {
-            	$('#back-to-top').fadeIn();
-	        });
-	        // scroll body to 0px on click
-	        $('#back-to-top').click(function () {
-	            $('#back-to-top').tooltip('hide');
-	                scrollTop: 0
-	            }, 100);
-	            return false;
-	        });
-
-	 	$(document).ready(function() {
-			$("#chkAll").click(function() {
-				if($("#chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
-				else $("input[name=chk]").prop("checked", false);
-			});
-
-			$("input[name=chk]").click(function() {
-				var total = $("input[name=chk]").length;
-				var checked = $("input[name=chk]:checked").length;
-
-				if(total != checked) $("#chkAll").prop("checked", false);
-				else $("#chkAll").prop("checked", true); 
-			});
+		$(window).scroll(function () {
+		   	$('#back-to-top').fadeIn();
 		});
+		// scroll body to 0px on click
+		$('#back-to-top').click(function () {
+		    $('#back-to-top').tooltip('hide');
+		        scrollTop: 0
+		    }, 100);
+		    return false;
+		});
+
+ 	$(document).ready(function() {
+		$("#chkAll").click(function() {
+			if($("#chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
+			else $("input[name=chk]").prop("checked", false);
+		});
+
+		$("input[name=chk]").click(function() {
+			var total = $("input[name=chk]").length;
+			var checked = $("input[name=chk]:checked").length;
+
+			if(total != checked) $("#chkAll").prop("checked", false);
+			else $("#chkAll").prop("checked", true); 
+		});
+	});
 		
+	var goUrlList = "/codeGroup/codeGroupList"; 			/* #-> */
+	var goUrlInst = "/codeGroup/codeGroupInst"; 			/* #-> */
+	var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
+	var goUrlUele = "/codeGroup/codeGroupUele";				/* #-> */
+	var goUrlDele = "/codeGroup/codeGroupDele";				/* #-> */
+	
+	var seq = $("input:hidden[name=seq]");				/* #-> */
+	
+	var form = $("form[name=form]");
+	var formVo = $("form[name=formVo]");
+	
+	
+	$("#btnSave").on("click", function(){
+
+		if (seq.val() == "0" || seq.val() == ""){
+	   		// insert
+	   		// if (validationInst() == false) return false;
+	   		form.attr("action", goUrlInst).submit();
+	   	} else {
+	   		// update
+	   		/* keyName.val(atob(keyName.val())); */
+	   		// if (validationUpdt() == false) return false;
+	   		form.attr("action", goUrlUpdt).submit();
+	   	}
+	}); 
 	 	
+	
 	 function mypage()
 		{
 		     location.href = "../member/mypage.html";
@@ -511,12 +558,20 @@
 		     location.href = "memberView.html";
 		}
 	 
-	 function list()
-		{
-		     location.href = "codeGroupList";
-		}
 	 
-	 function save()
+	 const myModal = document.getElementById('myModal')
+	 const myInput = document.getElementById('myInput')
+
+	 myModal.addEventListener('shown.bs.modal', () => {
+	   myInput.focus()
+	 })
+	 
+	 function list()
+	 {
+	     location.href = "codeGroupList";
+	}
+	 
+	/* function save()
 	 	{
 			alert(document.getElementById("num").value);
 			alert(document.getElementById("propertyKor").value);
@@ -531,7 +586,6 @@
 			    }
 			    return false;
 			}
-			
 			
 			if(document.getElementById("num").value == '' || document.getElementById("num").value == null){
 				alert("코드그룹 코드 값을 입력해주세요");
@@ -559,14 +613,12 @@
 				return false;
 			}
 			
-			alert("저장되었습니다.");
-			
-			document.getElementById("form11").submit();
-	 	}
+	 	} */
 	
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/d843c66cc1.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </body>
 </html>

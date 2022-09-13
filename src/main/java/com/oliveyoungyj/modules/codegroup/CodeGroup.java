@@ -1,6 +1,5 @@
 package com.oliveyoungyj.modules.codegroup;
 
-import java.sql.Date;
 
 public class CodeGroup {
 
@@ -11,8 +10,8 @@ public class CodeGroup {
 	public Integer codeNum;
 	public Integer useNY;
 	public Integer delNY;
-	public Date regDate;
-	public Date modDate;
+	public String regDate;
+	public String modDate;
 	
 	public String getSeq() {
 		return seq;
@@ -56,18 +55,19 @@ public class CodeGroup {
 	public void setDelNY(Integer delNY) {
 		this.delNY = delNY;
 	}
-	public Date getRegDate() {
+	public String getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(Date regDate) {
+	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
-	public Date getModDate() {
+	public String getModDate() {
 		return modDate;
 	}
-	public void setModDate(Date modDate) {
+	public void setModDate(String modDate) {
 		this.modDate = modDate;
 	}
+	
 	
 	
 }

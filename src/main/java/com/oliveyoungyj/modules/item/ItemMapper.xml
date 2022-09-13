@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oliveyoungyj.modules.item.ItemMapper">
+
+    <resultMap id="resultMapObj" type="com.oliveyoungyj.modules.item.Item"></resultMap>
+	
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT 
+			a.seq
+			, (SELECT b.name FROM brand_list b WHERE 1=1 AND a.brand_list_seq = b.num) as brand
+			, a.name
+			, (SELECT FORMAT(a.price, 0)) as price
+			, (SELECT FORMAT((a.price * (100-discount)/100), 0)) as salePrice
+			, a.regist
+			, (SELECT FORMAT(a.numPurchase, 0)) as numPurchase
+			, a.stock
+		FROM item a
+		WHERE 1=1
+	</select>
+
+</mapper>	

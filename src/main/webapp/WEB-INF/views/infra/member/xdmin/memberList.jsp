@@ -482,7 +482,6 @@
 							</nav>
 							<br>
 							<a class="btn btn2 btn-space" role="button"><i class="fa-solid fa-trash-can"></i></a>							
-							<a class="btn btn2 btn-space" role="button"><i class="fa-solid fa-plus"></i></a> 
 							<br>
 							<br>
 							<br>

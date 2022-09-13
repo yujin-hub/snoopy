@@ -48,4 +48,10 @@ public class MemberController {
 		return "infra/member/user/regForm";
 	}
 	
+	@RequestMapping(value = "memberForm")
+	public String memberForm() throws Exception {
+		
+		return "infra/member/xdmin/memberForm";
+	}
+	
 }

@@ -620,6 +620,11 @@
 		     location.href = "memberView.html";
 		}
 	 
+	 function form()
+		{
+		     location.href = "codeForm";
+		}
+	 
 	 
 		$(document).ready(function(){
 			$("input.shDate").datepicker();
