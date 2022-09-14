@@ -10,10 +10,9 @@ public class ItemServiceImpl implements ItemService{
 	@Autowired
 	ItemDao dao;
 	
-	
 	@Override
-	public List<Item> selectList() throws Exception {
-		List<Item> list = dao.selectList();
+	public List<Item> selectList(ItemVo vo) throws Exception {
+		List<Item> list = dao.selectList(vo);
 		return list;
 	}
 }

@@ -16,8 +16,8 @@ public class ItemDao {
 	
 	private static String namespace = "com.oliveyoungyj.modules.item.ItemMapper";
 	
-	public List<Item> selectList(){ 
-		List<Item> list = sqlSession.selectList("com.oliveyoungyj.modules.item.ItemMapper.selectList", "");
+	public List<Item> selectList(ItemVo vo){ 
+		List<Item> list = sqlSession.selectList("com.oliveyoungyj.modules.item.ItemMapper.selectList", vo);
 		return list; 
 	}
 

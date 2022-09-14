@@ -25,7 +25,6 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
-	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2091/PNG/512/settings_icon_128522.png">
     
    	<script src="https://kit.fontawesome.com/15c84217dd.js" crossorigin="anonymous"></script>
 	<!-- Bootstrap CSS -->
@@ -413,7 +412,7 @@
 	   						<i class="fa-solid fa-x"></i>
 						</button>
 						
-						<!-- Button trigger modal -->
+						<!-- <!-- Button trigger modal -->
 						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
@@ -529,19 +528,42 @@
 	
 	
 	$("#btnSave").on("click", function(){
-
 		if (seq.val() == "0" || seq.val() == ""){
-	   		// insert
-	   		// if (validationInst() == false) return false;
 	   		form.attr("action", goUrlInst).submit();
 	   	} else {
-	   		// update
-	   		/* keyName.val(atob(keyName.val())); */
-	   		// if (validationUpdt() == false) return false;
 	   		form.attr("action", goUrlUpdt).submit();
 	   	}
 	}); 
+	
 	 	
+	/* $("#btnUelete").on("click", function(){
+		$("input:hidden[name=deleteType]").val(1);
+		$(".modal-title").text("확인");
+		$(".modal-body").text("정말 삭제하시겠습니까?");
+		$("#btnModalUelete").show();
+		$("#btnModalDelete").hide();
+		$("#modalConfirm").modal("show");
+	});
+	
+	$("#btnDelete").on("click", function(){
+		$("input:hidden[name=deleteType]").val(2);
+		$(".modal-title").text("확인");
+		$(".modal-body").text("정말 삭제하시겠습니까?");
+		$("#btnModalDelete").show();
+		$("#btnModalUelete").hide();
+		$("#modalConfirm").modal("show");
+	});
+	
+	$("#btnModalUelete").on("click", function(){
+		$("#modalConfirm").modal("hide");
+		formVo.attr("action", goUrlUele).submit();
+	});
+	
+	$("#btnModalDelete").on("click", function(){
+		$("#modalConfirm").modal("hide");
+		formVo.attr("action", goUrlDele).submit();
+	}); */
+	
 	
 	 function mypage()
 		{
@@ -559,6 +581,7 @@
 		}
 	 
 	 
+	 
 	 const myModal = document.getElementById('myModal')
 	 const myInput = document.getElementById('myInput')
 
@@ -566,10 +589,12 @@
 	   myInput.focus()
 	 })
 	 
+	 
 	 function list()
 	 {
 	     location.href = "codeGroupList";
 	}
+	 
 	 
 	/* function save()
 	 	{

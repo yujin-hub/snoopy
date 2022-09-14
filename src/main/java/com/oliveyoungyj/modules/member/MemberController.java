@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -16,7 +17,7 @@ public class MemberController {
 	
 
 	@RequestMapping(value = "memberList")
-	public String codeList(Model model, MemberVo vo) throws Exception {
+	public String codeList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 
 		System.out.println("vo.getShValue(): " + vo.getShValue());
 		System.out.println("vo.getShOption(): " + vo.getShOption());
@@ -25,10 +26,6 @@ public class MemberController {
 		System.out.println("vo.getShOptionDate(): " + vo.getShOptionDate());
 		System.out.println("vo.getShGender(): " + vo.getShGender());
 		System.out.println("vo.getShUserDelNY(): " + vo.getShUserDelNY());
-		
-		vo.setShOptionDate(vo.getShOptionDate() == null ? 1 : vo.getShOptionDate());
-		vo.setShDateStart(vo.getShDateStart() == null ? utilDateTime.calculateDayString(utilDateTime.nowLocalDateTime(), Constants.DATE_INTERVAL) : vo.getShDateStart());  	
-		vo.setShDateEnd(vo.getShDateEnd() == null ? utilDateTime.nowString() : vo.getShDateEnd());
 		
 		List<Member> list = service.selectList(vo);
 		model.addAttribute("list", list);

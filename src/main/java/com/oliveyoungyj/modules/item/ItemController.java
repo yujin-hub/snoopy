@@ -16,9 +16,14 @@ public class ItemController {
 	
 
 	@RequestMapping(value = "itemListSet")
-	public String itemListSet(Model model) throws Exception {
+	public String itemListSet(Model model, ItemVo vo) throws Exception {
 
-		List<Item> list = service.selectList();
+		System.out.println("vo.getShValue(): " + vo.getShValue());
+		System.out.println("vo.getShOption(): " + vo.getShOption());
+		System.out.println("vo.getShStock(): " + vo.getShStock());
+		
+		
+		List<Item> list = service.selectList(vo);
 		model.addAttribute("list", list);
 		
 		return "infra/item/xdmin/itemListSet";

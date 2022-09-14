@@ -25,7 +25,7 @@
 			<if test="shUserDelNY != null and !shUserDelNY.equals('')">AND a.userDelNY = #{shUserDelNY}</if>
 			
 			<choose>
-				<when test="shOption == 1">AND a.userseq = #{shValue }</when>
+				<when test="shOption == 1">AND a.userSeq = #{shValue }</when>
 				<when test="shOption == 2">AND a.userGrade LIKE CONCAT('%',#{shValue },'%')</when>
 				<when test="shOption == 3">AND a.name LIKE CONCAT('%',#{shValue },'%')</when>
 				<when test="shOption == 4">AND a.email LIKE CONCAT('%',#{shValue },'%')</when>

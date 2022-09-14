@@ -25,7 +25,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
-	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2091/PNG/512/settings_icon_128522.png">
+	
     
    	<script src="https://kit.fontawesome.com/15c84217dd.js" crossorigin="anonymous"></script>
 	<!-- Bootstrap CSS -->
@@ -36,6 +36,11 @@
     <link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">    
     <!-- user css -->
     <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     
     <style type ="text/css">
 		.back-to-top-css {
@@ -59,11 +64,11 @@
 		}
 		
 		.wid{
-			width: 1200px;
+			width: 1800px;
 		}
 		
 		.wid2{
-			width: 800px;
+			width: 1000px;
 		}
 		
 		.wid3{
@@ -149,7 +154,6 @@
 		}
 		
 		table{
-			height: 500px;	
 			font-size: 15px;
 		}
 
@@ -363,38 +367,46 @@
 							<div class="container box">
 								<br>
 								<div class="container wid6">
-									<div class="row">
-										<div class="col-4">
-											<input type="text" class="form-control mid wid3" aria-label="accessdate" aria-describedby="basic-addon1" value="상품등록일" readonly>
+									<form method="post" action="/item/itemListSet">
+										<div class="row">
+											<div class="col-3">
+												<select class="form-select" name="shStock">
+													<option value="" <c:if test="${empty vo.shStock}"></c:if>>::재고::</option>
+													<option value="1" <c:if test="${vo.shStock eq 1 }"></c:if>>Y</option>
+					 								<option value="0" <c:if test="${vo.shStock eq 0 }"></c:if>>N</option>
+												</select>
+											</div>
+											<div class="col-3">
+												<input type="text" class="form-control mid" aria-label="accessdate" aria-describedby="basic-addon1" value="상품등록일" readonly>
+											</div>
+											<div class="col-3">
+												<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+											</div>
+											<div class="col-3">
+												<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+											</div>
 										</div>
-										<div class="col-4">
-											<input type="date" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
+										<br>
+										<div class="row">
+											<div class="col-4">
+											<select class="form-select wid3" id="shOption" name="shOption">
+												<option value="" <c:if test="${empty vo.shOption}"></c:if>>::검색 조건::</option>
+												<option value="1" <c:if test="${vo.shOption eq 1 }"></c:if>>브랜드</option>
+												<option value="2" <c:if test="${vo.shOption eq 2 }"></c:if>>상품명</option>
+												<option value="3" <c:if test="${vo.shOption eq 3 }"></c:if>>원가</option>
+												<option value="4" <c:if test="${vo.shOption eq 4 }"></c:if>>판매가</option>
+												<option value="5" <c:if test="${vo.shOption eq 5 }"></c:if>>총 구매수량</option>
+											</select>
+											</div>
+											<div class="col-6">
+												<input type="text" class="form-control mid wid5" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력" autocomplete="off">
+											</div>
+											<div class="col-2">
+												<button class="btn btn1 btn-space" style="margin-left: 9px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
+												<button class="btn btn1 btn-space" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+											</div>
 										</div>
-										<div class="col-4">
-											<input type="date" class="form-control mid wid4" aria-label="date" aria-describedby="basic-addon1">
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-4">
-										<select class="form-select wid3" aria-label="Default select example">
-											<option selected class="mid">::검색 조건::</option>
-											<option value="1">브랜드</option>
-											<option value="2">상품명</option>
-											<option value="3">원가</option>
-											<option value="4">판매가</option>
-											<option value="5">총 구매수량</option>
-											<option value="6">재고</option>
-										</select>
-										</div>
-										<div class="col-6">
-											<input type="text" class="form-control mid wid5" aria-label="date" aria-describedby="basic-addon1" placeholder="검색어 입력">
-										</div>
-										<div class="col-2">
-											<a class="btn btn1 btn-space" role="button" style="margin-left: 10px;"><i class="fa-solid fa-arrow-rotate-left"></i></a> 
-											<a class="btn btn1 btn-space" role="button"><i class="fa-solid fa-magnifying-glass"></i></a>
-										</div>
-									</div>
+									</form>
 								</div>
 								<br>
 							</div>

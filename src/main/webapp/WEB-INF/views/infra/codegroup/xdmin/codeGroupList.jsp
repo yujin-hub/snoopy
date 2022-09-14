@@ -25,7 +25,6 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
-	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2091/PNG/512/settings_icon_128522.png">
 	
     
    	<script src="https://kit.fontawesome.com/15c84217dd.js" crossorigin="anonymous"></script>
@@ -383,7 +382,7 @@
 							<div class="container box">
 								<br>
 								<div class="container wid6">
-									<form method="post" action="/codeGroup/codeGroupList">
+									<form method="post">
 										<div class="row">
 											<div class="col-3">
 												<select id="shDelNY" name="shDelNY" class="form-select wid3" aria-label="Default select example">
@@ -420,8 +419,8 @@
 												<input type="text" class="form-control mid" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력" autocomplete="off">
 											</div>
 											<div class="col-2">
-												<button class="btn btn1 btn-space" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
-												<button class="btn btn1 btn-space" type="submit" role="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+												<button type="button" class="btn btn1 btn-space" id="btnReset" style="margin-left: 8px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
+												<button class="btn btn1 btn-space" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
 											</div>
 										</div>
 									</form>
@@ -448,9 +447,6 @@
 								</div>
 							</div>
 							<br>
-							<c:forEach items="${list }" var="list" varStatus="status"> 
-															
-														</c:forEach>
 							<table class="table table-striped table-hover">
 								<thead>
 							  		<tr>
@@ -607,6 +603,22 @@
 		});
 		
 	 	
+ 	var goUrlList = "/codeGroup/codeGroupList"; 			/* #-> */
+	var goUrlInst = "/codeGroup/codeGroupInst"; 			/* #-> */
+	var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
+	var goUrlUele = "/codeGroup/codeGroupUele";				/* #-> */
+	var goUrlDele = "/codeGroup/codeGroupDele";				/* #-> */
+
+	
+	$("#btnSearch").on("click", function(){
+		if(validationList() == false) return false;
+		form.attr("action", goUrlList).submit();
+	});
+
+ 		$("#btnReset").on("click", function(){
+		$(location).attr("href", goUrlList);
+	});
+	 
 	 function mypage()
 		{
 		     location.href = "../member/mypage.html";

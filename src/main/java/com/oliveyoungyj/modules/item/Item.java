@@ -19,6 +19,7 @@ public class Item {
 	public void setSeq(String seq) {
 		this.seq = seq;
 	}
+	
 	public String getBrand() {
 		return brand;
 	}
@@ -61,7 +62,6 @@ public class Item {
 	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
-	
 	
 	
 }
