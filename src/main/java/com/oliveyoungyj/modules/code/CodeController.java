@@ -18,7 +18,7 @@ public class CodeController {
 	@Autowired
 	CodeServiceImpl service;
 
-	@RequestMapping(value = "codeList")
+	@RequestMapping(value = "codeList") 
 	public String codeList(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 
 		System.out.println("vo.getShValue(): " + vo.getShValue());
