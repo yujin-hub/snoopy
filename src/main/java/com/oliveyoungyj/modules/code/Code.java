@@ -12,7 +12,7 @@ public class Code {
 	public String name;
 	public String nameEng;
 	public Integer useNY;
-	public String codeGroupName;
+	public String codeGroupName; 
 	public Date regDate;
 	public Date modDate;
 	
