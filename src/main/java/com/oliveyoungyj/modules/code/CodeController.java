@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
-
 @Controller
 @RequestMapping(value = "/code/")
  
@@ -18,9 +17,21 @@ public class CodeController {
 	@Autowired
 	CodeServiceImpl service;
 
+	public void setSearchAndPaging(CodeVo vo) throws Exception {
+		vo.setParamsPaging(service.selectOneCount(vo));
+	}
+	
 	@RequestMapping(value = "codeList") 
 	public String codeList(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 
+		setSearchAndPaging(vo);
+		
+		if(vo.getTotalRows() > 0) {
+			List<Code> list = service.selectList(vo);
+			model.addAttribute("list", list);
+		}
+			
+		
 		System.out.println("vo.getShValue(): " + vo.getShValue());
 		System.out.println("vo.getShOption(): " + vo.getShOption());
 		System.out.println("vo.getShUseNY(): " + vo.getShUseNY());
@@ -32,6 +43,7 @@ public class CodeController {
 		return "infra/code/xdmin/codeList";
 	}
 	
+
 	@RequestMapping(value = "codeForm")
 	public String codeForm(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 		

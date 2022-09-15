@@ -43,5 +43,7 @@ public class CodeDao {
 		System.out.println("dao result: " + result);
 		return result;   
 	}
+	
+	public int selectOneCount(CodeVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
 }
 

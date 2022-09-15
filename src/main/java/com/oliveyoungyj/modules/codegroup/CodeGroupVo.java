@@ -15,6 +15,7 @@ public class CodeGroupVo {
 	
 	private String seq;
 	
+	
 	public Integer getShOption() {
 		return shOption;
 	}

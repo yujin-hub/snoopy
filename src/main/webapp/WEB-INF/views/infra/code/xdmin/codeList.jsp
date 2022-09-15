@@ -381,7 +381,11 @@
 							<div class="container box">
 								<br>
 								<div class="container wid6">
-									<form method="post">
+									<form method="post" name="form">
+										<input type="hidden" name="mainKey">
+										<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+										<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
+										
 										<div class="row">
 											<div class="col-3">
 												<select id="shUseNY" name="shUseNY"class="form-select wid3" aria-label="Default select example">
@@ -501,15 +505,12 @@
 								</tbody>
 							</table>
 							<br>
-							<nav aria-label="...">
-								<ul class="pagination justify-content-center">
-									<li class="page-item active" aria-current="page">
-										<span class="page-link">1</span>
-									</li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-    								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								</ul>
-							</nav>
+							
+							<!-- pagination s -->
+							<%@include file="../../../common/xdmin/include/pagination.jsp"%>
+							<!-- pagination e -->
+							
+							
 							<br>
 							<button class="btn btn3 btn-space btn-danger"><i class="fa-solid fa-trash-can"></i></button> 
 							<a class="btn btn3 btn-space btn-danger" role="button" ><i class="fa-solid fa-x"></i></a>			
@@ -612,6 +613,7 @@
 		var goUrlUele = "/code/codeUele";				/* #-> */
 		var goUrlDele = "/code/codeDele";				/* #-> */
 	 	
+		var form = $("form[name=form]");
 
 	 	$("#btnSearch").on("click", function(){
 	 		form.attr("action", goUrlList).submit();
@@ -644,7 +646,6 @@
 		}
 	 
 	 	
-	 
 		$(document).ready(function(){
 			$("input.shDate").datepicker();
 		}); 
@@ -661,8 +662,18 @@
 		    showMonthAfterYear: true,
 		    yearSuffix: '년'
 		});
-	
-	 
+		
+		
+		goForm = function(keyValue) {
+			mainKey.val(keyValue);
+			form.attr("action", goUrlForm).submit();
+		}
+		
+		goList = function(thisPage){
+			$("input:hidden[name=thisPage]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		}
+		
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

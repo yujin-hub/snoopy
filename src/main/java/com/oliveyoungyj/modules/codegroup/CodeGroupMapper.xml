@@ -8,37 +8,6 @@
 
     <resultMap id="resultMapObj" type="com.oliveyoungyj.modules.codegroup.CodeGroup"></resultMap>
 	
-	<sql id ="selectCommon">
-		FROM infrCodeGroup a
-		WHERE 1=1
-			<if test="shDelNy != null and !shDelNy.equals('')">AND ifcgDelNy = #{shDelNy}</if>
-			<choose>
-				<when test="shOption == 1">AND ifcgSeq = #{shValue}</when>
-				<when test="shOption == 2">AND ifcgName LIKE CONCAT('%',#{shValue},'%')</when>
-				<when test="shOption == 3">AND ifcgNameEng LIKE CONCAT('%',#{shValue},'%')</when>
-			</choose>
-	</sql>
-	
-	<select id="selectList" resultMap="resultMapObj">
-		<include refid="Base.selectListUpperForMysql" />
-			SELECT
-				a.seq
-				, a.propertyKor
-				, a.property
-				,(select count(b.seq) from Code b where 1=1 and b.delNy = 0 and b.codeGroup_seq = a.num) as codeNum
-				<include refid="Base.selectRegModWithAlies" />
-			<include refid="selectCommon" />
-			ORDER BY a.seq DESC
-			<include refid="Base.orderByLimitForMysql" />
-		<include refid="Base.selectListLowerForMysql" />
-	</select>
-	
-	<select id="selectOneCount" resultType="Integer">
-		SELECT COUNT(*)
-		<include refid="selectCommon" />
-	</select>
-	
-	
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT 
 			a.seq
