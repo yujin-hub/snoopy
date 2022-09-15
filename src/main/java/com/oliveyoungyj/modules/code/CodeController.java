@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value = "/code/")
-
+ 
 public class CodeController {
 	@Autowired
 	CodeServiceImpl service;
@@ -27,7 +27,7 @@ public class CodeController {
 		
 		
 		List<Code> list = service.selectList(vo);
-		model.addAttribute("list", list);
+		model.addAttribute("list", list); 
 		
 		return "infra/code/xdmin/codeList";
 	}
@@ -57,7 +57,6 @@ public class CodeController {
 		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/code/codeList";
 	}
-	
 	
 	@RequestMapping(value = "codeView")
 	public String codeView(CodeVo vo, Model model) throws Exception {
