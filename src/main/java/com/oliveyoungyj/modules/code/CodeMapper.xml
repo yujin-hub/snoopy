@@ -54,8 +54,8 @@
 			,#{name}
 			,#{nameEng}
 			,1
-			,#{regDate}
-			,#{modDate}
+			,now()
+			,now()
 		)
 		
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
@@ -63,12 +63,23 @@
 		</selectKey>
 	</insert>
 	
+	<update id="update">
+		UPDATE Code
+		SET 
+			codeseq = #{codeseq}
+			, name = #{name}
+			, nameEng = #{nameEng}
+			, modDate = now()
+		WHERE 
+		 	seq = #{seq}
+	</update>
+	
 	<select id="selectOne" resultMap ="resultMapObj">
 		SELECT 
 			a.*
 		FROM Code a
 		WHERE 1=1
-			AND a.name = #{name}
+			AND a.seq = #{seq}
 	</select>
 	
 </mapper>	

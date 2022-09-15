@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 
+
 @Repository
 public class CodeDao {
 
@@ -35,10 +36,12 @@ public class CodeDao {
 		return result;
 	}
 	
+	public int update(Code dto) { return sqlSession.update(namespace + ".update", dto); }
+
 	public Code selectOne(CodeVo vo) {
 		Code result = sqlSession.selectOne(namespace + ".selectOne", vo);
 		System.out.println("dao result: " + result);
-		return result;    //codegroup 객체 하나 리턴
+		return result;   
 	}
 }
 

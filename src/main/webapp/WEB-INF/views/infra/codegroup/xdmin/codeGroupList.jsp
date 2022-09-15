@@ -611,7 +611,6 @@
 
 	
 	$("#btnSearch").on("click", function(){
-		if(validationList() == false) return false;
 		form.attr("action", goUrlList).submit();
 	});
 

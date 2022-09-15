@@ -13,6 +13,8 @@ public class CodeVo {
 	private String nameEng;
 	private Integer codeGroup_seq;
 	
+	private String seq;
+	
 	public Integer getShOption() {
 		return shOption;
 	}
@@ -67,7 +69,12 @@ public class CodeVo {
 	public void setCodeGroup_seq(Integer codeGroup_seq) {
 		this.codeGroup_seq = codeGroup_seq;
 	}
-	
+	public String getSeq() {
+		return seq;
+	}
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
 	
 	
 }

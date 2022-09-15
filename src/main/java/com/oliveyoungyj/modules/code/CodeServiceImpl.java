@@ -5,8 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.oliveyoungyj.modules.codegroup.CodeGroup;
-import com.oliveyoungyj.modules.codegroup.CodeGroupVo;
 
 @Service
 public class CodeServiceImpl implements CodeService{
@@ -25,6 +23,11 @@ public class CodeServiceImpl implements CodeService{
 		int result = dao.insert(dto);
 		System.out.println("service result: " + result);
 		return result;
+	}
+	
+	@Override
+	public int update(Code dto) throws Exception {
+		return dao.update(dto);
 	}
 	
 	@Override

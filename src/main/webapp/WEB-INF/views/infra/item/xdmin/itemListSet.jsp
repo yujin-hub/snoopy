@@ -393,9 +393,7 @@
 												<option value="" <c:if test="${empty vo.shOption}"></c:if>>::검색 조건::</option>
 												<option value="1" <c:if test="${vo.shOption eq 1 }"></c:if>>브랜드</option>
 												<option value="2" <c:if test="${vo.shOption eq 2 }"></c:if>>상품명</option>
-												<option value="3" <c:if test="${vo.shOption eq 3 }"></c:if>>원가</option>
-												<option value="4" <c:if test="${vo.shOption eq 4 }"></c:if>>판매가</option>
-												<option value="5" <c:if test="${vo.shOption eq 5 }"></c:if>>총 구매수량</option>
+												<option value="3" <c:if test="${vo.shOption eq 3 }"></c:if>>총 구매수량</option>
 											</select>
 											</div>
 											<div class="col-6">

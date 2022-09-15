@@ -55,8 +55,8 @@
 			#{num}
 			,#{propertyKor}
 			,#{property}
-			,#{regDate}
-			,#{modDate}
+			,now()
+			,now()
 			,1
 			,0
 		)

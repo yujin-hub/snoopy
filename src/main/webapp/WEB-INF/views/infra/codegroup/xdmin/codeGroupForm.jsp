@@ -89,12 +89,6 @@
 			border-top: 1px solid #9DCC30;
 		}
 		
-		.form-label {
-		    margin-bottom: 0;
-		    padding: 5px;
-		    color: #595959;
-		}
-		
 		.input {
 			display: none;
 		} 
@@ -121,13 +115,6 @@
 		#tab2:checked ~ #content2 {
 			display: block;
 		}	
-		
-		.form-control:disabled, .form-control[readonly]{
-		    background-color: #ffffff;
-		    color: black;
-		    font-weight: bold;
-		    opacity: 1;
-		}
 		
 	</style>
 </head>
@@ -408,7 +395,7 @@
 						<button class="btn btn-secondary" onClick="list()"><i class="fa-solid fa-list-ul"></i></button>
 						<button type="button" class="btn btn-space btn-success right" id="btnSave"><i class="fa-solid fa-bookmark"></i></button>		
 						<button class="btn btn-space btn-danger right"><i class="fa-solid fa-trash-can"></i></button>		
-						<button type="button" class="btn btn-space btn-danger right" id="btnSave">
+						<button type="button" class="btn btn-space btn-danger right">
 	   						<i class="fa-solid fa-x"></i>
 						</button>
 						

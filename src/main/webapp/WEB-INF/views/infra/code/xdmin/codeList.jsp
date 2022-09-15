@@ -25,7 +25,6 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
-	
     
    	<script src="https://kit.fontawesome.com/15c84217dd.js" crossorigin="anonymous"></script>
 	<!-- Bootstrap CSS -->
@@ -382,7 +381,7 @@
 							<div class="container box">
 								<br>
 								<div class="container wid6">
-									<form method="post" action="/code/codeList" autocomplete="off">
+									<form method="post">
 										<div class="row">
 											<div class="col-3">
 												<select id="shUseNY" name="shUseNY"class="form-select wid3" aria-label="Default select example">
@@ -476,11 +475,14 @@
 													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
 													<td><c:out value="${list.seq }"/></td>
 													<td><c:out value="${list.codeGroup_seq }"/></td>
-													<td><c:out value="${list.propertyKor }"/></td>
+													<td>
+														<a href="/code/codeForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.propertyKor }"/></a>
+													</td>
+													
 													<td><c:out value="${list.codeseq }"/></td>
 													<td></td>
 													<td>
-														<a href="/code/codeView?name=<c:out value="${list.name }"/>"><c:out value="${list.name }"/></a>
+														<a href="/code/codeForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.name }"/></a>
 													</td>
 													<td><c:out value="${list.nameEng }"/></td>
 													<td>
@@ -509,9 +511,9 @@
 								</ul>
 							</nav>
 							<br>
-							<a class="btn btn3 btn-space btn-danger" role="button"><i class="fa-solid fa-trash-can"></i></a> 
-							<a class="btn btn3 btn-space btn-danger" role="button"><i class="fa-solid fa-x"></i></a>			
-							<a class="btn btn2 btn-space" role="button" onClick="form()"><i class="fa-solid fa-plus"></i></a> 
+							<button class="btn btn3 btn-space btn-danger"><i class="fa-solid fa-trash-can"></i></button> 
+							<a class="btn btn3 btn-space btn-danger" role="button" ><i class="fa-solid fa-x"></i></a>			
+							<a href="codeForm" class="btn btn2 btn-space" role="button"><i class="fa-solid fa-plus"></i></a> 
 							<a class="btn btn-success btn-space" role="button"><i class="fa-solid fa-file-excel"></i></a>							
 							<br>
 							<br>
@@ -604,6 +606,23 @@
 		});
 		
 	 	
+		var goUrlList = "/code/codeList";
+		var goUrlInst = "/code/codeInst"; 			/* #-> */
+		var goUrlUpdt = "/code/codeUpdt";				/* #-> */
+		var goUrlUele = "/code/codeUele";				/* #-> */
+		var goUrlDele = "/code/codeDele";				/* #-> */
+	 	
+
+	 	$("#btnSearch").on("click", function(){
+	 		form.attr("action", goUrlList).submit();
+	 	});
+	 	
+	 	
+	 	$("#btnReset").on("click", function(){
+	 		$(location).attr("href", goUrlList);
+	 	});
+	 	
+	 	
 	 function mypage()
 		{
 		     location.href = "../member/mypage.html";
@@ -624,21 +643,8 @@
 		     location.href = "codeForm";
 		}
 	 
+	 	
 	 
-	 
-	 	var goUrlList = "/code/codeList";
-	 	
-
-	 	$("#btnSearch").on("click", function(){
-	 		form.attr("action", goUrlList).submit();
-	 	});
-	 	
-	 	
-	 	$("#btnReset").on("click", function(){
-	 		$(location).attr("href", goUrlList);
-	 	});
-	 	
-	 	
 		$(document).ready(function(){
 			$("input.shDate").datepicker();
 		}); 
