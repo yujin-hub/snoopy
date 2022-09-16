@@ -1,6 +1,7 @@
 package com.oliveyoungyj.modules.member;
 
 public class Member {
+	public String seq;
 	public Integer userSeq;
 	public String userGrade;
 	public String name;
@@ -10,6 +11,12 @@ public class Member {
 	public String accessDate;
 	public Integer userDelNY;
 	
+	public String getSeq() {
+		return seq;
+	}
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
 	public Integer getUserSeq() {
 		return userSeq;
 	}
@@ -49,7 +56,7 @@ public class Member {
 	public String getAccessDate() {
 		return accessDate;
 	}
-	public void setAccessString(String accessDate) {
+	public void setAccessDate(String accessDate) {
 		this.accessDate = accessDate;
 	}
 	public Integer getUserDelNY() {
@@ -58,9 +65,6 @@ public class Member {
 	public void setUserDelNY(Integer userDelNY) {
 		this.userDelNY = userDelNY;
 	}
-	
-
-	
 	
 
 

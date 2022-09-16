@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+
 @Service
 public class MemberServiceImpl implements MemberService{
 	
@@ -17,6 +18,18 @@ public class MemberServiceImpl implements MemberService{
 	public List<Member> selectList(MemberVo vo) throws Exception {
 		List<Member> list =	dao.selectList(vo);
 		return list;
+	}
+	
+	@Override
+	public int update(Member dto) throws Exception {
+		return dao.update(dto);
+	}
+	
+	@Override
+	public Member selectOne(MemberVo vo) throws Exception {
+		Member result = dao.selectOne(vo);
+		System.out.println("service result: " + result);
+		return result;
 	}
 	
 }

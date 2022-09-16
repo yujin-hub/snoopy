@@ -180,6 +180,14 @@
 			color: #ce63be;
 		}
 		
+		a:hover{
+			color: #ce63be;
+		}
+		
+		a{
+			color: black;		
+		}
+		
 	</style>
 </head>
     
@@ -454,7 +462,9 @@
 													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
 													<td><c:out value="${list.userSeq }"/></td>
 													<td><c:out value="${list.userGrade }"/></td>
-													<td><c:out value="${list.name }"/></td>
+													<td>
+														<a href="/member/memberForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.name }"/></a>
+													</td>
 													<td><c:out value="${list.gen}"/></td>
 													<td><c:out value="${list.tel }"/></td>
 													<td><c:out value="${list.email }"/></td>
@@ -486,7 +496,7 @@
 							<br>
 						</div>
 					</section>
-				</div>
+				</div>ㄹ
 			</div>
 		</div>
 	</div> 	

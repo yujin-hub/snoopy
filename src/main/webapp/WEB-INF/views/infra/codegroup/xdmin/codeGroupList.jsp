@@ -393,9 +393,9 @@
 											</div>
 											<div class="col-3">
 												<select class="form-select wid3" name="shOptionDate">
-													<option value="">::날짜 선택::</option>
-													<option value="4">등록일</option>
-													<option value="5">수정일</option>
+													<option value="" <c:if test="${empty vo.shOptionDate}">selected</c:if>>::날짜 선택::</option>
+													<option value="4" <c:if test="${vo.shOptionDate eq 4}">selected</c:if>>등록일</option>
+													<option value="5" <c:if test="${vo.shOptionDate eq 5}">selected</c:if>>수정일</option>
 												</select>
 											</div>
 											<div class="col-3">

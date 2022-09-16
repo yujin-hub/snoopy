@@ -139,17 +139,14 @@
 	<br>
 	<br>
 	<div class= "container" id="wid2">
-		<h1 style="display: inline;">신규 회원 가입</h1> 
-		<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CJ ONE 회원 가입을 환영합니다. 신규 가입 시 가입 축하 쿠폰 3종을 드립니다.</span>
+		<h1 style="display: inline;">회원 정보</h1> 
 		<hr id="hr2">
 	</div>	
 	<br>
 	<br>
-	<br>
-	<center><img src="../../resources/images/icon2.jpg"></center>
-	<br>
-	<br>		
 	<div class= "container" id="wid2">
+		<form name="form" method="post" action="/member/memberInst">
+		<input type="hidden" name="seq" value="<c:out value="${vo.seq }"/>">
 		<h4>기본사항</h4>
 		<hr>
 		<div class="row">
@@ -189,6 +186,30 @@
 			</div>
 		</div>
 		<hr>
+		<div class="row">
+			<div class="col-2" id="cdiv">
+				<span>회원 번호</span>
+			</div>
+			<div class="col-4">
+				<input type="text" class="form-control" id="userseq" name="userseq" value="<c:out value="${item.userSeq }"/>">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-2" id="cdiv">
+				<span>회원 등급</span>
+			</div>
+			<div class="col-4">
+				<select class="form-select">
+					<option selected>::회원 등급::</option>
+					<option value="1">베이비 올리브</option>				
+					<option value="2">핑크 올리브</option>				
+					<option value="3">그린 올리브</option>				
+					<option value="4">블랙 올리브</option>				
+					<option value="5">골드 올리브</option>				
+				</select>
+			</div>
+		</div>
+		<hr>
 		<br>
 		<br>
 		<h4>필수입력 사항</h4>
@@ -198,32 +219,8 @@
 				<span>아이디</span>
 			</div>
 			<div class="col-3">
-				<input type="text" class="form-control" id="validationCustom01" aria-label="id">
+				<input type="text" class="form-control" id="id" name="id" value="<c:out value="${item.id }"/>">
 			</div>
-			<div class="col-2">
-			<!-- Button trigger modal -->
-				<button type="button" class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-				  ID 중복확인
-				</button>
-				<!-- Modal -->
-				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					 <div class="modal-dialog">
-						 <div class="modal-content">
-							 <div class="modal-header">
-								 <h5 class="modal-title" id="exampleModalLabel">Submit</h5>
-								 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							 </div>
-							 <div class="modal-body">
-							 	사용 가능한 아이디입니다.
-							 </div>
-							 <div class="modal-footer">
-							 	<button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
-							 </div>
-						 </div>
-					 </div>
-				</div>
-			</div>
-			<br>
 			<br>
 			<h6 style="margin-left: 190px;">※ 4자리 이상의 영문과 숫자 또는 이메일주소 형식으로 아이디 생성 가능합니다.</h6>
 		</div>
@@ -233,7 +230,7 @@
 				<span>비밀번호</span>
 			</div>
 			<div class="col-3">
-				<input type="password" class="form-control" id="validationCustom01" aria-label="passwordch">
+				<input type="password" class="form-control" id="pw" aria-label="pw" value="<c:out value="${item.pw }"/>">
 			</div>
 		</div>
 		<hr>	
@@ -242,7 +239,7 @@
 				<span>비밀번호 확인</span>
 			</div>
 			<div class="col-3">
-				<input type="password" class="form-control" id="validationCustom01" aria-label="passwordch">
+				<input type="password" class="form-control" id="pw" name="pw" value="<c:out value="${item.pw }"/>">
 			</div>
 			<div class="col-5">
 				<h6 style="margin-top: 11px;">(8~16자의 [대/소]문자, 숫자, 특수문자 조합 생성, 공백사용 불가)</h6>
@@ -298,7 +295,7 @@
 				<span>연락처</span>
 			</div>
 			<div class="col-1">
-				<select class="form-select" aria-label="validationCustom04">
+				<select class="form-select">
 					<option selected>010</option>
 					<option value="2">070</option>
 					<option value="3">02</option>

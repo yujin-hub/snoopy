@@ -36,4 +36,21 @@
 			</choose>		
 	</select>
 
+	<update id="update">
+		UPDATE user
+		SET 
+			userGrade = #{userGrade}
+			, pw = #{pw}
+			, nickname = #{nickname}
+			, userDelNY = #{userDelNY}
+	</update>
+	
+	<select id="selectOne" resultMap ="resultMapObj">
+		SELECT 
+			a.*
+		FROM user a
+		WHERE 1=1
+			AND a.userseq = #{userseq}
+	</select>
+	
 </mapper>	

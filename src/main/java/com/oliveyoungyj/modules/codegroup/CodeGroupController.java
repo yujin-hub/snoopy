@@ -18,9 +18,15 @@ public class CodeGroupController {
 	@Autowired
 	CodeGroupServiceImpl service;
 	
+	public void setSearchAndPaging(CodeGroupVo vo) throws Exception{
+		vo.setShDelNY(vo.getShDelNY() == null ? 0 : vo.getShDelNY());
+	}
+	
 	@RequestMapping(value = "codeGroupList")
 	public String codeGroupList(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception {
-
+		
+		setSearchAndPaging(vo);
+		
 		System.out.println("vo.getShValue(): " + vo.getShValue());
 		System.out.println("vo.getShOption(): " + vo.getShOption());
 		System.out.println("vo.getShDelNY(): " + vo.getShDelNY());

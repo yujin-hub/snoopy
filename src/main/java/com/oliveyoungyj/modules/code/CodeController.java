@@ -19,6 +19,7 @@ public class CodeController {
 
 	public void setSearchAndPaging(CodeVo vo) throws Exception {
 		vo.setParamsPaging(service.selectOneCount(vo));
+		vo.setShUseNY(vo.getShUseNY() == null ? 1 : vo.getShUseNY());
 	}
 	
 	@RequestMapping(value = "codeList") 
@@ -31,7 +32,6 @@ public class CodeController {
 			model.addAttribute("list", list);
 		}
 			
-		
 		System.out.println("vo.getShValue(): " + vo.getShValue());
 		System.out.println("vo.getShOption(): " + vo.getShOption());
 		System.out.println("vo.getShUseNY(): " + vo.getShUseNY());
