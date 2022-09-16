@@ -276,121 +276,124 @@
 			</div>
 			<div class="col-10">
 				<form method="form" name="form" action="/code/codeInst" autocomplete="off">
-					<input type="hidden" name="seq" value="<c:out value="${vo.seq }"/>">
-					<div class="main left2">
-						<input class="input" id="tab1" type="radio" name="tabs" disabled> 
-						<label for="tab1" class="label1">코드</label>
-						
-						<input class="input" id="tab2" type="radio" name="tabs" checked> 
-						<label for="tab2" class="label1">코드 등록</label>
-						
-						<section id="content2">
-							<div class="row">
-								<div class="col-6">
-									<br>
-									<label for="useNY" class="form-label">사용여부</label>
-									<select class="form-select" aria-label="Default select example">
-										<option selected>선택하세요</option>
-										<option value="1">Y</option>
-										<option value="2">N</option>
-									</select>
+					<%@include file="codeVo.jsp"%>	
+						<input type="hidden" name="seq" value="<c:out value="${vo.seq }"/>">
+						<div class="main left2">
+							<input class="input" id="tab1" type="radio" name="tabs" disabled> 
+							<label for="tab1" class="label1">코드</label>
+							
+							<input class="input" id="tab2" type="radio" name="tabs" checked> 
+							<label for="tab2" class="label1">코드 등록</label>
+							
+							<section id="content2">
+								<div class="row">
+									<div class="col-6">
+										<br>
+										<label for="useNY" class="form-label">사용여부</label>
+										<select class="form-select" aria-label="Default select example">
+											<option selected>선택하세요</option>
+											<option value="1">Y</option>
+											<option value="2">N</option>
+										</select>
+									</div>
+									<div class="col-6">
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="code" class="form-label">코드그룹 번호</label>
+										<input type="text" class="form-control" id="codeGroup_seq" name="codeGroup_seq" value="<c:out value="${item.codeGroup_seq }"/>">
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="code" class="form-label">코드</label>
+										<input type="text" class="form-control" value="자동생성" readonly>
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="codeA" class="form-label">코드 (Another)</label>
+										<input type="text" class="form-control" id="codeseq" name="codeseq" value="<c:out value="${item.codeseq }"/>">
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="codename" class="form-label">코드 이름(한글)</label>
+										<input type="text" class="form-control" id="name" name="name" value="<c:out value="${item.name }"/>">
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="codenameEng" class="form-label">코드 이름 (영문)</label>
+										<input type="text" class="form-control" id="nameEng" name="nameEng" value="<c:out value="${item.nameEng }"/>">
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="useNY2" class="form-label">사용여부</label>
+										<select class="form-select" aria-label="Default select example">
+											<option selected>Y</option>
+											<option value="2">N</option>
+										</select>
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="order" class="form-label">순서</label>
+										<input type="text" class="form-control" aria-describedby="basic-addon1">
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="desc" class="form-label">설명</label>
+										<textarea class="form-control" aria-label="With textarea"></textarea>
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="useNY2" class="form-label">삭제여부</label>
+										<select class="form-select">
+											<option selected>N</option>
+											<option value="2">Y</option>
+										</select>
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="pre1" class="form-label">예비1 (varchar type)</label>
+										<input type="text" class="form-control" >
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="pre2" class="form-label">예비2 (varchar type)</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="pre3" class="form-label">예비3 (varchar type)</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="intpre1" class="form-label">예비1 (int type)</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="intpre2" class="form-label">예비2 (int type)</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-6">
+										<br>
+										<label for="intpre3" class="form-label">예비3 (int type)</label>
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-6">
+									</div>
 								</div>
-								<div class="col-6">
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="code" class="form-label">코드그룹 번호</label>
-									<input type="text" class="form-control" id="codeGroup_seq" name="codeGroup_seq" value="<c:out value="${item.codeGroup_seq }"/>">
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="code" class="form-label">코드</label>
-									<input type="text" class="form-control" value="자동생성" readonly>
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="codeA" class="form-label">코드 (Another)</label>
-									<input type="text" class="form-control" id="codeseq" name="codeseq" value="<c:out value="${item.codeseq }"/>">
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="codename" class="form-label">코드 이름(한글)</label>
-									<input type="text" class="form-control" id="name" name="name" value="<c:out value="${item.name }"/>">
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="codenameEng" class="form-label">코드 이름 (영문)</label>
-									<input type="text" class="form-control" id="nameEng" name="nameEng" value="<c:out value="${item.nameEng }"/>">
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="useNY2" class="form-label">사용여부</label>
-									<select class="form-select" aria-label="Default select example">
-										<option selected>Y</option>
-										<option value="2">N</option>
-									</select>
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="order" class="form-label">순서</label>
-									<input type="text" class="form-control" aria-describedby="basic-addon1">
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="desc" class="form-label">설명</label>
-									<textarea class="form-control" aria-label="With textarea"></textarea>
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="useNY2" class="form-label">삭제여부</label>
-									<select class="form-select">
-										<option selected>N</option>
-										<option value="2">Y</option>
-									</select>
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="pre1" class="form-label">예비1 (varchar type)</label>
-									<input type="text" class="form-control" >
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="pre2" class="form-label">예비2 (varchar type)</label>
-									<input type="text" class="form-control">
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="pre3" class="form-label">예비3 (varchar type)</label>
-									<input type="text" class="form-control">
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="intpre1" class="form-label">예비1 (int type)</label>
-									<input type="text" class="form-control">
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="intpre2" class="form-label">예비2 (int type)</label>
-									<input type="text" class="form-control">
-								</div>
-								<div class="col-6">
-									<br>
-									<label for="intpre3" class="form-label">예비3 (int type)</label>
-									<input type="text" class="form-control">
-								</div>
-								<div class="col-6">
-								</div>
-							</div>
-							<br>
-							<br>
-							<button class="btn btn-secondary" onClick="list()"><i class="fa-solid fa-list-ul"></i></button>
-							<button type="button" class="btn btn-space btn-success right" id="btnSave"><i class="fa-solid fa-bookmark"></i></button>		
-							<button class="btn btn-space btn-danger right"><i class="fa-solid fa-trash-can"></i></button>		
-							<button type="button" class="btn btn-space btn-danger right">
-		   						<i class="fa-solid fa-x"></i>
-							</button>
-						</section>
+								<br>
+								<br>
+								<button type="button" class="btn btn-secondary" id="btnList"><i class="fa-solid fa-list-ul"></i></button>
+								<button type="button" class="btn btn-space btn-success right" id="btnSave"><i class="fa-solid fa-bookmark"></i></button>		
+								<button class="btn btn-space btn-danger right"><i class="fa-solid fa-trash-can"></i></button>		
+								<button type="button" class="btn btn-space btn-danger right">
+			   						<i class="fa-solid fa-x"></i>
+								</button>
+							</section>
+						</div>
 					</form>
+				</form>
 				</div>
 			</div>
 		</div>
@@ -482,6 +485,11 @@
 		}); 
 		
 		
+		$("#btnList").on("click", function(){
+			form.attr("action", goUrlList).submit();
+		});
+		
+		
 	 function mypage()
 		{
 		     location.href = "../member/mypage.html";
@@ -495,11 +503,6 @@
 	 function mem()
 		{
 		     location.href = "memberView.html";
-		}
-	 
-	 function list()
-		{
-		     location.href = "codeList";
 		}
 	 
 </script>

@@ -54,12 +54,14 @@ public class CodeController {
 	}
 	
 	@RequestMapping(value = "codeInst")
-	public String codeInst(Code dto) throws Exception {
+	public String codeInst(CodeVo vo, Code dto, RedirectAttributes redirectAttributes) throws Exception {
 		
-		int result = service.insert(dto);
-		System.out.println("Controller result: " + result);
+		service.insert(dto);
 		
-		return "redirect:/code/codeList";
+		vo.setSeq(dto.getSeq());
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/code/codeForm";
 	}
 	
 	@RequestMapping(value = "codeUpdt")
@@ -67,7 +69,7 @@ public class CodeController {
 		
 		service.update(dto);
 		redirectAttributes.addFlashAttribute("vo", vo);
-		return "redirect:/code/codeList";
+		return "redirect:/code/codeForm";
 	}
 	
 	@RequestMapping(value = "codeView")

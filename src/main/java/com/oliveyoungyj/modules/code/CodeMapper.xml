@@ -39,6 +39,7 @@
 			    , b.regDate
 			    , b.modDate
 		<include refid="selectCommon" />
+			ORDER BY b.codeGroup_Seq
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
 	

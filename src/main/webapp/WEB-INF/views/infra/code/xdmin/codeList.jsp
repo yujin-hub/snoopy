@@ -381,10 +381,11 @@
 							<div class="container box">
 								<br>
 								<div class="container wid6">
-									<form method="post" name="form">
+									<form method="post" name="formList">
 										<input type="hidden" name="mainKey">
 										<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
 										<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
+										<input type="hidden" name="checkboxSeqArray" >
 										
 										<div class="row">
 											<div class="col-3">
@@ -480,13 +481,12 @@
 													<td><c:out value="${list.seq }"/></td>
 													<td><c:out value="${list.codeGroup_seq }"/></td>
 													<td>
-														<a href="/code/codeForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.propertyKor }"/></a>
+														<a href="javascript:goForm(<c:out value="${list.seq}"/>)"><c:out value="${list.propertyKor }"/></a>
 													</td>
-													
 													<td><c:out value="${list.codeseq }"/></td>
 													<td></td>
 													<td>
-														<a href="/code/codeForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.name }"/></a>
+														<a href="javascript:goForm(<c:out value="${list.seq}"/>)"><c:out value="${list.name }"/></a>
 													</td>
 													<td><c:out value="${list.nameEng }"/></td>
 													<td>
@@ -612,9 +612,27 @@
 		var goUrlUpdt = "/code/codeUpdt";				/* #-> */
 		var goUrlUele = "/code/codeUele";				/* #-> */
 		var goUrlDele = "/code/codeDele";				/* #-> */
-	 	
-		var form = $("form[name=form]");
+	 	var goUrlForm = "/code/codeForm";
+		
+		var form = $("form[name=formList]");
 
+		var seq = $("input:hidden[name=seq]");
+
+		$('#btnForm').on("click", function() {
+			goForm(0);                
+		});
+
+		goForm = function(keyValue) {
+	    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
+	    	seq.val(keyValue);
+			form.attr("action", goUrlForm).submit();
+		}
+
+		goList = function(thisPage){
+			$("input:hidden[name=thisPage]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		}
+		
 	 	$("#btnSearch").on("click", function(){
 	 		form.attr("action", goUrlList).submit();
 	 	});
@@ -644,7 +662,6 @@
 		{
 		     location.href = "codeForm";
 		}
-	 
 	 	
 		$(document).ready(function(){
 			$("input.shDate").datepicker();
@@ -662,17 +679,6 @@
 		    showMonthAfterYear: true,
 		    yearSuffix: '년'
 		});
-		
-		
-		goForm = function(keyValue) {
-			mainKey.val(keyValue);
-			form.attr("action", goUrlForm).submit();
-		}
-		
-		goList = function(thisPage){
-			$("input:hidden[name=thisPage]").val(thisPage);
-			form.attr("action", goUrlList).submit();
-		}
 		
 </script>
 

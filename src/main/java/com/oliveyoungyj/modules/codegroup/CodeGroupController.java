@@ -27,7 +27,6 @@ public class CodeGroupController {
 		
 		setSearchAndPaging(vo);
 		
-		System.out.println("vo.getShValue(): " + vo.getShValue());
 		System.out.println("vo.getShOption(): " + vo.getShOption());
 		System.out.println("vo.getShDelNY(): " + vo.getShDelNY());
 		
@@ -43,14 +42,15 @@ public class CodeGroupController {
 //		return "infra/codegroup/xdmin/codeGroupForm";
 //	}
 	
-	
 	@RequestMapping(value = "codeGroupInst")
-	public String codeGroupInst(CodeGroup dto) throws Exception {
+	public String codeGroupInst(CodeGroupVo vo, CodeGroup dto, RedirectAttributes redirectAttributes) throws Exception {
 		
-		int result = service.insert(dto);
-		System.out.println("Controller result: " + result);
+		service.insert(dto);
 		
-		return "redirect:/codeGroup/codeGroupList";
+		vo.setSeq(dto.getSeq());
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/codeGroup/codeGroupForm";
 	}
 	
 	@RequestMapping(value = "codeGroupUpdt")
@@ -58,7 +58,7 @@ public class CodeGroupController {
 		
 		service.update(dto);
 		redirectAttributes.addFlashAttribute("vo", vo);
-		return "redirect:/codeGroup/codeGroupList";
+		return "redirect:/codeGroup/codeGroupForm";
 	}
 	
 	@RequestMapping(value = "codeGroupUele")

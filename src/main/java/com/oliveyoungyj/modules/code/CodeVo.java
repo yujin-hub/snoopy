@@ -84,7 +84,6 @@ public class CodeVo {
 	public void setNameEng(String nameEng) {
 		this.nameEng = nameEng;
 	}
-
 	public Integer getCodeGroup_seq() {
 		return codeGroup_seq;
 	}
