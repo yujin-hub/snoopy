@@ -277,7 +277,6 @@
 			<div class="col-10">
 				<form method="form" name="form" action="/code/codeInst" autocomplete="off">
 					<%@include file="codeVo.jsp"%>	
-						<input type="hidden" name="seq" value="<c:out value="${vo.seq }"/>">
 						<div class="main left2">
 							<input class="input" id="tab1" type="radio" name="tabs" disabled> 
 							<label for="tab1" class="label1">코드</label>

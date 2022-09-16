@@ -382,7 +382,7 @@
 								<br>
 								<div class="container wid6">
 									<form method="post" name="formList">
-										<input type="hidden" name="mainKey">
+										<input type="hidden" name="seq">
 										<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
 										<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
 										<input type="hidden" name="checkboxSeqArray" >
@@ -625,14 +625,9 @@
 		goForm = function(keyValue) {
 	    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
 	    	seq.val(keyValue);
-			form.attr("action", goUrlForm).submit();
+	    	form.attr("action", goUrlForm).submit();
 		}
 
-		goList = function(thisPage){
-			$("input:hidden[name=thisPage]").val(thisPage);
-			form.attr("action", goUrlList).submit();
-		}
-		
 	 	$("#btnSearch").on("click", function(){
 	 		form.attr("action", goUrlList).submit();
 	 	});
@@ -642,6 +637,10 @@
 	 		$(location).attr("href", goUrlList);
 	 	});
 	 	
+	 	goList = function(thisPage){
+			$("input:hidden[name=thisPage]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		}
 	 	
 	 function mypage()
 		{
@@ -666,6 +665,7 @@
 		$(document).ready(function(){
 			$("input.shDate").datepicker();
 		}); 
+
 		
 		$.datepicker.setDefaults({
 		    dateFormat: 'yy-mm-dd',
@@ -684,5 +684,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/d843c66cc1.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </body>
 </html>
