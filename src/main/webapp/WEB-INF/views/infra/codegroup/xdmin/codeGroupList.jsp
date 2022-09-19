@@ -219,7 +219,8 @@
 		<div class="top_util">
 			<ul class="menu_list" id="menu_list_header">
 				<li class="login"><a href="#" data-attr='공통^헤더^로그인'><i class="fa-solid fa-wrench"></i> 매니저 님, 반갑습니다</a></li>
-				<li class="cart"><a href="../member/memberList.html"data-attr='공통^헤더^장바구니'>관리 홈<span id="cartToCnt"></span></a></li>
+				<li class="cart"><a href="../member/memberList.html">관리 홈<span id="cartToCnt"></span></a></li>
+				<li class="cart"><a href="#">로그아웃<span id="cartToCnt"></span></a></li>
 			</ul>
 		</div>
 		
@@ -604,7 +605,7 @@
 		});
 		
 	 	
- 	var goUrlList = "/codeGroup/codeGroupList"; 			/* #-> */
+ 	var goUrlList = "/codeGroup/codeGroupList";				// var: 변수 선언 예약어			/* #-> */
 	var goUrlInst = "/codeGroup/codeGroupInst"; 			/* #-> */
 	var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
 	var goUrlUele = "/codeGroup/codeGroupUele";				/* #-> */
