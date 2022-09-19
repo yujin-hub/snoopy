@@ -382,7 +382,12 @@
 							<div class="container box">
 								<br>
 								<div class="container wid6">
-									<form method="post">
+									<form method="post" name="formList">
+										<input type="hidden" name="seq">
+										<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+										<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
+										<input type="hidden" name="checkboxSeqArray" >
+										
 										<div class="row">
 											<div class="col-3">
 												<select id="shDelNY" name="shDelNY" class="form-select wid3" aria-label="Default select example">
@@ -499,15 +504,11 @@
 								</tbody>
 							</table>
 							<br>
-							<nav aria-label="...">
-								<ul class="pagination justify-content-center">
-									<li class="page-item active" aria-current="page">
-										<span class="page-link">1</span>
-									</li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-    								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								</ul>
-							</nav>
+							
+							<!-- pagination s -->
+							<%@include file="../../../common/xdmin/include/pagination.jsp"%>
+							<!-- pagination e -->
+							
 							<br>
 							<button class="btn btn3 btn-space btn-danger"><i class="fa-solid fa-trash-can"></i></button> 
 							<a class="btn btn3 btn-space btn-danger" role="button" ><i class="fa-solid fa-x"></i></a>			
@@ -609,15 +610,33 @@
 	var goUrlUele = "/codeGroup/codeGroupUele";				/* #-> */
 	var goUrlDele = "/codeGroup/codeGroupDele";				/* #-> */
 
+	var form = $("form[name=formList]");
+
+	var seq = $("input:hidden[name=seq]");
 	
+	$('#btnForm').on("click", function() {
+		goForm(0);                
+	});
+
 	$("#btnSearch").on("click", function(){
 		form.attr("action", goUrlList).submit();
 	});
 
- 		$("#btnReset").on("click", function(){
+	$("#btnReset").on("click", function(){
 		$(location).attr("href", goUrlList);
 	});
-	 
+	
+	goForm = function(keyValue) {
+    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
+    	seq.val(keyValue);
+    	form.attr("action", goUrlForm).submit();
+	}
+
+ 	goList = function(thisPage){
+		$("input:hidden[name=thisPage]").val(thisPage);
+		form.attr("action", goUrlList).submit();
+	}
+ 	
 	 function mypage()
 		{
 		     location.href = "../member/mypage.html";
@@ -650,8 +669,6 @@
 		    showMonthAfterYear: true,
 		    yearSuffix: '년'
 		});
-		
-		
 		
 </script>
 

@@ -389,7 +389,7 @@
 										
 										<div class="row">
 											<div class="col-3">
-												<select id="shUseNY" name="shUseNY"class="form-select wid3" aria-label="Default select example">
+												<select id="shUseNY" name="shUseNY"class="form-select wid3">
 													<option value="" <c:if test="${empty vo.shUseNY}">selected</c:if>>::사용여부::</option>
 													<option value="0" <c:if test="${vo.shUseNY eq 0}">selected</c:if>>N</option>
 													<option value="1" <c:if test="${vo.shUseNY eq 1}">selected</c:if>>Y</option>
@@ -684,6 +684,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/d843c66cc1.js" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </body>
 </html>

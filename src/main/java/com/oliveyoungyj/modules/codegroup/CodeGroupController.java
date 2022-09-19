@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
+
 @Controller
 @RequestMapping(value = "/codeGroup/")
 
@@ -19,6 +20,7 @@ public class CodeGroupController {
 	CodeGroupServiceImpl service;
 	
 	public void setSearchAndPaging(CodeGroupVo vo) throws Exception{
+		vo.setParamsPaging(service.selectOneCount(vo));
 		vo.setShDelNY(vo.getShDelNY() == null ? 0 : vo.getShDelNY());
 	}
 	
@@ -26,6 +28,11 @@ public class CodeGroupController {
 	public String codeGroupList(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception {
 		
 		setSearchAndPaging(vo);
+		
+		if(vo.getTotalRows() > 0) {
+			List<CodeGroup> list = service.selectList(vo);
+			model.addAttribute("list", list);
+		}
 		
 		System.out.println("vo.getShOption(): " + vo.getShOption());
 		System.out.println("vo.getShDelNY(): " + vo.getShDelNY());

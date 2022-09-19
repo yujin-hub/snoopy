@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public class CodeGroupDao {
 
@@ -40,5 +41,8 @@ public class CodeGroupDao {
 		System.out.println("dao result: " + result);
 		return result;    //codegroup 객체 하나 리턴
 	}
+	
+	public int selectOneCount(CodeGroupVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
 
 }

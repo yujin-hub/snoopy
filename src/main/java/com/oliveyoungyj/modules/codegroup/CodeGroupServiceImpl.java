@@ -12,17 +12,14 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	@Autowired
 	CodeGroupDao dao;
 	
-	
-	
 	// @Override
 	// public List<CodeGroup> selectList(CodeGroupVo vo) throws Exception{
 	// 		return dao.selectList(vo);
 	// }
 	
-	
 	@Override
 	public List<CodeGroup> selectList(CodeGroupVo vo) throws Exception {
-		List<CodeGroup> list =	dao.selectList(vo);
+		List<CodeGroup> list = dao.selectList(vo);
 		return list;
 	}
 	
@@ -54,7 +51,12 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 		System.out.println("service result: " + result);
 		return result;
 	}
-
+	
+	@Override
+	public int selectOneCount(CodeGroupVo vo) throws Exception {
+		return dao.selectOneCount(vo);
+	}
+	
 
 	
 }
