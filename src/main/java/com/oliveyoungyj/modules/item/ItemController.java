@@ -21,6 +21,9 @@ public class ItemController {
 		System.out.println("vo.getShValue(): " + vo.getShValue());
 		System.out.println("vo.getShOption(): " + vo.getShOption());
 		System.out.println("vo.getShStock(): " + vo.getShStock());
+		System.out.println("vo.getShDateStart(): " + vo.getShDateStart());
+		System.out.println("vo.getShDateEnd(): " + vo.getShDateEnd());
+		System.out.println("vo.getShOptionDate(): " + vo.getShOptionDate());
 		
 		
 		List<Item> list = service.selectList(vo);

@@ -30,6 +30,10 @@
 				<when test="shOption == 2">AND aa.name LIKE CONCAT('%',#{shValue },'%')</when>
 				<when test="shOption == 3">AND numPurchase LIKE CONCAT('%',#{shValue },'%')</when>
 			</choose>
+			
+			<choose>
+				<when test="shOptionDate == 4">AND aa.regist BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>	
 	</select>
 
 </mapper>	

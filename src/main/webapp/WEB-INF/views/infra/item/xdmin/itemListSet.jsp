@@ -378,13 +378,16 @@
 												</select>
 											</div>
 											<div class="col-3">
-												<input type="text" class="form-control mid" aria-label="accessdate" aria-describedby="basic-addon1" value="상품등록일" readonly>
+												<select name="shOptionDate" class="form-select">
+													<option value="" <c:if test="${empty vo.shOptionDate}"></c:if>>::날짜::</option>
+													<option value="4" class="form-control">상품등록일</option>
+												</select>
 											</div>
 											<div class="col-3">
-												<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+												<input type="text" id="shDateStart" class="form-control mid shDate" name="shDateStart" value="${vo.shDateStart}" placeholder="시작일" autocomplete="off">
 											</div>
 											<div class="col-3">
-												<input type="date" class="form-control mid" aria-label="date" aria-describedby="basic-addon1">
+												<input type="text" class="form-control mid shDate" id="shDateEnd" name="shDateEnd" value="${vo.shDateEnd}" placeholder="종료일" autocomplete="off">
 											</div>
 										</div>
 										<br>
@@ -592,6 +595,25 @@
 		     location.href = "itemView.html";
 		}
 	 
+	 
+
+		$(document).ready(function(){
+			 $("input.shDate").datepicker();
+		}); 
+
+		$.datepicker.setDefaults({
+		    dateFormat: 'yy-mm-dd',
+		    prevText: '이전 달',
+		    nextText: '다음 달',
+		    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		    showMonthAfterYear: true,
+		    yearSuffix: '년'
+		});
+		
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

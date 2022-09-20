@@ -497,7 +497,7 @@
 							<br>
 						</div>
 					</section>
-				</div>ㄹ
+				</div>
 			</div>
 		</div>
 	</div> 	

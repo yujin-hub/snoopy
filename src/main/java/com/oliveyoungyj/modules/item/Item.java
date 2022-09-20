@@ -1,7 +1,5 @@
 package com.oliveyoungyj.modules.item;
 
-import java.sql.Date;
-
 public class Item {
 
 	public String seq;
@@ -9,7 +7,7 @@ public class Item {
 	public String name;
 	public String price;
 	public String salePrice;
-	public Date regist;
+	public String regist;
 	public String numPurchase;
 	public Integer stock;
 	
@@ -44,10 +42,10 @@ public class Item {
 	public void setSalePrice(String salePrice) {
 		this.salePrice = salePrice;
 	}
-	public Date getRegist() {
+	public String getRegist() {
 		return regist;
 	}
-	public void setRegist(Date regist) {
+	public void setRegist(String regist) {
 		this.regist = regist;
 	}
 	public String getNumPurchase() {
