@@ -220,7 +220,7 @@
 		<hr>
 		<br>
 		<br>
-		<button type="button" class="btn btn-secondary" onClick="next()" style="float: right;">다음 <i class="fa-solid fa-angle-right"></i></button>
+		<a href="/member/regForm2"><button type="button" class="btn btn-secondary" style="float: right;">다음 <i class="fa-solid fa-angle-right"></i></button></a>
 	</div>
 	<br>
 	<br>
@@ -241,11 +241,7 @@
 
 
 	<script type="text/javascript">
-		function next()
-		{
-		     location.href = "regForm2.html";
-		}
-		
+
 	</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
