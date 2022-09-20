@@ -23,11 +23,17 @@ public class MemberDao {
 		return list; 
 	}
 	
-	public int update(Member dto) { return sqlSession.update(namespace + ".update", dto); }
+	public int update(Member dto) { 
+		return sqlSession.update(namespace + ".update", dto); 
+	}
 
 	public Member selectOne(MemberVo vo) {
 		Member result = sqlSession.selectOne(namespace + ".selectOne", vo);
 		System.out.println("dao result: " + result);
 		return result;    //codegroup 객체 하나 리턴
 	}
+	
+	public int selectOneCount(MemberVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
 }
+

@@ -6,6 +6,8 @@
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 <%@ page session="false" %>
 
+<jsp:useBean id="CodeServiceImpl" class="com.oliveyoungyj.modules.code.CodeServiceImpl"/>
+
 <!DOCTYPE html>
 <html lang="ko">
 	<head>		
@@ -366,7 +368,12 @@
 							<div class="container box">
 								<br>
 								<div class="container wid6">
-									<form method="post" action="/member/memberList">
+									<form method="post" name="formMem">
+										<input type="hidden" name="seq">
+										<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+										<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
+										<input type="hidden" name="checkboxSeqArray" >
+										
 										<div class="row">
 											<div class="col-2">
 												<select name="shGender" class="form-select">
@@ -453,20 +460,25 @@
 									</tr>
 								</thead>
 								<tbody class="table-group-divider">
+								<c:set var="CodeGenderlist" value="${CodeServiceImpl.selectListCachedCode('5')}"/>
 									<c:choose>
 										<c:when test="${fn:length(list) eq 0 }">
 											<td class="text-center" colspan="12">There is no data!</td>
 										</c:when>
 										<c:otherwise>
 											<c:forEach items="${list}" var="list" varStatus="status">
-												<tr class="cursor" onClick="mem()">
+												<tr class="cursor">
 													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
 													<td><c:out value="${list.userSeq }"/></td>
 													<td><c:out value="${list.userGrade }"/></td>
 													<td>
 														<a href="/member/memberForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.name }"/></a>
 													</td>
-													<td><c:out value="${list.gen}"/></td>
+													<td>
+														<c:forEach items="${CodeGenderlist}" var="Genderlist" varStatus="statusGender">
+															<c:if test="${list.gender eq Genderlist.seq}"><c:out value="${Genderlist.name }"/></c:if>
+														</c:forEach>
+													</td>
 													<td><c:out value="${list.tel }"/></td>
 													<td><c:out value="${list.email }"/></td>
 													<td><c:out value="${list.accessDate }"/></td>
@@ -483,13 +495,11 @@
 								</tbody>
 							</table>
 							<br>
-							<nav aria-label="...">
-								<ul class="pagination justify-content-center">
-									<li class="page-item active" aria-current="page">
-										<span class="page-link">1</span>
-									</li>
-								</ul>
-							</nav>
+							
+							<!-- pagination s -->
+							<%@include file="../../../common/xdmin/include/pagination.jsp"%>
+							<!-- pagination e -->
+							
 							<br>
 							<a class="btn btn2 btn-space" role="button"><i class="fa-solid fa-trash-can"></i></a>							
 							<br>
@@ -581,7 +591,12 @@
 			});
 		});
 		
-	 	 var goUrlList = "/member/memberList";
+	 	var goUrlList = "/member/memberList";
+	 	var goUrlForm = "/member/memberForm";
+
+		var form = $("form[name=formMem]");
+
+		var seq = $("input:hidden[name=seq]");
 		 
 		 
 		 $("#btnSearch").on("click", function(){
@@ -593,6 +608,18 @@
 			$(location).attr("href", goUrlList);	 
 		 });
 		 
+		 
+		goForm = function(keyValue) {
+		    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
+	    	seq.val(keyValue);
+	    	form.attr("action", goUrlForm).submit();
+		}
+
+	 	goList = function(thisPage){
+			$("input:hidden[name=thisPage]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		}
+		 	
 		 
 	 function mypage()
 		{

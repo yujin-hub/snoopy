@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-
 @Service
 public class MemberServiceImpl implements MemberService{
 	
@@ -30,6 +29,11 @@ public class MemberServiceImpl implements MemberService{
 		Member result = dao.selectOne(vo);
 		System.out.println("service result: " + result);
 		return result;
+	}
+	
+	@Override
+	public int selectOneCount(MemberVo vo) throws Exception {
+		return dao.selectOneCount(vo);
 	}
 	
 }

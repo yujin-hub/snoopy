@@ -475,13 +475,11 @@
 								</tbody>
 							</table>
 							<br>
-							<nav aria-label="...">
-								<ul class="pagination justify-content-center">
-									<li class="page-item active" aria-current="page">
-										<span class="page-link">1</span>
-									</li>
-								</ul>
-							</nav>
+							
+							<!-- pagination s -->
+							<%@include file="../../../common/xdmin/include/pagination.jsp"%>
+							<!-- pagination e -->
+							
 							<br>
 							<a class="btn btn2 btn-space" role="button"><i class="fa-solid fa-trash-can"></i></a>							
 							<a class="btn btn2 btn-space" role="button"><i class="fa-solid fa-plus"></i></a> 
@@ -574,6 +572,39 @@
 			});
 		});
 		
+	 	
+	 	var goUrlList = "/codeGroup/codeGroupList";				// var: 변수 선언 예약어			/* #-> */
+		var goUrlInst = "/codeGroup/codeGroupInst"; 			/* #-> */
+		var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
+		var goUrlUele = "/codeGroup/codeGroupUele";				/* #-> */
+		var goUrlDele = "/codeGroup/codeGroupDele";				/* #-> */
+
+		var form = $("form[name=formList]");
+
+		var seq = $("input:hidden[name=seq]");
+		
+		$('#btnForm').on("click", function() {
+			goForm(0);                
+		});
+
+		$("#btnSearch").on("click", function(){
+			form.attr("action", goUrlList).submit();
+		});
+
+		$("#btnReset").on("click", function(){
+			$(location).attr("href", goUrlList);
+		});
+		
+		goForm = function(keyValue) {
+	    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
+	    	seq.val(keyValue);
+	    	form.attr("action", goUrlForm).submit();
+		}
+
+	 	goList = function(thisPage){
+			$("input:hidden[name=thisPage]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		}
 	 	
 	 function mypage()
 		{

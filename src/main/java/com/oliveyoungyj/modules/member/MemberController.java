@@ -16,10 +16,20 @@ public class MemberController {
 	@Autowired
 	MemberServiceImpl service;
 	
-
+	public void setSearchAndPaging(MemberVo vo) throws Exception{
+		vo.setParamsPaging(service.selectOneCount(vo));
+	}
+	
 	@RequestMapping(value = "memberList")
 	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 
+		setSearchAndPaging(vo);
+		
+		if(vo.getTotalRows() > 0) {
+			List<Member> list = service.selectList(vo);
+			model.addAttribute("list", list);
+		}
+		
 		System.out.println("vo.getShValue(): " + vo.getShValue());
 		System.out.println("vo.getShOption(): " + vo.getShOption());
 		System.out.println("vo.getShDateStart(): " + vo.getShDateStart());

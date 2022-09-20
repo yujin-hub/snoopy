@@ -1,9 +1,12 @@
 package com.oliveyoungyj.modules.code;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Code {
 
 	public String seq;
-	public Integer codeGroup_seq;
+	public String codeGroup_seq;
 	public String propertyKor;
 	public Integer codeseq;
 	public String anotherCode;
@@ -14,16 +17,20 @@ public class Code {
 	public String regDate;
 	public String modDate;
 	
+	
+//	for cache
+	public static List<Code> cachedCodeArrayList = new ArrayList<Code>();
+	
 	public String getSeq() {
 		return seq;
 	}
 	public void setSeq(String seq) {
 		this.seq = seq;
 	}
-	public Integer getCodeGroup_seq() {
+	public String getCodeGroup_seq() {
 		return codeGroup_seq;
 	}
-	public void setCodeGroup_seq(Integer codeGroup_seq) {
+	public void setCodeGroup_seq(String codeGroup_seq) {
 		this.codeGroup_seq = codeGroup_seq;
 	}
 	public String getPropertyKor() {

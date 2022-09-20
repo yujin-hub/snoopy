@@ -47,6 +47,18 @@
 		SELECT COUNT(*)
 		<include refid="selectCommon" />
 	</select>
+	
+    <select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
+		SELECT 
+			seq
+			, name
+			, codeGroup_seq
+		FROM
+			Code
+		WHERE 1=1
+			AND delNY = 0
+		    AND useNY = 1
+    </select>
 
 	<insert id="insert">
 		INSERT INTO Code (

@@ -8,16 +8,7 @@
 
     <resultMap id="resultMapObj" type="com.oliveyoungyj.modules.member.Member"></resultMap>
 	
-	<select id="selectList" resultMap="resultMapObj">
-		SELECT 
-			a.userSeq
-			, a.userGrade
-			, a.name
-			, (SELECT b.name FROM Code b WHERE 1=1 AND a.gender = b.codeseq) as gen
-			, a.tel
-			, a.email
-			, a.accessDate
-			, a.userDelNY
+	<sql id="selectCommon">
 		FROM user a
 		WHERE 1=1
 			
@@ -34,6 +25,26 @@
 			<choose>
 				<when test="shOptionDate == 7">AND a.accessDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 			</choose>		
+	</sql>
+	
+	<select id="selectList" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+			SELECT 
+				a.userSeq
+				, a.userGrade
+				, a.name
+				, a.gender
+				, a.tel
+				, a.email
+				, a.accessDate
+				, a.userDelNY
+		<include refid="selectCommon" />
+		<include refid="Base.selectListLowerForMysql" />
+	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="selectCommon" />
 	</select>
 
 	<update id="update">

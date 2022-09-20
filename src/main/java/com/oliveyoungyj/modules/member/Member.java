@@ -5,7 +5,7 @@ public class Member {
 	public Integer userSeq;
 	public String userGrade;
 	public String name;
-	public String gen;
+	public Integer gender;
 	public String tel;
 	public String email;
 	public String accessDate;
@@ -35,11 +35,11 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getGen() {
-		return gen;
+	public Integer getGender() {
+		return gender;
 	}
-	public void setGen(String gen) {
-		this.gen = gen;
+	public void setGender(Integer gender) {
+		this.gender = gender;
 	}
 	public String getTel() {
 		return tel;
