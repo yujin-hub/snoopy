@@ -25,7 +25,6 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
-	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2091/PNG/512/settings_icon_128522.png">
     
    	<script src="https://kit.fontawesome.com/15c84217dd.js" crossorigin="anonymous"></script>
 	<!-- Bootstrap CSS -->
@@ -108,6 +107,11 @@
 		
 		.left{
 			margin-left: 20px;
+		}
+		
+		.form-control:disabled, .form-control[readonly] {
+		    background-color: #f2f2f2;
+		    opacity: 1;
 		}
 		
     </style>
@@ -261,28 +265,38 @@
 				<hr>
 				<span>자택 주소</span>
 				<div class="row gy-2">
-					<div class="col-4">
-						<input type="text" name="zip" class="form-control" id="validationCustom01" aria-label="post">
+					<div class="col-5">
+						<div class="input-group">
+							<input type="text" id="zip" class="form-control" placeholder="우편번호" disabled>
+							<button type="button" class="btn btn-outline-secondary" id="addrButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+							<button class="btn btn-outline-secondary" type="button" id="clearButton"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+						</div>
 					</div>
-					<div class="col-2">
-						<button type="button" class="btn btn-secondary" onclick="openZipSearch()"> 우편번호 검색 </button>
+					<div><input type="text" id="addr1" class="form-control" placeholder="주소" disabled></div>
+					<div class="col-6">
+						<input type="text" id="addr2" class="form-control" placeholder="상세주소">
 					</div>
-					<br>
-					<div><input type="text" name="addr1" class="form-control" id="validationCustom01" aria-label="addr"></div>
-					<div><input type="text" name="addr2" class="form-control" id="validationCustom01" aria-label="addr2"></div>
+					<div class="col-6">
+						<input type="text" id="addr3" class="form-control" placeholder="참고항목" disabled>
+					</div>
 				</div>
 				<hr>
 				<span>직장 주소</span>
 				<div class="row gy-2">
-					<div class="col-4">
-						<input type="text" class="form-control" id="validationCustom01" aria-label="post">
+					<div class="col-5">
+						<div class="input-group">
+							<input type="text" id="zip2" class="form-control" placeholder="우편번호" disabled>
+							<button type="button" class="btn btn-outline-secondary" id="addrButton2"><i class="fa-solid fa-magnifying-glass"></i></button>
+							<button class="btn btn-outline-secondary" type="button" id="clearButton2"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+						</div>
 					</div>
-					<div class="col-2">
-						<button type="button" class="btn btn-secondary"> 우편번호 검색 </button>
+					<div><input type="text" id="addr4" class="form-control" placeholder="주소" disabled></div>
+					<div class="col-6">
+						<input type="text" id="addr5" class="form-control" placeholder="상세주소">
 					</div>
-					<br>
-					<div><input type="text" class="form-control" id="validationCustom01" aria-label="addr"></div>
-					<div><input type="text" class="form-control" id="validationCustom01" aria-label="addr"></div>
+					<div class="col-6">
+						<input type="text" id="addr6" class="form-control" placeholder="참고항목" disabled>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -421,22 +435,104 @@
 		     location.href = "regForm.html";
 		}
 		
+		$("#addrButton").on("click", function(){
+			openZipSearch();
+		});
 		
+		$("#addrButton2").on("click", function(){
+			openZipSearch2();
+		});
+		
+		$("#clearButton").on("click", function(){
+			$("#zip").val('');
+			$("#addr1").val('');
+			$("#arrd2").val('');
+			$("#addr3").val('');
+		});
+		
+		$("#clearButton2").on("click", function(){
+			$("#zip2").val('');
+			$("#addr4").val('');
+			$("#arrd5").val('');
+			$("#addr6").val('');
+		});
 		
 		function openZipSearch() {
 		    new daum.Postcode({
 		          oncomplete: function(data) {
-		              $('[name=zip]').val(data.zonecode); // 우편번호 (5자리)
-		              $('[name=addr1]').val(data.address);
-		              $('[name=addr2]').val(data.buildingName);
+	        	    var addr = '';
+		  		    var extraAddr = '';
+		  		    
+		              if (data.userSelectedType === 'R') { 
+		                  addr = data.roadAddress;
+		              } else { 
+		                  addr = data.jibunAddress;
+		              }
+
+		              if(data.userSelectedType === 'R'){
+		                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+		                      extraAddr += data.bname;
+		                  }
+		                  if(data.buildingName !== '' && data.apartment === 'Y'){
+		                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+		                  }
+		                  if(extraAddr !== ''){
+		                      extraAddr = ' (' + extraAddr + ')';
+		                  }
+		                  document.getElementById("addr3").value = extraAddr;
+		              
+		              } else {
+		                  document.getElementById("addr3").value = '';
+		              }
+
+		              document.getElementById('zip').value = data.zonecode;
+		              document.getElementById("addr1").value = addr;
+		              document.getElementById("addr2").focus();
 		          }
 		    }).open();
-		} 
-		    
+
+		}
+		
+		function openZipSearch2() {
+		    new daum.Postcode({
+		          oncomplete: function(data) {
+	        	    var addr = '';
+		  		    var extraAddr = '';
+		  		    
+		              if (data.userSelectedType === 'R') { 
+		                  addr = data.roadAddress;
+		              } else { 
+		                  addr = data.jibunAddress;
+		              }
+
+		              if(data.userSelectedType === 'R'){
+		                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+		                      extraAddr += data.bname;
+		                  }
+		                  if(data.buildingName !== '' && data.apartment === 'Y'){
+		                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+		                  }
+		                  if(extraAddr !== ''){
+		                      extraAddr = ' (' + extraAddr + ')';
+		                  }
+		                  document.getElementById("addr6").value = extraAddr;
+		              
+		              } else {
+		                  document.getElementById("addr6").value = '';
+		              }
+
+		              document.getElementById('zip2').value = data.zonecode;
+		              document.getElementById("addr4").value = addr;
+		              document.getElementById("addr5").focus();
+		          }
+		    }).open();
+
+		}
+		
 	</script>
 	
-
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/d843c66cc1.js" crossorigin="anonymous"></script>
 </body>

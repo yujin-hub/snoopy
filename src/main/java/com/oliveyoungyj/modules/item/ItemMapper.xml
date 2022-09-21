@@ -8,6 +8,22 @@
 
     <resultMap id="resultMapObj" type="com.oliveyoungyj.modules.item.Item"></resultMap>
 	
+	<sql id ="selectCommon">
+		WHERE 1=1
+		
+		<if test="shStock != null and !shStock.equals('')">AND aa.stock = #{shStock}</if>
+	
+		<choose>
+			<when test="shOption == 1">AND brand LIKE CONCAT('%',#{shValue },'%')</when>
+			<when test="shOption == 2">AND aa.name LIKE CONCAT('%',#{shValue },'%')</when>
+			<when test="shOption == 3">AND numPurchase LIKE CONCAT('%',#{shValue },'%')</when>
+		</choose>
+		
+		<choose>
+			<when test="shOptionDate == 4">AND aa.regist BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+		</choose>	
+	</sql>
+	
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT aa.*
 		FROM 
@@ -21,19 +37,20 @@
 					, (SELECT FORMAT(a.numPurchase, 0)) as numPurchase
 					, a.stock
 				FROM item a ) AS aa
-		WHERE 1=1
-				
-			<if test="shStock != null and !shStock.equals('')">AND aa.stock = #{shStock}</if>
-	
-			<choose>
-				<when test="shOption == 1">AND brand LIKE CONCAT('%',#{shValue },'%')</when>
-				<when test="shOption == 2">AND aa.name LIKE CONCAT('%',#{shValue },'%')</when>
-				<when test="shOption == 3">AND numPurchase LIKE CONCAT('%',#{shValue },'%')</when>
-			</choose>
-			
-			<choose>
-				<when test="shOptionDate == 4">AND aa.regist BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-			</choose>	
 	</select>
-
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="selectCommon" />
+	</select>
+	
+	<select id="selectOne" resultMap ="resultMapObj">
+		SELECT 
+			a.*
+		FROM item a
+		WHERE 1=1
+			AND a.seq = #{seq}
+	</select>
+	
+	
 </mapper>	

@@ -368,7 +368,12 @@
 							<div class="container box">
 								<br>
 								<div class="container wid6">
-									<form method="post" action="/item/itemListSet">
+									<form method="post" name="formItem">
+										<input type="hidden" name="seq">
+										<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+										<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
+										<input type="hidden" name="checkboxSeqArray" >
+										
 										<div class="row">
 											<div class="col-3">
 												<select class="form-select" name="shStock">
@@ -573,13 +578,13 @@
 		});
 		
 	 	
-	 	var goUrlList = "/codeGroup/codeGroupList";				// var: 변수 선언 예약어			/* #-> */
-		var goUrlInst = "/codeGroup/codeGroupInst"; 			/* #-> */
-		var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
-		var goUrlUele = "/codeGroup/codeGroupUele";				/* #-> */
-		var goUrlDele = "/codeGroup/codeGroupDele";				/* #-> */
+	 	var goUrlList = "/item/itemList";				// var: 변수 선언 예약어			/* #-> */
+		var goUrlInst = "/item/itemInst"; 			/* #-> */
+		var goUrlUpdt = "/item/itemUpdt";				/* #-> */
+		var goUrlUele = "/item/itemUele";				/* #-> */
+		var goUrlDele = "/item/itemDele";				/* #-> */
 
-		var form = $("form[name=formList]");
+		var form = $("form[name=formItem]");
 
 		var seq = $("input:hidden[name=seq]");
 		

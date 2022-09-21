@@ -20,5 +20,14 @@ public class ItemDao {
 		List<Item> list = sqlSession.selectList("com.oliveyoungyj.modules.item.ItemMapper.selectList", vo);
 		return list; 
 	}
+	
+	public Item selectOne(ItemVo vo) {
+		Item result = sqlSession.selectOne(namespace + ".selectOne", vo);
+		System.out.println("dao result: " + result);
+		return result;   
+	}
+	
+	public int selectOneCount(ItemVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
 
 }

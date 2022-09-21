@@ -15,4 +15,16 @@ public class ItemServiceImpl implements ItemService{
 		List<Item> list = dao.selectList(vo);
 		return list;
 	}
+	
+	@Override
+	public Item selectOne(ItemVo vo) throws Exception {
+		Item result = dao.selectOne(vo);
+		System.out.println("service result: " + result);
+		return result;
+	}
+	
+	@Override
+	public int selectOneCount(ItemVo vo) throws Exception {
+		return dao.selectOneCount(vo);
+	}
 }
