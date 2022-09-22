@@ -3,6 +3,7 @@ package com.oliveyoungyj.modules.item;
 public class Item {
 
 	public String seq;
+	public Integer brand_list_seq;
 	public String brand;
 	public String name;
 	public String price;
@@ -18,6 +19,12 @@ public class Item {
 		this.seq = seq;
 	}
 	
+	public Integer getBrand_list_seq() {
+		return brand_list_seq;
+	}
+	public void setBrand_list_seq(Integer brand_list_seq) {
+		this.brand_list_seq = brand_list_seq;
+	}
 	public String getBrand() {
 		return brand;
 	}

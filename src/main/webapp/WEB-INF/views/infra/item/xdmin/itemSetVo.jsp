@@ -2,8 +2,9 @@
 
 <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
 <input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
-
+<%-- 
 <input type="hidden" name="shDelNY" value="<c:out value="${vo.shDelNY}"/>"/>
+ --%>
 <input type="hidden" name="shOptionDate" value="<c:out value="${vo.shOptionDate}"/>"/>
 
 <input type="hidden" name="shDateStart" value="<c:out value="${vo.shDateStart}"/>"/>

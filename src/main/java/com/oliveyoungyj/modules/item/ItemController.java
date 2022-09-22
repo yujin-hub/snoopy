@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -20,7 +21,7 @@ public class ItemController {
 	}
 
 	@RequestMapping(value = "itemListSet")
-	public String itemListSet(Model model, ItemVo vo) throws Exception {
+	public String itemListSet(@ModelAttribute("vo") ItemVo vo, Model model) throws Exception {
 		
 		setSearchAndPaging(vo);
 		
@@ -36,9 +37,6 @@ public class ItemController {
 		System.out.println("vo.getShDateEnd(): " + vo.getShDateEnd());
 		System.out.println("vo.getShOptionDate(): " + vo.getShOptionDate());
 		
-		
-		List<Item> list = service.selectList(vo);
-		model.addAttribute("list", list);
 		
 		return "infra/item/xdmin/itemListSet";
 	}

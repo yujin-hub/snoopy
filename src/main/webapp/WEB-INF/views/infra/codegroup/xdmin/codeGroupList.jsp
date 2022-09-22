@@ -391,7 +391,7 @@
 										
 										<div class="row">
 											<div class="col-3">
-												<select id="shDelNY" name="shDelNY" class="form-select wid3" aria-label="Default select example">
+												<select id="shDelNY" name="shDelNY" class="form-select wid3">
 													<option value="" <c:if test="${empty vo.shDelNY}">selected</c:if>>::삭제여부::</option>
 													<option value="0" <c:if test="${vo.shDelNY eq 0}">selected</c:if>>N</option>
 													<option value="1" <c:if test="${vo.shDelNY eq 1}">selected</c:if>>Y</option>

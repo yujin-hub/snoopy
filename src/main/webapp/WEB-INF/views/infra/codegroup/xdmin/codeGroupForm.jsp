@@ -393,7 +393,7 @@
 							<br>
 							<br>
 						</div>
-						<button class="btn btn-secondary" onClick="list()"><i class="fa-solid fa-list-ul"></i></button>
+						<button class="btn btn-secondary" id="btnList"><i class="fa-solid fa-list-ul"></i></button>
 						<button type="button" class="btn btn-space btn-success right" id="btnSave"><i class="fa-solid fa-bookmark"></i></button>		
 						<button class="btn btn-space btn-danger right"><i class="fa-solid fa-trash-can"></i></button>		
 						<button type="button" class="btn btn-space btn-danger right">
@@ -523,7 +523,10 @@
 	   	}
 	}); 
 	
-	 	
+	$("#btnList").on("click", function(){
+		form.attr("action", goUrlList).submit();
+	});
+	
 	/* $("#btnUelete").on("click", function(){
 		$("input:hidden[name=deleteType]").val(1);
 		$(".modal-title").text("확인");

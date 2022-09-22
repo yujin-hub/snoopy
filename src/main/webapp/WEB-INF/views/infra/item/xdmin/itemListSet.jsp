@@ -329,20 +329,20 @@
 				<br>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link" href="../member/memberlist.html">회원 관리</a>
+						<a class="nav-link" href="../member/memberlist">회원 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="itemlist.html">상품 관리</a>
+						<a class="nav-link" href="itemlistSet">상품 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../order/orderList.html">주문 관리</a>
+						<a class="nav-link" href="../order/orderList">주문 관리</a>
 					</li>
 				<br>
 				<br>
 				<span class="font">Code</span>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link" href="../code/codeGroup.html">코드 그룹 관리</a>
+						<a class="nav-link" href="../codegroup/codeGroup">코드 그룹 관리</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">코드 관리</a>
@@ -578,11 +578,12 @@
 		});
 		
 	 	
-	 	var goUrlList = "/item/itemList";				// var: 변수 선언 예약어			/* #-> */
+	 	var goUrlList = "/item/itemListSet";				// var: 변수 선언 예약어			/* #-> */
 		var goUrlInst = "/item/itemInst"; 			/* #-> */
 		var goUrlUpdt = "/item/itemUpdt";				/* #-> */
 		var goUrlUele = "/item/itemUele";				/* #-> */
 		var goUrlDele = "/item/itemDele";				/* #-> */
+		var goUrlForm = "/item/itemForm";				/* #-> */
 
 		var form = $("form[name=formItem]");
 
@@ -610,27 +611,6 @@
 			$("input:hidden[name=thisPage]").val(thisPage);
 			form.attr("action", goUrlList).submit();
 		}
-	 	
-	 function mypage()
-		{
-		     location.href = "../member/mypage.html";
-		}
-	 
-	 function home()
-		{
-		     location.href = "../item/itemList.html";
-		}
-	 
-	 function mem()
-		{
-		     location.href = "memberView.html";
-		}
-	 
-	 function item()
-		{
-		     location.href = "itemView.html";
-		}
-	 
 	 
 
 		$(document).ready(function(){
