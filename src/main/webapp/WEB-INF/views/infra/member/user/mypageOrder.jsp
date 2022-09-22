@@ -22,6 +22,7 @@
 
 	<title>마이페이지</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e2405cb6e30cd78e7478b78325118dec&libraries=services"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
@@ -34,9 +35,10 @@
     <!-- jquery ui CSS -->    
     <link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">    
     <!-- user css -->
-    <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
+    <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" /> 
     
- 	<style type ="text/css">
+        
+    <style type ="text/css">
 		.back-to-top-css {
 		    position: fixed;
 		    bottom: 20px;
@@ -50,6 +52,10 @@
 		.text{
 			font-size: 25px;
 			font-weight: bold;
+		}
+		
+		.text2{
+			text-align: center;
 		}
 		
 		.nav{
@@ -131,20 +137,53 @@
 			text-align: center;
 		}
 		
-		a{
-			color: white;
+		.font7{
+			color: #9DCC30;
+			font-weight: bold;
 		}
 		
-		a:hover {
-			color: white;
+		.font8{
+			font-size: 10px;
 		}
 		
 		.left{
 			margin-left: 100px;
 		}	
 		
+		.left2{
+			margin-left: 28px;
+		}
+		
+		.left3{
+			margin-left: 20px;
+		}
+		
+		.left4{
+			margin-left: 23px;
+		}
+		
+		.left5{
+			margin-left: 75px;
+			text-align: center;
+		}
+		
+		.left6{
+			margin-left: 116px;
+			text-align: center;
+		}
+		
+		.left7{
+			margin-left: 5px;
+			text-align: center;
+		}
+		
+		.left8{
+			margin-left: 5px;
+			text-align: center;
+		}
+		
 		.mydiv{
-			background-color: #F9F9F9;
+			background-color: #F9F9F9; 
 			width: 840px;
 		}
 			
@@ -187,6 +226,47 @@
 			border: 1px solid; 
     		display: block !important;
     		width: 400px !important;
+		}
+		
+		#bdiv{
+	   		background-color: #f7f7f7;
+	   		margin-left: 2px; 
+	   		line-height: 35px;
+	   		color: #2b2b2b;
+	   		font-size: 15px;
+	   		width: 836px;
+		}
+		
+		.top{
+			margin-top: 50px;
+		}
+		
+		.top2{
+			margin-top: 60px;
+		}
+		
+		.red{
+			color: #C21E1E;
+		}
+		
+		.active>.page-link, .page-link.active {
+		    color: black;
+		    background-color: #ffffff;
+		    border-color: #bfbfbf (--bs-pagination-active-border-color);
+			border-width: 2px;
+		}
+		
+		.pagination {
+		    --bs-pagination-color: none (--bs-link-color);
+		    --bs-pagination-active-border-color: black;
+		 }
+		
+		a{
+			color: white;
+		}
+		
+		a:hover {
+			color: white;
 		}
 		
 	</style>
@@ -336,7 +416,7 @@
 						<span>PINK OLIVE &nbsp;&nbsp;최유진님 반갑습니다.</span>
 					</div>
 					<div class="col-2 profile">
-						<span class="cursor font7"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp;></a></span>
+						<span class="cursor"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp; ></a></span>
 					</div>
 					<div class="row left">
 						<div class="col-4">
@@ -371,7 +451,7 @@
 			<div class="col-2">
 			</div>
 			<div class="col-10">
-				<span class="font3">주문/배송</span>
+				<span class="font3">주문/배송 조회</span>
 				&nbsp;&nbsp;
 				<span class="font4">(최근&nbsp;1개월)</span>
 				<br>
@@ -430,62 +510,103 @@
 			<div class="col-2">
 			</div>
 			<div class="col-10">
-				<span class="font3">좋아요</span>
+				<span class="font3">구매 내역</span>
 				<hr>
-				<br>
-				<br>
-				<br>
-				<div class="font5">
-					<i class="fa-solid fa-circle-exclamation"></i>
+				<div class="row" id="bdiv">
+					<div class="col-2 left4">
+						<span>주문일자</span>
+					</div>
+					<div class="col-2 left5">
+						<span>상품정보</span>
+					</div>
+					<div class="col-1 left6">
+						<span>수량</span>
+					</div>
+					<div class="col-2 left7">
+						<span>주문금액</span>
+					</div>
+					<div class="col-1 left8">
+						<span>상태</span>
+					</div>
 				</div>
-				<br>
-				<div class="font6">
-					<span>좋아요한 상품이 없습니다.</span>
-				</div>
-				<br>
-				<br>				
+				<hr>
 			</div>
 		</div>
-		<br>
-		<br>
-		<br>
 		<div class="row">
 			<div class="col-2">
 			</div>
 			<div class="col-10">
-				<div class="row">
-					<div class="col-6">
-						<span class="font3">1 : 1 문의내역</span>
-						<hr class="hr2">
-						<div class="font6">
-							<br>
-							<br>
-							<br>
-							<span>최근 1개월간 문의하신 내용이 없습니다.</span>
-							<br>
-							<br>
-							<br>
-						</div>
+				<div class="row text2">
+					<div class="col-1 left2 top">
+						<span>2022.07.17</span>
+						<br>
+						<span class="font7">5486121923</span>
 					</div>
-					<div class="col-6">
-						<span class="font3">상품 Q&A 내역</span>
-						<hr class="hr2">
-						<div class="font6">
-							<br>
-							<br>
-							<br>
-							<span>최근 1개월간 문의하신 내용이 없습니다.</span>
-							<br>
-							<br>
-							<br>
-						</div>
+					<div class="col-2 left3">
+						<img src="../../resources/images/winter2.jpg">
+					</div>
+					<div class="col-3 left3 top">
+						<span class="font8">클리오</span>
+						<br>
+						<span>클리오 프로아이팔레트 AD</span>
+					</div>
+					<div class="col-1 top2">
+						<span>1개</span>
+					</div>
+					<div class="col-2 top2">
+						<span class="red">15,400원</span>
+					</div>
+					<div class="col-1 top2">
+						<span>결제완료</span>
 					</div>
 				</div>
-				<br>
-				<br>
-				<br>
+				<hr>
+			</div>
+			<div class="col-2">
+			</div>
+			<div class="col-10">
+				<div class="row text2">
+					<div class="col-1 left2 top">
+						<span>2022.06.29</span>
+						<br>
+						<span class="font7">1365795425</span>
+					</div>
+					<div class="col-2 left3">
+						<img src="../../resources/images/mask.jpg">
+					</div>
+					<div class="col-3 left3 top">
+						<span class="font8">리얼베리어</span>
+						<br>
+						<span>리얼베리어 아쿠아 수딩 크림 마스크</span>
+					</div>
+					<div class="col-1 top2">
+						<span>10개</span>
+					</div>
+					<div class="col-2 top2">
+						<span class="red">12,000원</span>
+					</div>
+					<div class="col-1 top2">
+						<span>배송완료</span>
+					</div>
+				</div>
+				<hr>
+			</div>
+			<div class="col-2">
+			</div>
+			<div class="col-10">
+			<br>
+				<nav aria-label="...">
+					<ul class="pagination justify-content-center">
+						<li class="page-item active" aria-current="page">
+							<span class="page-link">1</span>
+						</li>
+					</ul>
+				</nav>
 			</div>
 		</div>
+		<br>
+		<br>
+		<br>
 	</div>
 	
 	<!-- #Footer -->
@@ -560,6 +681,7 @@
 	        $('#back-to-top').tooltip('show');
 
 	    });
+	 
 	 
 	 
 </script>

@@ -132,7 +132,7 @@
 				</div>
 			</div>
 			<span class="oy">대한민국을 대표하는 HEALTH & BEAUTY STORE</span>
-			<h1 class="oy2"><a href="../item/itemList.html"><img src="https://www.cjone.com/cjmweb/upfile/20191007_1837101.png"></a></h1>
+			<h1 class="oy2"><a href="../item/itemList"><img src="https://www.cjone.com/cjmweb/upfile/20191007_1837101.png"></a></h1>
 		</div>
 	</div> 
 	<br>
@@ -410,8 +410,10 @@
 		<h6 style="color: #9E4D4D;">※ 표시하신 정보를 토대로 고객님께 맞는 제품을 추천해드립니다.</h6>
 		<br>
 		<br>
-		<button type="button" class="btn btn-secondary" onClick="next1()" style="float: right;">다음 <i class="fa-solid fa-angle-right"></i></button>
-		<button type="button" class="btn btn-secondary btn-space" onClick="next2()" style="float: right;"><i class="fa-solid fa-angle-left"></i> 이전</i></button>
+		<a href="/member/regDone">
+			<button type="button" class="btn btn-secondary" style="float: right;">다음 <i class="fa-solid fa-angle-right"></i></button>
+		</a>
+		<button type="button" class="btn btn-secondary btn-space" style="float: right;"><i class="fa-solid fa-angle-left"></i> 이전</i></button>
 		<br>
 		<br>
 		<br>
@@ -426,21 +428,11 @@
 			<p>호스팅사업자 CJ올리브네트웍스 통신판매업신고번호 2017-서울용산-0451</p>
 		</li>
 		<br>
-		<p><img src="../image/net.jpg"> Copyright (c)2016 CJ OLIVENETWORKS. All Rights Reserved</p>
+		<p><img src="../../resources/images/net.jpg"> Copyright (c)2016 CJ OLIVENETWORKS. All Rights Reserved</p>
 		<br>
 	</div>
 	
 	<script type="text/javascript">
-		function next1()
-		{
-		     location.href = "regDone.html";
-		}
-		
-		function next2()
-		{
-		     location.href = "regForm.html";
-		}
-		
 		$("#addrButton").on("click", function(){
 			openZipSearch();
 		});

@@ -40,5 +40,30 @@ public class ItemController {
 		
 		return "infra/item/xdmin/itemListSet";
 	}
+	
+	@RequestMapping(value = "itemList")
+	public String itemList() throws Exception {
+		
+		return "infra/item/user/itemList";
+	}
+	
+	@RequestMapping(value = "itemView")
+	public String itemView() throws Exception {
+		
+		return "infra/item/user/itemView";
+	}
+	
+	@RequestMapping(value = "payForm")
+	public String payForm() throws Exception {
+		
+		return "infra/payment/user/payForm";
+	}
+	
+	@RequestMapping(value = "payDone")
+	public String payDone() throws Exception {
+		
+		return "infra/payment/user/payDone";
+	}
+	
 
 }

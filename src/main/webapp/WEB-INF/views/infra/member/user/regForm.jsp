@@ -25,7 +25,6 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
-	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2091/PNG/512/settings_icon_128522.png">
     
    	<script src="https://kit.fontawesome.com/15c84217dd.js" crossorigin="anonymous"></script>
 	<!-- Bootstrap CSS -->
@@ -118,7 +117,7 @@
 				</div>
 			</div>
 			<span class="oy">대한민국을 대표하는 HEALTH & BEAUTY STORE</span>
-			<h1 class="oy2"><a href="../item/itemList.html"><img src="https://www.cjone.com/cjmweb/upfile/20191007_1837101.png"></a></h1>
+			<h1 class="oy2"><a href="../item/itemList"><img src="https://www.cjone.com/cjmweb/upfile/20191007_1837101.png"></a></h1>
 		</div>
 	</div>
 	<br>
@@ -235,7 +234,7 @@
 			<p>호스팅사업자 CJ올리브네트웍스 통신판매업신고번호 2017-서울용산-0451</p>
 		</li>
 		<br>
-		<p><img src="../image/net.jpg"> Copyright (c)2016 CJ OLIVENETWORKS. All Rights Reserved</p>
+		<p><img src="../../resources/images/net.jpg"> Copyright (c)2016 CJ OLIVENETWORKS. All Rights Reserved</p>
 		<br>
 	</div>
 

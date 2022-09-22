@@ -20,8 +20,9 @@
 	<meta property="og:title" content="올리브영 공식 온라인몰">
 	<meta property="og:description" content="대한민국 NO.1 헬스&뷰티 스토어 OLIVEYOUNG" >
 
-	<title>마이페이지</title>
+	<title>회원 탈퇴</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e2405cb6e30cd78e7478b78325118dec&libraries=services"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
@@ -34,9 +35,10 @@
     <!-- jquery ui CSS -->    
     <link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">    
     <!-- user css -->
-    <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
+    <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" /> 
     
- 	<style type ="text/css">
+        
+    <style type ="text/css">
 		.back-to-top-css {
 		    position: fixed;
 		    bottom: 20px;
@@ -64,19 +66,15 @@
 			color: #ce63be !important;
 		}
 		
+		.cursor{
+			cursor: pointer;
+		}
+		
 		.bg{
 			background-color: #f17d9e;
 			height: 55px;
 			margin-left: 10px;
 			width: 840px;
-		}
-		
-		.cursor{
-			cursor: pointer;
-		}
-		
-		.user{
-			font-size: 35px;
 		}
 		
 		.sort{
@@ -117,17 +115,47 @@
 		}
 		
 		.font4{
-			font-size: 12px;
+			font-size: 15px;
+			font-weight: bold;
 		}
 		
 		.font5{
-			font-size: 100px;
-			color: #DFDFDF;
-			text-align: center;
+			font-size: 17px;
 		}
 		
-		.font6{
-			font-size: 15px;
+		.left{
+			margin-left: 95px;
+		}
+		
+		.user{
+			font-size: 35px;
+		}
+		
+		hr{
+			border: 1px solid; 
+    		display: block !important;
+    		width: 840px !important;
+		}
+		
+		.border{
+			border: 1px solid gray;
+			width: 840px;
+			border-radius: 5px;
+		}
+		
+		p{
+			margin-left: 15px; 
+		}
+		
+		.btn1{
+			background-color: #9DCC30;
+			color: white;
+			border-width: 1.5px;	
+			font-size: 18px;
+			font-weight: bold;
+		}
+		
+		#btn {
 			text-align: center;
 		}
 		
@@ -139,54 +167,8 @@
 			color: white;
 		}
 		
-		.left{
-			margin-left: 100px;
-		}	
-		
-		.mydiv{
-			background-color: #F9F9F9;
-			width: 840px;
-		}
-			
-		.wid2{
-			width: 13%;
-			text-align: center;
-		}
-		
-		.wid3{
-			width: 7%;
-			text-align: center;
-		}
-		
-		#num{
-			font-size: 45px;
-			font-weight: bold;
-		}
-		
-		#num2{
-			font-size: 45px;
-			color: #9DCC30;
-			font-weight: bold;
-		}
-		
-		#size{
-			font-size: 23px;
-		}
-		
-		.mid{
-			margin-left: 30px;
-		}
-		
-		hr{
-			border: 1px solid; 
-    		display: block !important;
-    		width: 840px !important;
-		}
-		
-		.hr2{
-			border: 1px solid; 
-    		display: block !important;
-    		width: 400px !important;
+		.abc:hover{
+			color: #93961F;
 		}
 		
 	</style>
@@ -206,7 +188,7 @@
 		
 		<form autocomplete="off">
 			<div class="header_inner" >
-	            <h1><a href="../item/itemList"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
+	            <h1><a href="../../item/itemList"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
 				<div class="search_box" id="w_search_box">
 					<input type="hidden" name="chkButton" id="chkButton">		
 					<input type="text" id="query" class="inp_placeholder">
@@ -313,7 +295,7 @@
 		<br>
 		<div class="row">
 			<div class="col-2 text">
-				<span class="cursor">마이페이지</span>
+				<span class="cursor" onClick="my()">마이페이지</span>
 				<br>
 				<br>
 				<ul class="nav flex-column">
@@ -325,8 +307,6 @@
 					</li>
 				</ul>
 			</div>
-			<br>
-			<br>
 			<div class="col-10 bg">
 				<div class="row">
 					<div class="col-1 sort">
@@ -336,7 +316,7 @@
 						<span>PINK OLIVE &nbsp;&nbsp;최유진님 반갑습니다.</span>
 					</div>
 					<div class="col-2 profile">
-						<span class="cursor font7"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp;></a></span>
+						<span class="cursor"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp; ></a></span>
 					</div>
 					<div class="row left">
 						<div class="col-4">
@@ -363,125 +343,49 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<div class="row">
 			<div class="col-2">
 			</div>
 			<div class="col-10">
-				<span class="font3">주문/배송</span>
-				&nbsp;&nbsp;
-				<span class="font4">(최근&nbsp;1개월)</span>
 				<br>
 				<br>
-				<div class="mydiv">
-					<br>
-					<br>
-					<div class="row mid">
-						<div class="col-1 wid2">
-							<span id="num">0</span>
-							<br>
-							<span>주문접수</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num">1</span>
-							<br>
-							<span>결제완료</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num">0</span>
-							<br>
-							<span>상품준비중</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num">0</span>
-							<br>
-							<span>배송중</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num2">1</span>
-							<br>
-							<span>배송완료</span>
-						</div>
-					</div>
-					<br>
-					<br>
-				</div>
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<div class="row">
-			<div class="col-2">
-			</div>
-			<div class="col-10">
-				<span class="font3">좋아요</span>
+				<span class="font3">회원 탈퇴</span>
 				<hr>
 				<br>
+				<span class="font4">회원 탈퇴(이용약관 동의 철회)시 아래 내용을 확인해주세요.</span>
 				<br>
-				<br>
-				<div class="font5">
-					<i class="fa-solid fa-circle-exclamation"></i>
+				<div class="border">
+					<br>
+					<p>
+						· 올리브영 이용약관 동의 철회 시 고객님께서 보유하셨던 쿠폰은 모두 삭제되며, 재가입 시 복원이 불가능합니다.
+						<br>
+						<br>
+						· 올리브영 이용약관 동의 철회 시에는 올리브영 서비스만 이용할 수 없게 되며, CJ ONE 웹사이트를 포함한 다른 CJ ONE 제휴 브랜드의 웹사이트 <br>
+							서비스는 이용하실 수 있습니다.
+						<br>
+						<br>
+						· 올리브영 이용약관 동의 철회 시에도 CJ ONE 멤버십 서비스 및 타 제휴 브랜드의 이용을 위해 회원님의 개인정보 및 거래정보는 CJ ONE 회원 탈퇴 <br> 
+							시까지 보존됩니다.
+						<br>
+						<br>
+						· 올리브영 이용약관 동의를 철회한 후에라도 해당 약관에 다시 동의하시면 서비스를 이용할 수 있습니다.
+						<br>
+						<br>
+						· 진행 중인 전자상거래 이용내역(결제/배송/교환/반품 중인 상태)이 있거나 고객상담 및 이용하신 서비스가 완료되지 않은 경우 서비스 <br>
+						 철회 하실 수 없습니다.
+					</p>
+					<br>
 				</div>
 				<br>
-				<div class="font6">
-					<span>좋아요한 상품이 없습니다.</span>
-				</div>
 				<br>
-				<br>				
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<div class="row">
-			<div class="col-2">
-			</div>
-			<div class="col-10">
-				<div class="row">
-					<div class="col-6">
-						<span class="font3">1 : 1 문의내역</span>
-						<hr class="hr2">
-						<div class="font6">
-							<br>
-							<br>
-							<br>
-							<span>최근 1개월간 문의하신 내용이 없습니다.</span>
-							<br>
-							<br>
-							<br>
-						</div>
-					</div>
-					<div class="col-6">
-						<span class="font3">상품 Q&A 내역</span>
-						<hr class="hr2">
-						<div class="font6">
-							<br>
-							<br>
-							<br>
-							<span>최근 1개월간 문의하신 내용이 없습니다.</span>
-							<br>
-							<br>
-							<br>
-						</div>
-					</div>
-				</div>
 				<br>
+				<center><span class="font5">올리브영 회원 탈퇴(이용약관 동의 철회)를 하시겠습니까?</span></center>
+				<br>
+				<br>
+				<div id="btn">
+					<a href="../member/mypageSecession2" class="abc">
+						<button type="button" class="btn btn1 btn-lg">회원 탈퇴</button>
+					</a>
+				</div>
 				<br>
 				<br>
 			</div>

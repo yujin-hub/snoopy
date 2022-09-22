@@ -20,8 +20,9 @@
 	<meta property="og:title" content="올리브영 공식 온라인몰">
 	<meta property="og:description" content="대한민국 NO.1 헬스&뷰티 스토어 OLIVEYOUNG" >
 
-	<title>마이페이지</title>
+	<title>결제완료</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e2405cb6e30cd78e7478b78325118dec&libraries=services"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
@@ -34,9 +35,10 @@
     <!-- jquery ui CSS -->    
     <link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">    
     <!-- user css -->
-    <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
+    <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" /> 
     
- 	<style type ="text/css">
+    
+    <style type ="text/css">
 		.back-to-top-css {
 		    position: fixed;
 		    bottom: 20px;
@@ -44,149 +46,122 @@
 		}
 
 		#wid{
-			width: 1050px;
+			width: 1100px;
 		}
 		
-		.text{
+		.mydiv{
+			background-image: url('../../resources/images/order.jpg');
+			background-size: cover;
+		}
+		
+		.mydiv2{
+			width: 1100px;
+		}
+		
+		#font{
 			font-size: 25px;
 			font-weight: bold;
 		}
 		
-		.nav{
-			font-size: 16px;
+		#font2{
+			font-size: 23px;
+			font-weight: bold;
+			text-align: center;
 		}
 		
-		.nav-link{
-			color: #353535;
+		#font3{
+			font-size: 15px;
+			text-align: center;
+			color: #928F8F;
 		}
 		
-		.ab:hover{
-			color: #ce63be !important;
+		#font4{
+			font-size: 20px;
 		}
 		
-		.bg{
-			background-color: #f17d9e;
-			height: 55px;
-			margin-left: 10px;
-			width: 840px;
+		#font5{
+			font-size: 15px;
+			color: #595959;
+			font-weight: bold;
+			text-align: center;
 		}
 		
-		.cursor{
-			cursor: pointer;
-		}
-		
-		.user{
-			font-size: 35px;
-		}
-		
-		.sort{
-			margin-top: 10px;
-			margin-left: 40px;
+		#font6{
+			font-size: 12px;
 			color: #595959;
 		}
 		
-		.white{
-			margin-top: 19px;
-			font-size: 18px;
-			font-weight: bold;
-			color: white;
-		}
-		
-		.profile{
-			font-size: 16px;
-			color: white;
-			margin-top: 18px;
-			margin-left: 230px;
-		}
-		
-		.font{
-			font-size: 17px;
-			margin-top: 30px;
-		}
-		
-		.font2{
-			font-size: 17px;
-			font-weight: bold;
-			color: #C23434;
-			margin-top: 30px;
-		}
-		
-		.font3{
-			font-size: 20px;
-			font-weight: bold;
-		}
-		
-		.font4{
-			font-size: 12px;
-		}
-		
-		.font5{
-			font-size: 100px;
-			color: #DFDFDF;
-			text-align: center;
-		}
-		
-		.font6{
+		#font7{
 			font-size: 15px;
-			text-align: center;
+			color: #B01C1C;
 		}
 		
-		a{
-			color: white;
-		}
-		
-		a:hover {
-			color: white;
-		}
-		
-		.left{
-			margin-left: 100px;
-		}	
-		
-		.mydiv{
-			background-color: #F9F9F9;
-			width: 840px;
-		}
-			
-		.wid2{
-			width: 13%;
-			text-align: center;
-		}
-		
-		.wid3{
-			width: 7%;
-			text-align: center;
-		}
-		
-		#num{
-			font-size: 45px;
-			font-weight: bold;
-		}
-		
-		#num2{
-			font-size: 45px;
-			color: #9DCC30;
-			font-weight: bold;
-		}
-		
-		#size{
-			font-size: 23px;
-		}
-		
-		.mid{
+		#font8{
+			font-size: 15px;
+			color: #B01C1C;
 			margin-left: 30px;
 		}
 		
 		hr{
 			border: 1px solid; 
     		display: block !important;
-    		width: 840px !important;
+    		color: #090909;
 		}
 		
-		.hr2{
-			border: 1px solid; 
-    		display: block !important;
-    		width: 400px !important;
+		#bdiv{
+	   		background-color: #f7f7f7;
+	   		margin-left: 2px; 
+	   		line-height: 35px;
+	   		color: #3a3a3a;
+	   		font-size: 17px;
+	   		width: 1075px;
+	   		text-align: center;
+		}
+		
+		.text{
+			margin-top: 50px;
+			margin-left: 20px;
+		}
+		
+		.text1{
+			margin-top: 55px;
+			margin-left: 20px;
+		}
+		
+		.left{
+			margin-left: 64px;		
+		}
+		
+		.left2{
+			margin-left: 35px;		
+		}
+		
+		.left3{
+			margin-left: 25px;		
+		}
+		
+		.btn1{
+			background-color: #9DCC30;
+			color: white;
+			border-width: 1.5px;	
+			font-size: 18px;
+			font-weight: bold;
+			border-radius: 0px;
+			width: 150px;
+		}
+		
+		.btn2{
+			background-color: #0F1B5C;
+			color: white;
+			border-width: 1.5px;	
+			font-size: 18px;
+			font-weight: bold;
+			border-radius: 0px;
+			width: 150px;
+		}
+		
+		#btn{
+			text-align: center;
 		}
 		
 	</style>
@@ -205,7 +180,7 @@
 		</div>
 		
 		<form autocomplete="off">
-			<div class="header_inner" >
+			<div class="header_inner">
 	            <h1><a href="../item/itemList"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
 				<div class="search_box" id="w_search_box">
 					<input type="hidden" name="chkButton" id="chkButton">		
@@ -308,184 +283,92 @@
 		</div>
 	</div>
 
-	<div class= "container" id="wid">
+	<div class="container-fluid mydiv">
+		<div class="container mydiv2">
+			<br>
+			<br>
+			<span id="font">주문 / 결제</span>
+			<br>
+			<br>
+			<br>
+		</div>
+	</div> 
+	<div class="container" id="wid">
 		<br>
 		<br>
+		<center><img src="../../resources/images/deli.jpg"></center>
+		<div id="font2">
+			<p>주문이 정상적으로 완료되었습니다.	<br><br> 구매해주셔서 감사합니다.</p>
+		</div>
+		<br>
+		<div id="font3">
+			<p>배송 현황은 마이페이지에서 확인하실 수 있습니다. <br> 빠른 시일 내에 배송해드릴게요!</p>
+		</div>
+		<br>
+		<br>
+		<br>
+		<span id="font4">구매내역</span>	
+		<hr>	
+		<div class="row" id="bdiv">
+			<div class="col-3 left">
+				<span>상품정보</span>
+			</div>
+			<div class="col-1 left2">
+				<span>수량</span>
+			</div>
+			<div class="col-2 left3">
+				<span>쿠폰적용</span>
+			</div>
+			<div class="col-1 left3">
+				<span>배송비</span>
+			</div>
+			<div class="col-1 left2">
+				<span>결제금액</span>
+			</div>
+			<div class="col-1 left2">
+				<span>주문번호</span>
+			</div>
+		</div>
+		<hr>
 		<div class="row">
+			<div class="col-2">
+				<img src="../../resources/images/winter2.jpg">
+			</div>
 			<div class="col-2 text">
-				<span class="cursor">마이페이지</span>
-				<br>
-				<br>
-				<ul class="nav flex-column">
-					<li class="nav-item">
-						<a class="nav-link ab" href="../member/mypageOrder">주문/배송 조회</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link ab" href="../member/mypageSecession">회원 탈퇴</a>
-					</li>
-				</ul>
+				<center><span>클리오</span></center>
+				<span id="font5">클리오 프로아이팔레트 AD</span>
 			</div>
-			<br>
-			<br>
-			<div class="col-10 bg">
-				<div class="row">
-					<div class="col-1 sort">
-						<span class="user"><i class="fa-solid fa-circle-user"></i></span>
-					</div>
-					<div class="col-5 white">
-						<span>PINK OLIVE &nbsp;&nbsp;최유진님 반갑습니다.</span>
-					</div>
-					<div class="col-2 profile">
-						<span class="cursor font7"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp;></a></span>
-					</div>
-					<div class="row left">
-						<div class="col-4">
-							<div class="font">
-								<span>CJ ONE 포인트</span>
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="font2">200 p</span>
-							</div>
-						</div>
-						<div class="col-3">
-							<div class="font">
-								<span>쿠폰</span>
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="font2">3 개</span>
-							</div>
-						</div>
-						<div class="col-4">
-							<div class="font">
-								<span>예치금</span>
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="font2">0 원</span>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="col-1 text1">
+				<span id="font5">1개</span>
 			</div>
+			<div class="col-2 text">
+				<span id="font5">첫구매 장바구니 쿠폰</span>
+				<br>
+				<span id="font8">-7,000원</span>
+			</div>
+			<div class="col-1 text1">
+				<span id="font5">0원</span>
+			</div>
+			<div class="col-1 text1">
+				<span id="font7">15,400원</span>
+			</div>
+			<div class="col-1 text1">
+				<span id="font5">5486121923</span>
+			</div>
+		</div>
+		<hr>
+		<br>
+		<br>
+		<div id="btn"> 
+			<a href="../member/mypage">
+				<button type="button" class="btn btn1 btn-lg">마이페이지</button>
+			</a>
+			<a href="../item/itemList">
+				<button type="button" class="btn btn2 btn-lg">계속 쇼핑하기</button>
+			</a>
 		</div>
 		<br>
 		<br>
-		<br>
-		<div class="row">
-			<div class="col-2">
-			</div>
-			<div class="col-10">
-				<span class="font3">주문/배송</span>
-				&nbsp;&nbsp;
-				<span class="font4">(최근&nbsp;1개월)</span>
-				<br>
-				<br>
-				<div class="mydiv">
-					<br>
-					<br>
-					<div class="row mid">
-						<div class="col-1 wid2">
-							<span id="num">0</span>
-							<br>
-							<span>주문접수</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num">1</span>
-							<br>
-							<span>결제완료</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num">0</span>
-							<br>
-							<span>상품준비중</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num">0</span>
-							<br>
-							<span>배송중</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num2">1</span>
-							<br>
-							<span>배송완료</span>
-						</div>
-					</div>
-					<br>
-					<br>
-				</div>
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<div class="row">
-			<div class="col-2">
-			</div>
-			<div class="col-10">
-				<span class="font3">좋아요</span>
-				<hr>
-				<br>
-				<br>
-				<br>
-				<div class="font5">
-					<i class="fa-solid fa-circle-exclamation"></i>
-				</div>
-				<br>
-				<div class="font6">
-					<span>좋아요한 상품이 없습니다.</span>
-				</div>
-				<br>
-				<br>				
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<div class="row">
-			<div class="col-2">
-			</div>
-			<div class="col-10">
-				<div class="row">
-					<div class="col-6">
-						<span class="font3">1 : 1 문의내역</span>
-						<hr class="hr2">
-						<div class="font6">
-							<br>
-							<br>
-							<br>
-							<span>최근 1개월간 문의하신 내용이 없습니다.</span>
-							<br>
-							<br>
-							<br>
-						</div>
-					</div>
-					<div class="col-6">
-						<span class="font3">상품 Q&A 내역</span>
-						<hr class="hr2">
-						<div class="font6">
-							<br>
-							<br>
-							<br>
-							<span>최근 1개월간 문의하신 내용이 없습니다.</span>
-							<br>
-							<br>
-							<br>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<br>
-			</div>
-		</div>
 	</div>
 	
 	<!-- #Footer -->
@@ -560,7 +443,6 @@
 	        $('#back-to-top').tooltip('show');
 
 	    });
-	 
 	 
 </script>
 

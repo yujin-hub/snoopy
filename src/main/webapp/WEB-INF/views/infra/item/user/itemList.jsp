@@ -198,13 +198,13 @@
 			<ul class="menu_list" id="menu_list_header">
 				<li class="join"><a href="/member/regForm" data-attr='공통^헤더^회원가입'>회원가입</a></li>
 				<li class="login"><a href="/member/login" data-attr='공통^헤더^로그인'>로그인</a></li>
-				<li class="cart"><a href="../member/mypage.html"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a></li>
+				<li class="cart"><a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a></li>
 			</ul>
 		</div>
 		
 		<form autocomplete="off">
 			<div class="header_inner" >
-	            <h1><a href="#"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
+	            <h1><a href="/item/itemList"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
 				<div class="search_box" id="w_search_box">
 					<input type="hidden" name="chkButton" id="chkButton">		
 					<input type="text" id="query" class="inp_placeholder">
@@ -361,8 +361,8 @@
 				<div>
 					<span id="num">1</span>
 				</div>
-					<a href = "itemView.html"><div class="card" style="width: 16rem;" id="item">
-					<a href = "itemView.html"><img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015771628ko.jpg?l=ko" class="card-img-top" alt="..."></a>
+					<a href = "../item/itemView"><div class="card" style="width: 16rem;" id="item">
+					<a href = "../item/itemView"><img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015771628ko.jpg?l=ko" class="card-img-top" alt="..."></a>
 					<br>
 					<span class="name">[에스파 윈터 PICK!] <br> 클리오 프로아이팔레트 MD</p>
 					<br>

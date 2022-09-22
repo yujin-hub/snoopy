@@ -25,7 +25,6 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
-	<link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2091/PNG/512/settings_icon_128522.png">
 	
     
    	<script src="https://kit.fontawesome.com/15c84217dd.js" crossorigin="anonymous"></script>
@@ -58,15 +57,15 @@
 	<div id="Header">
 		<div class="top_util">
 			<ul class="menu_list" id="menu_list_header">
-				<li class="join"><a href="../member/regForm.html" data-attr='공통^헤더^회원가입'>회원가입</a></li>
-				<li class="login"><a href="../member/loginForm.html" data-attr='공통^헤더^로그인'>로그인</a></li>
-				<li class="cart"><a href="../member/mypage.html"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a></li>
+				<li class="join"><a href="../member/regForm" data-attr='공통^헤더^회원가입'>회원가입</a></li>
+				<li class="login"><a href="../member/login" data-attr='공통^헤더^로그인'>로그인</a></li>
+				<li class="cart"><a href="../member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a></li>
 			</ul>
 		</div>
 		
 		<form autocomplete="off">
 			<div class="header_inner" >
-	            <h1><a href="../item/itemList.html"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
+	            <h1><a href="/item/itemList"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
 				<div class="search_box" id="w_search_box">
 					<input type="hidden" name="chkButton" id="chkButton">		
 					<input type="text" id="query" class="inp_placeholder">
@@ -195,9 +194,9 @@
 			<label class="form-check-label" for="flexCheckChecked">자동 로그인</label>
 		</div>
 		<div class= "container" style="width: 400px; margin: auto;">
-			<span style="float:right;"><a href="findPW.html">비밀번호 찾기</a></span>
+			<span style="float:right;"><a href="../member/findPW">비밀번호 찾기</a></span>
 			<span style="float:right;">&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; </span>
-			<span style="float:right;"><a href="findID.html">아이디 찾기</a></span>
+			<span style="float:right;"><a href="../member/findID">아이디 찾기</a></span>
 			<br>
 			<br>
 			<br>
@@ -231,7 +230,7 @@
 			<br>
 			<br>
 			<span style="float: left;">아직 회원이 아니신가요?&nbsp;&nbsp;&nbsp;</span>
-			<span style="float: left; color: blue;"><a href="regForm.html"><u>회원가입</u></a></span>
+			<span style="float: left; color: blue;"><a href="../member/regForm"><u>회원가입</u></a></span>
 			<br>
 			<br>
 			<br>

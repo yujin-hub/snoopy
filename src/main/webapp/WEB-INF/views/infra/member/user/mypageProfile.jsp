@@ -36,7 +36,8 @@
     <!-- user css -->
     <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
     
- 	<style type ="text/css">
+    
+    <style type ="text/css">
 		.back-to-top-css {
 		    position: fixed;
 		    bottom: 20px;
@@ -64,129 +65,111 @@
 			color: #ce63be !important;
 		}
 		
-		.bg{
-			background-color: #f17d9e;
-			height: 55px;
-			margin-left: 10px;
-			width: 840px;
-		}
-		
 		.cursor{
 			cursor: pointer;
 		}
 		
-		.user{
-			font-size: 35px;
+		.pic{
+			border: 1px solid #C2C2C2;
+			border-radius: 15px;
+			height: 285px;
 		}
 		
-		.sort{
-			margin-top: 10px;
-			margin-left: 40px;
-			color: #595959;
+		#pic{
+			border-radius: 100%;
+		}
+	
+		hr{
+			border: 1px solid; 
+    		display: block !important;
+    		width: 200px !important;
 		}
 		
-		.white{
-			margin-top: 19px;
-			font-size: 18px;
-			font-weight: bold;
-			color: white;
+		.hr1{
+			border: 1px solid; 
+    		display: block !important;
+    		width: 620px !important;
+    		margin-left: 15px;
+		}
+
+		.btn1{
+			background-color: white;
+			--bs-btn-hover-border-color: white; 
 		}
 		
-		.profile{
-			font-size: 16px;
-			color: white;
-			margin-top: 18px;
-			margin-left: 230px;
+		.nick{
+			margin-left: 62px;
+			font-size: 17px;
 		}
 		
 		.font{
-			font-size: 17px;
-			margin-top: 30px;
+			margin-top: 10px;
+		}
+		
+		.font1{
+			font-size: 20px;
+			font-weight: bold;
+			margin-left: 15px;
 		}
 		
 		.font2{
-			font-size: 17px;
+			font-size: 16px;
 			font-weight: bold;
-			color: #C23434;
-			margin-top: 30px;
+			margin-left: 15px;
 		}
 		
 		.font3{
-			font-size: 20px;
-			font-weight: bold;
+			font-size: 16px;
+			margin-left: 15px;
 		}
 		
 		.font4{
 			font-size: 12px;
 		}
-		
-		.font5{
-			font-size: 100px;
-			color: #DFDFDF;
-			text-align: center;
-		}
-		
-		.font6{
-			font-size: 15px;
-			text-align: center;
-		}
-		
-		a{
-			color: white;
-		}
-		
-		a:hover {
-			color: white;
-		}
-		
+
 		.left{
-			margin-left: 100px;
-		}	
-		
-		.mydiv{
-			background-color: #F9F9F9;
-			width: 840px;
+			margin-left: 16px;
+			font-size: 13px;
 		}
-			
-		.wid2{
-			width: 13%;
-			text-align: center;
+
+		.left1{
+			margin-left: 25px;
 		}
 		
-		.wid3{
-			width: 7%;
-			text-align: center;
+		.btn2{
+			margin-top: 13px;
+			--bs-btn-border-color: #e8e8e8;
+			--bs-btn-hover-color: #9DCC30;
+			--bs-btn-hover-border-color: #9DCC30; 
 		}
 		
-		#num{
-			font-size: 45px;
-			font-weight: bold;
+		.btn3{
+			margin-top: 13px;
+			color: #9DCC30 (--bs-btn-active-color);
+   			--bs-btn-active-border-color: #9DCC30;
+   			--bs-btn-active-color: #9DCC30;
+		}
+
+		.btn-space{
+		    margin-right: 5px;
 		}
 		
-		#num2{
-			font-size: 45px;
-			color: #9DCC30;
-			font-weight: bold;
+		.btn4{
+			margin-top: 13px;
+			--bs-btn-border-color: #e8e8e8;
+			--bs-btn-hover-color: #9DCC30;
+			--bs-btn-hover-border-color: #9DCC30; 
 		}
 		
-		#size{
-			font-size: 23px;
+		.btn5{
+			margin-top: 13px;
+			color: #9DCC30 (--bs-btn-active-color);
+   			--bs-btn-active-border-color: #9DCC30;
+   			--bs-btn-active-color: #9DCC30;
 		}
 		
 		.mid{
-			margin-left: 30px;
-		}
-		
-		hr{
-			border: 1px solid; 
-    		display: block !important;
-    		width: 840px !important;
-		}
-		
-		.hr2{
-			border: 1px solid; 
-    		display: block !important;
-    		width: 400px !important;
+			text-align: center;
 		}
 		
 	</style>
@@ -198,15 +181,15 @@
 	<div id="Header">
 		<div class="top_util">
 			<ul class="menu_list" id="menu_list_header">
-				<li class="join"><a href="../member/regForm" data-attr='공통^헤더^회원가입'>회원가입</a></li>
-				<li class="login"><a href="../member/login" data-attr='공통^헤더^로그인'>로그인</a></li>
-				<li class="cart"><a href="../member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a></li>
+				<li class="join"><a href="/member/regForm" data-attr='공통^헤더^회원가입'>회원가입</a></li>
+				<li class="login"><a href="/member/login" data-attr='공통^헤더^로그인'>로그인</a></li>
+				<li class="cart"><a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a></li>
 			</ul>
 		</div>
 		
 		<form autocomplete="off">
 			<div class="header_inner" >
-	            <h1><a href="../item/itemList"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
+	            <h1><a href="../../item/itemList"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
 				<div class="search_box" id="w_search_box">
 					<input type="hidden" name="chkButton" id="chkButton">		
 					<input type="text" id="query" class="inp_placeholder">
@@ -308,182 +291,223 @@
 		</div>
 	</div>
 
-	<div class= "container" id="wid">
+	<div class="container" id="wid">
 		<br>
 		<br>
 		<div class="row">
 			<div class="col-2 text">
-				<span class="cursor">마이페이지</span>
+				<span class="cursor" href="/member/mypage">마이페이지</span>
 				<br>
 				<br>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link ab" href="../member/mypageOrder">주문/배송 조회</a>
+						<a class="nav-link ab" href="/member/mypageOrder">주문/배송 조회</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link ab" href="../member/mypageSecession">회원 탈퇴</a>
+						<a class="nav-link ab" href="/member/mypageSecession">회원 탈퇴</a>
 					</li>
 				</ul>
 			</div>
-			<br>
-			<br>
-			<div class="col-10 bg">
-				<div class="row">
-					<div class="col-1 sort">
-						<span class="user"><i class="fa-solid fa-circle-user"></i></span>
-					</div>
-					<div class="col-5 white">
-						<span>PINK OLIVE &nbsp;&nbsp;최유진님 반갑습니다.</span>
-					</div>
-					<div class="col-2 profile">
-						<span class="cursor font7"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp;></a></span>
-					</div>
-					<div class="row left">
-						<div class="col-4">
-							<div class="font">
-								<span>CJ ONE 포인트</span>
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="font2">200 p</span>
-							</div>
-						</div>
-						<div class="col-3">
-							<div class="font">
-								<span>쿠폰</span>
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="font2">3 개</span>
-							</div>
-						</div>
-						<div class="col-4">
-							<div class="font">
-								<span>예치금</span>
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="font2">0 원</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<div class="row">
-			<div class="col-2">
-			</div>
-			<div class="col-10">
-				<span class="font3">주문/배송</span>
-				&nbsp;&nbsp;
-				<span class="font4">(최근&nbsp;1개월)</span>
-				<br>
-				<br>
-				<div class="mydiv">
-					<br>
-					<br>
-					<div class="row mid">
-						<div class="col-1 wid2">
-							<span id="num">0</span>
-							<br>
-							<span>주문접수</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num">1</span>
-							<br>
-							<span>결제완료</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num">0</span>
-							<br>
-							<span>상품준비중</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num">0</span>
-							<br>
-							<span>배송중</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num2">1</span>
-							<br>
-							<span>배송완료</span>
-						</div>
-					</div>
-					<br>
-					<br>
-				</div>
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<div class="row">
-			<div class="col-2">
-			</div>
-			<div class="col-10">
-				<span class="font3">좋아요</span>
-				<hr>
-				<br>
-				<br>
-				<br>
-				<div class="font5">
-					<i class="fa-solid fa-circle-exclamation"></i>
-				</div>
-				<br>
-				<div class="font6">
-					<span>좋아요한 상품이 없습니다.</span>
-				</div>
-				<br>
-				<br>				
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<div class="row">
-			<div class="col-2">
-			</div>
 			<div class="col-10">
 				<div class="row">
-					<div class="col-6">
-						<span class="font3">1 : 1 문의내역</span>
-						<hr class="hr2">
-						<div class="font6">
-							<br>
-							<br>
-							<br>
-							<span>최근 1개월간 문의하신 내용이 없습니다.</span>
-							<br>
-							<br>
-							<br>
+					<div class="col-3 pic">
+						<br>
+						<br>
+						<center><img src="../../resources/images/pro.jpg" id="pic"></center>
+						<br>
+						<span class="nick">cuj0405
+						<a href="/member/mypageMod" class="ab">
+							<button type="button" class="btn btn1"><i class="fa-solid fa-gear"></i></button></span>
+						</a>
+						<br>
+						<hr>
+						<div class="row mid">
+							<div class="col-4">
+								<span>리뷰</span>
+								<br>
+								<span>0</span>
+							</div>
+							<div class="col-4">
+								<span>도움</span>
+								<br>
+								<span>0</span>
+							</div>
+							<div class="col-4">
+								<span>랭킹</span>
+								<br>
+								<span>0</span>
+							</div>
 						</div>
 					</div>
-					<div class="col-6">
-						<span class="font3">상품 Q&A 내역</span>
-						<hr class="hr2">
-						<div class="font6">
-							<br>
-							<br>
-							<br>
-							<span>최근 1개월간 문의하신 내용이 없습니다.</span>
-							<br>
-							<br>
-							<br>
+					<div class="col-9 font">
+						<span class="font1">기본 프로필</span>
+						<hr class="hr1">
+						<br>
+						<div class="row">
+							<div class="col-2 font2">
+								<span>이름</span>
+							</div>
+							<div class="col-9 font3">
+								<span>최유진</span>
+							</div>
 						</div>
+						<br>
+						<div class="row">
+							<div class="col-2 font2">
+								<span>성별</span>
+							</div>
+							<div class="col-9 font3">
+								<span>여성</span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-2 font2">
+								<span>생년월일</span>
+							</div>
+							<div class="col-9 font3">
+								<span>1999.04.05</span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-2 font2">
+								<span>휴대폰</span>
+							</div>
+							<div class="col-9 font3">
+								<span>010-1111-1111</span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-2 font2">
+								<span>주소</span>
+							</div>
+							<div class="col-9 font3">
+								<span>06611</span>
+								<br>
+								<span>서울특별시 서초구 서초대로77길 55 에이프로스퀘어 3층</span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-2 font2">
+								<span>이메일</span>
+							</div>
+							<div class="col-9 font3">
+								<span>cuj0405@naver.com</span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-2 font2">
+								<span>닉네임</span>
+							</div>
+							<div class="col-9 font3">
+								<span>유진</span>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-2 font2">
+								<span>자기소개</span>
+							</div>
+							<div class="col-9 font3">
+								<span>뷰티에 관심이 많은 20대입니다~!</span>
+							</div>
+						</div>
+						<br>
+						<hr class="hr1">
+						<br>
+						<span class="font1">나의 피부 컨디션 & 관심 카테고리</span>
+						<br>
+						<span class="left">나와 비슷한 피부 컨디션을 가진 고객의 리뷰와 나에게 딱 맞는 상품을 모아볼 수 있어요</span>
+						<div class="row">
+							<div class="col-2 left1">
+								<br>
+								<span>피부 타입</span>
+							</div>
+							<div class="col-9">
+								<button type="button" class="btn btn3 btn-space active">지성</button>
+								<button type="button" class="btn btn2 btn-space">건성</button>
+								<button type="button" class="btn btn2 btn-space">복합성</button>
+								<button type="button" class="btn btn2 btn-space">민감성</button>
+								<button type="button" class="btn btn2 btn-space">약건성</button>
+								<button type="button" class="btn btn2 btn-space">트러블성</button>
+								<button type="button" class="btn btn2 btn-space">중성</button>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-2 left1">
+								<br>
+								<span>피부 톤</span>
+							</div>
+							<div class="col-9">
+								<button type="button" class="btn btn2 btn-space">쿨톤</button>
+								<button type="button" class="btn btn2 btn-space">웜톤</button>
+								<button type="button" class="btn btn2 btn-space">봄웜톤</button>
+								<button type="button" class="btn btn2 btn-space">여름쿨톤</button>
+								<button type="button" class="btn btn3 btn-space active">가을웜톤</button>
+								<button type="button" class="btn btn2 btn-space">겨울쿨톤</button>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-2 left1">
+								<br>
+								<span>피부 고민</span>
+								<br>
+								<span class="font4">(복수 선택 가능)</span>
+							</div>
+							<div class="col-9">
+								<button type="button" class="btn btn5 btn-space active">잡티</button>
+								<button type="button" class="btn btn4 btn-space">미백</button>
+								<button type="button" class="btn btn4 btn-space">주름</button>
+								<button type="button" class="btn btn4 btn-space">각질</button>
+								<button type="button" class="btn btn5 btn-space active">트러블</button>
+								<button type="button" class="btn btn5 btn-space active">블랙헤드</button>
+								<button type="button" class="btn btn4 btn-space">피지과다</button>
+								<button type="button" class="btn btn5 btn-space active">민감성</button>
+								<button type="button" class="btn btn5 btn-space active">모공</button>
+								<button type="button" class="btn btn4 btn-space">탄력</button>
+								<button type="button" class="btn btn4 btn-space">홍조</button>
+								<button type="button" class="btn btn4 btn-space">아토피</button>
+								<button type="button" class="btn btn4 btn-space">다크서클</button>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-2 left1">
+								<br>
+								<span>관심 카테고리</span>
+								<br>
+								<span class="font4">(복수 선택 가능)</span>
+							</div>
+							<div class="col-9">
+								<button type="button" class="btn btn5 btn-space active">스킨케어</button>
+								<button type="button" class="btn btn4 btn-space">마스크팩</button>
+								<button type="button" class="btn btn4 btn-space">클렌징</button>
+								<button type="button" class="btn btn4 btn-space">선케어</button>
+								<button type="button" class="btn btn5 btn-space active">더모 코스메틱</button>
+								<button type="button" class="btn btn5 btn-space active">메이크업</button>
+								<button type="button" class="btn btn5 btn-space active">네일</button>
+								<button type="button" class="btn btn4 btn-space">바디케어</button>
+								<button type="button" class="btn btn5 btn-space active">헤어케어</button>
+								<button type="button" class="btn btn4 btn-space">향수/디퓨저</button>
+								<button type="button" class="btn btn5 btn-space active">미용소품</button>
+								<button type="button" class="btn btn4 btn-space">남성</button>
+								<button type="button" class="btn btn4 btn-space">건강/위생용품</button>
+								<button type="button" class="btn btn4 btn-space">건강식품</button>
+								<button type="button" class="btn btn4 btn-space">푸드</button>
+								<button type="button" class="btn btn4 btn-space">라이프/홈</button>
+								<button type="button" class="btn btn4 btn-space">반려동물</button>
+								<button type="button" class="btn btn4 btn-space">베이비</button>
+							</div>
+						</div>
+						<br>
 					</div>
 				</div>
-				<br>
-				<br>
-				<br>
 			</div>
 		</div>
 	</div>
@@ -562,6 +586,15 @@
 	    });
 	 
 	 
+	 function my()
+		{
+		     location.href = "mypage.html";
+		}
+	 
+	 function mod()
+		{
+		     location.href = "mypageMod.html";
+		}
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

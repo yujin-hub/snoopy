@@ -80,10 +80,55 @@ public class MemberController {
 		return "infra/member/user/regForm2";
 	}
 	
-//	@RequestMapping(value = "memberForm")
-//	public String memberForm() throws Exception {
-//		
-//		return "infra/member/xdmin/memberForm";
-//	}
+	@RequestMapping(value = "regDone")
+	public String regDone() throws Exception {
+		
+		return "infra/member/user/regDone";
+	}
+	
+	@RequestMapping(value = "mypage")
+	public String mypage() throws Exception {
+		
+		return "infra/member/user/mypage";
+	}
+	
+	@RequestMapping(value = "mypageMod")
+	public String mypageMod() throws Exception {
+		
+		return "infra/member/user/mypageMod";
+	}
+	
+	
+	@RequestMapping(value = "mypageOrder")
+	public String mypageOrder() throws Exception {
+		
+		return "infra/member/user/mypageOrder";
+	}
+	
+	@RequestMapping(value = "mypageSecession")
+	public String mypageSecession() throws Exception {
+		
+		return "infra/member/user/mypageSecession";
+	}
+	
+	@RequestMapping(value = "mypageSecession2")
+	public String mypageSecession2() throws Exception {
+		
+		return "infra/member/user/mypageSecession2";
+	}
+	
+	@RequestMapping(value = "mypageProfile")
+	public String mypageProfile() throws Exception {
+		
+		return "infra/member/user/mypageProfile";
+	}
+	
+	
+	@RequestMapping(value = "itemList")
+	public String itemList() throws Exception {
+		
+		return "infra/item/user/itemList";
+	}
+	
 	
 }
