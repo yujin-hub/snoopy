@@ -123,11 +123,34 @@ public class MemberController {
 		return "infra/member/user/mypageProfile";
 	}
 	
-	
 	@RequestMapping(value = "itemList")
 	public String itemList() throws Exception {
 		
 		return "infra/item/user/itemList";
+	}
+	
+	@RequestMapping(value = "findID")
+	public String findID() throws Exception {
+		
+		return "infra/member/user/findID";
+	}
+	
+	@RequestMapping(value = "findPW")
+	public String findPW() throws Exception {
+		
+		return "infra/member/user/findPW";
+	}
+	
+	@RequestMapping(value = "idSetDone")
+	public String idSetDone() throws Exception {
+		
+		return "infra/member/user/idSetDone";
+	}
+	
+	@RequestMapping(value = "pwSetDone")
+	public String pwSetDone() throws Exception {
+		
+		return "infra/member/user/pwSetDone";
 	}
 	
 	

@@ -297,7 +297,7 @@
 		}
 		
 		a:hover{
-			color: #93961F;
+			color: #4f4f4f;
 		}
 		
     </style>

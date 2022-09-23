@@ -244,6 +244,11 @@
 			border: 2px solid;
 			width: 420px;
 		}
+		
+		a:hover {
+			color: #4c4c4c;
+		}
+		
 	</style>
 </head>
     

@@ -164,6 +164,10 @@
 			text-align: center;
 		}
 		
+		a:hover {
+			color: #4c4c4c;
+		}
+		
 	</style>
 </head>
     

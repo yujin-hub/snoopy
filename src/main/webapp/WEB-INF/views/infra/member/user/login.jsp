@@ -46,6 +46,10 @@
 		h1 {
 			text-align: center;
 		}
+		
+		a:hover {
+			color: #999999;
+		}
 	</style>
 
 

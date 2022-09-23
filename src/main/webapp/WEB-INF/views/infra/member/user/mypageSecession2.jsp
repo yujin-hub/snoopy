@@ -187,6 +187,10 @@
 			width: 840px;
 		}
 		
+		a:hover{
+			color: #93961F;
+		}
+		
 	</style>
 </head>
     
