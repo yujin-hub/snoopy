@@ -197,42 +197,21 @@
 				<span>아이디</span>
 			</div>
 			<div class="col-3">
-				<input type="text" class="form-control" id="validationCustom01" aria-label="id">
-			</div>
-			<div class="col-2">
-			<!-- Button trigger modal -->
-				<button type="button" class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-				  ID 중복확인
-				</button>
-				<!-- Modal -->
-				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					 <div class="modal-dialog">
-						 <div class="modal-content">
-							 <div class="modal-header">
-								 <h5 class="modal-title" id="exampleModalLabel">Submit</h5>
-								 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							 </div>
-							 <div class="modal-body">
-							 	사용 가능한 아이디입니다.
-							 </div>
-							 <div class="modal-footer">
-							 	<button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
-							 </div>
-						 </div>
-					 </div>
-				</div>
+				<input type="hidden" id="useIDAllowNY" name="useIDAllowNY" value="0">
+				<input type="text" class="form-control" id="userID" name="userID" placeholder="4자리 이상의 영문 + 숫자">
+				<div class="invalid-feedback" id="userIDFeedback"></div>
 			</div>
 			<br>
-			<br>
-			<h6 style="margin-left: 190px;">※ 4자리 이상의 영문과 숫자 또는 이메일주소 형식으로 아이디 생성 가능합니다.</h6>
+			<div class="col-7">
+			</div>
 		</div>
 		<hr>
 		<div class="row">
 			<div class="col-2" id="cdiv">
 				<span>비밀번호</span>
 			</div>
-			<div class="col-3">
-				<input type="password" class="form-control" id="validationCustom01" aria-label="passwordch">
+			<div class="col-4">
+				<input type="password" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성">
 			</div>
 		</div>
 		<hr>	
@@ -240,12 +219,11 @@
 			<div class="col-2" id="cdiv">
 				<span>비밀번호 확인</span>
 			</div>
-			<div class="col-3">
-				<input type="password" class="form-control" id="validationCustom01" aria-label="passwordch">
+			<div class="col-4">
+				<input type="password" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성">
 			</div>
 			<div class="col-5">
-				<h6 style="margin-top: 11px;">(8~16자의 [대/소]문자, 숫자, 특수문자 조합 생성, 공백사용 불가)</h6>
-			</div>
+			</div> 
 		</div>
 		<hr>	
 		<div class="row">
@@ -503,6 +481,7 @@
 			}
 		};
 		
+	
 		/* function openZipSearch2() {
 		    new daum.Postcode({
 		          oncomplete: function(data) {
@@ -540,6 +519,45 @@
 
 		}
 	 */
+	 
+	 
+	 $("#userID").on("focusout", function(){
+		
+		if(!checkId('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
+		 	 return false;
+	 	}else {
+	 		$.ajax({
+	 			async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/member/checkId"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "userID" : $("#userID").val() }
+				,success: function(response) {
+					if(response.rt == "success") {
+						document.getElementById("userID").classList.add('is-valid');
+	
+						document.getElementById("userIDFeedback").classList.remove('invalid-feedback');
+						document.getElementById("userIDFeedback").classList.add('valid-feedback');
+						document.getElementById("userIDFeedback").innerText = "사용 가능한 아이디입니다.";
+						
+						document.getElementById("useIDAllowNY").value = 1;
+						
+					} else {
+						document.getElementById("userID").classList.add('is-invalid');
+						
+						document.getElementById("userIDFeedback").classList.remove('valid-feedback');
+						document.getElementById("userIDFeedback").classList.add('invalid-feedback');
+						document.getElementById("userIDFeedback").innerText = "이미 사용중인 아이디입니다.";
+						
+						document.getElementById("useIDAllowNY").value = 0;
+					}
+				}
+			});
+		}
+	});
+	 
 	</script>
 	
 	

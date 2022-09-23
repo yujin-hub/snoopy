@@ -20,8 +20,9 @@
 	<meta property="og:title" content="올리브영 공식 온라인몰">
 	<meta property="og:description" content="대한민국 NO.1 헬스&뷰티 스토어 OLIVEYOUNG" >
 
-	<title>회원 관리</title>
+	<title>Olive Young!</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e2405cb6e30cd78e7478b78325118dec&libraries=services"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
@@ -35,11 +36,6 @@
     <link href="/resources/common/jquery/jquery-ui-1.13.1.custom/jquery-ui.css" rel="stylesheet">    
     <!-- user css -->
     <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
-    
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="/resources/demos/style.css">
-	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     
     <style type ="text/css">
     	p {
@@ -114,6 +110,11 @@
 			margin-left: 20px;
 		}
 		
+		.form-control:disabled, .form-control[readonly] {
+		    background-color: #f2f2f2;
+		    opacity: 1;
+		}
+		
     </style>
 </head>
     
@@ -131,7 +132,7 @@
 				</div>
 			</div>
 			<span class="oy">대한민국을 대표하는 HEALTH & BEAUTY STORE</span>
-			<h1 class="oy2"><a href="../item/itemList.html"><img src="https://www.cjone.com/cjmweb/upfile/20191007_1837101.png"></a></h1>
+			<h1 class="oy2"><a href="../item/itemList"><img src="https://www.cjone.com/cjmweb/upfile/20191007_1837101.png"></a></h1>
 		</div>
 	</div> 
 	<br>
@@ -141,10 +142,7 @@
 		<hr id="hr2">
 	</div>	
 	<br>
-	<br>
 	<div class= "container" id="wid2">
-		<form name="form" method="post" action="/member/memberInst">
-		<input type="hidden" name="seq" value="<c:out value="${vo.seq }"/>">
 		<h4>기본사항</h4>
 		<hr>
 		<div class="row">
@@ -184,30 +182,6 @@
 			</div>
 		</div>
 		<hr>
-		<div class="row">
-			<div class="col-2" id="cdiv">
-				<span>회원 번호</span>
-			</div>
-			<div class="col-4">
-				<input type="text" class="form-control" id="userseq" name="userseq" value="<c:out value="${item.userSeq }"/>">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-2" id="cdiv">
-				<span>회원 등급</span>
-			</div>
-			<div class="col-4">
-				<select class="form-select">
-					<option selected>::회원 등급::</option>
-					<option value="1">베이비 올리브</option>				
-					<option value="2">핑크 올리브</option>				
-					<option value="3">그린 올리브</option>				
-					<option value="4">블랙 올리브</option>				
-					<option value="5">골드 올리브</option>				
-				</select>
-			</div>
-		</div>
-		<hr>
 		<br>
 		<br>
 		<h4>필수입력 사항</h4>
@@ -217,18 +191,21 @@
 				<span>아이디</span>
 			</div>
 			<div class="col-3">
-				<input type="text" class="form-control" id="id" name="id" value="<c:out value="${item.id }"/>">
+				<input type="hidden" id="useIDAllowNY" name="useIDAllowNY" value="0">
+				<input type="text" class="form-control" id="userID" name="userID" placeholder="4자리 이상의 영문 + 숫자">
+				<div class="invalid-feedback" id="userIDFeedback"></div>
 			</div>
 			<br>
-			<h6 style="margin-left: 190px;">※ 4자리 이상의 영문과 숫자 또는 이메일주소 형식으로 아이디 생성 가능합니다.</h6>
+			<div class="col-7">
+			</div>
 		</div>
 		<hr>
 		<div class="row">
 			<div class="col-2" id="cdiv">
 				<span>비밀번호</span>
 			</div>
-			<div class="col-3">
-				<input type="password" class="form-control" id="pw" aria-label="pw" value="<c:out value="${item.pw }"/>">
+			<div class="col-4">
+				<input type="password" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성">
 			</div>
 		</div>
 		<hr>	
@@ -236,12 +213,11 @@
 			<div class="col-2" id="cdiv">
 				<span>비밀번호 확인</span>
 			</div>
-			<div class="col-3">
-				<input type="password" class="form-control" id="pw" name="pw" value="<c:out value="${item.pw }"/>">
+			<div class="col-4">
+				<input type="password" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성">
 			</div>
 			<div class="col-5">
-				<h6 style="margin-top: 11px;">(8~16자의 [대/소]문자, 숫자, 특수문자 조합 생성, 공백사용 불가)</h6>
-			</div>
+			</div> 
 		</div>
 		<hr>	
 		<div class="row">
@@ -262,29 +238,44 @@
 				<hr>
 				<span>자택 주소</span>
 				<div class="row gy-2">
-					<div class="col-4">
-						<input type="text" name="zip" class="form-control" id="validationCustom01" aria-label="post">
+					<div class="col-5">
+						<div class="input-group">
+							<input type="text" id="zip" class="form-control" placeholder="우편번호" disabled>
+							<button type="button" class="btn btn-outline-secondary" id="addrButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+							<button class="btn btn-outline-secondary" type="button" id="clearButton"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+						</div>
 					</div>
-					<div class="col-2">
-						<button type="button" class="btn btn-secondary" onclick="openZipSearch()"> 우편번호 검색 </button>
+					<div><input type="text" id="addr1" class="form-control" placeholder="주소" disabled></div>
+					<div class="col-6">
+						<input type="text" id="addr2" class="form-control" placeholder="상세주소">
 					</div>
-					<br>
-					<div><input type="text" name="addr1" class="form-control" id="validationCustom01" aria-label="addr"></div>
-					<div><input type="text" name="addr2" class="form-control" id="validationCustom01" aria-label="addr2"></div>
+					<div class="col-6">
+						<input type="text" id="addr3" class="form-control" placeholder="참고항목" disabled>
+					</div>
+					<div class="col-6">
+						<input type="text" id="memLat" name="memLat" class="form-control" placeholder="위도" disabled>
+					</div>
+					<div class="col-6">
+						<input type="text" name="memLng" class="form-control" placeholder="경도" disabled>
+					</div>
 				</div>
-				<hr>
-				<span>직장 주소</span>
+				<!-- <span>직장 주소</span>
 				<div class="row gy-2">
-					<div class="col-4">
-						<input type="text" class="form-control" id="validationCustom01" aria-label="post">
+					<div class="col-5">
+						<div class="input-group">
+							<input type="text" id="zip2" class="form-control" placeholder="우편번호" disabled>
+							<button type="button" class="btn btn-outline-secondary" id="addrButton2"><i class="fa-solid fa-magnifying-glass"></i></button>
+							<button class="btn btn-outline-secondary" type="button" id="clearButton2"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+						</div>
 					</div>
-					<div class="col-2">
-						<button type="button" class="btn btn-secondary"> 우편번호 검색 </button>
+					<div><input type="text" id="addr4" class="form-control" placeholder="주소" disabled></div>
+					<div class="col-6">
+						<input type="text" id="addr5" class="form-control" placeholder="상세주소">
 					</div>
-					<br>
-					<div><input type="text" class="form-control" id="validationCustom01" aria-label="addr"></div>
-					<div><input type="text" class="form-control" id="validationCustom01" aria-label="addr"></div>
-				</div>
+					<div class="col-6">
+						<input type="text" id="addr6" class="form-control" placeholder="참고항목" disabled>
+					</div>
+				</div> -->
 			</div>
 		</div>
 		<hr>
@@ -293,7 +284,7 @@
 				<span>연락처</span>
 			</div>
 			<div class="col-1">
-				<select class="form-select">
+				<select class="form-select" aria-label="validationCustom04">
 					<option selected>010</option>
 					<option value="2">070</option>
 					<option value="3">02</option>
@@ -391,8 +382,10 @@
 		<h6 style="color: #9E4D4D;">※ 표시하신 정보를 토대로 고객님께 맞는 제품을 추천해드립니다.</h6>
 		<br>
 		<br>
-		<button type="button" class="btn btn-secondary" onClick="next1()" style="float: right;">다음 <i class="fa-solid fa-angle-right"></i></button>
-		<button type="button" class="btn btn-secondary btn-space" onClick="next2()" style="float: right;"><i class="fa-solid fa-angle-left"></i> 이전</i></button>
+		<button type="button" class="btn btn-secondary" style="float: right;">저장<i class="fa-solid fa-angle-right"></i></button>
+		<a href="memberList">
+			<button type="button" class="btn btn-secondary btn-space" style="float: right;">홈</button>
+		</a>
 		<br>
 		<br>
 		<br>
@@ -407,37 +400,165 @@
 			<p>호스팅사업자 CJ올리브네트웍스 통신판매업신고번호 2017-서울용산-0451</p>
 		</li>
 		<br>
-		<p><img src="../image/net.jpg"> Copyright (c)2016 CJ OLIVENETWORKS. All Rights Reserved</p>
+		<p><img src="../../resources/images/net.jpg"> Copyright (c)2016 CJ OLIVENETWORKS. All Rights Reserved</p>
 		<br>
 	</div>
 	
 	<script type="text/javascript">
-		function next1()
-		{
-		     location.href = "regDone.html";
-		}
+		$("#addrButton").on("click", function(){
+			openZipSearch();
+		});
 		
-		function next2()
-		{
-		     location.href = "regForm.html";
-		}
+		$("#addrButton2").on("click", function(){
+			openZipSearch2();
+		});
 		
+		$("#clearButton").on("click", function(){
+			$("#zip").val('');
+			$("#addr1").val('');
+			$("#arrd2").val('');
+			$("#addr3").val('');
+		});
 		
+		$("#clearButton2").on("click", function(){
+			$("#zip2").val('');
+			$("#addr4").val('');
+			$("#arrd5").val('');
+			$("#addr6").val('');
+		});
 		
 		function openZipSearch() {
 		    new daum.Postcode({
 		          oncomplete: function(data) {
-		              $('[name=zip]').val(data.zonecode); // 우편번호 (5자리)
-		              $('[name=addr1]').val(data.address);
-		              $('[name=addr2]').val(data.buildingName);
-		          }
-		    }).open();
-		} 
+	        	    var addr = '';
+		  		    var extraAddr = '';
+
+					if (data.userSelectedType === 'R') { 
+		                  addr = data.roadAddress;
+		              } else { 
+		                  addr = data.jibunAddress;
+		              }
+
+		              if(data.userSelectedType === 'R'){
+		                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+		                      extraAddr += data.bname;
+		                  }
+		                  if(data.buildingName !== '' && data.apartment === 'Y'){
+		                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+		                  }
+		                  if(extraAddr !== ''){
+		                      extraAddr = ' (' + extraAddr + ')';
+		                  }
+		                  document.getElementById("addr3").value = extraAddr;
+		              
+		              } else {
+		                  document.getElementById("addr3").value = '';
+		              }
+
+		              document.getElementById('zip').value = data.zonecode;
+		              document.getElementById("addr1").value = addr;
+		              document.getElementById("addr2").focus();
+		              
+		              geocoder.addressSearch(addr, callback);
+					}
 		    
+		    }).open();
+		}
+		
+		var geocoder = new kakao.maps.services.Geocoder();
+		
+		var callback = function(result, status) {
+			if (status === kakao.maps.services.Status.OK) {
+				console.log(result);
+				document.getElementById("memLat").value = result[0].x;
+				$("input[name=memLng]").val(result[0].y);
+			}
+		};
+		
+	
+		/* function openZipSearch2() {
+		    new daum.Postcode({
+		          oncomplete: function(data) {
+	        	    var addr = '';
+		  		    var extraAddr = '';
+		  		    
+		              if (data.userSelectedType === 'R') { 
+		                  addr = data.roadAddress;
+		              } else { 
+		                  addr = data.jibunAddress;
+		              }
+
+		              if(data.userSelectedType === 'R'){
+		                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+		                      extraAddr += data.bname;
+		                  }
+		                  if(data.buildingName !== '' && data.apartment === 'Y'){
+		                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+		                  }
+		                  if(extraAddr !== ''){
+		                      extraAddr = ' (' + extraAddr + ')';
+		                  }
+		                  document.getElementById("addr6").value = extraAddr;
+		              
+		              } else {
+		                  document.getElementById("addr6").value = '';
+		              }
+
+		              document.getElementById('zip2').value = data.zonecode;
+		              document.getElementById("addr4").value = addr;
+		              document.getElementById("addr5").focus();
+		          }
+		    
+		    }).open();
+
+		}
+	 */
+	 
+	 
+	 function idCheck () {
+		 
+	 }
+	 
+	 $("#userID").on("focusout", function(){
+/* 		
+		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
+		 	 return false;
+	 	}else {*/
+	 		$.ajax({
+	 			async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/member/idCheck"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "userID" : $("#userID").val() }
+				,success: function(response) {
+					if(response.rt == "success") {
+						document.getElementById("userID").classList.add('is-valid');
+	
+						document.getElementById("userIDFeedback").classList.remove('invalid-feedback');
+						document.getElementById("userIDFeedback").classList.add('valid-feedback');
+						document.getElementById("userIDFeedback").innerText = "사용 가능한 아이디입니다.";
+						
+						document.getElementById("useIDAllowNY").value = 1;
+						
+					} else {
+						document.getElementById("userID").classList.add('is-invalid');
+						
+						document.getElementById("userIDFeedback").classList.remove('valid-feedback');
+						document.getElementById("userIDFeedback").classList.add('invalid-feedback');
+						document.getElementById("userIDFeedback").innerText = "이미 사용중인 아이디입니다.";
+						
+						document.getElementById("useIDAllowNY").value = 0;
+					}
+				}
+			});
+	});
+	 
 	</script>
 	
-
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/d843c66cc1.js" crossorigin="anonymous"></script>
 </body>

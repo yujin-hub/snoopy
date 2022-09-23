@@ -64,4 +64,13 @@
 			AND a.userseq = #{userseq}
 	</select>
 	
+	<select id="idCheck" resultType="Integer">
+		SELECT
+			COUNT(*)
+		FROM
+			user
+		WHERE 
+			userID = #{userID}
+	</select>
+	
 </mapper>	

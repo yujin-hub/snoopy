@@ -10,6 +10,8 @@ public class Member {
 	public String email;
 	public String accessDate;
 	public Integer userDelNY;
+	public String userID;
+	
 	
 	public String getSeq() {
 		return seq;
@@ -65,7 +67,12 @@ public class Member {
 	public void setUserDelNY(Integer userDelNY) {
 		this.userDelNY = userDelNY;
 	}
+	public String getUserID() {
+		return userID;
+	}
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
 	
-
 
 }
