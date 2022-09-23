@@ -623,13 +623,7 @@
 			goForm(0);                
 		});
 
-		goForm = function(keyValue) {
-	    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
-	    	seq.val(keyValue);
-	    	form.attr("action", goUrlForm).submit();
-		}
-
-	 	$("#btnSearch").on("click", function(){
+		$("#btnSearch").on("click", function(){
 	 		form.attr("action", goUrlList).submit();
 	 	});
 	 	
@@ -637,31 +631,19 @@
 	 	$("#btnReset").on("click", function(){
 	 		$(location).attr("href", goUrlList);
 	 	});
-	 	
+		
+		goForm = function(keyValue) {
+	    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
+	    	seq.val(keyValue);
+	    	form.attr("action", goUrlForm).submit();
+		}
+
 	 	goList = function(thisPage){
 			$("input:hidden[name=thisPage]").val(thisPage);
 			form.attr("action", goUrlList).submit();
 		}
+
 	 	
-	 function mypage()
-		{
-		     location.href = "../member/mypage.html";
-		}
-	 
-	 function home()
-		{
-		     location.href = "../item/itemList.html";
-		}
-	 
-	 function mem()
-		{
-		     location.href = "memberView.html";
-		}
-	 
-	 function form()
-		{
-		     location.href = "codeForm";
-		}
 	 	
 		$(document).ready(function(){
 			$("input.shDate").datepicker();

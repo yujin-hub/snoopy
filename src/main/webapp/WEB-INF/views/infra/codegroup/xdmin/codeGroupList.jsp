@@ -637,21 +637,6 @@
 		form.attr("action", goUrlList).submit();
 	}
  	
-	 function mypage()
-		{
-		     location.href = "../member/mypage.html";
-		}
-	 
-	 function home()
-		{
-		     location.href = "../item/itemList.html";
-		}
-	 
-	 function mem()
-		{
-		     location.href = "memberView.html";
-		}
-	 
 	 
 		$(document).ready(function(){
 			 $("input.shDate").datepicker();

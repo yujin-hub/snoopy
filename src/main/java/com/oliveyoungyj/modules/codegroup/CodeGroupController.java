@@ -43,11 +43,14 @@ public class CodeGroupController {
 		return "infra/codegroup/xdmin/codeGroupList";
 	}
 	
-//	@RequestMapping(value = "codeGroupForm")
-//	public String codeGroupForm() throws Exception {
-//		
-//		return "infra/codegroup/xdmin/codeGroupForm";
-//	}
+	@RequestMapping(value = "codeGroupForm")
+	public String codeGroupForm(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception {
+		
+		System.out.println("vo.getSeq(): " + vo.getSeq());
+		CodeGroup result = service.selectOne(vo);
+		model.addAttribute("item", result);
+		return "infra/codegroup/xdmin/codeGroupForm";
+	}
 	
 	@RequestMapping(value = "codeGroupInst")
 	public String codeGroupInst(CodeGroupVo vo, CodeGroup dto, RedirectAttributes redirectAttributes) throws Exception {
@@ -84,14 +87,6 @@ public class CodeGroupController {
 		return "redirect:/codeGroup/codeGroupList";
 	}
 	
-	@RequestMapping(value = "codeGroupForm")
-	public String codeGroupForm(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception {
-		
-		System.out.println("vo.getSeq(): " + vo.getSeq());
-		CodeGroup result = service.selectOne(vo);
-		model.addAttribute("item", result);
-		return "infra/codegroup/xdmin/codeGroupForm";
-	}
 	
 //	only for member
 //	@RequestMapping(value = "codeGroupView")
