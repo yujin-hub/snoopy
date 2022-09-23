@@ -48,7 +48,7 @@
 		}
 		
 		a:hover {
-			color: #999999;
+			color: #8bb011;
 		}
 	</style>
 
