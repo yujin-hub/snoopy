@@ -218,7 +218,7 @@
 		<div class="top_util">
 			<ul class="menu_list" id="menu_list_header">
 				<li class="login"><a href="#" data-attr='공통^헤더^로그인'><i class="fa-solid fa-wrench"></i> 매니저 님, 반갑습니다</a></li>
-				<li class="cart"><a href="../member/memberList.html">관리 홈<span id="cartToCnt"></span></a></li>
+				<li class="cart"><a href="codeGroupList">관리 홈<span id="cartToCnt"></span></a></li>
 				<li class="cart"><a href="#">로그아웃<span id="cartToCnt"></span></a></li>
 			</ul>
 		</div>
@@ -346,13 +346,13 @@
 				<br>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link" href="../member/memberlist.html">회원 관리</a>
+						<a class="nav-link" href="../member/memberList">회원 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../item/itemlist.html">상품 관리</a>
+						<a class="nav-link" href="../item/itemListSet">상품 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../order/orderList.html">주문 관리</a>
+						<a class="nav-link" href="../payment/paySet">주문 관리</a>
 					</li>
 				</ul>
 				<br>
@@ -360,10 +360,10 @@
 				<span class="font">Code</span>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link" href="codeGroup.html">코드 그룹 관리</a>
+						<a class="nav-link" href="codeGroupList">코드 그룹 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">코드 관리</a>
+						<a class="nav-link" href="/code/codeList">코드 관리</a>
 					</li>
 				</ul>
 			</div>

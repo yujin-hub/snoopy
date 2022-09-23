@@ -65,5 +65,11 @@ public class ItemController {
 		return "infra/payment/user/payDone";
 	}
 	
+	@RequestMapping(value = "itemSet")
+	public String itemSet() throws Exception {
+		
+		return "infra/item/xdmin/itemListSet";
+	}
+	
 
 }
