@@ -147,7 +147,7 @@
 	<br>
 	<center><img src="../../resources/images/icon2.jpg"></center>
 	<br>
-	<br>		
+	<br>	
 	<div class= "container" id="wid2">
 		<h4>기본사항</h4>
 		<hr>
@@ -388,10 +388,10 @@
 		<h6 style="color: #9E4D4D;">※ 표시하신 정보를 토대로 고객님께 맞는 제품을 추천해드립니다.</h6>
 		<br>
 		<br>
-		<a href="/member/regDone">
-			<button type="button" class="btn btn-secondary" style="float: right;">다음 <i class="fa-solid fa-angle-right"></i></button>
+		<button type="button" class="btn btn-secondary" style="float: right;">저장<i class="fa-solid fa-angle-right"></i></button>
+		<a href="memberList">
+			<button type="button" class="btn btn-secondary btn-space" style="float: right;">홈</button>
 		</a>
-		<button type="button" class="btn btn-secondary btn-space" style="float: right;"><i class="fa-solid fa-angle-left"></i> 이전</i></button>
 		<br>
 		<br>
 		<br>
@@ -521,17 +521,21 @@
 	 */
 	 
 	 
+	 function idCheck () {
+		 
+	 }
+	 
 	 $("#userID").on("focusout", function(){
-		
-		if(!checkId('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
+/* 		
+		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
 		 	 return false;
-	 	}else {
+	 	}else {*/
 	 		$.ajax({
 	 			async: true 
 				,cache: false
 				,type: "post"
 				/* ,dataType:"json" */
-				,url: "/member/checkId"
+				,url: "/member/idCheck"
 				/* ,data : $("#formLogin").serialize() */
 				,data : { "userID" : $("#userID").val() }
 				,success: function(response) {
@@ -555,7 +559,6 @@
 					}
 				}
 			});
-		}
 	});
 	 
 	</script>

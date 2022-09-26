@@ -479,7 +479,7 @@
 													<td><c:out value="${list.seq }"/></td>
 													<td><c:out value="${list.num }"/></td>
 													<td>
-														<a href="/codeGroup/codeGroupForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.propertyKor}"/></a>
+														<a href="javascript:goForm(<c:out value="${list.seq}"/>)"><c:out value="${list.propertyKor }"/></a>
 													</td>
 													<td><c:out value="${list.property }"/></td>
 													<td><c:out value="${list.codeNum }"/></td>
@@ -609,6 +609,7 @@
 	var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
 	var goUrlUele = "/codeGroup/codeGroupUele";				/* #-> */
 	var goUrlDele = "/codeGroup/codeGroupDele";				/* #-> */
+	var goUrlForm = "/codeGroup/codeGroupForm";				/* #-> */
 
 	var form = $("form[name=formList]");
 

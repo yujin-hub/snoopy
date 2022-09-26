@@ -642,7 +642,6 @@
 			$("input:hidden[name=thisPage]").val(thisPage);
 			form.attr("action", goUrlList).submit();
 		}
-
 	 	
 	 	
 		$(document).ready(function(){
