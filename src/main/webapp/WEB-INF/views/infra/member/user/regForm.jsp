@@ -184,12 +184,12 @@
 		</div>
  		<hr>
  		<div class="form-check" style="margin-left: 950px;">
-		 	<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+		 	<input class="form-check-input" type="radio" name="agree">
 			<label class="form-check-label" for="flexRadioDefault1">동의합니다.</label>
 		</div>
  		<hr>
  		<br>
-		<hr>
+		<!-- <hr>
 		<h5>[선택] 정보동의 수신 여부</h5>
 		<hr>
 		<div id="mydiv2">
@@ -217,9 +217,11 @@
 			<label class="form-check-label" for="flexRadioDefault2">수신하지 않겠습니다.</label>
 		</div>
 		<hr>
+		<br> -->
 		<br>
-		<br>
-		<a href="/member/regForm2"><button type="button" class="btn btn-secondary" style="float: right;">다음 <i class="fa-solid fa-angle-right"></i></button></a>
+		<a href="/member/regForm2">
+			<button type="button" class="btn btn-secondary" style="float: right;" id="btn">다음 <i class="fa-solid fa-angle-right"></i></button>
+		</a>
 	</div>
 	<br>
 	<br>
@@ -240,7 +242,13 @@
 
 
 	<script type="text/javascript">
-
+		$("#btn").on("click", function(){
+			if($(':radio[name="agree"]:checked').length < 1){
+			    alert('필수 약관에 동의해주세요.'); 
+			    return false;
+			}
+		}); 
+		
 	</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

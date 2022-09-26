@@ -342,10 +342,10 @@
 				<span class="font">Code</span>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link" href="codeGroupList">코드 그룹 관리</a>
+						<a class="nav-link" href="/codeGroup/codeGroupList">코드 그룹 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">코드 관리</a>
+						<a class="nav-link" href="/code/codeList">코드 관리</a>
 					</li>
 				</ul>
 			</div>
@@ -469,10 +469,10 @@
 											<c:forEach items="${list}" var="list" varStatus="status">
 												<tr class="cursor">
 													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
-													<td><c:out value="${list.userSeq }"/></td>
+													<td><c:out value="${list.seq }"/></td>
 													<td><c:out value="${list.userGrade }"/></td>
 													<td>
-														<a href="/member/memberForm?seq=<c:out value="${list.seq}"/>"><c:out value="${list.name }"/></a>
+														<a href="javascript:goForm(<c:out value="${list.seq}"/>)"><c:out value="${list.name }"/></a>
 													</td>
 													<td>
 														<c:forEach items="${CodeGenderlist}" var="Genderlist" varStatus="statusGender">
@@ -593,12 +593,19 @@
 		});
 		
 	 	var goUrlList = "/member/memberList";
+	 	var goUrlInst = "/member/memberInst";
+	 	var goUrlUpdt = "/member/memberUpdt";
+	 	var goUrlUele = "/member/memberUele";
+	 	var goUrlDele = "/member/memberDele";
 	 	var goUrlForm = "/member/memberForm";
 
 		var form = $("form[name=formMem]");
 
 		var seq = $("input:hidden[name=seq]");
-		 
+
+		$('#btnForm').on("click", function() {
+			goForm(0);                
+		});
 		 
 		 $("#btnSearch").on("click", function(){
 			form.attr("action", goUrlList).submit();	 
@@ -620,7 +627,6 @@
 			$("input:hidden[name=thisPage]").val(thisPage);
 			form.attr("action", goUrlList).submit();
 		}
-		 	
 		 
 	 
 		$(document).ready(function(){

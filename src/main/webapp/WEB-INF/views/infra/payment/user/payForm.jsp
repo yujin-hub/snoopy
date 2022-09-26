@@ -435,8 +435,8 @@
 				  <label class="form-check-label" for="flexRadioDefault2">기존 배송지</label>
 				</div>
 				<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-					  <label class="form-check-label" for="inlineRadio2">신규 배송지</label>
+				  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault63" value="option2">
+				  <label class="form-check-label" for="inlineRadio2">신규 배송지</label>
 				</div>
 			</div>
 		</div>
@@ -446,7 +446,7 @@
 				<span>배송지 명</span>
 			</div>
 			<div class="col-5">
-				<input type="text" class="form-control" id="validationCustom01" aria-label="name">
+				<input type="text" class="form-control" id="validationCustom01">
 			</div>
 		</div>
 		<hr>
@@ -455,7 +455,7 @@
 				<span>받는분</span>
 			</div>
 			<div class="col-5">
-				<input type="text" class="form-control" id="validationCustom01" aria-label="recipient">
+				<input type="text" class="form-control" id="validationCustom01">
 			</div>
 		</div>
 		<hr>
@@ -480,10 +480,10 @@
 				</select> 
 			</div>
 			<div class="col-2">
-				<input type="text" class="form-control" id="validationCustom01" aria-label="mobile2">
+				<input type="text" class="form-control" id="validationCustom01">
 			</div>
 			<div class="col-2">
-				<input type="text" class="form-control" id="validationCustom01" aria-label="mobile2"> 
+				<input type="text" class="form-control" id="validationCustom01"> 
 			</div>
 		</div>
 		<hr>
@@ -492,16 +492,29 @@
 				<span>주소</span>
 			</div>
 			<div class="col-8" style="margin-top: 8px;">
-				<div class="row gy-2">
-					<div class="col-4">
-						<input type="text" name="zip" class="form-control" id="validationCustom01" aria-label="post">
+				<div class="row">
+					<div class="col-5">
+						<div class="input-group">
+							<input type="text" id="zip" class="form-control" placeholder="우편번호">
+							<button type="button" class="btn btn-outline-secondary" id="addrButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+							<button class="btn btn-outline-secondary" type="button" id="clearButton"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+						</div>
 					</div>
-					<div class="col-3">
-						<button type="button" class="btn btn-secondary" onclick="openZipSearch()"> 우편번호 검색 </button>
+					<div>
+						<input type="text" id="addr1" class="form-control" placeholder="주소">
 					</div>
-					<br>
-					<div><input type="text" name="addr1" class="form-control" id="validationCustom01" aria-label="addr"></div>
-					<div><input type="text" name="addr2" class="form-control" id="validationCustom01" aria-label="addr2"></div>
+					<div class="col-6">
+						<input type="text" id="addr2" class="form-control" placeholder="상세주소">
+					</div>
+					<div class="col-6">
+						<input type="text" id="addr3" class="form-control" placeholder="참고항목">
+					</div>
+					<div class="col-6">
+						<input type="text" id="memLat" name="memLat" class="form-control" placeholder="위도">
+					</div>
+					<div class="col-6">
+						<input type="text" name="memLng" class="form-control" placeholder="경도">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -819,10 +832,80 @@
 
 	    });
 	 
+		$("#addrButton").on("click", function(){
+			openZipSearch();
+		});
+		
+		$("#addrButton2").on("click", function(){
+			openZipSearch2();
+		});
+		
+		$("#clearButton").on("click", function(){
+			$("#zip").val('');
+			$("#addr1").val('');
+			$("#arrd2").val('');
+			$("#addr3").val('');
+		});
+		
+		$("#clearButton2").on("click", function(){
+			$("#zip2").val('');
+			$("#addr4").val('');
+			$("#arrd5").val('');
+			$("#addr6").val('');
+		});
+		
+		function openZipSearch() {
+		    new daum.Postcode({
+		          oncomplete: function(data) {
+	        	    var addr = '';
+		  		    var extraAddr = '';
+
+					if (data.userSelectedType === 'R') { 
+		                  addr = data.roadAddress;
+		              } else { 
+		                  addr = data.jibunAddress;
+		              }
+
+		              if(data.userSelectedType === 'R'){
+		                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+		                      extraAddr += data.bname;
+		                  }
+		                  if(data.buildingName !== '' && data.apartment === 'Y'){
+		                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+		                  }
+		                  if(extraAddr !== ''){
+		                      extraAddr = ' (' + extraAddr + ')';
+		                  }
+		                  document.getElementById("addr3").value = extraAddr;
+		              
+		              } else {
+		                  document.getElementById("addr3").value = '';
+		              }
+
+		              document.getElementById('zip').value = data.zonecode;
+		              document.getElementById("addr1").value = addr;
+		              document.getElementById("addr2").focus();
+		              
+		              geocoder.addressSearch(addr, callback);
+					}
+		    
+		    }).open();
+		}
+		
+		var geocoder = new kakao.maps.services.Geocoder();
+		
+		var callback = function(result, status) {
+			if (status === kakao.maps.services.Status.OK) {
+				console.log(result);
+				document.getElementById("memLat").value = result[0].x;
+				$("input[name=memLng]").val(result[0].y);
+			}
+		};
+	 
 		
 </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/d843c66cc1.js" crossorigin="anonymous"></script>
 </body>

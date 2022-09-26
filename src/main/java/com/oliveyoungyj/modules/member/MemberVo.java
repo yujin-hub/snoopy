@@ -17,7 +17,6 @@ public class MemberVo {
 	private String nickname;
 	private Integer userDelNY;
 	
-	private Integer userseq;
 	
 	private String seq;
 
@@ -110,12 +109,6 @@ public class MemberVo {
 	}
 	public void setSeq(String seq) {
 		this.seq = seq;
-	}
-	public Integer getUserseq() {
-		return userseq;
-	}
-	public void setUserseq(Integer userseq) {
-		this.userseq = userseq;
 	}
 	public int getThisPage() {
 		return thisPage;

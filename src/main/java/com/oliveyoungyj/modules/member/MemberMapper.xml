@@ -16,7 +16,7 @@
 			<if test="shUserDelNY != null and !shUserDelNY.equals('')">AND a.userDelNY = #{shUserDelNY}</if>
 			
 			<choose>
-				<when test="shOption == 1">AND a.userSeq = #{shValue }</when>
+				<when test="shOption == 1">AND a.seq = #{shValue }</when>
 				<when test="shOption == 2">AND a.userGrade LIKE CONCAT('%',#{shValue },'%')</when>
 				<when test="shOption == 3">AND a.name LIKE CONCAT('%',#{shValue },'%')</when>
 				<when test="shOption == 4">AND a.email LIKE CONCAT('%',#{shValue },'%')</when>
@@ -30,7 +30,7 @@
 	<select id="selectList" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql" />
 			SELECT 
-				a.userSeq
+				a.seq
 				, a.userGrade
 				, a.name
 				, a.gender
@@ -47,13 +47,50 @@
 		<include refid="selectCommon" />
 	</select>
 
+	<insert id="insert">
+		INSERT INTO user (
+			name
+			,gender
+			,dob
+			,tel
+			,telMid
+			,telEnd
+			,userID
+			,pw
+			,nickname
+			,email
+			,userDelNY
+			,accessDate
+		)
+		VALUES (
+			#{name}
+			,#{gender}
+			,#{dob}
+			,#{tel}
+			,#{telMid}
+			,#{telEnd}
+			,#{userID}
+			,#{pw}
+			,#{nickname}
+			,#{email}
+			,0
+			,now()
+		)
+		
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+		
 	<update id="update">
 		UPDATE user
 		SET 
-			userGrade = #{userGrade}
-			, pw = #{pw}
+			pw = #{pw}
 			, nickname = #{nickname}
 			, userDelNY = #{userDelNY}
+		WHERE 
+	 		seq = #{seq}
 	</update>
 	
 	<select id="selectOne" resultMap ="resultMapObj">
@@ -61,7 +98,7 @@
 			a.*
 		FROM user a
 		WHERE 1=1
-			AND a.userseq = #{userseq}
+			AND a.seq = #{seq}
 	</select>
 	
 	<select id="idCheck" resultType="Integer">

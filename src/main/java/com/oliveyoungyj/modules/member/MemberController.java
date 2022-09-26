@@ -47,6 +47,14 @@ public class MemberController {
 		return "infra/member/xdmin/memberList";
 	}
 	
+	@RequestMapping(value = "memberInst")
+	public String memberInst(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
+		service.insert(dto);
+		vo.setSeq(dto.getSeq());
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/member/memberForm";
+	}
+		
 	@RequestMapping(value = "memberUpdt")
 	public String memberUpdt(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
 		

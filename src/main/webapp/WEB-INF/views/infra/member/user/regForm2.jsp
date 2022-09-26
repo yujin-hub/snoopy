@@ -231,7 +231,7 @@
 				<span>주소</span>
 			</div>
 			<div class="col-9" style="margin-top: 8px;">
-				<span>우편물 수령지</span>
+				<!-- <span>우편물 수령지</span>
 				<div class="form-check form-check-inline left">
 					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
 					<label class="form-check-label" for="inlineRadio1">자택</label>
@@ -242,7 +242,7 @@
 				</div>
 				<br>
 				<hr>
-				<span>자택 주소</span>
+				<span>자택 주소</span> -->
 				<div class="row gy-2">
 					<div class="col-5">
 						<div class="input-group">
@@ -251,7 +251,9 @@
 							<button class="btn btn-outline-secondary" type="button" id="clearButton"><i class="fa-solid fa-arrow-rotate-left"></i></button>
 						</div>
 					</div>
-					<div><input type="text" id="addr1" class="form-control" placeholder="주소" disabled></div>
+					<div>
+						<input type="text" id="addr1" class="form-control" placeholder="주소" disabled>
+					</div>
 					<div class="col-6">
 						<input type="text" id="addr2" class="form-control" placeholder="상세주소">
 					</div>
@@ -325,7 +327,7 @@
 		</div>
 		<hr>
 		<h6 style="color: #9E4D4D;">※ 기입하신 정보는 고객님의 동의 없이 공개되지 않으며, 고객님의 정보는 개인정보보호정책에 의해 보호를 받습니다.</h6>
-		<br>
+		<!-- <br>
 		<br>
 		<h4>관심사</h4>
 		<hr>
@@ -386,12 +388,10 @@
 		</div>
 		<hr>
 		<h6 style="color: #9E4D4D;">※ 표시하신 정보를 토대로 고객님께 맞는 제품을 추천해드립니다.</h6>
+		<br> -->
 		<br>
-		<br>
-		<button type="button" class="btn btn-secondary" style="float: right;">저장<i class="fa-solid fa-angle-right"></i></button>
-		<a href="memberList">
-			<button type="button" class="btn btn-secondary btn-space" style="float: right;">홈</button>
-		</a>
+		<button type="button" class="btn btn-secondary" style="float: right;" id="btnSave">저장<i class="fa-solid fa-angle-right"></i></button>
+		<button type="button" class="btn btn-secondary btn-space" style="float: right;" id="btnList">홈</button>
 		<br>
 		<br>
 		<br>
@@ -411,6 +411,17 @@
 	</div>
 	
 	<script type="text/javascript">
+	var goUrlList = "/item/itemList"; 			/* #-> */
+	var goUrlInst = "/member/memberInst"; 
+	
+		$("#btnSave").on("click", function(){
+	   		form.attr("action", goUrlInst).submit();
+		}); 
+	
+		$("#btnList").on("click", function(){
+			form.attr("action", goUrlList).submit();
+		});
+	
 		$("#addrButton").on("click", function(){
 			openZipSearch();
 		});

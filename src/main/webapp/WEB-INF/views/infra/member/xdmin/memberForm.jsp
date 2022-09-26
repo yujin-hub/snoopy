@@ -143,253 +143,273 @@
 	</div>	
 	<br>
 	<div class= "container" id="wid2">
-		<h4>기본사항</h4>
-		<hr>
-		<div class="row">
-			<div class="col-2" id="cdiv">
-				<span>성명</span>
-			</div>
-			<div class="col-4">
-				<input type="text" class="form-control" id="validationCustom01" aria-label="Username">
-			</div>
-			<div class="col-2" id="cdiv">
-				<span>성별</span>
-			</div>
-			<div class="col-3" style="margin-top: 10px;">
-				<div class="form-check form-check-inline left">
-					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-					  <label class="form-check-label" for="inlineRadio1">남성</label>
+		<form name="formMem" method="post" action="/member/memberInst">
+		<%-- <%@include file="memberVo.jsp"%>	 --%>
+			<input type="hidden" name="seq" value="<c:out value="${vo.seq }"/>">
+			<h4>기본사항</h4>
+			<hr>
+			<div class="row">
+				<div class="col-2" id="cdiv">
+					<span>성명</span>
 				</div>
-				<div class="form-check form-check-inline left">
-					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-					  <label class="form-check-label" for="inlineRadio2">여성</label>
+				<div class="col-4">
+					<input type="text" class="form-control" value="<c:out value="${item.name}"/>">
+				</div>
+				<div class="col-2" id="cdiv">
+					<span>성별</span>
+				</div>
+				<div class="col-3" style="margin-top: 10px;">
+					<div class="form-check form-check-inline left">
+						  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+						  <label class="form-check-label" for="inlineRadio1">남성</label>
+					</div>
+					<div class="form-check form-check-inline left">
+						  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+						  <label class="form-check-label" for="inlineRadio2">여성</label>
+					</div>
 				</div>
 			</div>
-		</div>
-		<hr>
-		<div class="row">
-			<div class="col-2" id="cdiv">
-				<span>생년월일</span>
+			<hr>
+			<div class="row">
+				<div class="col-2" id="cdiv">
+					<span>생년월일</span>
+				</div>
+				<div class="col-4">
+					<input type="text" class="form-control" value="<c:out value="${item.dob}"/>">
+				</div>
+				<div class="col-2" id="cdiv">
+					<span>휴대폰</span>
+				</div>
+				<div class="col-3">
+					<input type="text" class="form-control" value="<c:out value="${item.tel}"/>">
+				</div>
 			</div>
-			<div class="col-4">
-				<input type="text" class="form-control" id="validationCustom01" aria-label="dob">
-			</div>
-			<div class="col-2" id="cdiv">
-				<span>휴대폰</span>
-			</div>
-			<div class="col-3">
-				<input type="text" class="form-control" id="validationCustom01" aria-label="mobile">
-			</div>
-		</div>
-		<hr>
-		<br>
-		<br>
-		<h4>필수입력 사항</h4>
-		<hr>
-		<div class="row">
-			<div class="col-2" id="cdiv">
-				<span>아이디</span>
-			</div>
-			<div class="col-3">
-				<input type="hidden" id="useIDAllowNY" name="useIDAllowNY" value="0">
-				<input type="text" class="form-control" id="userID" name="userID" placeholder="4자리 이상의 영문 + 숫자">
-				<div class="invalid-feedback" id="userIDFeedback"></div>
-			</div>
+			<hr>
 			<br>
-			<div class="col-7">
-			</div>
-		</div>
-		<hr>
-		<div class="row">
-			<div class="col-2" id="cdiv">
-				<span>비밀번호</span>
-			</div>
-			<div class="col-4">
-				<input type="password" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성">
-			</div>
-		</div>
-		<hr>	
-		<div class="row">
-			<div class="col-2" id="cdiv">
-				<span>비밀번호 확인</span>
-			</div>
-			<div class="col-4">
-				<input type="password" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성">
-			</div>
-			<div class="col-5">
-			</div> 
-		</div>
-		<hr>	
-		<div class="row">
-			<div class="col-2" id="cdiv">
-				<span>주소</span>
-			</div>
-			<div class="col-9" style="margin-top: 8px;">
-				<span>우편물 수령지</span>
-				<div class="form-check form-check-inline left">
-					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-					<label class="form-check-label" for="inlineRadio1">자택</label>
+			<br>
+			<h4>필수입력 사항</h4>
+			<hr>
+			<div class="row">
+				<div class="col-2" id="cdiv">
+					<span>아이디</span>
 				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-					<label class="form-check-label" for="inlineRadio2">직장</label>
+				<div class="col-3">
+					<input type="hidden" id="useIDAllowNY" name="useIDAllowNY" value="0">
+					<input type="text" class="form-control" id="userID" name="userID" placeholder="4자리 이상의 영문 + 숫자" value="<c:out value="${item.userID}"/>">
+					<div class="invalid-feedback" id="userIDFeedback"></div>
 				</div>
 				<br>
-				<hr>
-				<span>자택 주소</span>
-				<div class="row gy-2">
-					<div class="col-5">
-						<div class="input-group">
-							<input type="text" id="zip" class="form-control" placeholder="우편번호" disabled>
-							<button type="button" class="btn btn-outline-secondary" id="addrButton"><i class="fa-solid fa-magnifying-glass"></i></button>
-							<button class="btn btn-outline-secondary" type="button" id="clearButton"><i class="fa-solid fa-arrow-rotate-left"></i></button>
-						</div>
-					</div>
-					<div><input type="text" id="addr1" class="form-control" placeholder="주소" disabled></div>
-					<div class="col-6">
-						<input type="text" id="addr2" class="form-control" placeholder="상세주소">
-					</div>
-					<div class="col-6">
-						<input type="text" id="addr3" class="form-control" placeholder="참고항목" disabled>
-					</div>
-					<div class="col-6">
-						<input type="text" id="memLat" name="memLat" class="form-control" placeholder="위도" disabled>
-					</div>
-					<div class="col-6">
-						<input type="text" name="memLng" class="form-control" placeholder="경도" disabled>
-					</div>
+				<div class="col-7">
 				</div>
-				<!-- <span>직장 주소</span>
-				<div class="row gy-2">
-					<div class="col-5">
-						<div class="input-group">
-							<input type="text" id="zip2" class="form-control" placeholder="우편번호" disabled>
-							<button type="button" class="btn btn-outline-secondary" id="addrButton2"><i class="fa-solid fa-magnifying-glass"></i></button>
-							<button class="btn btn-outline-secondary" type="button" id="clearButton2"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-2" id="cdiv">
+					<span>비밀번호</span>
+				</div>
+				<div class="col-4">
+					<input type="password" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성" value="<c:out value="${item.pw}"/>">
+				</div>
+			</div>
+			<hr>	
+			<%-- <div class="row">
+				<div class="col-2" id="cdiv">
+					<span>비밀번호 확인</span>
+				</div>
+				<div class="col-4">
+					<input type="password" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성" value="<c:out value="${item.pw}"/>" readonly>
+				</div>
+				<div class="col-5">
+				</div> 
+			</div>
+			<hr> --%>	
+			<div class="row">
+				<div class="col-2" id="cdiv">
+					<span>주소</span>
+				</div>
+				<div class="col-9" style="margin-top: 8px;">
+					<!-- <span>우편물 수령지</span>
+					<div class="form-check form-check-inline left">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+						<label class="form-check-label" for="inlineRadio1">자택</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+						<label class="form-check-label" for="inlineRadio2">직장</label>
+					</div>
+					<br> 
+					<hr>
+					<span>자택 주소</span> -->
+					<div class="row gy-2">
+						<div class="col-5">
+							<div class="input-group">
+								<input type="text" id="zip" class="form-control" placeholder="우편번호" disabled>
+								<button type="button" class="btn btn-outline-secondary" id="addrButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+								<button class="btn btn-outline-secondary" type="button" id="clearButton"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+							</div>
+						</div>
+						<div><input type="text" id="addr1" class="form-control" placeholder="주소" disabled></div>
+						<div class="col-6">
+							<input type="text" id="addr2" class="form-control" placeholder="상세주소">
+						</div>
+						<div class="col-6">
+							<input type="text" id="addr3" class="form-control" placeholder="참고항목" disabled>
+						</div>
+						<div class="col-6">
+							<input type="text" id="memLat" name="memLat" class="form-control" placeholder="위도" disabled>
+						</div>
+						<div class="col-6">
+							<input type="text" name="memLng" class="form-control" placeholder="경도" disabled>
 						</div>
 					</div>
-					<div><input type="text" id="addr4" class="form-control" placeholder="주소" disabled></div>
-					<div class="col-6">
-						<input type="text" id="addr5" class="form-control" placeholder="상세주소">
-					</div>
-					<div class="col-6">
-						<input type="text" id="addr6" class="form-control" placeholder="참고항목" disabled>
-					</div>
-				</div> -->
+					<!-- <span>직장 주소</span>
+					<div class="row gy-2">
+						<div class="col-5">
+							<div class="input-group">
+								<input type="text" id="zip2" class="form-control" placeholder="우편번호" disabled>
+								<button type="button" class="btn btn-outline-secondary" id="addrButton2"><i class="fa-solid fa-magnifying-glass"></i></button>
+								<button class="btn btn-outline-secondary" type="button" id="clearButton2"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+							</div>
+						</div>
+						<div><input type="text" id="addr4" class="form-control" placeholder="주소" disabled></div>
+						<div class="col-6">
+							<input type="text" id="addr5" class="form-control" placeholder="상세주소">
+						</div>
+						<div class="col-6">
+							<input type="text" id="addr6" class="form-control" placeholder="참고항목" disabled>
+						</div>
+					</div> -->
+				</div>
 			</div>
-		</div>
-		<hr>
-		<div class="row">
-			<div class="col-2" id="cdiv">
-				<span>연락처</span>
-			</div>
-			<div class="col-1">
-				<select class="form-select" aria-label="validationCustom04">
-					<option selected>010</option>
-					<option value="2">070</option>
-					<option value="3">02</option>
-					<option value="4">기타</option>
-				</select> 
-			</div>
-			<div class="col-2">
-				<input type="text" class="form-control" id="validationCustom01" aria-label="mobile2">
-			</div>
-			<div class="col-2">
-				<input type="text" class="form-control" id="validationCustom01" aria-label="mobile2"> 
-			</div>
-		</div>
-		<hr>
-		<div class="row">
-			<div class="col-2" id="cdiv">
-				<span>이메일</span>
-			</div>
-			<div class="col-md-9">
-				<div class="input-group">
-					<input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
-					<span class="input-group-text" id="inputGroupPrepend2">@</span>
-					<select class="form-select" aria-label=".form-select example" required>
-						<option selected>naver.com</option>
-						<option value="1">nate.com</option>
-						<option value="2">hanmail.com</option>
-						<option value="3">gmail.com</option>
-						<option value="4">직접 입력</option>
+			<hr>
+			<div class="row">
+				<div class="col-2" id="cdiv">
+					<span>연락처</span>
+				</div>
+				<div class="col-1">
+					<select class="form-select" aria-label="validationCustom04">
+						<option selected>010</option>
+						<option value="2">070</option>
+						<option value="3">02</option>
+						<option value="4">기타</option>
 					</select> 
 				</div>
-			</div>
-		</div>
-		<hr>
-		<h6 style="color: #9E4D4D;">※ 기입하신 정보는 고객님의 동의 없이 공개되지 않으며, 고객님의 정보는 개인정보보호정책에 의해 보호를 받습니다.</h6>
-		<br>
-		<br>
-		<h4>관심사</h4>
-		<hr>
-		<div class="row">
-			<div class="col-2" id="cdiv">
-				<span>피부 타입</span>
-			</div>
-			<div class="col-8" style="margin-top: 8px;">
-				<div class="form-check form-check-inline">
-				  	<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-				  	<label class="form-check-label" for="inlineCheckbox1">건성</label>
+				<div class="col-2">
+					<input type="text" class="form-control" value="<c:out value="${item.telMid}"/>">
 				</div>
-				<div class="form-check form-check-inline">
-				  	<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-				  	<label class="form-check-label" for="inlineCheckbox2">지성</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  	<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option3">
-				  	<label class="form-check-label" for="inlineCheckbox1">복합성</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  	<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option4">
-				  	<label class="form-check-label" for="inlineCheckbox2">중성</label>
+				<div class="col-2">
+					<input type="text" class="form-control" value="<c:out value="${item.telEnd}"/>"> 
 				</div>
 			</div>
-		</div>
-		<hr>
-		<div class="row">
-			<div class="col-2" id="cdiv">
-				<span>관심분야</span>
-			</div>
-			<div class="col-8" style="margin-top: 8px;">
-				<div class="form-check form-check-inline">
-				  	<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1.">
-				  	<label class="form-check-label" for="inlineCheckbox1">스킨케어</label>
+			<hr>
+			<div class="row">
+				<div class="col-2" id="cdiv">
+					<span>이메일</span>
 				</div>
-				<div class="form-check form-check-inline">
-				  	<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2.">
-				  	<label class="form-check-label" for="inlineCheckbox2">색조 메이크업</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  	<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option3.">
-				  	<label class="form-check-label" for="inlineCheckbox1">바디케어</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  	<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option4.">
-				  	<label class="form-check-label" for="inlineCheckbox2">헤어</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  	<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option5.">
-				  	<label class="form-check-label" for="inlineCheckbox2">향수/디퓨저</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  	<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option6.">
-				  	<label class="form-check-label" for="inlineCheckbox2">건강식품</label>
+				<div class="col-md-9">
+					<div class="input-group">
+						<input type="text" class="form-control">
+						<span class="input-group-text">@</span>
+						<select class="form-select">
+							<option selected>naver.com</option>
+							<option value="1">nate.com</option>
+							<option value="2">hanmail.com</option>
+							<option value="3">gmail.com</option>
+							<option value="4">직접 입력</option>
+						</select> 
+					</div>
 				</div>
 			</div>
-		</div>
-		<hr>
-		<h6 style="color: #9E4D4D;">※ 표시하신 정보를 토대로 고객님께 맞는 제품을 추천해드립니다.</h6>
-		<br>
-		<br>
-		<button type="button" class="btn btn-secondary" style="float: right;">저장<i class="fa-solid fa-angle-right"></i></button>
-		<a href="memberList">
-			<button type="button" class="btn btn-secondary btn-space" style="float: right;">홈</button>
-		</a>
-		<br>
-		<br>
-		<br>
-		<br>
+			<hr>
+			<div class="row">
+				<div class="col-2" id="cdiv">
+					<span>회원등급</span>
+				</div>
+				<div class="col-4">
+					<div class="input-group">
+						<select class="form-select">
+							<option selected>::회원 등급::</option>
+							<option value="1">베이비올리브</option>
+							<option value="2">핑크올리브</option>
+							<option value="3">그린올리브</option>
+							<option value="4">블랙올리브</option>
+							<option value="4">골드올리브</option>
+						</select> 
+					</div>
+				</div>
+			</div>
+			<hr>
+			<h6 style="color: #9E4D4D;">※ 기입하신 정보는 고객님의 동의 없이 공개되지 않으며, 고객님의 정보는 개인정보보호정책에 의해 보호를 받습니다.</h6>
+			<br>
+			<!--  <br>
+			<h4>관심사</h4>
+			<hr>
+			<div class="row">
+				<div class="col-2" id="cdiv">
+					<span>피부 타입</span>
+				</div>
+				<div class="col-8" style="margin-top: 8px;">
+					<div class="form-check form-check-inline">
+					  	<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+					  	<label class="form-check-label" for="inlineCheckbox1">건성</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  	<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+					  	<label class="form-check-label" for="inlineCheckbox2">지성</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  	<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option3">
+					  	<label class="form-check-label" for="inlineCheckbox1">복합성</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  	<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option4">
+					  	<label class="form-check-label" for="inlineCheckbox2">중성</label>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-2" id="cdiv">
+					<span>관심분야</span>
+				</div>
+				<div class="col-8" style="margin-top: 8px;">
+					<div class="form-check form-check-inline">
+					  	<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1.">
+					  	<label class="form-check-label" for="inlineCheckbox1">스킨케어</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  	<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2.">
+					  	<label class="form-check-label" for="inlineCheckbox2">색조 메이크업</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  	<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option3.">
+					  	<label class="form-check-label" for="inlineCheckbox1">바디케어</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  	<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option4.">
+					  	<label class="form-check-label" for="inlineCheckbox2">헤어</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  	<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option5.">
+					  	<label class="form-check-label" for="inlineCheckbox2">향수/디퓨저</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  	<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option6.">
+					  	<label class="form-check-label" for="inlineCheckbox2">건강식품</label>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<h6 style="color: #9E4D4D;">※ 표시하신 정보를 토대로 고객님께 맞는 제품을 추천해드립니다.</h6>
+			<br> -->
+			<br>
+			<button type="button" class="btn btn-secondary" style="float: right;" id="btnSave"><i class="fa-solid fa-bookmark"></i></button>
+			<button type="button" class="btn btn-secondary btn-space" style="float: right;" id="btnList"><i class="fa-solid fa-list-ul"></i></button>
+			<br>
+			<br>
+			<br>
+			<br>
+		</form>
 	</div>
 		
 	<!-- #Footer -->
@@ -476,6 +496,31 @@
 		};
 		
 	
+		var goUrlList = "/member/memberList"; 			/* #-> */
+		var goUrlInst = "/member/memberInst"; 			/* #-> */
+		var goUrlUpdt = "/member/memberUpdt";				/* #-> */
+		var goUrlUele = "/member/memberUele";				/* #-> */
+		var goUrlDele = "/member/memberDele";				/* #-> */
+		
+		var seq = $("input:hidden[name=seq]");				/* #-> */
+		
+		var form = $("form[name=formMem]");
+		var formVo = $("form[name=formVo]");
+		
+		
+		$("#btnSave").on("click", function(){
+			if (seq.val() == "0" || seq.val() == ""){
+		   		form.attr("action", goUrlInst).submit();
+		   	} else {
+		   		form.attr("action", goUrlUpdt).submit();
+		   	}
+		}); 
+		
+		$("#btnList").on("click", function(){
+			form.attr("action", goUrlList).submit();
+		});
+		
+		
 		/* function openZipSearch2() {
 		    new daum.Postcode({
 		          oncomplete: function(data) {

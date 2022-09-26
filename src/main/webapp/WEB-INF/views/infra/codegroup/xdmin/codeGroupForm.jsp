@@ -133,7 +133,7 @@
 		
 		<form autocomplete="off">
 			<div class="header_inner">
-	            <h1><a href="../home/dminHome.html"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
+	            <h1><a href="#"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
 				<div class="search_box" id="w_search_box">
 					<input type="hidden" name="chkButton" id="chkButton">		
 					<input type="text" id="query" class="inp_placeholder">
@@ -254,13 +254,13 @@
 				<br>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link" href="../member/memberlist.html">회원 관리</a>
+						<a class="nav-link" href="../member/memberList">회원 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../item/itemlist.html">상품 관리</a>
+						<a class="nav-link" href="../item/itemListSet">상품 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../order/orderList.html">주문 관리</a>
+						<a class="nav-link" href="../payment/paySet">주문 관리</a>
 					</li>
 				</ul>
 				<br>
@@ -268,10 +268,10 @@
 				<span class="font">Code</span>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link" href="codeGroup.html">코드 그룹 관리</a>
+						<a class="nav-link" href="codeGroupList">코드 그룹 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">코드 관리</a>
+						<a class="nav-link" href="/code/codeList">코드 관리</a>
 					</li>
 				</ul>
 			</div>
@@ -488,21 +488,6 @@
 		    return false;
 		});
 
- 	$(document).ready(function() {
-		$("#chkAll").click(function() {
-			if($("#chkAll").is(":checked")) $("input[name=chk]").prop("checked", true);
-			else $("input[name=chk]").prop("checked", false);
-		});
-
-		$("input[name=chk]").click(function() {
-			var total = $("input[name=chk]").length;
-			var checked = $("input[name=chk]:checked").length;
-
-			if(total != checked) $("#chkAll").prop("checked", false);
-			else $("#chkAll").prop("checked", true); 
-		});
-	});
-		
 	var goUrlList = "/codeGroup/codeGroupList"; 			/* #-> */
 	var goUrlInst = "/codeGroup/codeGroupInst"; 			/* #-> */
 	var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
@@ -556,14 +541,6 @@
 	}); */
 	
 	
-	 const myModal = document.getElementById('myModal')
-	 const myInput = document.getElementById('myInput')
-
-	 myModal.addEventListener('shown.bs.modal', () => {
-	   myInput.focus()
-	 })
-	 
-	 
 	/* function save()
 	 	{
 			alert(document.getElementById("num").value);

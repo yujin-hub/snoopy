@@ -23,6 +23,10 @@ public class MemberDao {
 		return list; 
 	}
 	
+	public int insert(Member dto) { 
+		return sqlSession.insert(namespace + ".insert", dto); 
+	}
+	
 	public int update(Member dto) { 
 		return sqlSession.update(namespace + ".update", dto); 
 	}
