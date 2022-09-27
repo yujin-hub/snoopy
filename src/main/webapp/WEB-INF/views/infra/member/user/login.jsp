@@ -298,8 +298,7 @@
 			,cache: false
 			,type: "post"
 			/* ,dataType:"json" */
-			,url: "/
-			member/loginProc"
+			,url: "/member/loginProc"
 			/* ,data : $("#formLogin").serialize() */
 			,data : { "userID" : $("#userID").val(), "pw" : $("#pw").val()}
 			,success: function(response) {
