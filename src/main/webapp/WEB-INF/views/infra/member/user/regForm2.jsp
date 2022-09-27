@@ -390,8 +390,10 @@
 		<h6 style="color: #9E4D4D;">※ 표시하신 정보를 토대로 고객님께 맞는 제품을 추천해드립니다.</h6>
 		<br> -->
 		<br>
-		<button type="button" class="btn btn-secondary" style="float: right;" id="btnSave">저장<i class="fa-solid fa-angle-right"></i></button>
-		<button type="button" class="btn btn-secondary btn-space" style="float: right;" id="btnList">홈</button>
+		<button type="button" class="btn btn-secondary" style="float: right;" id="btnSave"><i class="fa-solid fa-bookmark"></i></button>
+		<a href="../item/itemList">
+			<button type="button" class="btn btn-secondary btn-space" style="float: right;" id="btnList"><i class="fa-solid fa-house"></i></button>
+		</a>
 		<br>
 		<br>
 		<br>
@@ -413,14 +415,40 @@
 	<script type="text/javascript">
 	var goUrlList = "/item/itemList"; 			/* #-> */
 	var goUrlInst = "/member/memberInst"; 
+
 	
 		$("#btnSave").on("click", function(){
-	   		form.attr("action", goUrlInst).submit();
-		}); 
+			$.ajax({
+	 			async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/member/idCheck"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "userID" : $("#userID").val() }
+				,success: function(response) {
+					if(response.rt == "success") {
+						document.getElementById("userID").classList.add('is-valid');
 	
-		$("#btnList").on("click", function(){
-			form.attr("action", goUrlList).submit();
-		});
+						document.getElementById("userIDFeedback").classList.remove('invalid-feedback');
+						document.getElementById("userIDFeedback").classList.add('valid-feedback');
+						document.getElementById("userIDFeedback").innerText = "사용 가능한 아이디입니다.";
+						
+						document.getElementById("useIDAllowNY").value = 1;
+						
+					} else {
+						document.getElementById("userID").classList.add('is-invalid');
+						
+						document.getElementById("userIDFeedback").classList.remove('valid-feedback');
+						document.getElementById("userIDFeedback").classList.add('invalid-feedback');
+						document.getElementById("userIDFeedback").innerText = "이미 사용중인 아이디입니다.";
+						
+						document.getElementById("useIDAllowNY").value = 0;
+					}
+				}
+			});
+	   		/* 	form.attr("action", goUrlInst).submit(); */
+		}); 
 	
 		$("#addrButton").on("click", function(){
 			openZipSearch();
