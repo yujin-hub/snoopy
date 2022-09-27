@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.oliveyoungyj.common.constants.Constants;
 
 @Controller
 @RequestMapping(value = "/member/")
@@ -72,6 +76,12 @@ public class MemberController {
 		return "infra/member/xdmin/memberForm";
 	}
 	
+	@RequestMapping(value = "memberJoin")
+	public String memberJoin(MemberVo vo, Member dto) throws Exception {
+		service.insert(dto);
+		return "infra/member/user/regDone";
+	}
+	
 	
 	@ResponseBody
 	@RequestMapping(value = "idCheck")
@@ -86,6 +96,25 @@ public class MemberController {
 		} else {
 			returnMap.put("rt", "success");
 		}
+		return returnMap;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "loginProc")
+	public Map<String, Object> loginProc(Member dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+
+		Member rtMember = service.selectOneID(dto);
+
+		if (rtMember != null) {
+			Member rtMember2 = service.selectOneLogin(dto);
+
+			httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE); // 60second * 30 = 30minute
+			httpSession.setAttribute("sessSeq", rtMember2.getSeq());
+			httpSession.setAttribute("sessId", rtMember2.getUserID());
+			httpSession.setAttribute("sessName", rtMember2.getName());
+		}
+		
 		return returnMap;
 	}
 	

@@ -287,7 +287,7 @@
 					<span>연락처</span>
 				</div>
 				<div class="col-1">
-					<select class="form-select" aria-label="validationCustom04">
+					<select class="form-select">
 						<option selected>010</option>
 						<option value="2">070</option>
 						<option value="3">02</option>

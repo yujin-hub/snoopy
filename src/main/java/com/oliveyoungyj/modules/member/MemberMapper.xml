@@ -110,4 +110,27 @@
 			userID = #{userID}
 	</select>
 	
+	<select id="selectOneID" resultType="resultMapObj">
+		SELECT
+			a.seq
+			, a.userID
+		FROM
+			user a
+		WHERE 
+			1=1
+			AND a.userID = #{userID}
+	</select>
+	
+	<select id="selectOneLogin" resultType="resultMapObj">
+		SELECT
+			a.seq
+			, a.userID
+			, a.name
+		FROM
+			user a
+		WHERE 
+			1=1
+			AND a.userID = #{userID}
+	</select>
+	
 </mapper>	

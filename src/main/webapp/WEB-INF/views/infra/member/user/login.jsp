@@ -184,12 +184,12 @@
 			<div class="row gy-1">
 				<label for="id" class="form-label">ID</label>
 				<div class="input-group mb-3">
-		 			 <input type="text" class="form-control" placeholder=" 아이디 입력" aria-label="Server">
+		 			 <input type="text" class="form-control" placeholder=" 아이디 입력" id="userID" name="userID">
 				</div>
 				<br>
 				<label for="id" class="form-label">Password</label>
 				<div class="input-group mb-3">
-		 			 <input type="password" class="form-control" placeholder=" 비밀번호 입력 (8~12자 영문자 + 숫자 + 특수문자)" aria-label="Server">
+		 			 <input type="password" class="form-control" placeholder=" 비밀번호 입력 (8~12자 영문자 + 숫자 + 특수문자)" id="pw" name="pw">
 				</div>
 			</div>
 		</div>
@@ -205,7 +205,7 @@
 			<br>
 			<br>
 			<div class="d-grid gap-2" style="text-align: center;"> 
-				 <button class="btn btn-dark btn-lg" type="button" style="font-size: 20px;">로그인</button>
+				 <button class="btn btn-dark btn-lg" type="button" style="font-size: 20px;" id="btnLogin">로그인</button>
 			</div>
 			<br>
 			<br>
@@ -288,7 +288,33 @@
 		</div>
 	</div>
 
+<script type="text/javascript">
+	$("#btnLogin").on("click", function(){
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			/* ,dataType:"json" */
+			,url: "/member/loginProc"
+			/* ,data : $("#formLogin").serialize() */
+			,data : { "userID" : $("#userID").val(), "pw" : $("#pw").val(), "autoLogin" : $("#autoLogin").is(":checked") }
+			,success: function(response) {
+				if(response.rt == "success") {
+					if(response.changePwd == "true") {
+						location.href = URL_CHANGE_PWD_FORM;
+					} else {
+						location.href = URL_INDEX_ADMIN;
+					}
+				} else {
+					alert("아이디(로그인 전용 아이디) 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.");
+				}
+			}
+		});
+	});
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/d843c66cc1.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

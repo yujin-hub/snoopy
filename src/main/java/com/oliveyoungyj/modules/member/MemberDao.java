@@ -38,12 +38,23 @@ public class MemberDao {
 	}
 	
 	public int selectOneCount(MemberVo vo) {
-		return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
-	
+		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
+	}
 	
 	public int selectOneCheckId(Member dto) {
-		return sqlSession.selectOne(namespace + ".idCheck", dto);
+		return sqlSession.selectOne(namespace + ".selectOneCheckId", dto);
 	}
+	
+	
+	//로그인
+	public Member selectOneLogin(Member dto) {
+		return sqlSession.selectOne(namespace + ".selectOneLogin", dto);
+	}
+	
+	public Member selectOneID(Member dto) {
+		return sqlSession.selectOne(namespace + ".selectOneID", dto);
+	}
+
 }
 
 
