@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-<%@ page session="false" %>
+<%-- <%@ page session="false" %> --%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -194,7 +194,7 @@
 			</div>
 		</div>
 		<div class="form-check" style="margin-left: 155px;">
-			<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+			<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
 			<label class="form-check-label" for="flexCheckChecked">자동 로그인</label>
 		</div>
 		<div class= "container" style="width: 400px; margin: auto;">
@@ -204,6 +204,8 @@
 			<br>
 			<br>
 			<br>
+			sessSeq: <c:out value="${sessSeq }"/><br>
+			sessId: <c:out value="${sessId }"/><br>
 			<div class="d-grid gap-2" style="text-align: center;"> 
 				 <button class="btn btn-dark btn-lg" type="button" style="font-size: 20px;" id="btnLogin">로그인</button>
 			</div>
@@ -290,27 +292,26 @@
 
 <script type="text/javascript">
 	$("#btnLogin").on("click", function(){
+		
 		$.ajax({
 			async: true 
 			,cache: false
 			,type: "post"
 			/* ,dataType:"json" */
-			,url: "/member/loginProc"
+			,url: "/
+			member/loginProc"
 			/* ,data : $("#formLogin").serialize() */
-			,data : { "userID" : $("#userID").val(), "pw" : $("#pw").val(), "autoLogin" : $("#autoLogin").is(":checked") }
+			,data : { "userID" : $("#userID").val(), "pw" : $("#pw").val()}
 			,success: function(response) {
 				if(response.rt == "success") {
-					if(response.changePwd == "true") {
-						location.href = URL_CHANGE_PWD_FORM;
-					} else {
-						location.href = URL_INDEX_ADMIN;
-					}
+					location.href = "/item/itemList"; 
 				} else {
 					alert("아이디(로그인 전용 아이디) 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.");
 				}
 			}
 		});
 	});
+	
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

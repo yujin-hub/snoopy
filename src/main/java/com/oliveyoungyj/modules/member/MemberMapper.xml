@@ -110,27 +110,38 @@
 			userID = #{userID}
 	</select>
 	
-	<select id="selectOneID" resultType="resultMapObj">
+	<select id="selectOneCheckId" resultType="Integer">
 		SELECT
-			a.seq
-			, a.userID
+			COUNT(*)
 		FROM
-			user a
+			user
 		WHERE 
-			1=1
-			AND a.userID = #{userID}
+			userID = #{userID}
 	</select>
 	
-	<select id="selectOneLogin" resultType="resultMapObj">
+	<select id="selectOneID" resultMap="resultMapObj">
 		SELECT
-			a.seq
-			, a.userID
-			, a.name
+			seq
+			, userID
 		FROM
-			user a
+			user 
 		WHERE 
 			1=1
-			AND a.userID = #{userID}
+			AND userID = #{userID}
+	</select>
+	
+	<select id="selectOneLogin" resultMap="resultMapObj">
+		SELECT
+			seq
+			, userID
+		FROM
+			user
+		WHERE 
+			1=1
+			AND userID = #{userID}
+			<if test="pw != null and !pw.equals('')">
+				AND pw = #{pw}
+			</if>
 	</select>
 	
 </mapper>	

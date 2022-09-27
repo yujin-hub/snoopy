@@ -157,7 +157,7 @@
 					<span>성명</span>
 				</div>
 				<div class="col-4">
-					<input type="text" class="form-control" value="<c:out value="${item.name}"/>">
+					<input type="text" class="form-control" id="name" name="name" value="<c:out value="${item.name}"/>">
 				</div>
 				<div class="col-2" id="cdiv">
 					<span>성별</span>
@@ -179,13 +179,13 @@
 					<span>생년월일</span>
 				</div>
 				<div class="col-4">
-					<input type="text" class="form-control" value="<c:out value="${item.dob}"/>">
+					<input type="text" class="form-control" id="dob" name="dob" value="<c:out value="${item.dob}"/>">
 				</div>
 				<div class="col-2" id="cdiv">
 					<span>휴대폰</span>
 				</div>
 				<div class="col-3">
-					<input type="text" class="form-control" value="<c:out value="${item.tel}"/>">
+					<input type="text" class="form-control" id="tel" name="tel" value="<c:out value="${item.tel}"/>">
 				</div>
 			</div>
 			<hr>
@@ -212,7 +212,7 @@
 					<span>비밀번호</span>
 				</div>
 				<div class="col-4">
-					<input type="password" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성" value="<c:out value="${item.pw}"/>">
+					<input type="password" class="form-control" id="pw" name="pw" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성" value="<c:out value="${item.pw}"/>">
 				</div>
 			</div>
 			<hr>	
@@ -293,7 +293,7 @@
 					<span>연락처</span>
 				</div>
 				<div class="col-1">
-					<select class="form-select">
+					<select class="form-select" aria-label="validationCustom04">
 						<option selected>010</option>
 						<option value="2">070</option>
 						<option value="3">02</option>
@@ -301,10 +301,10 @@
 					</select> 
 				</div>
 				<div class="col-2">
-					<input type="text" class="form-control" >
+					<input type="text" class="form-control" id="telMid" name="telMid" value="<c:out value="${item.telMid}"/>">
 				</div>
 				<div class="col-2">
-					<input type="text" class="form-control"> 
+					<input type="text" class="form-control" id="telEnd" name="telEnd" value="<c:out value="${item.telEnd}"/>"> 
 				</div>
 			</div>
 			<hr>
@@ -314,9 +314,9 @@
 				</div>
 				<div class="col-md-9">
 					<div class="input-group">
-						<input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+						<input type="text" class="form-control" id="validationDefaultUsername">
 						<span class="input-group-text" id="inputGroupPrepend2">@</span>
-						<select class="form-select" aria-label=".form-select example" required>
+						<select class="form-select" aria-label=".form-select example">
 							<option selected>naver.com</option>
 							<option value="1">nate.com</option>
 							<option value="2">hanmail.com</option>
@@ -415,12 +415,12 @@
 	</div>
 	
 	<script type="text/javascript">
-	var goUrlJoin = "/member/memberJoin"
+
 	var seq = $("input:hidden[name=seq]");				/* #-> */
 	
 	var form = $("form[name=formMem]");
 	
-	
+	var goUrlJoin = "/member/memberJoin";
 	var goUrlList = "/item/itemList"; 			/* #-> */
 	var goUrlInst = "/member/memberInst"; 
 

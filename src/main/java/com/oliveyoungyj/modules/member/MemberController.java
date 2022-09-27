@@ -82,7 +82,6 @@ public class MemberController {
 		return "infra/member/user/regDone";
 	}
 	
-	
 	@ResponseBody
 	@RequestMapping(value = "idCheck")
 	public Map<String, Object> checkId(Member dto) throws Exception {
@@ -103,22 +102,27 @@ public class MemberController {
 	@RequestMapping(value = "loginProc")
 	public Map<String, Object> loginProc(Member dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
-
 		Member rtMember = service.selectOneID(dto);
 
 		if (rtMember != null) {
 			Member rtMember2 = service.selectOneLogin(dto);
 
-			httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE); // 60second * 30 = 30minute
-			httpSession.setAttribute("sessSeq", rtMember2.getSeq());
-			httpSession.setAttribute("sessId", rtMember2.getUserID());
-			httpSession.setAttribute("sessName", rtMember2.getName());
+			if (rtMember2 != null) {
+				
+				httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE); // 60second * 30 = 30minute
+				httpSession.setAttribute("sessSeq", rtMember2.getSeq());
+				httpSession.setAttribute("sessId", rtMember2.getUserID());
+
+				System.out.println(httpSession.getAttribute("sessName"));
+				returnMap.put("rt", "success");
+			}
+			} else {
+				dto.setSeq(rtMember.getSeq());
+				returnMap.put("rt", "fail");
+			}
+			return returnMap;
 		}
-		
-		return returnMap;
-	}
-	
-	
+
 	@RequestMapping(value = "login")
 	public String login() throws Exception {
 		

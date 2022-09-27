@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -43,6 +45,12 @@ public class MemberDao {
 	
 	public int selectOneCheckId(Member dto) {
 		return sqlSession.selectOne(namespace + ".selectOneCheckId", dto);
+	}
+
+	public static String getSessionSeqCore(HttpServletRequest httpServletRequest) {
+		HttpSession httpSession =  httpServletRequest.getSession();
+		String rtSeq = (String) httpSession.getAttribute("sessSeq");
+		return rtSeq;
 	}
 	
 	
