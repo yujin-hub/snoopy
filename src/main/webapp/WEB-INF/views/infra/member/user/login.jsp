@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-<%-- <%@ page session="false" %> --%>
+<%@ page session="true" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -325,7 +325,11 @@
 			,data : { "userID" : $("#userID").val(), "pw" : $("#pw").val()}
 			,success: function(response) {
 				if(response.rt == "success") {
-					location.href = "/item/itemList"; 
+					if($("#userID").val() == "aoslwj" || $("#userID").val() == "rhksflwk") {
+						location.href = "/item/itemListDmin"; 
+					}else {
+						location.href = "/item/itemList"; 
+					}
 				} else {
 					alert("아이디(로그인 전용 아이디) 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.");
 				}

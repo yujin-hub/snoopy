@@ -12,11 +12,11 @@ public class CheckLoginSessionInterception extends HandlerInterceptorAdapter{
 			throws Exception {
 		if (request.getSession().getAttribute("sessSeq") != null) {
 			// by pass
-			System.out.println("CheckLoginSessionInterception is running!");
 		} else {
 			response.sendRedirect("/member/login");
             return false;
 		}
+		System.out.println("CheckLoginSessionInterception is running!");
 		return super.preHandle(request, response, handler);
 	}
 }

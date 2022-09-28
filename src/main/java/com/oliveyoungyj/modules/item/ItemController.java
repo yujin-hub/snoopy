@@ -71,5 +71,9 @@ public class ItemController {
 		return "infra/item/xdmin/itemListSet";
 	}
 	
-
+	@RequestMapping(value = "itemListDmin")
+	public String itemListDmin() throws Exception {
+		
+		return "infra/item/xdmin/itemListDmin";
+	}
 }
