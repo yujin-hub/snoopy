@@ -10,6 +10,7 @@ public class Member {
 	public String tel;
 	public Integer telMid;
 	public Integer telEnd;
+	public String emailID;
 	public String email;
 	public String accessDate;
 	public Integer userDelNY;
@@ -69,6 +70,12 @@ public class Member {
 	}
 	public void setTelEnd(Integer telEnd) {
 		this.telEnd = telEnd;
+	}
+	public String getEmailID() {
+		return emailID;
+	}
+	public void setEmailID(String emailID) {
+		this.emailID = emailID;
 	}
 	public String getEmail() {
 		return email;

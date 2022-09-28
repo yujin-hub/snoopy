@@ -61,6 +61,7 @@
 			,email
 			,userDelNY
 			,accessDate
+			,userGrade
 		)
 		VALUES (
 			#{name}
@@ -75,6 +76,7 @@
 			,#{email}
 			,0
 			,now()
+			,#{userGrade}
 		)
 		
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">

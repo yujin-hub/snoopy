@@ -53,6 +53,11 @@ public class MemberController {
 	
 	@RequestMapping(value = "memberInst")
 	public String memberInst(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
+		
+		/*
+		 * dto.setEmail(dto.getEmail() +
+		 * MemberServiceImpl.selectOneCachedCode(dto.getEmailDomain()));
+		 */
 		service.insert(dto);
 		vo.setSeq(dto.getSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);

@@ -292,7 +292,7 @@
 
 <script type="text/javascript">
 	$("#btnLogin").on("click", function(){
-		
+		if(validation() == false) return false;
 		$.ajax({
 			async: true 
 			,cache: false
@@ -310,6 +310,11 @@
 			}
 		});
 	});
+	
+	validation = function() {
+		if(!checkNull($("#userID"), $.trim($("#userID").val()), "아이디를 입력해주세요")) return false;
+		if(!checkNull($("#pw"), $.trim($("#pw").val()), "비밀번호를 입력해주세요")) return false;
+	}  
 	
 </script>
 
