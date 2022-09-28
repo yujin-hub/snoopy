@@ -46,6 +46,10 @@ public class MemberDao {
 	public int selectOneCheckId(Member dto) {
 		return sqlSession.selectOne(namespace + ".selectOneCheckId", dto);
 	}
+	
+	public int selectOneCheckNick(Member dto) {
+		return sqlSession.selectOne(namespace + ".selectOneCheckNick", dto);
+	}
 
 	public static String getSessionSeqCore(HttpServletRequest httpServletRequest) {
 		HttpSession httpSession =  httpServletRequest.getSession();

@@ -11,6 +11,7 @@ public class Member {
 	public Integer telMid;
 	public Integer telEnd;
 	public String emailID;
+	public String emailseq;
 	public String email;
 	public String accessDate;
 	public Integer userDelNY;
@@ -77,6 +78,12 @@ public class Member {
 	public void setEmailID(String emailID) {
 		this.emailID = emailID;
 	}
+	public String getEmailseq() {
+		return emailseq;
+	}
+	public void setEmailseq(String emailseq) {
+		this.emailseq = emailseq;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -107,6 +114,5 @@ public class Member {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	
 	
 }

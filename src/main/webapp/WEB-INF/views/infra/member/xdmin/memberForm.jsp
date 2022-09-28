@@ -205,6 +205,20 @@
 			<hr>
 			<div class="row">
 				<div class="col-2" id="cdiv">
+					<span>닉네임</span>
+				</div>
+				<div class="col-3">
+					<input type="hidden" id="nicknameAllowNY" name="nicknameAllowNY" value="0">
+					<input type="text" class="form-control" id="nickname" name="nickname" value="<c:out value="${item.nickname}"/>">
+					<div class="invalid-feedback" id="nicknameFeedback"></div>
+				</div>
+				<br>
+				<div class="col-7">
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-2" id="cdiv">
 					<span>비밀번호</span>
 				</div>
 				<div class="col-4">
@@ -308,14 +322,20 @@
 				</div>
 				<div class="col-md-9">
 					<div class="input-group">
-						<input type="text" class="form-control">
+						<input type="text" class="form-control" value="<c:out value="${item.emailID}"/>" name="emailID" id="emailID">
 						<span class="input-group-text">@</span>
-						<select class="form-select">
-							<option selected>naver.com</option>
-							<option value="1">nate.com</option>
-							<option value="2">hanmail.com</option>
-							<option value="3">gmail.com</option>
-							<option value="4">직접 입력</option>
+						<select class="form-select" name="emailseq">
+							<option selected>::선택::</option>
+							<option value="15" <c:if test="${item.emailseq eq 15 }"> selected</c:if>>naver.com</option>
+							<option value="16" <c:if test="${item.emailseq eq 16 }"> selected</c:if>>gmail.com</option>
+							<option value="17" <c:if test="${item.emailseq eq 17 }"> selected</c:if>>hanmail.com</option>
+							<option value="18" <c:if test="${item.emailseq eq 18 }"> selected</c:if>>nate.com</option>
+							<option value="19" <c:if test="${item.emailseq eq 19 }"> selected</c:if>>daum.net</option>
+							<option value="20" <c:if test="${item.emailseq eq 20 }"> selected</c:if>>kakao.com</option>
+							<%-- <option selected>선택</option>
+							<option value="28" <c:if test="${item.emailDomain eq 28 }"> selected</c:if>>naver.com</option>
+							<option value="29" <c:if test="${item.emailDomain eq 29 }"> selected</c:if>>gmail.com</option>
+							<option value="30" <c:if test="${item.emailDomain eq 30 }"> selected</c:if>>daum.net</option> --%>
 						</select> 
 					</div>
 				</div>
@@ -599,6 +619,43 @@
 				}
 			});
 	});
+	 
+	 $("#nickname").on("focusout", function(){
+		 /* 		
+		 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
+		 		 	 return false;
+		 	 	}else {*/
+		 	 		$.ajax({
+		 	 			async: true 
+		 				,cache: false
+		 				,type: "post"
+		 				/* ,dataType:"json" */
+		 				,url: "/member/nickCheck"
+		 				/* ,data : $("#formLogin").serialize() */
+		 				,data : { "nickname" : $("#nickname").val() }
+		 				,success: function(response) {
+		 					if(response.rt == "success") {
+		 						document.getElementById("nickname").classList.add('is-valid');
+		 	
+		 						document.getElementById("nicknameFeedback").classList.remove('invalid-feedback');
+		 						document.getElementById("nicknameFeedback").classList.add('valid-feedback');
+		 						document.getElementById("nicknameFeedback").innerText = "사용 가능한 닉네임입니다.";
+		 						
+		 						document.getElementById("nicknameAllowNY").value = 1;
+		 						
+		 					} else {
+		 						document.getElementById("nickname").classList.add('is-invalid');
+		 						
+		 						document.getElementById("nicknameFeedback").classList.remove('valid-feedback');
+		 						document.getElementById("nicknameFeedback").classList.add('invalid-feedback');
+		 						document.getElementById("nicknameFeedback").innerText = "이미 사용중인 닉네임입니다.";
+		 						
+		 						document.getElementById("nicknameAllowNY").value = 0;
+		 					}
+		 				}
+		 			});
+		 	});
+	 
 	 
 	</script>
 	

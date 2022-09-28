@@ -50,6 +50,11 @@
 		a:hover {
 			color: #8bb011;
 		}
+		
+		.before{
+  			text-decoration: none;
+  		}
+  		
 	</style>
 
 
@@ -61,9 +66,26 @@
 	<div id="Header">
 		<div class="top_util">
 			<ul class="menu_list" id="menu_list_header">
-				<li class="join"><a href="../member/regForm" data-attr='공통^헤더^회원가입'>회원가입</a></li>
-				<li class="login"><a href="../member/login" data-attr='공통^헤더^로그인'>로그인</a></li>
-				<li class="cart"><a href="../member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a></li>
+				<li class="login">
+					<c:if test="${sessSeq eq null}">
+		        		<!-- 로그인전 -->
+		            	<div class="before">
+		            		<a href="/member/regForm" data-attr='공통^헤더^회원가입' title="회원가입">회원가입</a>
+		            		&nbsp; | &nbsp; 
+		                	<a href="/member/login" data-attr='공통^헤더^로그인' title="로그인">로그인</a>
+		            	</div>
+		        	</c:if>
+		            <c:if test="${sessSeq ne null}">
+			           	<div class="after">
+			              <a href="/member/logoutProc" data-attr='공통^헤더^로그아웃' title="로그아웃" type="button" id="btnLogout">로그아웃</a>
+			              <!-- <button type="button" title="로그아웃" id="btnLogout">로그아웃</button> -->
+			              &nbsp; | &nbsp; 
+			              <a href="/member/login" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
+			              &nbsp; | &nbsp; 
+			              <a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
+			            </div>
+		            </c:if>
+				</li>
 			</ul>
 		</div>
 		
@@ -205,7 +227,7 @@
 			<br>
 			<br>
 			sessSeq: <c:out value="${sessSeq }"/><br>
-			sessId: <c:out value="${sessId }"/><br>
+			sessId: <c:out value="${sessId }"/><br> 
 			<div class="d-grid gap-2" style="text-align: center;"> 
 				 <button class="btn btn-dark btn-lg" type="button" style="font-size: 20px;" id="btnLogin">로그인</button>
 			</div>
@@ -292,7 +314,7 @@
 
 <script type="text/javascript">
 	$("#btnLogin").on("click", function(){
-		if(validation() == false) return false;
+		/* if(validation() == false) return false; */
 		$.ajax({
 			async: true 
 			,cache: false
@@ -311,15 +333,14 @@
 		});
 	});
 	
-	validation = function() {
+	/* validation = function() {
 		if(!checkNull($("#userID"), $.trim($("#userID").val()), "아이디를 입력해주세요")) return false;
 		if(!checkNull($("#pw"), $.trim($("#pw").val()), "비밀번호를 입력해주세요")) return false;
-	}  
+	}   */
 	
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/d843c66cc1.js" crossorigin="anonymous"></script>
-
 </body>
 </html>

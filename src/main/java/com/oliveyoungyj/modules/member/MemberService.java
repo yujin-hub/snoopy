@@ -11,6 +11,7 @@ public interface MemberService {
 	public Member selectOne(MemberVo vo) throws Exception;
 	public int selectOneCount(MemberVo vo) throws Exception;
 	public int selectOneCheckId(Member dto) throws Exception;
+	public int selectOneCheckNick(Member dto) throws Exception;
 
 	
 	//로그인

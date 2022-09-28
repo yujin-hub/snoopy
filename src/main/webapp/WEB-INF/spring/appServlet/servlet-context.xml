@@ -23,6 +23,23 @@
 	
 	<context:component-scan base-package="com.oliveyoungyj" />
 	
+	<!-- session interceptor s 2022.03.13 for logincheck -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/**"/>
+			<exclude-mapping path="/" />
+			<exclude-mapping path="/resources/**" />
+			<exclude-mapping path="/item/itemList" />
+			<exclude-mapping path="/member/login" />
+			<exclude-mapping path="/item/itemView" />
+			<exclude-mapping path="/member/loginProc" />
+			<exclude-mapping path="/member/findID" />
+			<exclude-mapping path="/member/findPW" />
+			<beans:bean id="checkLoginSessionInterception" class="com.oliveyoungyj.common.interceptor.CheckLoginSessionInterception"/>
+		</interceptor>
+	</interceptors>	
+	<!-- session interceptor e 2022.03.13 for logincheck -->
+	
 	
 	
 </beans:beans>

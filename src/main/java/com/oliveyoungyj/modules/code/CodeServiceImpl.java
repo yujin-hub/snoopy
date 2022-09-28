@@ -54,6 +54,31 @@ public class CodeServiceImpl implements CodeService{
 		System.out.println("cachedCodeArrayList: " + Code.cachedCodeArrayList.size() + " chached !");
 	}
 	
+//	public static List<Code> selectListCachedCode(String seq) throws Exception {
+//		List<Code> rt = new ArrayList<Code>();
+//		for(Code codeRow : Code.cachedCodeArrayList) {
+//			if (codeRow.getCodeGroup_seq().equals(seq)) {
+//				rt.add(codeRow);
+//			} else {
+//				// by pass
+//			}
+//		}
+//		return rt;
+//	}
+//	
+//	public static String selectOneCachedCode(int code) throws Exception {
+//		String rt = "";
+//		for(Code codeRow : Code.cachedCodeArrayList) {
+//			if (codeRow.getSeq().equals(Integer.toString(code))) {
+//				rt = codeRow.getName();
+//			} else {
+//				// by pass
+//			}
+//		}
+//		return rt;
+//	}    // 코드가 뭔지 알아보는 코드, controller 엑셀 다운로드 부분에 "성별" 부분 
+//	
+	
 	public static List<Code> selectListCachedCode(String seq) throws Exception {
 		List<Code> rt = new ArrayList<Code>();
 		for(Code codeRow : Code.cachedCodeArrayList) {
@@ -64,19 +89,22 @@ public class CodeServiceImpl implements CodeService{
 			}
 		}
 		return rt;
+		
 	}
 	
-	public static String selectOneCachedCode(int code) throws Exception {
+	public static String selectOneCachedCode(String seq) throws Exception {
 		String rt = "";
 		for(Code codeRow : Code.cachedCodeArrayList) {
-			if (codeRow.getSeq().equals(Integer.toString(code))) {
+			if (codeRow.getSeq().equals(seq)) {
 				rt = codeRow.getName();
 			} else {
 				// by pass
 			}
 		}
 		return rt;
-	}    // 코드가 뭔지 알아보는 코드, controller 엑셀 다운로드 부분에 "성별" 부분 
+		
+	}
+	
 	
 	public static void clear() throws Exception {
 		Code.cachedCodeArrayList.clear();

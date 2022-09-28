@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.oliveyoungyj.common.constants.Constants;
+import com.oliveyoungyj.modules.code.CodeServiceImpl;
 
 @Controller
 @RequestMapping(value = "/member/")
@@ -54,10 +55,8 @@ public class MemberController {
 	@RequestMapping(value = "memberInst")
 	public String memberInst(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
 		
-		/*
-		 * dto.setEmail(dto.getEmail() +
-		 * MemberServiceImpl.selectOneCachedCode(dto.getEmailDomain()));
-		 */
+		dto.setEmail(dto.getEmailID() + CodeServiceImpl.selectOneCachedCode(dto.getEmailseq()));
+		
 		service.insert(dto);
 		vo.setSeq(dto.getSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
@@ -83,6 +82,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "memberJoin")
 	public String memberJoin(MemberVo vo, Member dto) throws Exception {
+		dto.setEmail(dto.getEmailID() + CodeServiceImpl.selectOneCachedCode(dto.getEmailseq()));
+		
 		service.insert(dto);
 		return "infra/member/user/regDone";
 	}
@@ -104,6 +105,23 @@ public class MemberController {
 	}
 	
 	@ResponseBody
+	@RequestMapping(value = "nickCheck")
+	public Map<String, Object> checkNick(Member dto) throws Exception {
+
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		int result = service.selectOneCheckNick(dto);
+
+		if (result > 0) {
+			returnMap.put("rt", "fail");
+		} else {
+			returnMap.put("rt", "success");
+		}
+		return returnMap;
+	}
+	
+	// 로그인
+	@ResponseBody
 	@RequestMapping(value = "loginProc")
 	public Map<String, Object> loginProc(Member dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
@@ -121,13 +139,24 @@ public class MemberController {
 				System.out.println(httpSession.getAttribute("sessName"));
 				returnMap.put("rt", "success");
 			}
-			} else {
-				dto.setSeq(rtMember.getSeq());
-				returnMap.put("rt", "fail");
-			}
-			return returnMap;
+		} else {
+			returnMap.put("rt", "fail");
 		}
+		return returnMap;
+	}
 
+	
+	// 로그아웃
+	@ResponseBody
+	@RequestMapping(value = "logoutProc")
+	public Map<String, Object> logoutProc(HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		httpSession.invalidate();
+		returnMap.put("rt", "success");
+		return returnMap;
+	}
+	
+	
 	@RequestMapping(value = "login")
 	public String login() throws Exception {
 		

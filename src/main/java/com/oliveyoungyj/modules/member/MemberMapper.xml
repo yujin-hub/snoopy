@@ -58,6 +58,8 @@
 			,userID
 			,pw
 			,nickname
+			,emailID
+			,emailseq
 			,email
 			,userDelNY
 			,accessDate
@@ -73,10 +75,12 @@
 			,#{userID}
 			,#{pw}
 			,#{nickname}
+			,#{emailID}
+			,#{emailseq}
 			,#{email}
 			,0
 			,now()
-			,#{userGrade}
+			,"베이비올리브"
 		)
 		
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
@@ -91,6 +95,7 @@
 			pw = #{pw}
 			, nickname = #{nickname}
 			, userDelNY = #{userDelNY}
+			, userGrade = #{userGrade}
 		WHERE 
 	 		seq = #{seq}
 	</update>
@@ -119,6 +124,25 @@
 			user
 		WHERE 
 			userID = #{userID}
+	</select>
+	
+	<select id="nickCheck" resultType="Integer">
+		SELECT
+			COUNT(*)
+		FROM
+			user
+		WHERE 
+			nickname = #{nickname}
+	</select>
+	
+	
+	<select id="selectOneCheckNick" resultType="Integer">
+		SELECT
+			COUNT(*)
+		FROM
+			user
+		WHERE 
+			nickname = #{nickname}
 	</select>
 	
 	<select id="selectOneID" resultMap="resultMapObj">

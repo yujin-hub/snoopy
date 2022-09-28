@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -187,6 +187,10 @@
   				display: block;
   		}
   
+  		.before1{
+  			text-decoration: none;
+  		}
+  		
 	</style>
 </head>
     
@@ -196,9 +200,26 @@
 	<div id="Header">
 		<div class="top_util">
 			<ul class="menu_list" id="menu_list_header">
-				<li class="join"><a href="/member/regForm" data-attr='공통^헤더^회원가입'>회원가입</a></li>
-				<li class="login"><a href="/member/login" data-attr='공통^헤더^로그인'>로그인</a></li>
-				<li class="cart"><a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a></li>
+				<li class="login">
+					<c:if test="${sessSeq eq null}">
+		        		<!-- 로그인전 -->
+		            	<div class="before1">
+		            		<a href="/member/regForm" data-attr='공통^헤더^회원가입' title="회원가입">회원가입</a>
+		            		&nbsp; | &nbsp; 
+		                	<a href="/member/login" data-attr='공통^헤더^로그인' title="로그인">로그인</a>
+		            	</div>
+		        	</c:if>
+		            <c:if test="${sessSeq ne null}">
+			           	<div class="after">
+			              <a href="/member/logoutProc" data-attr='공통^헤더^로그아웃' title="로그아웃" type="button" id="btnLogout">로그아웃</a>
+			              <!-- <button type="button" title="로그아웃" id="btnLogout">로그아웃</button> -->
+			              &nbsp; | &nbsp; 
+			              <a href="/member/login" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
+			              &nbsp; | &nbsp; 
+			              <a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
+			            </div>
+		            </c:if>
+				</li>
 			</ul>
 		</div>
 		
@@ -1680,6 +1701,23 @@
 	        });
 	 });
 	        
+		$("#btnLogout").on("click", function(){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/member/logoutProc"
+				,data: {}
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/member/login";
+					} else {
+						alert("다시 시도해주세요.")
+					}
+				}
+			});
+		});
+		
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

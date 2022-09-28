@@ -208,9 +208,26 @@
 	<div id="Header">
 		<div class="top_util">
 			<ul class="menu_list" id="menu_list_header">
-				<li class="join"><a href="../member/regForm" data-attr='공통^헤더^회원가입'>회원가입</a></li>
-				<li class="login"><a href="../member/loginForm" data-attr='공통^헤더^로그인'>로그인</a></li>
-				<li class="cart"><a href="../member/mypagel"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a></li>
+				<li class="login">
+					<c:if test="${sessSeq eq null}">
+		        		<!-- 로그인전 -->
+		            	<div class="before">
+		            		<a href="/member/regForm" data-attr='공통^헤더^회원가입' title="회원가입">회원가입</a>
+		            		&nbsp; | &nbsp; 
+		                	<a href="/member/login" data-attr='공통^헤더^로그인' title="로그인">로그인</a>
+		            	</div>
+		        	</c:if>
+		            <c:if test="${sessSeq ne null}">
+			           	<div class="after">
+			              <a href="/member/logoutProc" data-attr='공통^헤더^로그아웃' title="로그아웃" type="button" id="btnLogout">로그아웃</a>
+			              <!-- <button type="button" title="로그아웃" id="btnLogout">로그아웃</button> -->
+			              &nbsp; | &nbsp; 
+			              <a href="/member/login" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
+			              &nbsp; | &nbsp; 
+			              <a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
+			            </div>
+		            </c:if>
+				</li>
 			</ul>
 		</div>
 		
