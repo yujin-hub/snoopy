@@ -157,6 +157,15 @@
 			nickname = #{nickname}
 	</select>
 	
+	<select id="selectOneCheckpw" resultType="Integer">
+		SELECT
+			COUNT(*)
+		FROM
+			user
+		WHERE 
+			pw = #{pw}
+	</select>
+	
 	<select id="selectOneID" resultMap="resultMapObj">
 		SELECT
 			seq

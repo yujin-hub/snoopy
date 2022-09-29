@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-<%@ page session="true" %>
+<%@ page session="false" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -198,7 +198,7 @@
 					<span>아이디</span>
 				</div>
 				<div class="col-3">
-					<input type="hidden" id="useIDAllowNY" name="useIDAllowNY" value="0">
+					<input type="hidden" id="userIDAllowNY" name="userIDAllowNY" value="0">
 					<input type="text" class="form-control" id="userID" name="userID" placeholder="4자리 이상의 영문 + 숫자" value="<c:out value="${item.userID}"/>">
 					<div class="invalid-feedback" id="userIDFeedback"></div>
 				</div>
@@ -235,7 +235,9 @@
 					<span>비밀번호 확인</span>
 				</div>
 				<div class="col-4">
-					<input type="password" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성">
+					<input type="hidden" id="pwAllowNY" name="pwAllowNY" value="0">
+					<input type="text" class="form-control" id="pwID" name="pwID" placeholder="4자리 이상의 영문 + 숫자">
+					<div class="invalid-feedback" id="pwFeedback"></div>
 				</div>
 				<div class="col-5">
 				</div> 
@@ -562,42 +564,6 @@
 	 }
 	 
 	 $("#userID").on("focusout", function(){
-/* 		
-		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
-		 	 return false;
-	 	}else {*/
-	 		$.ajax({
-	 			async: true 
-				,cache: false
-				,type: "post"
-				/* ,dataType:"json" */
-				,url: "/member/idCheck"
-				/* ,data : $("#formLogin").serialize() */
-				,data : { "userID" : $("#userID").val() }
-				,success: function(response) {
-					if(response.rt == "success") {
-						document.getElementById("userID").classList.add('is-valid');
-	
-						document.getElementById("userIDFeedback").classList.remove('invalid-feedback');
-						document.getElementById("userIDFeedback").classList.add('valid-feedback');
-						document.getElementById("userIDFeedback").innerText = "사용 가능한 아이디입니다.";
-						
-						document.getElementById("useIDAllowNY").value = 1;
-						
-					} else {
-						document.getElementById("userID").classList.add('is-invalid');
-						
-						document.getElementById("userIDFeedback").classList.remove('valid-feedback');
-						document.getElementById("userIDFeedback").classList.add('invalid-feedback');
-						document.getElementById("userIDFeedback").innerText = "이미 사용중인 아이디입니다.";
-						
-						document.getElementById("useIDAllowNY").value = 0;
-					}
-				}
-			});
-	});
-	 
-	 $("#nickname").on("focusout", function(){
 		 /* 		
 		 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
 		 		 	 return false;
@@ -607,31 +573,103 @@
 		 				,cache: false
 		 				,type: "post"
 		 				/* ,dataType:"json" */
-		 				,url: "/member/nickCheck"
+		 				,url: "/member/idCheck"
 		 				/* ,data : $("#formLogin").serialize() */
-		 				,data : { "nickname" : $("#nickname").val() }
+		 				,data : { "userID" : $("#userID").val() }
 		 				,success: function(response) {
 		 					if(response.rt == "success") {
-		 						document.getElementById("nickname").classList.add('is-valid');
+		 						document.getElementById("userID").classList.add('is-valid');
 		 	
-		 						document.getElementById("nicknameFeedback").classList.remove('invalid-feedback');
-		 						document.getElementById("nicknameFeedback").classList.add('valid-feedback');
-		 						document.getElementById("nicknameFeedback").innerText = "사용 가능한 닉네임입니다.";
+		 						document.getElementById("userIDFeedback").classList.remove('invalid-feedback');
+		 						document.getElementById("userIDFeedback").classList.add('valid-feedback');
+		 						document.getElementById("userIDFeedback").innerText = "사용 가능한 아이디입니다.";
 		 						
-		 						document.getElementById("nicknameAllowNY").value = 1;
+		 						document.getElementById("userIDAllowNY").value = 1;
 		 						
 		 					} else {
-		 						document.getElementById("nickname").classList.add('is-invalid');
+		 						document.getElementById("userID").classList.add('is-invalid');
 		 						
-		 						document.getElementById("nicknameFeedback").classList.remove('valid-feedback');
-		 						document.getElementById("nicknameFeedback").classList.add('invalid-feedback');
-		 						document.getElementById("nicknameFeedback").innerText = "이미 사용중인 닉네임입니다.";
+		 						document.getElementById("userIDFeedback").classList.remove('valid-feedback');
+		 						document.getElementById("userIDFeedback").classList.add('invalid-feedback');
+		 						document.getElementById("userIDFeedback").innerText = "이미 사용중인 아이디입니다.";
 		 						
-		 						document.getElementById("nicknameAllowNY").value = 0;
+		 						document.getElementById("userIDAllowNY").value = 0;
 		 					}
 		 				}
 		 			});
 		 	});
+		 	 
+		 	 $("#nickname").on("focusout", function(){
+		 		 /* 		
+		 		 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
+		 		 		 	 return false;
+		 		 	 	}else {*/
+		 		 	 		$.ajax({
+		 		 	 			async: true 
+		 		 				,cache: false
+		 		 				,type: "post"
+		 		 				/* ,dataType:"json" */
+		 		 				,url: "/member/nickCheck"
+		 		 				/* ,data : $("#formLogin").serialize() */
+		 		 				,data : { "nickname" : $("#nickname").val() }
+		 		 				,success: function(response) {
+		 		 					if(response.rt == "success") {
+		 		 						document.getElementById("nickname").classList.add('is-valid');
+		 		 	
+		 		 						document.getElementById("nicknameFeedback").classList.remove('invalid-feedback');
+		 		 						document.getElementById("nicknameFeedback").classList.add('valid-feedback');
+		 		 						document.getElementById("nicknameFeedback").innerText = "사용 가능한 닉네임입니다.";
+		 		 						
+		 		 						document.getElementById("nicknameAllowNY").value = 1;
+		 		 						
+		 		 					} else {
+		 		 						document.getElementById("nickname").classList.add('is-invalid');
+		 		 						
+		 		 						document.getElementById("nicknameFeedback").classList.remove('valid-feedback');
+		 		 						document.getElementById("nicknameFeedback").classList.add('invalid-feedback');
+		 		 						document.getElementById("nicknameFeedback").innerText = "이미 사용중인 닉네임입니다.";
+		 		 						
+		 		 						document.getElementById("nicknameAllowNY").value = 0;
+		 		 					}
+		 		 				}
+		 		 			});
+		 		 	});
+		 	 
+		 	 $("#pwCheck").on("focusout", function(){
+		 		 /* 		
+		 		 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
+		 		 		 	 return false;
+		 		 	 	}else {*/
+		 		 	 		$.ajax({
+		 		 	 			async: true 
+		 		 				,cache: false
+		 		 				,type: "post"
+		 		 				/* ,dataType:"json" */
+		 		 				,url: "/member/pwCheck"
+		 		 				/* ,data : $("#formLogin").serialize() */
+		 		 				,data : { "pw" : $("#pwCheck").val() }
+		 		 				,success: function(response) {
+		 		 					if(response.rt == "success") {
+		 		 						document.getElementById("").classList.add('is-valid');
+		 		 	
+		 		 						document.getElementById("pwFeedback").classList.remove('invalid-feedback');
+		 		 						document.getElementById("pwFeedback").classList.add('valid-feedback');
+		 		 						document.getElementById("pwFeedback").innerText = " ";
+		 		 						
+		 		 						document.getElementById("nicknameAllowNY").value = 1;
+		 		 						
+		 		 					} else {
+		 		 						document.getElementById("nickname").classList.add('is-invalid');
+		 		 						
+		 		 						document.getElementById("pwFeedback").classList.remove('valid-feedback');
+		 		 						document.getElementById("pwFeedback").classList.add('invalid-feedback');
+		 		 						document.getElementById("pwFeedback").innerText = "비밀번호가 일치하지 않습니다.";
+		 		 						
+		 		 						document.getElementById("pwAllowNY").value = 0;
+		 		 					}
+		 		 				}
+		 		 			});
+		 		 	});
 	 
 	</script>
 	

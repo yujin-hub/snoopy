@@ -194,7 +194,7 @@
 					<span>아이디</span>
 				</div>
 				<div class="col-3">
-					<input type="hidden" id="useIDAllowNY" name="useIDAllowNY" value="0">
+					<input type="hidden" id="userIDAllowNY" name="userIDAllowNY" value="0">
 					<input type="text" class="form-control" id="userID" name="userID" placeholder="4자리 이상의 영문 + 숫자" value="<c:out value="${item.userID}"/>">
 					<div class="invalid-feedback" id="userIDFeedback"></div>
 				</div>
@@ -605,7 +605,7 @@
 						document.getElementById("userIDFeedback").classList.add('valid-feedback');
 						document.getElementById("userIDFeedback").innerText = "사용 가능한 아이디입니다.";
 						
-						document.getElementById("useIDAllowNY").value = 1;
+						document.getElementById("userIDAllowNY").value = 1;
 						
 					} else {
 						document.getElementById("userID").classList.add('is-invalid');
@@ -614,7 +614,7 @@
 						document.getElementById("userIDFeedback").classList.add('invalid-feedback');
 						document.getElementById("userIDFeedback").innerText = "이미 사용중인 아이디입니다.";
 						
-						document.getElementById("useIDAllowNY").value = 0;
+						document.getElementById("userIDAllowNY").value = 0;
 					}
 				}
 			});

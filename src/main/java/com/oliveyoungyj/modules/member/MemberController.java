@@ -88,6 +88,8 @@ public class MemberController {
 		return "infra/member/user/regDone";
 	}
 	
+	
+	// validation
 	@ResponseBody
 	@RequestMapping(value = "idCheck")
 	public Map<String, Object> checkId(Member dto) throws Exception {
@@ -95,6 +97,22 @@ public class MemberController {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
 		int result = service.selectOneCheckId(dto);
+
+		if (result > 0) {
+			returnMap.put("rt", "fail");
+		} else {
+			returnMap.put("rt", "success");
+		}
+		return returnMap;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "pwCheck")
+	public Map<String, Object> pwCheck(Member dto) throws Exception {
+
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		int result = service.selectOneCheckNick(dto);
 
 		if (result > 0) {
 			returnMap.put("rt", "fail");
@@ -119,6 +137,7 @@ public class MemberController {
 		}
 		return returnMap;
 	}
+	
 	
 	// 로그인
 	@ResponseBody
