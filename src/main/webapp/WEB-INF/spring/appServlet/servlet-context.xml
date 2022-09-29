@@ -39,7 +39,6 @@
 			<exclude-mapping path="/member/regForm2" />
 			<exclude-mapping path="/member/idCheck" />
 			<exclude-mapping path="/member/nickCheck" />
-			<exclude-mapping path="/member/pwCheck" />
 			<exclude-mapping path="/member/memberJoin" />
 			<beans:bean id="checkLoginSessionInterception" class="com.oliveyoungyj.common.interceptor.CheckLoginSessionInterception"/>
 		</interceptor>

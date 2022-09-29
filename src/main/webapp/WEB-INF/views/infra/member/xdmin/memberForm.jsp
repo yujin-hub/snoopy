@@ -143,7 +143,7 @@
 	</div>	
 	<br>
 	<div class= "container" id="wid2">
-		<form name="formMem" method="post" action="/member/memberInst">
+		<form name="formMem" method="post" action="/member/memberInst" autocomplete="off">
 		<%-- <%@include file="memberVo.jsp"%>	 --%>
 			<input type="hidden" name="seq" value="<c:out value="${vo.seq }"/>">
 			<h4>기본사항</h4>
@@ -153,19 +153,19 @@
 					<span>성명</span>
 				</div>
 				<div class="col-4">
-					<input type="text" class="form-control" value="<c:out value="${item.name}"/>">
+					<input type="text" class="form-control" name="name" value="<c:out value="${item.name}"/>">
 				</div>
 				<div class="col-2" id="cdiv">
 					<span>성별</span>
 				</div>
 				<div class="col-3" style="margin-top: 10px;">
 					<div class="form-check form-check-inline left">
-						  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-						  <label class="form-check-label" for="inlineRadio1">남성</label>
+						  <input class="form-check-input" type="radio" <c:if test="${item.gender eq 21 }"> checked</c:if> name="gender" id="gender1" value="21">
+						  <label class="form-check-label" for="gender1">남성</label>
 					</div>
 					<div class="form-check form-check-inline left">
-						  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-						  <label class="form-check-label" for="inlineRadio2">여성</label>
+						  <input class="form-check-input" type="radio" <c:if test="${item.gender eq 22 }"> checked</c:if> name="gender" id="gender2" value="22">
+						  <label class="form-check-label" for="gender2">여성</label>
 					</div>
 				</div>
 			</div>
@@ -175,13 +175,13 @@
 					<span>생년월일</span>
 				</div>
 				<div class="col-4">
-					<input type="text" class="form-control" value="<c:out value="${item.dob}"/>">
+					<input type="text" class="form-control" name="dob" value="<c:out value="${item.dob}"/>">
 				</div>
 				<div class="col-2" id="cdiv">
 					<span>휴대폰</span>
 				</div>
 				<div class="col-3">
-					<input type="text" class="form-control" value="<c:out value="${item.tel}"/>">
+					<input type="text" class="form-control" name="tel" value="<c:out value="${item.tel}"/>">
 				</div>
 			</div>
 			<hr>
@@ -222,21 +222,10 @@
 					<span>비밀번호</span>
 				</div>
 				<div class="col-4">
-					<input type="password" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성" value="<c:out value="${item.pw}"/>">
+					<input type="password" class="form-control" name="pw" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성" value="<c:out value="${item.pw}"/>">
 				</div>
 			</div>
 			<hr>	
-			<%-- <div class="row">
-				<div class="col-2" id="cdiv">
-					<span>비밀번호 확인</span>
-				</div>
-				<div class="col-4">
-					<input type="password" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합 생성" value="<c:out value="${item.pw}"/>" readonly>
-				</div>
-				<div class="col-5">
-				</div> 
-			</div>
-			<hr> --%>	
 			<div class="row">
 				<div class="col-2" id="cdiv">
 					<span>주소</span>
@@ -257,23 +246,25 @@
 					<div class="row gy-2">
 						<div class="col-5">
 							<div class="input-group">
-								<input type="text" id="zip" class="form-control" placeholder="우편번호" disabled>
+								<input type="text" id="zip" name="zip" class="form-control" value="<c:out value="${item.zip}"/>" placeholder="우편번호" readonly>
 								<button type="button" class="btn btn-outline-secondary" id="addrButton"><i class="fa-solid fa-magnifying-glass"></i></button>
 								<button class="btn btn-outline-secondary" type="button" id="clearButton"><i class="fa-solid fa-arrow-rotate-left"></i></button>
 							</div>
 						</div>
-						<div><input type="text" id="addr1" class="form-control" placeholder="주소" disabled></div>
-						<div class="col-6">
-							<input type="text" id="addr2" class="form-control" placeholder="상세주소">
+						<div>
+							<input type="text" id="addr1" name="addr1" class="form-control" value="<c:out value="${item.addr1}"/>" placeholder="주소" readonly>
 						</div>
 						<div class="col-6">
-							<input type="text" id="addr3" class="form-control" placeholder="참고항목" disabled>
+							<input type="text" id="addr2" name="addr2" class="form-control" value="<c:out value="${item.addr2}"/>" placeholder="상세주소">
 						</div>
 						<div class="col-6">
-							<input type="text" id="memLat" name="memLat" class="form-control" placeholder="위도" disabled>
+							<input type="text" id="addr3" name="addr3" class="form-control" value="<c:out value="${item.addr3}"/>" placeholder="참고항목" readonly>
 						</div>
 						<div class="col-6">
-							<input type="text" name="memLng" class="form-control" placeholder="경도" disabled>
+							<input type="text" id="memLat" name="memLat" class="form-control" placeholder="위도" readonly>
+						</div>
+						<div class="col-6">
+							<input type="text" name="memLng" class="form-control" placeholder="경도" readonly>
 						</div>
 					</div>
 					<!-- <span>직장 주소</span>
@@ -309,10 +300,10 @@
 					</select> 
 				</div>
 				<div class="col-2">
-					<input type="text" class="form-control" value="<c:out value="${item.telMid}"/>">
+					<input type="text" class="form-control" name="telMid" value="<c:out value="${item.telMid}"/>">
 				</div>
 				<div class="col-2">
-					<input type="text" class="form-control" value="<c:out value="${item.telEnd}"/>"> 
+					<input type="text" class="form-control" name="telEnd" value="<c:out value="${item.telEnd}"/>"> 
 				</div>
 			</div>
 			<hr>
@@ -325,17 +316,13 @@
 						<input type="text" class="form-control" value="<c:out value="${item.emailID}"/>" name="emailID" id="emailID">
 						<span class="input-group-text">@</span>
 						<select class="form-select" name="emailseq">
-							<option selected>::선택::</option>
+							<option value="">::선택::</option>
 							<option value="15" <c:if test="${item.emailseq eq 15 }"> selected</c:if>>naver.com</option>
 							<option value="16" <c:if test="${item.emailseq eq 16 }"> selected</c:if>>gmail.com</option>
 							<option value="17" <c:if test="${item.emailseq eq 17 }"> selected</c:if>>hanmail.com</option>
 							<option value="18" <c:if test="${item.emailseq eq 18 }"> selected</c:if>>nate.com</option>
 							<option value="19" <c:if test="${item.emailseq eq 19 }"> selected</c:if>>daum.net</option>
 							<option value="20" <c:if test="${item.emailseq eq 20 }"> selected</c:if>>kakao.com</option>
-							<%-- <option selected>선택</option>
-							<option value="28" <c:if test="${item.emailDomain eq 28 }"> selected</c:if>>naver.com</option>
-							<option value="29" <c:if test="${item.emailDomain eq 29 }"> selected</c:if>>gmail.com</option>
-							<option value="30" <c:if test="${item.emailDomain eq 30 }"> selected</c:if>>daum.net</option> --%>
 						</select> 
 					</div>
 				</div>
@@ -347,13 +334,14 @@
 				</div>
 				<div class="col-4">
 					<div class="input-group">
-						<select class="form-select">
-							<option selected>::회원 등급::</option>
-							<option value="1">베이비올리브</option>
-							<option value="2">핑크올리브</option>
-							<option value="3">그린올리브</option>
-							<option value="4">블랙올리브</option>
-							<option value="4">골드올리브</option>
+						<select class="form-select" name="userGrade">
+							<option value="">::회원 등급::</option>
+							<option value="1" <c:if test="${item.userGrade eq '베이비올리브' }"> selected</c:if>>베이비올리브</option>
+							<option value="2" <c:if test="${item.userGrade eq '핑크올리브' }"> selected</c:if>>핑크올리브</option>
+							<option value="3" <c:if test="${item.userGrade eq '그린올리브' }"> selected</c:if>>그린올리브</option>
+							<option value="4" <c:if test="${item.userGrade eq '블랙올리브' }"> selected</c:if>>블랙올리브</option>
+							<option value="5" <c:if test="${item.userGrade eq '골드올리브' }"> selected</c:if>>골드올리브</option>
+							<option value="6" <c:if test="${item.userGrade eq '관리자' }"> selected</c:if>>관리자</option>
 						</select> 
 					</div>
 				</div>

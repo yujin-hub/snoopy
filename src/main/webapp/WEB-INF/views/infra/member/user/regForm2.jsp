@@ -149,7 +149,7 @@
 	<br>
 	<br>	
 	<div class= "container" id="wid2">
-		<form name="formMem" method="post" action="/member/memberInst">
+		<form name="formMem" method="post" action="/member/memberInst" autocomplete="off">
 			<h4>기본사항</h4>
 			<hr>
 			<div class="row">
@@ -157,19 +157,21 @@
 					<span>성명</span>
 				</div>
 				<div class="col-4">
-					<input type="text" class="form-control" id="name" name="name" value="<c:out value="${item.name}"/>">
+					<input type="text" class="form-control" id="name" name="name" value="<c:out value="${item.name}"/>" required>
+					<div class="valid-feedback"> Looks good!</div>
+					<div class="invalid-feedback"> Looks bad!</div>
 				</div>
 				<div class="col-2" id="cdiv">
 					<span>성별</span>
 				</div>
 				<div class="col-3" style="margin-top: 10px;">
 					<div class="form-check form-check-inline left">
-						  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-						  <label class="form-check-label" for="inlineRadio1">남성</label>
+						  <input class="form-check-input" type="radio" <c:if test="${item.gender eq 21 }"> checked</c:if> name="gender" id="gender1" value="21">
+						  <label class="form-check-label" for="gender1">남성</label>
 					</div>
 					<div class="form-check form-check-inline left">
-						  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-						  <label class="form-check-label" for="inlineRadio2">여성</label>
+						  <input class="form-check-input" type="radio" <c:if test="${item.gender eq 22 }"> checked</c:if> name="gender" id="gender2" value="22">
+						  <label class="form-check-label" for="gender2">여성</label>
 					</div>
 				</div>
 			</div>
@@ -235,11 +237,13 @@
 					<span>비밀번호 확인</span>
 				</div>
 				<div class="col-4">
-					<input type="hidden" id="pwAllowNY" name="pwAllowNY" value="0">
-					<input type="text" class="form-control" id="pwID" name="pwID" placeholder="4자리 이상의 영문 + 숫자">
-					<div class="invalid-feedback" id="pwFeedback"></div>
+					<!-- <input type="hidden" id="pwAllowNY" name="pwAllowNY" value="0"> -->
+					<input type="password" class="form-control" id="pwCheck" name="pwCheck" placeholder="4자리 이상의 영문 + 숫자">
+					<!-- <div class="invalid-feedback" id="pwFeedback"></div> -->
 				</div>
 				<div class="col-5">
+					<span id="alert-success" style="display: none; color: #097e01; text-align: left; font-size: 15px; margin-top: 9px;"><i class="fa-solid fa-circle-info"></i>&nbsp; 비밀번호가 일치합니다.</span>
+					<span id="alert-danger" style="display: none; color: #c53e3e; text-align: left; font-size: 15px; margin-top: 9px;"><i class="fa-solid fa-circle-info"></i>&nbsp; 비밀번호가 일치하지 않습니다.</span>
 				</div> 
 			</div>
 			<hr>	
@@ -332,8 +336,8 @@
 					<div class="input-group">
 						<input type="text" class="form-control" value="<c:out value="${item.emailID}"/>" name="emailID" id="emailID">
 						<span class="input-group-text" id="inputGroupPrepend2">@</span>
-						<select class="form-select"  name="emailseq">
-							<option selected>::선택::</option>
+						<select class="form-select" name="emailseq">
+							<option value="">::선택::</option>
 							<option value="15" <c:if test="${item.emailseq eq 15 }"> selected</c:if>>naver.com</option>
 							<option value="16" <c:if test="${item.emailseq eq 16 }"> selected</c:if>>gmail.com</option>
 							<option value="17" <c:if test="${item.emailseq eq 17 }"> selected</c:if>>hanmail.com</option>
@@ -409,7 +413,7 @@
 			<h6 style="color: #9E4D4D;">※ 표시하신 정보를 토대로 고객님께 맞는 제품을 추천해드립니다.</h6>
 			<br> -->
 			<br>
-			<button type="button" class="btn btn-secondary" style="float: right;" id="btnSave"><i class="fa-solid fa-bookmark"></i></button>
+			<button type="submit" class="btn btn-secondary" style="float: right;" id="btnSave"><i class="fa-solid fa-bookmark"></i></button>
 			<a href="../item/itemList">
 				<button type="button" class="btn btn-secondary btn-space" style="float: right;" id="btnList"><i class="fa-solid fa-house"></i></button>
 			</a>
@@ -443,234 +447,214 @@
 	var goUrlInst = "/member/memberInst"; 
 
 	
-		$("#btnSave").on("click", function(){
-			
-	   		form.attr("action", goUrlJoin).submit();
-		}); 
+	$("#btnSave").on("click", function(){
+		
+   		form.attr("action", goUrlJoin).submit();
+	}); 
+
+	$("#addrButton").on("click", function(){
+		openZipSearch();
+	});
 	
-		$("#addrButton").on("click", function(){
-			openZipSearch();
-		});
-		
-		$("#addrButton2").on("click", function(){
-			openZipSearch2();
-		});
-		
-		$("#clearButton").on("click", function(){
-			$("#zip").val('');
-			$("#addr1").val('');
-			$("#arrd2").val('');
-			$("#addr3").val('');
-		});
-		
-		$("#clearButton2").on("click", function(){
-			$("#zip2").val('');
-			$("#addr4").val('');
-			$("#arrd5").val('');
-			$("#addr6").val('');
-		});
-		
-		function openZipSearch() {
-		    new daum.Postcode({
-		          oncomplete: function(data) {
-	        	    var addr = '';
-		  		    var extraAddr = '';
+	$("#addrButton2").on("click", function(){
+		openZipSearch2();
+	});
+	
+	$("#clearButton").on("click", function(){
+		$("#zip").val('');
+		$("#addr1").val('');
+		$("#arrd2").val('');
+		$("#addr3").val('');
+	});
+	
+	$("#clearButton2").on("click", function(){
+		$("#zip2").val('');
+		$("#addr4").val('');
+		$("#arrd5").val('');
+		$("#addr6").val('');
+	});
+	
+	function openZipSearch() {
+	    new daum.Postcode({
+	          oncomplete: function(data) {
+        	    var addr = '';
+	  		    var extraAddr = '';
 
-					if (data.userSelectedType === 'R') { 
-		                  addr = data.roadAddress;
-		              } else { 
-		                  addr = data.jibunAddress;
-		              }
+				if (data.userSelectedType === 'R') { 
+	                  addr = data.roadAddress;
+	              } else { 
+	                  addr = data.jibunAddress;
+	              }
 
-		              if(data.userSelectedType === 'R'){
-		                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-		                      extraAddr += data.bname;
-		                  }
-		                  if(data.buildingName !== '' && data.apartment === 'Y'){
-		                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-		                  }
-		                  if(extraAddr !== ''){
-		                      extraAddr = ' (' + extraAddr + ')';
-		                  }
-		                  document.getElementById("addr3").value = extraAddr;
-		              
-		              } else {
-		                  document.getElementById("addr3").value = '';
-		              }
+	              if(data.userSelectedType === 'R'){
+	                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+	                      extraAddr += data.bname;
+	                  }
+	                  if(data.buildingName !== '' && data.apartment === 'Y'){
+	                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+	                  }
+	                  if(extraAddr !== ''){
+	                      extraAddr = ' (' + extraAddr + ')';
+	                  }
+	                  document.getElementById("addr3").value = extraAddr;
+	              
+	              } else {
+	                  document.getElementById("addr3").value = '';
+	              }
 
-		              document.getElementById('zip').value = data.zonecode;
-		              document.getElementById("addr1").value = addr;
-		              document.getElementById("addr2").focus();
-		              
-		              geocoder.addressSearch(addr, callback);
-					}
-		    
-		    }).open();
+	              document.getElementById('zip').value = data.zonecode;
+	              document.getElementById("addr1").value = addr;
+	              document.getElementById("addr2").focus();
+	              
+	              geocoder.addressSearch(addr, callback);
+				}
+	    
+	    }).open();
+	}
+	
+	var geocoder = new kakao.maps.services.Geocoder();
+	
+	var callback = function(result, status) {
+		if (status === kakao.maps.services.Status.OK) {
+			console.log(result);
+			document.getElementById("memLat").value = result[0].x;
+			$("input[name=memLng]").val(result[0].y);
 		}
-		
-		var geocoder = new kakao.maps.services.Geocoder();
-		
-		var callback = function(result, status) {
-			if (status === kakao.maps.services.Status.OK) {
-				console.log(result);
-				document.getElementById("memLat").value = result[0].x;
-				$("input[name=memLng]").val(result[0].y);
-			}
-		};
-		
+	};
 	
-		/* function openZipSearch2() {
-		    new daum.Postcode({
-		          oncomplete: function(data) {
-	        	    var addr = '';
-		  		    var extraAddr = '';
-		  		    
-		              if (data.userSelectedType === 'R') { 
-		                  addr = data.roadAddress;
-		              } else { 
-		                  addr = data.jibunAddress;
-		              }
 
-		              if(data.userSelectedType === 'R'){
-		                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-		                      extraAddr += data.bname;
-		                  }
-		                  if(data.buildingName !== '' && data.apartment === 'Y'){
-		                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-		                  }
-		                  if(extraAddr !== ''){
-		                      extraAddr = ' (' + extraAddr + ')';
-		                  }
-		                  document.getElementById("addr6").value = extraAddr;
-		              
-		              } else {
-		                  document.getElementById("addr6").value = '';
-		              }
+	/* function openZipSearch2() {
+	    new daum.Postcode({
+	          oncomplete: function(data) {
+        	    var addr = '';
+	  		    var extraAddr = '';
+	  		    
+	              if (data.userSelectedType === 'R') { 
+	                  addr = data.roadAddress;
+	              } else { 
+	                  addr = data.jibunAddress;
+	              }
 
-		              document.getElementById('zip2').value = data.zonecode;
-		              document.getElementById("addr4").value = addr;
-		              document.getElementById("addr5").focus();
-		          }
-		    
+	              if(data.userSelectedType === 'R'){
+	                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+	                      extraAddr += data.bname;
+	                  }
+	                  if(data.buildingName !== '' && data.apartment === 'Y'){
+	                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+	                  }
+	                  if(extraAddr !== ''){
+	                      extraAddr = ' (' + extraAddr + ')';
+	                  }
+	                  document.getElementById("addr6").value = extraAddr;
+	              
+	              } else {
+	                  document.getElementById("addr6").value = '';
+	              }
+
+	              document.getElementById('zip2').value = data.zonecode;
+	              document.getElementById("addr4").value = addr;
+	              document.getElementById("addr5").focus();
+	          }
+	    
 		    }).open();
-
+	
 		}
 	 */
-	 
-	 
-	 
+ 
+ 
 	 function idCheck () {
 		 
 	 }
 	 
 	 $("#userID").on("focusout", function(){
-		 /* 		
-		 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
-		 		 	 return false;
-		 	 	}else {*/
-		 	 		$.ajax({
-		 	 			async: true 
-		 				,cache: false
-		 				,type: "post"
-		 				/* ,dataType:"json" */
-		 				,url: "/member/idCheck"
-		 				/* ,data : $("#formLogin").serialize() */
-		 				,data : { "userID" : $("#userID").val() }
-		 				,success: function(response) {
-		 					if(response.rt == "success") {
-		 						document.getElementById("userID").classList.add('is-valid');
-		 	
-		 						document.getElementById("userIDFeedback").classList.remove('invalid-feedback');
-		 						document.getElementById("userIDFeedback").classList.add('valid-feedback');
-		 						document.getElementById("userIDFeedback").innerText = "사용 가능한 아이디입니다.";
-		 						
-		 						document.getElementById("userIDAllowNY").value = 1;
-		 						
-		 					} else {
-		 						document.getElementById("userID").classList.add('is-invalid');
-		 						
-		 						document.getElementById("userIDFeedback").classList.remove('valid-feedback');
-		 						document.getElementById("userIDFeedback").classList.add('invalid-feedback');
-		 						document.getElementById("userIDFeedback").innerText = "이미 사용중인 아이디입니다.";
-		 						
-		 						document.getElementById("userIDAllowNY").value = 0;
-		 					}
-		 				}
-		 			});
-		 	});
-		 	 
-		 	 $("#nickname").on("focusout", function(){
-		 		 /* 		
-		 		 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
-		 		 		 	 return false;
-		 		 	 	}else {*/
-		 		 	 		$.ajax({
-		 		 	 			async: true 
-		 		 				,cache: false
-		 		 				,type: "post"
-		 		 				/* ,dataType:"json" */
-		 		 				,url: "/member/nickCheck"
-		 		 				/* ,data : $("#formLogin").serialize() */
-		 		 				,data : { "nickname" : $("#nickname").val() }
-		 		 				,success: function(response) {
-		 		 					if(response.rt == "success") {
-		 		 						document.getElementById("nickname").classList.add('is-valid');
-		 		 	
-		 		 						document.getElementById("nicknameFeedback").classList.remove('invalid-feedback');
-		 		 						document.getElementById("nicknameFeedback").classList.add('valid-feedback');
-		 		 						document.getElementById("nicknameFeedback").innerText = "사용 가능한 닉네임입니다.";
-		 		 						
-		 		 						document.getElementById("nicknameAllowNY").value = 1;
-		 		 						
-		 		 					} else {
-		 		 						document.getElementById("nickname").classList.add('is-invalid');
-		 		 						
-		 		 						document.getElementById("nicknameFeedback").classList.remove('valid-feedback');
-		 		 						document.getElementById("nicknameFeedback").classList.add('invalid-feedback');
-		 		 						document.getElementById("nicknameFeedback").innerText = "이미 사용중인 닉네임입니다.";
-		 		 						
-		 		 						document.getElementById("nicknameAllowNY").value = 0;
-		 		 					}
-		 		 				}
-		 		 			});
-		 		 	});
-		 	 
-		 	 $("#pwCheck").on("focusout", function(){
-		 		 /* 		
-		 		 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
-		 		 		 	 return false;
-		 		 	 	}else {*/
-		 		 	 		$.ajax({
-		 		 	 			async: true 
-		 		 				,cache: false
-		 		 				,type: "post"
-		 		 				/* ,dataType:"json" */
-		 		 				,url: "/member/pwCheck"
-		 		 				/* ,data : $("#formLogin").serialize() */
-		 		 				,data : { "pw" : $("#pwCheck").val() }
-		 		 				,success: function(response) {
-		 		 					if(response.rt == "success") {
-		 		 						document.getElementById("").classList.add('is-valid');
-		 		 	
-		 		 						document.getElementById("pwFeedback").classList.remove('invalid-feedback');
-		 		 						document.getElementById("pwFeedback").classList.add('valid-feedback');
-		 		 						document.getElementById("pwFeedback").innerText = " ";
-		 		 						
-		 		 						document.getElementById("nicknameAllowNY").value = 1;
-		 		 						
-		 		 					} else {
-		 		 						document.getElementById("nickname").classList.add('is-invalid');
-		 		 						
-		 		 						document.getElementById("pwFeedback").classList.remove('valid-feedback');
-		 		 						document.getElementById("pwFeedback").classList.add('invalid-feedback');
-		 		 						document.getElementById("pwFeedback").innerText = "비밀번호가 일치하지 않습니다.";
-		 		 						
-		 		 						document.getElementById("pwAllowNY").value = 0;
-		 		 					}
-		 		 				}
-		 		 			});
-		 		 	});
-	 
+	 /* 		
+ 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
+ 		 	 return false;
+ 	 	}else {*/
+ 	 		$.ajax({
+ 	 			async: true 
+ 				,cache: false
+ 				,type: "post"
+ 				/* ,dataType:"json" */
+ 				,url: "/member/idCheck"
+ 				/* ,data : $("#formLogin").serialize() */
+ 				,data : { "userID" : $("#userID").val() }
+ 				,success: function(response) {
+ 					if(response.rt == "success") {
+ 						document.getElementById("userID").classList.add('is-valid');
+ 	
+ 						document.getElementById("userIDFeedback").classList.remove('invalid-feedback');
+ 						document.getElementById("userIDFeedback").classList.add('valid-feedback');
+ 						document.getElementById("userIDFeedback").innerText = "사용 가능한 아이디입니다.";
+ 						
+ 						document.getElementById("userIDAllowNY").value = 1;
+ 						
+ 					} else {
+ 						document.getElementById("userID").classList.add('is-invalid');
+ 						
+ 						document.getElementById("userIDFeedback").classList.remove('valid-feedback');
+ 						document.getElementById("userIDFeedback").classList.add('invalid-feedback');
+ 						document.getElementById("userIDFeedback").innerText = "이미 사용중인 아이디입니다.";
+ 						
+ 						document.getElementById("userIDAllowNY").value = 0;
+ 					}
+ 				}
+ 			});
+	 	});
+	 	 
+	 	 $("#nickname").on("focusout", function(){
+	 		 /* 		
+ 		 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
+ 		 		 	 return false;
+ 		 	 	}else {*/
+		 		$.ajax({
+		 			async: true 
+					,cache: false
+					,type: "post"
+					/* ,dataType:"json" */
+					,url: "/member/nickCheck"
+					/* ,data : $("#formLogin").serialize() */
+					,data : { "nickname" : $("#nickname").val() }
+					,success: function(response) {
+						if(response.rt == "success") {
+							document.getElementById("nickname").classList.add('is-valid');
+		
+							document.getElementById("nicknameFeedback").classList.remove('invalid-feedback');
+							document.getElementById("nicknameFeedback").classList.add('valid-feedback');
+							document.getElementById("nicknameFeedback").innerText = "사용 가능한 닉네임입니다.";
+							
+							document.getElementById("nicknameAllowNY").value = 1;
+							
+						} else {
+							document.getElementById("nickname").classList.add('is-invalid');
+							
+							document.getElementById("nicknameFeedback").classList.remove('valid-feedback');
+							document.getElementById("nicknameFeedback").classList.add('invalid-feedback');
+							document.getElementById("nicknameFeedback").innerText = "이미 사용중인 닉네임입니다.";
+							
+							document.getElementById("nicknameAllowNY").value = 0;
+						}
+					}
+				});
+		});
+	 	 
+	 	 
+	 	 $('#pwCheck').focusout(function () {
+	         var pwd1 = $("#pw").val();
+	         var pwd2 = $("#pwCheck").val();
+	   
+	         if ( pwd1 != '' && pwd2 == '' ) {
+	             null;
+	         } else if (pwd1 != "" || pwd2 != "") {
+	             if (pwd1 == pwd2) {
+	                 $("#alert-success").css('display', 'inline-block');
+	                 $("#alert-danger").css('display', 'none');
+	             } else {
+	                 $("#alert-success").css('display', 'none');
+	                 $("#alert-danger").css('display', 'inline-block');
+	             }
+	         }
+	     });
 	</script>
 	
 	
