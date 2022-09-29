@@ -14,7 +14,7 @@ public class CheckLoginSessionInterception extends HandlerInterceptorAdapter{
 			// by pass
 		} else {
 			response.sendRedirect("/member/login");
-            return false;
+			return false;
 		}
 		System.out.println("CheckLoginSessionInterception is running!");
 		return super.preHandle(request, response, handler);

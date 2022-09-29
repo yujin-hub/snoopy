@@ -57,7 +57,6 @@ public class MemberDao {
 		return rtSeq;
 	}
 	
-	
 	//로그인
 	public Member selectOneLogin(Member dto) {
 		return sqlSession.selectOne(namespace + ".selectOneLogin", dto);

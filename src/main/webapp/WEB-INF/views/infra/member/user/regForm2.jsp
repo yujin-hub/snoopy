@@ -261,25 +261,25 @@
 					<div class="row gy-2">
 						<div class="col-5">
 							<div class="input-group">
-								<input type="text" id="zip" class="form-control" placeholder="우편번호" disabled>
+								<input type="text" id="zip" name="zip" class="form-control" value="<c:out value="${item.zip}"/>" placeholder="우편번호" readonly>
 								<button type="button" class="btn btn-outline-secondary" id="addrButton"><i class="fa-solid fa-magnifying-glass"></i></button>
 								<button class="btn btn-outline-secondary" type="button" id="clearButton"><i class="fa-solid fa-arrow-rotate-left"></i></button>
 							</div>
 						</div>
 						<div>
-							<input type="text" id="addr1" class="form-control" placeholder="주소" disabled>
+							<input type="text" id="addr1" name="addr1" class="form-control" value="<c:out value="${item.addr1}"/>" placeholder="주소" readonly>
 						</div>
 						<div class="col-6">
-							<input type="text" id="addr2" class="form-control" placeholder="상세주소">
+							<input type="text" id="addr2" name="addr2" class="form-control" value="<c:out value="${item.addr2}"/>" placeholder="상세주소">
 						</div>
 						<div class="col-6">
-							<input type="text" id="addr3" class="form-control" placeholder="참고항목" disabled>
+							<input type="text" id="addr3" name="addr3" class="form-control" value="<c:out value="${item.addr3}"/>" placeholder="참고항목" readonly>
 						</div>
 						<div class="col-6">
-							<input type="text" id="memLat" name="memLat" class="form-control" placeholder="위도" disabled>
+							<input type="text" id="memLat" name="memLat" class="form-control" placeholder="위도" readonly>
 						</div>
 						<div class="col-6">
-							<input type="text" name="memLng" class="form-control" placeholder="경도" disabled>
+							<input type="text" name="memLng" class="form-control" placeholder="경도" readonly>
 						</div>
 					</div>
 					<!-- <span>직장 주소</span>

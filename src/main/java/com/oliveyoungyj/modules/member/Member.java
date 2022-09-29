@@ -5,6 +5,10 @@ public class Member {
 	public String userGrade;
 	public String name;
 	public String nickname;
+	public String zip;
+	public String addr1;
+	public String addr2;
+	public String addr3;
 	public Integer gender;
 	public String dob;
 	public String tel;
@@ -41,6 +45,30 @@ public class Member {
 	}
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+	public String getZip() {
+		return zip;
+	}
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
+	public String getAddr1() {
+		return addr1;
+	}
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+	public String getAddr2() {
+		return addr2;
+	}
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+	public String getAddr3() {
+		return addr3;
+	}
+	public void setAddr3(String addr3) {
+		this.addr3 = addr3;
 	}
 	public Integer getGender() {
 		return gender;

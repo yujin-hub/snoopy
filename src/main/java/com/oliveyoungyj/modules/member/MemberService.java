@@ -13,7 +13,6 @@ public interface MemberService {
 	public int selectOneCheckId(Member dto) throws Exception;
 	public int selectOneCheckNick(Member dto) throws Exception;
 
-	
 	//로그인
 	public Member selectOneID(Member dto) throws Exception;
 	public Member selectOneLogin(Member dto) throws Exception;
