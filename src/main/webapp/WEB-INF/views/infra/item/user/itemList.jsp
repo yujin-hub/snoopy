@@ -225,7 +225,7 @@
 		
 		<form autocomplete="off">
 			<div class="header_inner" >
-	            <h1><a href="/item/itemListDmin"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
+	            <h1><a href="/item/itemL"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
 				<div class="search_box" id="w_search_box">
 					<input type="hidden" name="chkButton" id="chkButton">		
 					<input type="text" id="query" class="inp_placeholder">
@@ -675,22 +675,6 @@
 				</div>
 				<br>
 				<br>
-				<ul class="pagination justify-content-center">
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-				</ul>
-				<br>
 			</section>
 			
 			<section id="content2">
@@ -864,22 +848,6 @@
 				</div>
 				<br>
 				<br>
-				<ul class="pagination justify-content-center">
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-				</ul>
-				<br>
 			</section>
 			
 			<section id="content3">
@@ -1050,22 +1018,6 @@
 					</div>
 				</div>
 				<br>
-				<br>
-				<ul class="pagination justify-content-center">
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-				</ul>
 				<br>
 			</section>
 			
@@ -1241,22 +1193,6 @@
 				</div>
 				<br>
 				<br>
-				<ul class="pagination justify-content-center">
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-				</ul>
-				<br>
 			</section>
 			
 			<section id="content5">
@@ -1427,22 +1363,6 @@
 				</div>
 				<br>
 				<br>
-				<ul class="pagination justify-content-center">
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-				</ul>
-				<br>
 			</section>
 			
 			<section id="content6">
@@ -1608,22 +1528,6 @@
 					</div>
 				</div>
 				<br>
-				<br>
-				<ul class="pagination justify-content-center">
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item">
-						<a class="page-link" href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-				</ul>
 				<br>
 			</section>
 		</div>
