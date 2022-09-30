@@ -88,6 +88,4 @@ public class Code {
 		this.modDate = modDate;
 	}
 	
-	
-	
 }

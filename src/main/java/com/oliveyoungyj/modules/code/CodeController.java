@@ -49,7 +49,12 @@ public class CodeController {
 		System.out.println("vo.getSeq(): " + vo.getSeq());
 		Code result = service.selectOne(vo);
 		model.addAttribute("item", result);
+		
+		List<Code> add = service.CodeNameAdd(vo);
+		model.addAttribute("add", add);
+		
 		return "infra/code/xdmin/codeForm";
+		
 	}
 	
 	@RequestMapping(value = "codeInst")

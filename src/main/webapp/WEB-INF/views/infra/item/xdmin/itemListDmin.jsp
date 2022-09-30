@@ -186,7 +186,8 @@
 		<div class="top_util">
 			<ul class="menu_list" id="menu_list_header">
 				<li class="login"><a href="#" data-attr='공통^헤더^로그인'><i class="fa-solid fa-wrench"></i> 매니저 님, 반갑습니다</a></li>
-				<li class="cart"><a href="../member/memberList"data-attr='공통^헤더^장바구니'>관리 홈<span id="cartToCnt"></span></a></li>
+				<li class="cart"><a href="/codeGroup/codeGroupList" data-attr='공통^헤더^장바구니'>관리 홈<span id="cartToCnt"></span></a></li>
+				<li class="cart"><a href="/member/logoutProc" id="btnLogout">로그아웃<span id="cartToCnt"></span></a></li>
 			</ul>
 		</div>
 		
@@ -1668,6 +1669,22 @@
 	        });
 	 });
 	        
+	 $("#btnLogout").on("click", function(){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/member/logoutProc"
+				,data: {}
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/member/login";
+					} else {
+						alert("다시 시도해주세요.")
+					}
+				}
+			});
+		});
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

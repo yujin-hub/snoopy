@@ -45,6 +45,11 @@ public class CodeServiceImpl implements CodeService{
 		return dao.selectOneCount(vo);
 	}
 	
+	@Override
+	public List<Code> CodeNameAdd(CodeVo vo) throws Exception {
+		return dao.CodeNameAdd(vo);
+	}
+	
 	@PostConstruct
 	public void selectListCachedCodeArrayList() throws Exception {
 		List<Code> codeListFromDb = (ArrayList<Code>) dao.selectListCachedCodeArrayList();

@@ -64,6 +64,7 @@
 		INSERT INTO Code (
 			codeGroup_seq
 			,codeseq
+			,codeGroupName
 			,name
 			,nameEng
 			,useNY
@@ -73,6 +74,7 @@
 		VALUES (
 			#{codeGroup_seq}
 			,#{codeseq}
+			,#{codeGroupName}
 			,#{name}
 			,#{nameEng}
 			,1
@@ -89,7 +91,9 @@
 		UPDATE Code
 		SET 
 			codeseq = #{codeseq}
+			, codeGroup_seq = #{codeGroup_seq}
 			, name = #{name}
+			, codeGroupName = #{codeGroupName}
 			, nameEng = #{nameEng}
 			, modDate = now()
 		WHERE 
@@ -104,4 +108,10 @@
 			AND a.seq = #{seq}
 	</select>
 	
+	<select id="CodeNameAdd" resultMap ="resultMapObj">
+		SELECT 
+			propertyKor
+		FROM CodeGroup a
+		WHERE 1=1
+	</select>
 </mapper>	

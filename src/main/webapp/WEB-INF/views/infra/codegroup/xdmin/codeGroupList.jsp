@@ -218,14 +218,14 @@
 		<div class="top_util">
 			<ul class="menu_list" id="menu_list_header">
 				<li class="login"><a href="#" data-attr='공통^헤더^로그인'><i class="fa-solid fa-wrench"></i> 매니저 님, 반갑습니다</a></li>
-				<li class="cart"><a href="codeGroupList">관리 홈<span id="cartToCnt"></span></a></li>
-				<li class="cart"><a href="#">로그아웃<span id="cartToCnt"></span></a></li>
+				<li class="cart"><a href="/codeGroup/codeGroupList"data-attr='공통^헤더^장바구니'>관리 홈<span id="cartToCnt"></span></a></li>
+				<li class="cart"><a href="/member/logoutProc">로그아웃<span id="cartToCnt"></span></a></li>
 			</ul>
 		</div>
 		
 		<form autocomplete="off">
 			<div class="header_inner">
-	            <h1><a href="../home/dminHome.html"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
+	            <h1><a href="/item/itemListDmin"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
 				<div class="search_box" id="w_search_box">
 					<input type="hidden" name="chkButton" id="chkButton">		
 					<input type="text" id="query" class="inp_placeholder">

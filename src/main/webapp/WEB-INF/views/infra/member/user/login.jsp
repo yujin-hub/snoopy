@@ -206,12 +206,12 @@
 			<div class="row gy-1">
 				<label for="id" class="form-label">ID</label>
 				<div class="input-group mb-3">
-		 			 <input type="text" class="form-control" placeholder=" 아이디 입력" id="userID" name="userID">
+		 			 <input type="text" class="form-control" placeholder=" 아이디 입력" id="userID" name="userID" value="cuj0405">
 				</div>
 				<br>
 				<label for="id" class="form-label">Password</label>
 				<div class="input-group mb-3">
-		 			 <input type="password" class="form-control" placeholder=" 비밀번호 입력 (8~12자 영문자 + 숫자 + 특수문자)" id="pw" name="pw">
+		 			 <input type="password" class="form-control" placeholder=" 비밀번호 입력 (8~12자 영문자 + 숫자 + 특수문자)" id="pw" name="pw" value="0405">
 				</div>
 			</div>
 		</div>
@@ -226,8 +226,6 @@
 			<br>
 			<br>
 			<br>
-			sessSeq: <c:out value="${sessSeq }"/><br>
-			sessId: <c:out value="${sessId }"/><br> 
 			<div class="d-grid gap-2" style="text-align: center;"> 
 				 <button class="btn btn-dark btn-lg" type="button" style="font-size: 20px;" id="btnLogin">로그인</button>
 			</div>
