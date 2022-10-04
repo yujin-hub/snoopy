@@ -288,12 +288,11 @@
 		        	</c:if>
 		            <c:if test="${sessSeq ne null}">
 			           	<div class="after">
-			              <a href="/member/logoutProc" data-attr='공통^헤더^로그아웃' title="로그아웃" type="button" id="btnLogout">로그아웃</a>
-			              <!-- <button type="button" title="로그아웃" id="btnLogout">로그아웃</button> -->
-			              &nbsp; | &nbsp; 
-			              <a href="/member/login" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
-			              &nbsp; | &nbsp; 
-			              <a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
+			              	<a href="/member/login" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
+							&nbsp; | &nbsp; 
+							<a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
+							&nbsp; | &nbsp; 
+							<a href="/member/logoutProc" data-attr='공통^헤더^로그아웃' title="로그아웃" type="button" id="btnLogout">로그아웃</a>
 			            </div>
 		            </c:if>
 				</li>

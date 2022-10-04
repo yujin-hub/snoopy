@@ -17,6 +17,8 @@ public class MemberVo {
 	private String nickname;
 	private Integer userDelNY;
 	
+	private String shDate;
+	
 	
 	private String seq;
 
@@ -103,6 +105,12 @@ public class MemberVo {
 	}
 	public void setUserDelNY(Integer userDelNY) {
 		this.userDelNY = userDelNY;
+	}
+	public String getShDate() {
+		return shDate;
+	}
+	public void setShDate(String shDate) {
+		this.shDate = shDate;
 	}
 	public String getSeq() {
 		return seq;

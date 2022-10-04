@@ -37,6 +37,11 @@
     <!-- user css -->
     <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
     
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	
     <style type ="text/css">
     	p {
     		color: white;
@@ -158,8 +163,6 @@
 				</div>
 				<div class="col-4">
 					<input type="text" class="form-control" id="name" name="name" value="<c:out value="${item.name}"/>" required>
-					<div class="valid-feedback"> Looks good!</div>
-					<div class="invalid-feedback"> Looks bad!</div>
 				</div>
 				<div class="col-2" id="cdiv">
 					<span>성별</span>
@@ -181,7 +184,7 @@
 					<span>생년월일</span>
 				</div>
 				<div class="col-4">
-					<input type="text" class="form-control" id="dob" name="dob" value="<c:out value="${item.dob}"/>">
+					<input type="text" class="form-control shDate" id="shDate" name="shDate" value="<c:out value="${vo.shDate}"/>">
 				</div>
 				<div class="col-2" id="cdiv">
 					<span>휴대폰</span>
@@ -655,6 +658,25 @@
 	             }
 	         }
 	     });
+	 	 
+	 	 
+	 	$(document).ready(function(){
+			 $("input.shDate").datepicker();
+		}); 
+
+		$.datepicker.setDefaults({
+		    dateFormat: 'yy-mm-dd',
+		    prevText: '이전 달',
+		    nextText: '다음 달',
+		    monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		    dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		    showMonthAfterYear: true,
+		    yearSuffix: '년'
+		});
+		
 	</script>
 	
 	
