@@ -339,6 +339,9 @@
 					<li class="nav-item">
 						<a class="nav-link ab" href="../member/mypageSecession">회원 탈퇴</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link ab" href="../member/changePW">비밀번호 변경</a>
+					</li>
 				</ul>
 			</div>
 			<br>
