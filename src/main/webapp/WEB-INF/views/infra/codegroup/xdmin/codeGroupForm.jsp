@@ -438,8 +438,8 @@
 						  </div>
 						</div>
 						
-						<button type="button" class="btn btn-danger right" data-bs-toggle="modal" data-bs-target="#exampleModal2" id="btnDelete"><i class="fa-solid fa-x"></i></button>
-						<button type="button" class="btn btn-danger right" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnUelete"><i class="fa-solid fa-trash-can"></i></button>
+						<button type="button" class="btn btn-danger right btn-space" data-bs-toggle="modal" data-bs-target="#exampleModal2" id="btnDelete"><i class="fa-solid fa-x"></i></button>
+						<button type="button" class="btn btn-danger right btn-space" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnUelete"><i class="fa-solid fa-trash-can"></i></button>
 							
 					</section>
 				</form>

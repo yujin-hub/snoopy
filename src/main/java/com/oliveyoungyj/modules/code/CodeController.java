@@ -76,21 +76,21 @@ public class CodeController {
 		return "redirect:/code/codeForm";
 	}
 	
-//	@RequestMapping(value = "codeele")
-//	public String codeUele(CodeVo vo, Code dto, RedirectAttributes redirectAttributes) throws Exception {
-//		
-//		service.uelete(dto);
-//		redirectAttributes.addFlashAttribute("vo", vo);
-//		return "redirect:/code/codeList";
-//	}
-//	
-//	@RequestMapping(value = "codeDele")
-//	public String codeGroupDele(CodeVo vo, RedirectAttributes redirectAttributes) throws Exception {
-//		
-//		service.delete(vo);
-//		redirectAttributes.addFlashAttribute("vo", vo);
-//		return "redirect:/code/codeList";
-//	}
+	@RequestMapping(value = "codeUele")
+	public String codeUele(CodeVo vo, Code dto, RedirectAttributes redirectAttributes) throws Exception {
+		
+		service.uelete(dto);
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/code/codeList";
+	}
+	
+	@RequestMapping(value = "codeDele")
+	public String codeGroupDele(CodeVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		
+		service.delete(vo);
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/code/codeList";
+	}
 	
 	
 	@RequestMapping(value = "codeView")

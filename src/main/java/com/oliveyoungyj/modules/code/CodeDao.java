@@ -37,6 +37,14 @@ public class CodeDao {
 	
 	public int update(Code dto) { return sqlSession.update(namespace + ".update", dto); }
 
+	public int uelete(Code dto) { 
+		return sqlSession.update(namespace + ".uelete", dto); 
+	}
+	
+	public int delete(CodeVo vo) { 
+		return sqlSession.delete(namespace + ".delete", vo); 
+	}
+	
 	public Code selectOne(CodeVo vo) {
 		Code result = sqlSession.selectOne(namespace + ".selectOne", vo);
 		System.out.println("dao result: " + result);
@@ -44,10 +52,13 @@ public class CodeDao {
 	}
 	
 	public int selectOneCount(CodeVo vo) {
-		return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
+		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
+	}
 	
 	public List<Code> CodeNameAdd(CodeVo vo) {
-		return sqlSession.selectList(namespace + ".CodeNameAdd", vo);}
+		return sqlSession.selectList(namespace + ".CodeNameAdd", vo);
+	}
+
 	
 	// for cache
 	public List<Code> selectListCachedCodeArrayList(){ return sqlSession.selectList(namespace + ".selectListCachedCodeArrayList", null); }

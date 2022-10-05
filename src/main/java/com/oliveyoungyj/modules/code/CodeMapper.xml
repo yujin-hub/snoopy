@@ -100,6 +100,19 @@
 		 	seq = #{seq}
 	</update>
 	
+	<update id="uelete">
+		UPDATE Code
+		SET 
+			useNY = 0
+			, delNY = 1
+		WHERE 
+			seq = #{seq}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM Code WHERE seq = #{seq}
+	</delete>
+	
 	<select id="selectOne" resultMap ="resultMapObj">
 		SELECT 
 			a.*
@@ -111,7 +124,7 @@
 	<select id="CodeNameAdd" resultMap ="resultMapObj">
 		SELECT 
 			propertyKor
-		FROM CodeGroup a
+		FROM CodeGroup 
 		WHERE 1=1
 	</select>
 </mapper>	

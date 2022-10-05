@@ -392,12 +392,52 @@
 								</div>
 								<br>
 								<br>
+								
+								<!-- x버튼 Modal -->
+								<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+								  <div class="modal-dialog">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="exampleModalLabel2"><b>Olive Young</b></h5>
+								        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								      </div>
+								      <div class="modal-body">
+								        정말로 삭제하시겠습니까?
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+								        <button type="button" class="btn btn-dark" id="btnDelete">삭제 </button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+								
+								 <!-- 휴지통 Modal -->
+								<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								  <div class="modal-dialog">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="exampleModalLabel"><b>Olive Young</b></h5>
+								        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								      </div>
+								      <div class="modal-body">
+								        정말로 삭제하시겠습니까?
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+								        <button type="button" class="btn btn-dark" id="btnUelete">삭제 </button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+								<button type="button" class="btn btn-space btn-success right" id="btnSave"><i class="fa-solid fa-bookmark"></i></button>	
+								<button type="button" class="btn btn-danger btn-space right" data-bs-toggle="modal" data-bs-target="#exampleModal2" id="btnDelete"><i class="fa-solid fa-x"></i></button>
+								<button type="button" class="btn btn-danger btn-space right" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnUelete"><i class="fa-solid fa-trash-can"></i></button>
 								<button type="button" class="btn btn-secondary" id="btnList"><i class="fa-solid fa-list-ul"></i></button>
-								<button type="button" class="btn btn-space btn-success right" id="btnSave"><i class="fa-solid fa-bookmark"></i></button>		
-								<button class="btn btn-space btn-danger right"><i class="fa-solid fa-trash-can"></i></button>		
+								<!-- <button class="btn btn-space btn-danger right"><i class="fa-solid fa-trash-can"></i></button>		
 								<button type="button" class="btn btn-space btn-danger right">
 			   						<i class="fa-solid fa-x"></i>
-								</button>
+								</button> -->
 							</section>
 						</div>
 					</form>
@@ -492,9 +532,16 @@
 		   	}
 		}); 
 		
-		
 		$("#btnList").on("click", function(){
 			form.attr("action", goUrlList).submit();
+		});
+		
+		$("#btnUelete").on("click", function() {
+			form.attr("action", goUrlUele).submit();
+		});
+		
+		$("#btnDelete").on("click", function() {
+			form.attr("action", goUrlDele).submit();
 		});
 		
 		
