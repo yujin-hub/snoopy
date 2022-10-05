@@ -439,7 +439,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-2 font2">
-									<spant2">Total : </span>
+									<span>total : </span><c:out value="${vo.totalRows - ((vo.thisPage -1) * vo.rowNumToShow + status.index) }"/>
 								</div>
 								<div class="col-9">
 								</div>

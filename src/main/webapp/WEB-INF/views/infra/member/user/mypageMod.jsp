@@ -361,7 +361,7 @@
 						<br>
 						<center><img src="../../resources/images/pro.jpg" id="pic"></center>
 						<br>
-						<input type="text" class="form-control mid" aria-label="id" aria-describedby="basic-addon1" value="cuj0405">
+						<input type="text" class="form-control mid" value="cuj0405">
 						<hr>
 						<div class="row mid">
 							<div class="col-4">
@@ -390,7 +390,7 @@
 								<span>이름</span>
 							</div>
 							<div class="col-9 wid">
-								<input type="text" class="form-control" aria-label="name" aria-describedby="basic-addon1" value="최유진">
+								<input type="text" class="form-control" value="최유진">
 							</div>
 						</div>
 						<br>

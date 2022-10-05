@@ -146,35 +146,16 @@
 		.mydiv{
 			background-color: #F9F9F9;
 			width: 840px;
+			text-align: center;
 		}
 			
 		.wid2{
-			width: 13%;
 			text-align: center;
 		}
 		
 		.wid3{
 			width: 7%;
 			text-align: center;
-		}
-		
-		#num{
-			font-size: 45px;
-			font-weight: bold;
-		}
-		
-		#num2{
-			font-size: 45px;
-			color: #9DCC30;
-			font-weight: bold;
-		}
-		
-		#size{
-			font-size: 23px;
-		}
-		
-		.mid{
-			margin-left: 30px;
 		}
 		
 		hr{
@@ -187,6 +168,21 @@
 			border: 1px solid; 
     		display: block !important;
     		width: 400px !important;
+		}
+		
+		.mid{
+			margin: auto;
+		}
+		
+		.top{
+			margin-top: 10px;
+		}
+		
+		.btn1{
+			background-color: #9DCC30;
+			color: white;
+			border-width: 1.5px;	
+			font-weight: bold;
 		}
 		
 	</style>
@@ -357,7 +353,7 @@
 					<div class="col-2 profile">
 						<span class="cursor font7"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp;></a></span>
 					</div>
-					<div class="row left">
+					<div class="row mid">
 						<div class="col-4">
 							<div class="font">
 								<span>CJ ONE 포인트</span>
@@ -389,24 +385,46 @@
 			<div class="col-2">
 			</div>
 			<div class="col-10">
-				<span class="font3">주문/배송</span>
+				<span class="font3">비밀번호 변경</span>
 				&nbsp;&nbsp;
-				<span class="font4">(최근&nbsp;1개월)</span>
 				<br>
 				<br>
 				<div class="mydiv">
 					<br>
 					<br>
-					<div class="row mid">
-						<div class="col-1 wid2">
-							<span id="num">0</span>
+					<div class="row left">
+						<div class="col-4 top">
+							현재 비밀번호	
+						</div>
+						<div class="col-6">
+							<input type="text" class="form-control">
 							<br>
-							<span>주문접수</span>
+						</div>
+						<div class="col-4 top">
+							새로운 비밀번호	
+						</div>
+						<div class="col-6">
+							<input type="text" class="form-control" placeholder="8~16자의 대/소문자, 숫자, 특수문자 조합"> 
+							<br>
+						</div>
+						<div class="col-4 top">
+							새로운 비밀번호 확인	
+						</div>
+						<div class="col-6">
+							<input type="text" class="form-control" placeholder="새로운 비밀번호를 한 번 더 입력해 주세요."> 
 						</div>
 					</div>
+					<br>
+					<br>
+					<button type="button" class="btn btn1" style="margin: auto;">변경하기 </button>
+					<br>
+					<br>
+					<br>
 				</div>
 			</div>
 		</div>
+		<br>
+		<br>
 	</div>
 
 	<!-- #Footer -->
