@@ -395,27 +395,52 @@
 						</div>
 						<button class="btn btn-secondary" id="btnList"><i class="fa-solid fa-list-ul"></i></button>
 						<button type="button" class="btn btn-space btn-success right" id="btnSave"><i class="fa-solid fa-bookmark"></i></button>		
-						<button class="btn btn-space btn-danger right"><i class="fa-solid fa-trash-can"></i></button>		
+						<!-- <button class="btn btn-space btn-danger right"><i class="fa-solid fa-trash-can"></i></button>		
 						<button type="button" class="btn btn-space btn-danger right">
 	   						<i class="fa-solid fa-x"></i>
-						</button>
+						</button> -->
 						
-						<!-- <!-- Button trigger modal -->
-						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="staticBackdropLabel">Data Delete</h5>
-										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-								<div class="modal-body"> 정말 삭제하시겠습니까? </div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-										<button type="button" class="btn btn-primary">Yes</button>
-									</div>
-								</div>
-							</div>
+						<!-- x버튼 Modal -->
+						<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="exampleModalLabel2"><b>Olive Young</b></h5>
+						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						      </div>
+						      <div class="modal-body">
+						        정말로 삭제하시겠습니까?
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+						        <button type="button" class="btn btn-dark" id="btnDelete">삭제 </button>
+						      </div>
+						    </div>
+						  </div>
 						</div>
+						
+						 <!-- 휴지통 Modal -->
+						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="exampleModalLabel"><b>Olive Young</b></h5>
+						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						      </div>
+						      <div class="modal-body">
+						        정말로 삭제하시겠습니까?
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+						        <button type="button" class="btn btn-dark" id="btnUelete">삭제 </button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+						
+						<button type="button" class="btn btn-danger right" data-bs-toggle="modal" data-bs-target="#exampleModal2" id="btnDelete"><i class="fa-solid fa-x"></i></button>
+						<button type="button" class="btn btn-danger right" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnUelete"><i class="fa-solid fa-trash-can"></i></button>
+							
 					</section>
 				</form>
 			</div>
@@ -512,33 +537,13 @@
 		form.attr("action", goUrlList).submit();
 	});
 	
-	/* $("#btnUelete").on("click", function(){
-		$("input:hidden[name=deleteType]").val(1);
-		$(".modal-title").text("확인");
-		$(".modal-body").text("정말 삭제하시겠습니까?");
-		$("#btnModalUelete").show();
-		$("#btnModalDelete").hide();
-		$("#modalConfirm").modal("show");
+	$("#btnUelete").on("click", function() {
+		form.attr("action", goUrlUele).submit();
 	});
 	
-	$("#btnDelete").on("click", function(){
-		$("input:hidden[name=deleteType]").val(2);
-		$(".modal-title").text("확인");
-		$(".modal-body").text("정말 삭제하시겠습니까?");
-		$("#btnModalDelete").show();
-		$("#btnModalUelete").hide();
-		$("#modalConfirm").modal("show");
+	$("#btnDelete").on("click", function() {
+		form.attr("action", goUrlDele).submit();
 	});
-	
-	$("#btnModalUelete").on("click", function(){
-		$("#modalConfirm").modal("hide");
-		formVo.attr("action", goUrlUele).submit();
-	});
-	
-	$("#btnModalDelete").on("click", function(){
-		$("#modalConfirm").modal("hide");
-		formVo.attr("action", goUrlDele).submit();
-	}); */
 	
 	
 	/* function save()
@@ -589,6 +594,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/d843c66cc1.js" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </body>
 </html>
