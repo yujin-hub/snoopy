@@ -361,7 +361,7 @@
 						<br>
 						<center>
 							<div class="input-group mb-3">
-								<input type="file" class="form-control" id="inputGroupFile02">
+								<input type="file" class="form-control" multiple>
 							</div>
 						</center>
 						<input type="text" class="form-control mid" value="cuj0405">
