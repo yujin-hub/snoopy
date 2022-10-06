@@ -29,7 +29,7 @@ public class HomeController {
 			
 			model.addAttribute("serverTime", formattedDate );
 			
-			return "/infra/item/user/itemList";
+			return "/infra/item/user/access";
 		}
 		
 		@RequestMapping(value = "/a", method = RequestMethod.GET)

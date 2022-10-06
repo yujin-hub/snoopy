@@ -41,6 +41,12 @@ public class ItemController {
 		return "infra/item/xdmin/itemListSet";
 	}
 	
+	@RequestMapping(value = "access")
+	public String access() throws Exception {
+		
+		return "infra/item/user/access";
+	}
+	
 	@RequestMapping(value = "itemList")
 	public String itemList() throws Exception {
 		
