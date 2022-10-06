@@ -49,18 +49,114 @@
 			background-color: rgba(255, 255, 255, 0.5);
 		}
 		
+		.mid{
+			margin: auto;
+		}
+		
+		.top{
+			margin-top: 150px;
+		}
+		
+		.wid{
+			width: 1500px;
+			margin: auto;
+		}
+		
+		.card-title{
+			font-size: 30px;
+		}
+		
+		.btn1{
+			background-color: #9DCC30;
+			color: white;
+			font-weight: bold;
+			font-size: 18px;
+		}
+
+		.card-body{
+			text-align: center;
+		}
+		
+		.card{
+			--bs-card-border-color: #e5e5e5;
+			border-top-color: #9DCC30;
+			border-top-width: 5px;
+		}
+		
+		.card-text{
+			font-size: 17px;
+		}
+		
 	</style>
 </head>
     
 <body>
 	<div class="back">
 		<div class="aa">
-			
+			<div>
+				<center><img src="../../resources/images/logo.jpg" class="top"></center>
+			</div>
+			<br>
+			<br>
+			<br>
+			<div class="row wid">
+				<div class="col-6">
+					<div class="card mid">
+					<br>
+					<br>
+					<br>
+					<h5 class="card-title mid">USER</h5>
+					<br>
+					<br>
+					<br>
+					  <img src="../../resources/images/main.jpg" class="card-img-top">
+					  <div class="card-body">
+					  	<br>
+					  	<br>
+						<p class="card-text">홈 / 로그인 / 상품상세 / 주문 / 결제</p>
+						<br>
+						<br>
+					    <a href="/item/itemList" class="btn btn1">바로가기</a>
+					    <br>
+						<br>
+						<br>
+					  </div>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="card mid">
+					<br>
+					<br>
+					<br>
+					<h5 class="card-title mid">ADMIN</h5>
+					<br>
+					<br>
+					<br>
+					  <img src="../../resources/images/dmin.jpg" class="card-img-top">
+					  <div class="card-body">
+					  	<br>
+					  	<br>
+						<p class="card-text">코드그룹 / 코드 / 회원 / 상품관리</p>
+						<br>
+						<br>
+					    <a href="/item/itemListDmin" class="btn btn1">바로가기</a>
+					  	<br>
+						<br>
+						<br>
+					  </div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 		</div>
 	</div>
 
 <script type="text/javascript">
-
+	
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
