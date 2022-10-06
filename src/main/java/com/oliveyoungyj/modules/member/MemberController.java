@@ -90,6 +90,14 @@ public class MemberController {
 		return "infra/member/user/regDone";
 	}
 	
+	@RequestMapping(value = "memberSecession")
+	public String memberSecession(MemberVo vo, Member dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+		
+		service.secession(dto);
+		redirectAttributes.addFlashAttribute("vo", vo);
+		httpSession.invalidate();
+		return "infra/member/user/mypageSecession2";
+	}
 	
 	// validation
 	@ResponseBody
@@ -156,6 +164,7 @@ public class MemberController {
 				httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE); // 60second * 30 = 30minute
 				httpSession.setAttribute("sessSeq", rtMember2.getSeq());
 				httpSession.setAttribute("sessId", rtMember2.getUserID());
+				httpSession.setAttribute("sessGrade", rtMember2.getUserGrade());
 
 				System.out.println(httpSession.getAttribute("sessName"));
 				returnMap.put("rt", "success");

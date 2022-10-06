@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 
+
 @Repository
 public class MemberDao {
 
@@ -33,6 +34,10 @@ public class MemberDao {
 		return sqlSession.update(namespace + ".update", dto); 
 	}
 
+	public int secession(Member dto) { 
+		return sqlSession.update(namespace + ".secession", dto); 
+	}
+	
 	public Member selectOne(MemberVo vo) {
 		Member result = sqlSession.selectOne(namespace + ".selectOne", vo);
 		System.out.println("dao result: " + result);
