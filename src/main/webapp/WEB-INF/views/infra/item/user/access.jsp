@@ -104,12 +104,14 @@
 					<div class="card mid">
 					<br>
 					<br>
-					<br>
 					<h5 class="card-title mid">USER</h5>
 					<br>
 					<br>
 					<br>
 					  <img src="../../resources/images/main.jpg" class="card-img-top">
+					  	<br>
+						<br>
+						<br>
 					  <div class="card-body">
 					  	<br>
 					  	<br>
@@ -127,20 +129,22 @@
 					<div class="card mid">
 					<br>
 					<br>
-					<br>
 					<h5 class="card-title mid">ADMIN</h5>
 					<br>
 					<br>
 					<br>
 					  <img src="../../resources/images/dmin.jpg" class="card-img-top">
+					  	<br>
+						<br>
+						<br>
 					  <div class="card-body">
 					  	<br>
 					  	<br>
 						<p class="card-text">코드그룹 / 코드 / 회원 / 상품관리</p>
 						<br>
 						<br>
-					    <a href="/item/itemListDmin" class="btn btn1">바로가기</a>
-					  	<br>
+					    <a href="/member/memberList" class="btn btn1">바로가기</a>
+					    <br>
 						<br>
 						<br>
 					  </div>
