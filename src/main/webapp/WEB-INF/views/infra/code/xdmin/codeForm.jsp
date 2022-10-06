@@ -300,9 +300,9 @@
 										<br>
 										<label for="code" class="form-label">코드그룹명</label>
 										<select class="form-select">
+											<option value="" hidden selected>::코드그룹명::</option>
 											<c:forEach items="${add}" var="add" varStatus="status">
-												<option value="" hidden selected>::코드그룹명::</option>
-												<option value="" <c:if test="${item.seq eq codeGroup_seq }"> selected</c:if>><c:out value="${add.propertyKor }"/></option>
+												<option value="<c:out value="${add.seq}"/>" <c:if test="${add.seq eq item.codeGroup_seq }"> selected</c:if>><c:out value="${add.propertyKor }"/></option>
 											</c:forEach>
 										</select>
 									</div>

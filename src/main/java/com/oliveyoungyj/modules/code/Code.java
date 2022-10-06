@@ -13,7 +13,6 @@ public class Code {
 	public String name;
 	public String nameEng;
 	public Integer useNY;
-	public String codeGroupName; 
 	public String regDate;
 	public String modDate;
 	
@@ -68,12 +67,6 @@ public class Code {
 	}
 	public void setUseNY(Integer useNY) {
 		this.useNY = useNY;
-	}
-	public String getCodeGroupName() {
-		return codeGroupName;
-	}
-	public void setCodeGroupName(String codeGroupName) {
-		this.codeGroupName = codeGroupName;
 	}
 	public String getRegDate() {
 		return regDate;
