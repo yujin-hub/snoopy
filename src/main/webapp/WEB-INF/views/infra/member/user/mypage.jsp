@@ -329,7 +329,7 @@
 		<br>
 		<div class="row">
 			<div class="col-2 text">
-				<span class="cursor">마이페이지</span>
+				<span>마이페이지</span>
 				<br>
 				<br>
 				<ul class="nav flex-column">
@@ -352,7 +352,7 @@
 						<span class="user"><i class="fa-solid fa-circle-user"></i></span>
 					</div>
 					<div class="col-5 white">
-						<span>PINK OLIVE &nbsp;&nbsp;최유진님 반갑습니다.</span>
+						<span>PINK OLIVE &nbsp;&nbsp;<c:out value="${sessId }"/>님 반갑습니다.</span>
 					</div>
 					<div class="col-2 profile">
 						<span class="cursor font7"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp;></a></span>

@@ -591,7 +591,6 @@
  						document.getElementById("userIDFeedback").innerText = "사용 가능한 아이디입니다.";
  						
  						document.getElementById("userIDAllowNY").value = 1;
- 						
  					} else {
  						document.getElementById("userID").classList.add('is-invalid');
  						

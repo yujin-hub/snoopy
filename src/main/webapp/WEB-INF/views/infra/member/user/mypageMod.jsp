@@ -359,8 +359,11 @@
 					<div class="col-3 pic">
 						<br>
 						<br>
-						<center><img src="../../resources/images/pro.jpg" id="pic"></center>
-						<br>
+						<center>
+							<div class="input-group mb-3">
+								<input type="file" class="form-control" id="inputGroupFile02">
+							</div>
+						</center>
 						<input type="text" class="form-control mid" value="cuj0405">
 						<hr>
 						<div class="row mid">
