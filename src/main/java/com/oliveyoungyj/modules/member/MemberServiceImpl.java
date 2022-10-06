@@ -75,5 +75,8 @@ public class MemberServiceImpl implements MemberService{
 		return dao.selectOneID(dto);
 	}
 	
-	
+	@Override
+	public int secession(Member dto) throws Exception {
+		return dao.secession(dto);
+	}
 }

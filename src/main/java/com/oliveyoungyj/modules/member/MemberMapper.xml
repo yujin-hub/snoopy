@@ -214,6 +214,15 @@
 			<if test="pw != null and !pw.equals('')">
 				AND pw = #{pw}
 			</if>
+			AND userDelNY = 0
 	</select>
+	
+	<update id="secession">
+		UPDATE user
+		SET 
+			userDelNY = 1
+		WHERE 
+			seq = #{seq}
+	</update>
 	
 </mapper>	
