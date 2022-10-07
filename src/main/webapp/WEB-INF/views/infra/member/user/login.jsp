@@ -322,11 +322,7 @@
 			,data : { "userID" : $("#userID").val(), "pw" : $("#pw").val()}
 			,success: function(response) {
 				if(response.rt == "success") {
-					if($("#userID").val() == "aoslwj" || $("#userID").val() == "rhksflwk") {
-						location.href = "/item/itemListDmin"; 
-					} else {
-						location.href = "/item/itemList"; 
-					}
+					location.href = "/item/itemList"; 
 				} else if($("#userID").val() == "" || $("#pw").val() == "") {
 					alert("아이디와 비밀번호를 입력해주세요.");
 				} else{
