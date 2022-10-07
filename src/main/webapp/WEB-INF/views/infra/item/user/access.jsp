@@ -143,7 +143,7 @@
 						<p class="card-text">코드그룹 / 코드 / 회원 / 상품관리</p>
 						<br>
 						<br>
-					    <a href="/member/memberList" class="btn btn1">바로가기</a>
+					    <a href="/member/loginDmin" class="btn btn1">바로가기</a>
 					    <br>
 						<br>
 						<br>
@@ -159,9 +159,6 @@
 		</div>
 	</div>
 
-<script type="text/javascript">
-	
-</script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

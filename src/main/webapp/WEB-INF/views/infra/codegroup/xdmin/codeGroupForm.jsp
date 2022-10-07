@@ -116,6 +116,22 @@
 			display: block;
 		}	
 		
+		.addScroll{
+			overflow-y: auto;
+			height: 200px;
+			background-color: #E9ECEF;
+			padding-top: 5px; 
+			padding-left: 5px;
+		}
+	 	
+		.input-file-button{
+			padding: 4px 25px;
+			background-color: #9DCC30;
+			border-radius: 4px;
+			color: white;
+			cursor: pointer;
+		}
+		
 	</style>
 </head>
     
@@ -447,6 +463,56 @@
 		</div>
 		<br>
 		<br>
+		<br>
+		<br>
+		<br>
+		
+<!-- 	<div class="row mt-sm-4">
+        <div class="col-sm-6 mt-3 mt-sm-0">
+            <label for="ifmmUploadedImage" class="form-label input-file-button">이미지첨부</label>
+ 			<input class="form-control form-control-sm" id="img1" name="img1" type="file" multiple="multiple" style="display: none;" onChange="upload('ifmmUploadedImage', 1, 0, 1, 0, 0, 1);">
+			<div class="addScroll">
+				<ul id="ulFile1" class="list-group">
+				</ul>
+			</div>
+        </div>
+        <div class="col-sm-6 mt-3 mt-sm-0">
+			<label for="ifmmUploadedFile" class="form-label input-file-button">파일첨부</label>
+			<input class="form-control form-control-sm" id="ifmmUploadedFile" name="ifmmUploadedFile" type="file" multiple="multiple" style="display: none;" onChange="upload('ifmmUploadedFile', 2, 0, 2, 0, 0, 2);" >
+			<div class="addScroll">
+				<ul id="ulFile2" class="list-group">
+				</ul>
+			</div>
+        </div>
+    </div>
+
+    <div class="row mt-sm-4">
+        <div class="col-sm-6 mt-3 mt-sm-0">
+            <label for="ifmmUploadedImage" class="form-label input-file-button">이미지첨부</label>
+ 			<input class="form-control form-control-sm" id="img2" name="img2" type="file" multiple="multiple" style="display: none;" onChange="upload('img2', 1, 0, 1, 0, 0, 1);">
+ 			<div class="addScroll">
+				<div style="display: inline-block; height: 95px;">
+				<img src="/resources/common/image/default_111.jpg" class="rounded" width= "85px" height="85px">
+				<div style="position: relative; top:-85px; left:5px"><span style="color: red;">X</span></div>
+			</div>
+		</div>
+    </div>
+    <div class="col-sm-6 mt-3 mt-sm-0">
+		<label for="ifmmUploadedFile" class="form-label input-file-button">파일첨부</label>
+		<input class="form-control form-control-sm" id="ifmmUploadedFile" name="ifmmUploadedFile" type="file" multiple="multiple" style="display: none;" onChange="upload('ifmmUploadedFile', 2, 0, 2, 0, 0, 2);" >
+		<div class="addScroll">
+			<ul id="ulFile2" class="list-group">
+			</ul>
+		</div>
+       </div>
+    </div>  -->   
+    
+    <input class="form-control form-control-sm" id="image1" name="image1" type="file" multiple="multiple">
+		
+    	<br>
+		<br>
+		<br>
+		<br>
 	</div>
 	
 	<!-- #Footer -->
@@ -527,6 +593,47 @@
 	
 	$("#btnSave").on("click", function(){
 		if (seq.val() == "0" || seq.val() == ""){
+			
+	 	/* 	var pic = document.getElementById("image1").files; //배열
+	 		// var pic = $("#" + pic + "")[0].files;
+	 		var fileNum = pic.length;
+	 		var sizetotal = 0;
+	 		
+	 		var ext = pic.name.split('.').pop().toLowerCase();
+	 		var extArray1 = new Array();
+	 		extArray1 = ["jpg","gif","png","jpeg","bmp","tif"]
+	 		
+	 		var extArray = eval("extArray1");
+	 		
+	 		
+	 		// 확장자 체크
+			if(extArray.indexOf(ext) == 0){
+				alert("파일 형식이 맞지 않습니다.")
+				return false;
+			}	 		
+	 		
+	 		// 파일 갯수 체크
+	 		if(fileNum > 3){
+	 			alert("최대 3개까지 업로드 가능합니다.")
+	 			return false;
+	 		}
+	 	
+			alert(pic);
+	 		alert(pic.length);
+
+	 		for(var i=0; i<pic.length; i++){
+				alert(pic[i].name + " : " + pic[i].size);	 			
+	 		}
+	 			
+	 		// 용량 체크	
+	 		for (var i=0; i<fileNum; i++){
+	 			sizetotal += pic[i].size;
+	 		}
+	 		
+	 		alert(sizetotal);
+	 		 */
+	 		return false;
+			
 	   		form.attr("action", goUrlInst).submit();
 	   	} else {
 	   		form.attr("action", goUrlUpdt).submit();
@@ -596,6 +703,7 @@
 			
 	 	} */
 	
+	 	
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
