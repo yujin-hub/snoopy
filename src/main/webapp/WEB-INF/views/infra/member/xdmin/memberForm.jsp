@@ -336,11 +336,11 @@
 					<div class="input-group">
 						<select class="form-select" name="userGrade">
 							<option value="">::회원 등급::</option>
-							<option value="1" <c:if test="${item.userGrade eq '베이비올리브' }"> selected</c:if>>베이비올리브</option>
-							<option value="2" <c:if test="${item.userGrade eq '핑크올리브' }"> selected</c:if>>핑크올리브</option>
-							<option value="3" <c:if test="${item.userGrade eq '그린올리브' }"> selected</c:if>>그린올리브</option>
-							<option value="4" <c:if test="${item.userGrade eq '블랙올리브' }"> selected</c:if>>블랙올리브</option>
-							<option value="5" <c:if test="${item.userGrade eq '골드올리브' }"> selected</c:if>>골드올리브</option>
+							<option value="1" <c:if test="${item.userGrade eq 'BABY OLIVE' }"> selected</c:if>>BABY OLIVE</option>
+							<option value="2" <c:if test="${item.userGrade eq 'PINK OLIVE' }"> selected</c:if>>PINK OLIVE</option>
+							<option value="3" <c:if test="${item.userGrade eq 'GREEN OLIVE' }"> selected</c:if>>GREEN OLIVE</option>
+							<option value="4" <c:if test="${item.userGrade eq 'BLACK OLIVE' }"> selected</c:if>>BLACK OLIVE</option>
+							<option value="5" <c:if test="${item.userGrade eq 'GOLD OLIVE' }"> selected</c:if>>GOLD OLIVE</option>
 							<option value="6" <c:if test="${item.userGrade eq '관리자' }"> selected</c:if>>관리자</option>
 						</select> 
 					</div>
