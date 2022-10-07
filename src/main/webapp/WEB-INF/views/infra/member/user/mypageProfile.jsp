@@ -334,7 +334,7 @@
 						<br>
 						<center><img src="../../resources/images/pro.jpg" id="pic"></center>
 						<br>
-						<span class="nick">cuj0405
+						<span class="nick"><c:out value="${pro.userID }"/></span>
 						<a href="/member/mypageMod" class="ab">
 							<button type="button" class="btn btn1"><i class="fa-solid fa-gear"></i></button></span>
 						</a>
@@ -367,16 +367,16 @@
 								<span>이름</span>
 							</div>
 							<div class="col-9 font3">
-								<span>최유진</span>
+								<span><c:out value="${pro.name }"/></span>
 							</div>
 						</div>
 						<br>
 						<div class="row">
 							<div class="col-2 font2">
-								<span>성별</span>
+								<span>회원등급</span>
 							</div>
 							<div class="col-9 font3">
-								<span>여성</span>
+								<span><c:out value="${pro.userGrade }"/></span>
 							</div>
 						</div>
 						<br>
@@ -385,7 +385,7 @@
 								<span>생년월일</span>
 							</div>
 							<div class="col-9 font3">
-								<span>1999.04.05</span>
+								<span><c:out value="${pro.dob }"/></span>
 							</div>
 						</div>
 						<br>
@@ -394,7 +394,7 @@
 								<span>휴대폰</span>
 							</div>
 							<div class="col-9 font3">
-								<span>010-1111-1111</span>
+								<span><c:out value="${pro.name }"/></span>
 							</div>
 						</div>
 						<br>
@@ -403,9 +403,12 @@
 								<span>주소</span>
 							</div>
 							<div class="col-9 font3">
-								<span>06611</span>
+								<span><c:out value="${pro.zip }"/></span>
 								<br>
-								<span>서울특별시 서초구 서초대로77길 55 에이프로스퀘어 3층</span>
+								<span><c:out value="${pro.addr1 }"/></span>
+								<br>
+								<span><c:out value="${pro.addr2 }"/></span>
+								<span><c:out value="${pro.addr3 }"/></span>
 							</div>
 						</div>
 						<br>
@@ -414,7 +417,7 @@
 								<span>이메일</span>
 							</div>
 							<div class="col-9 font3">
-								<span>cuj0405@naver.com</span>
+								<span><c:out value="${pro.email }"/></span>
 							</div>
 						</div>
 						<br>
@@ -423,16 +426,7 @@
 								<span>닉네임</span>
 							</div>
 							<div class="col-9 font3">
-								<span>유진</span>
-							</div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-2 font2">
-								<span>자기소개</span>
-							</div>
-							<div class="col-9 font3">
-								<span>뷰티에 관심이 많은 20대입니다~!</span>
+								<span><c:out value="${pro.nickname }"/></span>
 							</div>
 						</div>
 						<br>
@@ -603,6 +597,24 @@
 	        $('#back-to-top').tooltip('show');
 
 	    });
+	 
+	 
+		$("#btnLogout").on("click", function(){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/member/logoutProc"
+				,data: {}
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/member/login";
+					} else {
+						alert("다시 시도해주세요.")
+					}
+				}
+			});
+		});
 	 
 </script>
 

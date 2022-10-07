@@ -126,11 +126,11 @@
 			, gender = #{gender}
 			, userGrade = CONCAT(#{userGrade},
 				<choose>
-					<when test="userGrade eq 1">'베이비올리브')</when>
-					<when test="userGrade eq 2">'핑크올리브')</when>
-					<when test="userGrade eq 3">'그린올리브')</when>
-					<when test="userGrade eq 4">'블랙올리브')</when>
-					<when test="userGrade eq 5">'골드올리브')</when>
+					<when test="userGrade eq 1">'BABY OLIVE')</when>
+					<when test="userGrade eq 2">'PINK OLIVE')</when>
+					<when test="userGrade eq 3">'GREEN OLIVE')</when>
+					<when test="userGrade eq 4">'BLACK OLIVE')</when>
+					<when test="userGrade eq 5">'GOLD OLIVE')</when>
 					<when test="userGrade eq 6">'관리자')</when>
 				</choose>
 		WHERE 
@@ -206,6 +206,7 @@
 		SELECT
 			seq
 			, userID
+			, userGrade
 		FROM
 			user
 		WHERE 

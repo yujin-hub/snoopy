@@ -364,7 +364,7 @@
 								<input type="file" class="form-control" multiple>
 							</div>
 						</center>
-						<input type="text" class="form-control mid" value="cuj0405">
+						<input type="text" class="form-control mid" value="<c:out value="${pro.userID }"/>" readonly>
 						<hr>
 						<div class="row mid">
 							<div class="col-4">
@@ -393,23 +393,7 @@
 								<span>이름</span>
 							</div>
 							<div class="col-9 wid">
-								<input type="text" class="form-control" value="최유진">
-							</div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-2 font2">
-								<span>성별</span>
-							</div>
-							<div class="col-9 wid">
-								<div class="form-check form-check-inline">
-									  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-									  <label class="form-check-label" for="inlineRadio1">남성</label>
-								</div>
-								<div class="form-check form-check-inline">
-									  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked>
-									  <label class="form-check-label" for="inlineRadio2">여성</label>
-								</div>
+								<input type="text" class="form-control" name="name" id="name" value="<c:out value="${pro.name }"/>">
 							</div>
 						</div>
 						<br>
@@ -418,7 +402,7 @@
 								<span>생년월일</span>
 							</div>
 							<div class="col-9 wid">
-								<input type="date" class="form-control" aria-label="dob" aria-describedby="basic-addon1" value="1999-04-05">
+								<input type="text" class="form-control" name="dob" id="dob" value="<c:out value="${pro.dob }"/>">
 							</div>
 						</div>
 						<br>
@@ -427,7 +411,7 @@
 								<span>휴대폰</span>
 							</div>
 							<div class="col-9 wid">
-								<input type="text" class="form-control" aria-label="tel" aria-describedby="basic-addon1" value="010-1111-1111">
+								<input type="text" class="form-control" name="tel" id="tel" value="<c:out value="${pro.tel }"/>">
 							</div>
 						</div>
 						<br>
@@ -438,10 +422,10 @@
 							<div class="col-9">
 								<div class="row">
 									<div class="col-3">
-										<input type="text" class="form-control wid3" value="06611" aria-label="post">
+										<input type="text" class="form-control wid3" id="zip" name="zip" value="<c:out value="${pro.zip }"/>">
 									</div>
 									<div class="col-9">
-										<button type="button" class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 											우편번호 검색
 										</button>
 									</div>
@@ -473,22 +457,7 @@
 									<div class="col-9">
 										<input type="text" class="form-control" aria-label="nickname" aria-describedby="basic-addon1" value="유진">
 									</div>
-									<div class="col-3">
-										<button type="button" class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-											중복확인
-										</button>
-									</div>
 								</div>
-							</div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-2 font2">
-								<span>자기소개</span>
-							</div>
-							<div class="col-9 wid2">
-								<input type="text" class="form-control" aria-label="intro" aria-describedby="basic-addon1" value="뷰티에 관심이 많은 20대입니다~!">
-								<span style="float: right;">19/100</span>
 							</div>
 						</div>
 						<br>

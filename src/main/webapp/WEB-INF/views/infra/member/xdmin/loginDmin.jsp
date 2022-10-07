@@ -20,11 +20,12 @@
 	<meta property="og:title" content="올리브영 공식 온라인몰">
 	<meta property="og:description" content="대한민국 NO.1 헬스&뷰티 스토어 OLIVEYOUNG" >
 
-	<title>마이페이지</title>
+	<title>로그인</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202207250001">
     <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/236/PNG/256/Fruit_Olive_Green_26369.png"> 
+	
     
    	<script src="https://kit.fontawesome.com/15c84217dd.js" crossorigin="anonymous"></script>
 	<!-- Bootstrap CSS -->
@@ -36,160 +37,27 @@
     <!-- user css -->
     <link rel="stylesheet" href="/resources/xdmin/css/commonXdmin.css" />
     
- 	<style type ="text/css">
-		.back-to-top-css {
-		    position: fixed;
-		    bottom: 20px;
-		    right: 20px;
-		}
-
-		#wid{
-			width: 1050px;
-		}
-		
-		.text{
-			font-size: 25px;
-			font-weight: bold;
-		}
-		
-		.nav{
-			font-size: 16px;
-		}
-		
-		.nav-link{
-			color: #353535;
-		}
-		
-		.ab:hover{
-			color: #ce63be !important;
-		}
-		
-		.bg{
-			background-color: #f17d9e;
-			height: 55px;
-			margin-left: 10px;
-			width: 840px;
-		}
-		
-		.cursor{
-			cursor: pointer;
-		}
-		
-		.user{
-			font-size: 35px;
-		}
-		
-		.sort{
-			margin-top: 10px;
-			margin-left: 40px;
-			color: #595959;
-		}
-		
-		.white{
-			margin-top: 19px;
-			font-size: 18px;
-			font-weight: bold;
-			color: white;
-		}
-		
-		.profile{
-			font-size: 16px;
-			color: white;
-			margin-top: 18px;
-			margin-left: 230px;
-		}
-		
-		.font{
-			font-size: 17px;
-			margin-top: 30px;
-		}
-		
-		.font2{
-			font-size: 17px;
-			font-weight: bold;
-			color: #C23434;
-			margin-top: 30px;
-		}
-		
-		.font3{
-			font-size: 20px;
-			font-weight: bold;
-		}
-		
-		.font4{
-			font-size: 12px;
-		}
-		
-		.font5{
-			font-size: 100px;
-			color: #DFDFDF;
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	
+	<style type="text/css">
+		h1 {
 			text-align: center;
-		}
-		
-		.font6{
-			font-size: 15px;
-			text-align: center;
-		}
-		
-		a{
-			color: white;
 		}
 		
 		a:hover {
-			color: white;
+			color: #8bb011;
 		}
 		
-		.left{
-			margin-left: 100px;
-		}	
-		
-		.mydiv{
-			background-color: #F9F9F9;
-			width: 840px;
-		}
-			
-		.wid2{
-			width: 13%;
-			text-align: center;
-		}
-		
-		.wid3{
-			width: 7%;
-			text-align: center;
-		}
-		
-		#num{
-			font-size: 45px;
-			font-weight: bold;
-		}
-		
-		#num2{
-			font-size: 45px;
-			color: #9DCC30;
-			font-weight: bold;
-		}
-		
-		#size{
-			font-size: 23px;
-		}
-		
-		.mid{
-			margin-left: 30px;
-		}
-		
-		hr{
-			border: 1px solid; 
-    		display: block !important;
-    		width: 840px !important;
-		}
-		
-		.hr2{
-			border: 1px solid; 
-    		display: block !important;
-    		width: 400px !important;
-		}
-		
+		.before{
+  			text-decoration: none;
+  		}
+  		
 	</style>
+
+
 </head>
     
 <body>
@@ -209,11 +77,11 @@
 		        	</c:if>
 		            <c:if test="${sessSeq ne null}">
 			           	<div class="after">
-							<a href="/member/login" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
-							&nbsp; | &nbsp; 
-							<a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
-							&nbsp; | &nbsp; 
-							<a href="/member/logoutProc" data-attr='공통^헤더^로그아웃' title="로그아웃" type="button" id="btnLogout">로그아웃</a>
+			              <a href="/member/login" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
+			              &nbsp; | &nbsp; 
+			              <a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
+			              &nbsp; | &nbsp; 
+			              <a href="/member/logoutProc" data-attr='공통^헤더^로그아웃' title="로그아웃" type="button" id="btnLogout">로그아웃</a>
 			            </div>
 		            </c:if>
 				</li>
@@ -222,7 +90,7 @@
 		
 		<form autocomplete="off">
 			<div class="header_inner" >
-	            <h1><a href="../item/itemList"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
+	            <h1><a href="/item/itemList"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
 				<div class="search_box" id="w_search_box">
 					<input type="hidden" name="chkButton" id="chkButton">		
 					<input type="text" id="query" class="inp_placeholder">
@@ -324,186 +192,73 @@
 		</div>
 	</div>
 
-	<div class= "container" id="wid">
-		<br>
-		<br>
-		<div class="row">
-			<div class="col-2 text">
-				<span>마이페이지</span>
+	<br>
+	<br>
+	<div class="container" style="background-color: #fcfcfc; border-radius:10px; padding-top: 2px; padding-bottom: 50px; width: 750px;">
+		<div class= "container" style="width: 400px; margin: auto;">
+			<br>
+			<br>
+			<br>
+			<br>
+			<h1>LOGIN</h1>
+			<br>
+			<div class="row gy-1">
+				<label for="id" class="form-label">ID</label>
+				<div class="input-group mb-3">
+		 			 <input type="text" class="form-control" placeholder=" 아이디 입력" id="userID" name="userID" value="aoslwj">
+				</div>
 				<br>
-				<br>
-				<ul class="nav flex-column">
-					<li class="nav-item">
-						<a class="nav-link ab" href="../member/mypageOrder">주문/배송 조회</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link ab" href="../member/mypageSecession">회원 탈퇴</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link ab" href="../member/changePW">비밀번호 변경</a>
-					</li>
-				</ul>
+				<label for="id" class="form-label">Password</label>
+				<div class="input-group mb-3">
+		 			 <input type="password" class="form-control" placeholder=" 비밀번호 입력 (8~12자 영문자 + 숫자 + 특수문자)" id="pw" name="pw" value="1357">
+				</div>
+			</div>
+		</div>
+		<div class="form-check" style="margin-left: 155px;">
+			<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+			<label class="form-check-label" for="flexCheckChecked">자동 로그인</label>
+		</div>
+		<div class= "container" style="width: 400px; margin: auto;">
+			<span style="float:right;"><a href="../member/findPW">비밀번호 찾기</a></span>
+			<span style="float:right;">&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; </span>
+			<span style="float:right;"><a href="../member/findID">아이디 찾기</a></span>
+			<br>
+			<br>
+			<br>
+			<div class="d-grid gap-2" style="text-align: center;"> 
+				 <button class="btn btn-dark btn-lg" type="button" style="font-size: 20px;" id="btnLogin">로그인</button>
 			</div>
 			<br>
 			<br>
-			<div class="col-10 bg">
-				<div class="row">
-					<div class="col-1 sort">
-						<span class="user"><i class="fa-solid fa-circle-user"></i></span>
-					</div>
-					<div class="col-5 white">
-						<span><c:out value="${my.userGrade }"/> &nbsp;&nbsp;<c:out value="${my.nickname }"/>님 반갑습니다.</span>
-					</div>
-					<div class="col-2 profile">
-						<span class="cursor font7"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp;></a></span>
-					</div>
-					<div class="row left">
-						<div class="col-4">
-							<div class="font">
-								<span>CJ ONE 포인트</span>
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="font2">200 p</span>
-							</div>
-						</div>
-						<div class="col-3">
-							<div class="font">
-								<span>쿠폰</span>
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="font2">3 개</span>
-							</div>
-						</div>
-						<div class="col-4">
-							<div class="font">
-								<span>예치금</span>
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="font2">0 원</span>
-							</div>
-						</div>
-					</div>
-				</div>
+		</div>
+		<div class= "container" style="width: 550px;">
+			<hr style="border:1px solid; display: block !important; width: 100% !important;">
+		</div>
+		<div class= "container" style="width: 400px; margin: auto;">
+			<br>
+			<br>
+			<div class="row gy-2">
+			<div class="d-grid gap-2 btn-sm">
+			  <button class="btn btn-warning" type="button"><i class="fa-solid fa-comments"></i> Kakao로 시작하기</button>
+			</div>
+			<div class="d-grid gap-2 btn-sm">
+			  <button class="btn btn-success" type="button"><i class="fa-brands fa-neos"></i> Naver로 시작하기</button>
+			</div>
+			<div class="d-grid gap-2 btn-sm">
+			  <button class="btn btn-danger" type="button"><i class="fa-brands fa-google"></i> Google로 시작하기</button>
+			</div>
+			<div class="d-grid gap-2 btn-sm">
+			  <button class="btn btn-primary" type="button"><i class="fa-brands fa-facebook"></i> Facebook으로 시작하기</button>
 			</div>
 		</div>
-		<br>
-		<br>
-		<br>
-		<div class="row">
-			<div class="col-2">
-			</div>
-			<div class="col-10">
-				<span class="font3">주문/배송</span>
-				&nbsp;&nbsp;
-				<span class="font4">(최근&nbsp;1개월)</span>
-				<br>
-				<br>
-				<div class="mydiv">
-					<br>
-					<br>
-					<div class="row mid">
-						<div class="col-1 wid2">
-							<span id="num">0</span>
-							<br>
-							<span>주문접수</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num">1</span>
-							<br>
-							<span>결제완료</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num">0</span>
-							<br>
-							<span>상품준비중</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num">0</span>
-							<br>
-							<span>배송중</span>
-						</div>
-						<div class="col-1 wid3">
-							<span id="size"><i class="fa-solid fa-angle-right"></i></span>
-						</div>
-						<div class="col-1 wid2">
-							<span id="num2">1</span>
-							<br>
-							<span>배송완료</span>
-						</div>
-					</div>
-					<br>
-					<br>
-				</div>
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<div class="row">
-			<div class="col-2">
-			</div>
-			<div class="col-10">
-				<span class="font3">좋아요</span>
-				<hr>
-				<br>
-				<br>
-				<br>
-				<div class="font5">
-					<i class="fa-solid fa-circle-exclamation"></i>
-				</div>
-				<br>
-				<div class="font6">
-					<span>좋아요한 상품이 없습니다.</span>
-				</div>
-				<br>
-				<br>				
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<div class="row">
-			<div class="col-2">
-			</div>
-			<div class="col-10">
-				<div class="row">
-					<div class="col-6">
-						<span class="font3">1 : 1 문의내역</span>
-						<hr class="hr2">
-						<div class="font6">
-							<br>
-							<br>
-							<br>
-							<span>최근 1개월간 문의하신 내용이 없습니다.</span>
-							<br>
-							<br>
-							<br>
-						</div>
-					</div>
-					<div class="col-6">
-						<span class="font3">상품 Q&A 내역</span>
-						<hr class="hr2">
-						<div class="font6">
-							<br>
-							<br>
-							<br>
-							<span>최근 1개월간 문의하신 내용이 없습니다.</span>
-							<br>
-							<br>
-							<br>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<br>
-			</div>
+			<br>
+			<br>
+			<br>
+			<span style="float: left;">아직 회원이 아니신가요?&nbsp;&nbsp;&nbsp;</span>
+			<span style="float: left; color: blue;"><a href="../member/regForm"><u>회원가입</u></a></span>
+			<br>
+			<br>
+			<br>
 		</div>
 	</div>
 	
@@ -554,54 +309,38 @@
 		</div>
 	</div>
 
-	<a id="back-to-top" href="#" class="btn btn-outline-dark back-to-top-css" role="button" title="Move Top" data-toggle="tooltip" data-placement="left">
-	<span class="glyphicon glyphicon-chevron-up"><i class="fa-solid fa-angles-up"></i><br>TOP</span>
-	</a>
-
 <script type="text/javascript">
-	 $(document).ready(function () {
-	        $(window).scroll(function () {
-	            if ($(this).scrollTop() > 50) {
-	                $('#back-to-top').fadeIn();
-	            } else {
-	                $('#back-to-top').fadeOut();
-	            }
-	        });
-	        // scroll body to 0px on click
-	        $('#back-to-top').click(function () {
-	            $('#back-to-top').tooltip('hide');
-	            $('body,html').animate({
-	                scrollTop: 0
-	            }, 800);
-	            return false;
-	        });
-
-	        $('#back-to-top').tooltip('show');
-
-	    });
-	 
-	 
-		$("#btnLogout").on("click", function(){
-			$.ajax({
-				async: true 
-				,cache: false
-				,type: "post"
-				,url: "/member/logoutProc"
-				,data: {}
-				,success: function(response) {
-					if(response.rt == "success") {
-						location.href = "/member/login";
-					} else {
-						alert("다시 시도해주세요.")
-					}
+	$("#btnLogin").on("click", function(){
+		/* if(validation() == false) return false; */
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			/* ,dataType:"json" */
+			,url: "/member/loginProc"
+			/* ,data : $("#formLogin").serialize() */
+			,data : { "userID" : $("#userID").val(), "pw" : $("#pw").val()}
+			,success: function(response) {
+				if(response.rt == "success") {
+						location.href = "/member/memberList"; 
+				} else if($("#userID").val() == "" || $("#pw").val() == "") {
+					alert("아이디와 비밀번호를 입력해주세요.");
+				} else{
+					alert("아이디(로그인 전용 아이디) 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.");
 				}
-			});
+			}
 		});
-	 
-	 
+	});
+	
+	/* validation = function() {
+		if(!checkNull($("#userID"), $.trim($("#userID").val()), "아이디를 입력해주세요")) return false;
+		if(!checkNull($("#pw"), $.trim($("#pw").val()), "비밀번호를 입력해주세요")) return false;
+	}   */
+
+	
+
 </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/d843c66cc1.js" crossorigin="anonymous"></script>
 </body>
