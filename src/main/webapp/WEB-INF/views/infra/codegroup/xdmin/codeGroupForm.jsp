@@ -466,46 +466,23 @@
 		<br>
 		<br>
 		<br>
-		
-<!-- 	<div class="row mt-sm-4">
+    
+     <div class="row mt-sm-4">
         <div class="col-sm-6 mt-3 mt-sm-0">
             <label for="ifmmUploadedImage" class="form-label input-file-button">이미지첨부</label>
- 			<input class="form-control form-control-sm" id="img1" name="img1" type="file" multiple="multiple" style="display: none;" onChange="upload('ifmmUploadedImage', 1, 0, 1, 0, 0, 1);">
-			<div class="addScroll">
-				<ul id="ulFile1" class="list-group">
-				</ul>
+ 			<input class="form-control form-control-sm" id="ifmmUploadedImage" name="ifmmUploadedImage" type="file" multiple="multiple" style="display: none;" onChange="upload('ifmmUploadedImage', 1, 0, 1, 0, 0, 1);">
+			<div id="ifmmUploadedImagePreview" class="addScroll">
 			</div>
         </div>
         <div class="col-sm-6 mt-3 mt-sm-0">
 			<label for="ifmmUploadedFile" class="form-label input-file-button">파일첨부</label>
 			<input class="form-control form-control-sm" id="ifmmUploadedFile" name="ifmmUploadedFile" type="file" multiple="multiple" style="display: none;" onChange="upload('ifmmUploadedFile', 2, 0, 2, 0, 0, 2);" >
 			<div class="addScroll">
-				<ul id="ulFile2" class="list-group">
+				<ul id="ifmmUploadedFilePreview" class="list-group">
 				</ul>
 			</div>
         </div>
     </div>
-
-    <div class="row mt-sm-4">
-        <div class="col-sm-6 mt-3 mt-sm-0">
-            <label for="ifmmUploadedImage" class="form-label input-file-button">이미지첨부</label>
- 			<input class="form-control form-control-sm" id="img2" name="img2" type="file" multiple="multiple" style="display: none;" onChange="upload('img2', 1, 0, 1, 0, 0, 1);">
- 			<div class="addScroll">
-				<div style="display: inline-block; height: 95px;">
-				<img src="/resources/common/image/default_111.jpg" class="rounded" width= "85px" height="85px">
-				<div style="position: relative; top:-85px; left:5px"><span style="color: red;">X</span></div>
-			</div>
-		</div>
-    </div>
-    <div class="col-sm-6 mt-3 mt-sm-0">
-		<label for="ifmmUploadedFile" class="form-label input-file-button">파일첨부</label>
-		<input class="form-control form-control-sm" id="ifmmUploadedFile" name="ifmmUploadedFile" type="file" multiple="multiple" style="display: none;" onChange="upload('ifmmUploadedFile', 2, 0, 2, 0, 0, 2);" >
-		<div class="addScroll">
-			<ul id="ulFile2" class="list-group">
-			</ul>
-		</div>
-       </div>
-    </div>  -->   
     
     <input class="form-control form-control-sm" id="image1" name="image1" type="file" multiple="multiple">
 		

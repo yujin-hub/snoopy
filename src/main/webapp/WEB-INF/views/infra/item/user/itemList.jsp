@@ -384,7 +384,7 @@
 					<a href = "../item/itemView"><div class="card" style="width: 16rem;" id="item">
 					<a href = "../item/itemView"><img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015771628ko.jpg?l=ko" class="card-img-top" alt="..."></a>
 					<br>
-					<span class="name">[에스파 윈터 PICK!] <br> 클리오 프로아이팔레트 MD</p>
+					<span class="name" value="<c:out value="${item.name }"/>">
 					<br>
 					<span class="before">32,000원</span>
 					<span class="sale">22,400원</span>
