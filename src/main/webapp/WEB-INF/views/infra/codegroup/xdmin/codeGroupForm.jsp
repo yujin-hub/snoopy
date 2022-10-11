@@ -680,6 +680,92 @@
 			
 	 	} */
 	
+	 	upload = function(objName, seq, allowedMaxTotalFileNumber, allowedExtdiv, allowedEachFileSize, allowedTotalFileSize, uiType) {
+//			objName 과 seq 는 jsp 내에서 유일 하여야 함.
+//			memberProfileImage: 0
+//			memberImage: 1
+//			memberFile : 2
+//			uiType: 1 => 이미지형
+//			uiType: 2 => 파일형
+//			uiType: 3 => 프로파일형
+			
+			var files = $("#" + objName +"")[0].files;
+			var filePreview = $("#" + objName +"Preview");
+			var numbering = [];
+			var maxNumber = 0;
+			
+			if(uiType == 1) {
+				var uploadedFilesCount = document.querySelectorAll("#" + objName + "Preview > div > img").length;
+				var tagIds = document.querySelectorAll("#" + objName + "Preview > div");
+				
+				for(var i=0; i<tagIds.length; i++){
+					var tagId = tagIds[i].getAttribute("id").split("_");
+					numbering.push(tagId[2]);
+				}
+				
+				if(uploadedFilesCount > 0){
+					numbering.sort();
+					maxNumber = parseInt(numbering[numbering.length-1]) + parseInt(1);
+				}
+			} else if(uiType == 2){
+				var uploadedFilesCount = document.querySelectorAll("#" + objName + "Preview > li").length;
+				var tagIds = document.querySelectorAll("#" + objName + "Preview > li");
+				for(var i=0; i<tagIds.length; i++){
+					var tagId = tagIds[i].getAttribute("id").split("_");
+					numbering.push(tagId[2]);
+				}
+				
+				if(uploadedFilesCount > 0){
+					numbering.sort();
+					maxNumber = parseInt(numbering[numbering.length-1]) + parseInt(1);
+				}
+			} else {
+				// by pass
+			}
+			
+			var totalFileSize = 0;
+			var filesCount = files.length;
+			var filesArray = [];
+			
+			allowedMaxTotalFileNumber = allowedMaxTotalFileNumber == 0 ? MAX_TOTAL_FILE_NUMBER : allowedMaxTotalFileNumber;
+			allowedEachFileSize = allowedEachFileSize == 0 ? MAX_EACH_FILE_SIZE : allowedEachFileSize;
+			allowedTotalFileSize = allowedTotalFileSize == 0 ? MAX_TOTAL_FILE_SIZE : allowedTotalFileSize;
+			
+			if(checkUploadedTotalFileNumber(files, allowedMaxTotalFileNumber, filesCount, uploadedFilesCount) == false) { return false; }
+			
+			for (var i=0; i<filesCount; i++) {
+				if(checkUploadedExt(files[i].name, seq, allowedExtdiv) == false) { return false; }
+				if(checkUploadedEachFileSize(files[i], seq, allowedEachFileSize) == false) { return false; }
+				totalFileSize += files[i].size;
+				
+				filesArray.push(files[i]);
+			}
+			if(checkUploadedTotalFileSize(seq, totalFileSize, allowedTotalFileSize) == false) { return false; }
+			
+			if (uiType == 1) {
+				for (var i=0; i<filesArray.length; i++) {
+					var file = filesArray[i];
+				
+				    var picReader = new FileReader();
+				    picReader.addEventListener("load", addEventListenerCustom (seq, i, file, filePreview, maxNumber));
+				    picReader.readAsDataURL(file);
+				}			
+			} else if(uiType == 2) {
+				for (var i = 0 ; i < filesCount ; i++) {
+					addUploadLi(seq, i, $("#" + objName +"")[0].files[i].name, filePreview, maxNumber);
+				}
+			} else if (uiType == 3) {
+				var fileReader = new FileReader();
+				 fileReader.onload = function () {
+					 $("#imgProfile").attr("src", fileReader.result);		/* #-> */
+				 }	
+				 fileReader.readAsDataURL($("#" + objName +"")[0].files[0]);
+			} else {
+				return false;
+			}
+			return false;
+		}
+	 	
 	 	
 </script>
 

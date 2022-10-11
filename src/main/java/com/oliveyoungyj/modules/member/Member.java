@@ -1,6 +1,9 @@
 package com.oliveyoungyj.modules.member;
 
-public class Member {
+import com.oliveyoungyj.common.base.Base;
+
+public class Member extends Base{
+	
 	public String seq;
 	public String userGrade;
 	public String name;
