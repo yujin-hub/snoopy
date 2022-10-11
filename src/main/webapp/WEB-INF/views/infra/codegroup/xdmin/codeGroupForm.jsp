@@ -765,7 +765,23 @@
 			}
 			return false;
 		}
-	 	
+	 
+	 	addUploadLi = function (seq, index, name){
+			
+			var ul_list = $("#ulFile0");
+			
+			li = '<li id="li_'+seq+'_'+index+'" class="list-group-item d-flex justify-content-between align-items-center">';
+			li = li + name;
+			li = li + '<span class="badge bg-danger rounded-pill" onClick="delLi('+ seq +','+ index +')"><i class="fa-solid fa-x" style="cursor: pointer;"></i></span>';
+			li = li + '</li>';
+			
+			$("#ulFile"+seq).append(li);
+		}
+		
+		
+		delLi = function(seq, index) {
+			$("#li_"+seq+"_"+index).remove();
+		}
 	 	
 </script>
 
