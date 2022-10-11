@@ -100,4 +100,21 @@
 			AND a.seq = #{seq}
 	</select>
 	
+	<select id="selectListUploaded" resultMap="resultMapObj">
+		SELECT 
+			seq
+			,type
+			,defaultNy
+			,path
+			,originalName
+			,uuidName
+		FROM nct.infrMemberUploaded
+		WHERE 1=1
+			AND delNy = 0
+			AND pseq = #{ifmmSeq}
+		ORDER BY
+			type, sort
+	</select>
+	
+	
 </mapper>	
