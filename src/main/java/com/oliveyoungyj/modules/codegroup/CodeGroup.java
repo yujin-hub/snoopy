@@ -1,7 +1,8 @@
 package com.oliveyoungyj.modules.codegroup;
 
+import com.oliveyoungyj.common.base.Base;
 
-public class CodeGroup {
+public class CodeGroup extends Base{
 
 	public String seq;
 	public Integer num;

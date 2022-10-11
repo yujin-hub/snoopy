@@ -471,14 +471,16 @@
         <div class="col-sm-6 mt-3 mt-sm-0">
             <label for="ifmmUploadedImage" class="form-label input-file-button">이미지첨부</label>
  			<input class="form-control form-control-sm" id="ifmmUploadedImage" name="ifmmUploadedImage" type="file" multiple="multiple" style="display: none;" onChange="upload('ifmmUploadedImage', 1, 0, 1, 0, 0, 1);">
-			<div id="ifmmUploadedImagePreview" class="addScroll">
+			<div class="addScroll">
+				<ul id="ulFile1" class="list-group">
+				</ul>
 			</div>
         </div>
         <div class="col-sm-6 mt-3 mt-sm-0">
 			<label for="ifmmUploadedFile" class="form-label input-file-button">파일첨부</label>
 			<input class="form-control form-control-sm" id="ifmmUploadedFile" name="ifmmUploadedFile" type="file" multiple="multiple" style="display: none;" onChange="upload('ifmmUploadedFile', 2, 0, 2, 0, 0, 2);" >
 			<div class="addScroll">
-				<ul id="ifmmUploadedFilePreview" class="list-group">
+				<ul id="ulFile2" class="list-group">
 				</ul>
 			</div>
         </div>
@@ -682,91 +684,54 @@
 	
 	 	upload = function(objName, seq, allowedMaxTotalFileNumber, allowedExtdiv, allowedEachFileSize, allowedTotalFileSize, uiType) {
 //			objName 과 seq 는 jsp 내에서 유일 하여야 함.
-//			memberProfileImage: 0
-//			memberImage: 1
-//			memberFile : 2
-//			uiType: 1 => 이미지형
-//			uiType: 2 => 파일형
-//			uiType: 3 => 프로파일형
-			
-			var files = $("#" + objName +"")[0].files;
-			var filePreview = $("#" + objName +"Preview");
-			var numbering = [];
-			var maxNumber = 0;
-			
-			if(uiType == 1) {
-				var uploadedFilesCount = document.querySelectorAll("#" + objName + "Preview > div > img").length;
-				var tagIds = document.querySelectorAll("#" + objName + "Preview > div");
-				
-				for(var i=0; i<tagIds.length; i++){
-					var tagId = tagIds[i].getAttribute("id").split("_");
-					numbering.push(tagId[2]);
-				}
-				
-				if(uploadedFilesCount > 0){
-					numbering.sort();
-					maxNumber = parseInt(numbering[numbering.length-1]) + parseInt(1);
-				}
-			} else if(uiType == 2){
-				var uploadedFilesCount = document.querySelectorAll("#" + objName + "Preview > li").length;
-				var tagIds = document.querySelectorAll("#" + objName + "Preview > li");
-				for(var i=0; i<tagIds.length; i++){
-					var tagId = tagIds[i].getAttribute("id").split("_");
-					numbering.push(tagId[2]);
-				}
-				
-				if(uploadedFilesCount > 0){
-					numbering.sort();
-					maxNumber = parseInt(numbering[numbering.length-1]) + parseInt(1);
-				}
-			} else {
-				// by pass
-			}
+//			memberProfileImage: 1
+//			memberImage: 2
+//			memberFile : 3
 			
 			var totalFileSize = 0;
-			var filesCount = files.length;
-			var filesArray = [];
+			var obj = $("#" + objName +"")[0].files;	
+			var fileCount = obj.length;
 			
 			allowedMaxTotalFileNumber = allowedMaxTotalFileNumber == 0 ? MAX_TOTAL_FILE_NUMBER : allowedMaxTotalFileNumber;
 			allowedEachFileSize = allowedEachFileSize == 0 ? MAX_EACH_FILE_SIZE : allowedEachFileSize;
 			allowedTotalFileSize = allowedTotalFileSize == 0 ? MAX_TOTAL_FILE_SIZE : allowedTotalFileSize;
 			
-			if(checkUploadedTotalFileNumber(files, allowedMaxTotalFileNumber, filesCount, uploadedFilesCount) == false) { return false; }
+			if(checkUploadedTotalFileNumber(obj, allowedMaxTotalFileNumber, fileCount) == false) { return false; }
 			
-			for (var i=0; i<filesCount; i++) {
-				if(checkUploadedExt(files[i].name, seq, allowedExtdiv) == false) { return false; }
-				if(checkUploadedEachFileSize(files[i], seq, allowedEachFileSize) == false) { return false; }
-				totalFileSize += files[i].size;
-				
-				filesArray.push(files[i]);
+			for (var i = 0 ; i < fileCount ; i++) {
+				if(checkUploadedExt($("#" + objName +"")[0].files[i].name, seq, allowedExtdiv) == false) { return false; }
+				if(checkUploadedEachFileSize($("#" + objName +"")[0].files[i], seq, allowedEachFileSize) == false) { return false; }
+				totalFileSize += $("#" + objName +"")[0].files[i].size;
 			}
 			if(checkUploadedTotalFileSize(seq, totalFileSize, allowedTotalFileSize) == false) { return false; }
 			
 			if (uiType == 1) {
-				for (var i=0; i<filesArray.length; i++) {
-					var file = filesArray[i];
+				$("#ulFile" + seq).children().remove();
 				
-				    var picReader = new FileReader();
-				    picReader.addEventListener("load", addEventListenerCustom (seq, i, file, filePreview, maxNumber));
-				    picReader.readAsDataURL(file);
-				}			
+				for (var i = 0 ; i < fileCount ; i++) {
+					addUploadLi(seq, i, $("#" + objName +"")[0].files[i].name);
+				}
 			} else if(uiType == 2) {
-				for (var i = 0 ; i < filesCount ; i++) {
-					addUploadLi(seq, i, $("#" + objName +"")[0].files[i].name, filePreview, maxNumber);
+				$("#ulFile" + seq).children().remove();
+				
+				for (var i = 0 ; i < fileCount ; i++) {
+					addUploadLi(seq, i, $("#" + objName +"")[0].files[i].name);
 				}
 			} else if (uiType == 3) {
 				var fileReader = new FileReader();
+				 fileReader.readAsDataURL($("#" + objName +"")[0].files[0]);
+				
 				 fileReader.onload = function () {
 					 $("#imgProfile").attr("src", fileReader.result);		/* #-> */
-				 }	
-				 fileReader.readAsDataURL($("#" + objName +"")[0].files[0]);
+				 }		
 			} else {
 				return false;
 			}
 			return false;
 		}
-	 
-	 	addUploadLi = function (seq, index, name){
+		
+		
+		addUploadLi = function (seq, index, name){
 			
 			var ul_list = $("#ulFile0");
 			
@@ -782,6 +747,7 @@
 		delLi = function(seq, index) {
 			$("#li_"+seq+"_"+index).remove();
 		}
+		
 	 	
 </script>
 
