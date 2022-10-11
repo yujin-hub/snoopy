@@ -72,6 +72,16 @@ public class MemberController {
 		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/member/memberList";
 	}
+	
+	@RequestMapping(value = "infoUpdt")
+	public String infoUpdt(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
+
+		dto.setEmail(dto.getEmailID() + CodeServiceImpl.selectOneCachedCode(dto.getEmailseq()));
+
+		service.infoUpdt(dto);
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/member/mypageProfile";
+	}
 
 	@RequestMapping(value = "memberForm")
 	public String memberForm(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {

@@ -34,6 +34,10 @@ public class MemberDao {
 		return sqlSession.update(namespace + ".update", dto); 
 	}
 
+	public int infoUpdt(Member dto) { 
+		return sqlSession.update(namespace + ".infoUpdt", dto); 
+	}
+	
 	public int secession(Member dto) { 
 		return sqlSession.update(namespace + ".secession", dto); 
 	}
