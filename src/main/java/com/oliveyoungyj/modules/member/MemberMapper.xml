@@ -118,7 +118,7 @@
 			, emailseq = #{emailseq}	
 			, telMid = #{telMid}
 			, telEnd = #{telEnd}
-			, zip = #{zip}
+			, zip = #{zip}   
 			, addr1 = #{addr1}
 			, addr2 = #{addr2}
 			, addr3 = #{addr3}
@@ -222,6 +222,32 @@
 		UPDATE user
 		SET 
 			userDelNY = 1
+		WHERE 
+			seq = #{seq}
+	</update>
+	
+	
+	<update id="infoUpdt">
+		UPDATE user
+		SET 
+			name = #{name}
+			, dob = #{dob}
+			, tel = #{tel}
+			, zip = #{zip}
+			, addr1 = #{addr1}
+			, addr2 = #{addr2}
+			, addr3 = #{addr3}
+			, emailID = #{emailID}
+			, email = CONCAT(#{emailID},
+				<choose>
+					<when test="emailseq eq 15">'@naver.com')</when>
+					<when test="emailseq eq 16">'@gmail.com')</when>
+					<when test="emailseq eq 17">'@hanmail.com')</when>
+					<when test="emailseq eq 18">'@nate.com')</when>
+					<when test="emailseq eq 19">'@daum.net')</when>
+					<when test="emailseq eq 20">'@kakao.com')</when>
+				</choose>
+			, nickname = #{nickname}
 		WHERE 
 			seq = #{seq}
 	</update>

@@ -175,7 +175,7 @@
 					<span>생년월일</span>
 				</div>
 				<div class="col-4">
-					<input type="text" class="form-control" name="dob" value="<c:out value="${item.dob}"/>">
+					<input type="text" class="form-control" name="dob" id="dob" value="<c:out value="${item.dob}"/>">
 				</div>
 				<div class="col-2" id="cdiv">
 					<span>휴대폰</span>
