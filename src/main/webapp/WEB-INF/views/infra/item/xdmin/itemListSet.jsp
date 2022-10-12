@@ -458,7 +458,7 @@
 										</c:when>
 										<c:otherwise>
 											<c:forEach items="${list}" var="list" varStatus="status">
-												<tr class="cursor" onClick="item()">
+												<tr class="cursor" onclick="form()">
 													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
 													<td><c:out value="${list.seq }"/></td>
 													<td><c:out value="${list.brand }"/></td>
@@ -629,6 +629,7 @@
 		    showMonthAfterYear: true,
 		    yearSuffix: '년'
 		});
+		
 		
 </script>
 
