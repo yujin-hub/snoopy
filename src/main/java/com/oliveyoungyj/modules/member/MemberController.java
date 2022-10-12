@@ -84,11 +84,17 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "memberForm")
-	public String memberForm(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+	public String memberForm(@ModelAttribute("vo") MemberVo vo, Model model, Member dto) throws Exception {
 
 		System.out.println("vo.getSeq(): " + vo.getSeq());
 		Member result = service.selectOne(vo);
 		model.addAttribute("item", result);
+		
+		// 업로드
+		dto.setPseq(vo.getSeq());
+		Member imageUpload = service.imageUpload(dto);
+		model.addAttribute("imageUpload", imageUpload);
+		
 		return "infra/member/xdmin/memberForm";
 	}
 

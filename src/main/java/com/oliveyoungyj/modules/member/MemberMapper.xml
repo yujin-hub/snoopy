@@ -290,11 +290,19 @@
 	</insert>
 	
 	<select id="selectLastSeq" resultType="Integer">
-		select
+		SELECT
 			seq
-		from user
-		order by seq desc
+		FROM user
+		ORDER BY seq DESC
 		limit 1
+	</select>
+	
+	<select id="imageUpload" resultMap="resultMapObj">
+		SELECT 
+			*
+		FROM profileUploaded
+		WHERE 1=1
+			AND pseq = #{pseq}
 	</select>
 	
 </mapper>	

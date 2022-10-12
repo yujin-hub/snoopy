@@ -19,4 +19,7 @@ public interface MemberService {
 	//로그인
 	public Member selectOneID(Member dto) throws Exception;
 	public Member selectOneLogin(Member dto) throws Exception;
+	
+	//업로드
+	public Member imageUpload(Member dto) throws Exception;
 }

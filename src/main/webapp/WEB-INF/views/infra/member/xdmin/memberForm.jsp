@@ -115,6 +115,16 @@
 		    opacity: 1;
 		}
 		
+		.addScroll{
+			overflow-y:auto;
+			background-color:#E9ECEF;
+		}
+		
+		#img{
+			width: 500px;
+			height: 400px;
+		}
+		
     </style>
 </head>
     
@@ -143,7 +153,7 @@
 	</div>	
 	<br>
 	<div class= "container" id="wid2">
-		<form name="formMem" method="post" action="/member/memberInst" autocomplete="off">
+		<form name="formMem" method="post" action="/member/memberInst" enctype="multipart/form-data" autocomplete="off">
 		<%-- <%@include file="memberVo.jsp"%>	 --%>
 			<input type="hidden" name="seq" value="<c:out value="${vo.seq }"/>">
 			<h4>기본사항</h4>
@@ -184,6 +194,17 @@
 					<input type="text" class="form-control" name="tel" value="<c:out value="${item.tel}"/>">
 				</div>
 			</div>
+			<br>
+				<div class="row mt-sm-4"> 
+			        <div class="col-sm-6 mt-3 mt-sm-0">
+			            <label for="ifmmUploadedImage" class="form-label input-file-button">이미지첨부</label>
+			 			<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple">
+						<div id="ifmmUploadedImagePreview" class="addScroll">
+							<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
+						</div>
+			        </div>
+		  	  	</div>
+		  	<br>
 			<hr>
 			<br>
 			<br>
@@ -417,13 +438,6 @@
 			<br>
 			<br>
 			<br>
-			
-			
-			
-			
-			<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple">
-			
-			
 		</form>
 	</div>
 		

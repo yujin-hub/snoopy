@@ -107,4 +107,10 @@ public class MemberServiceImpl implements MemberService{
 	public int secession(Member dto) throws Exception {
 		return dao.secession(dto);
 	}
+	
+	@Override
+	public Member imageUpload(Member dto) throws Exception {
+		return dao.imageUpload(dto);
+	}
+	
 }
