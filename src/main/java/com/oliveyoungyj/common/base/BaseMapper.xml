@@ -16,20 +16,25 @@
 	</sql>
 	
 	<insert id="insertUploaded">
-		INSERT INTO ${tableName} (
+		INSERT INTO productUploaded (
 			type
-			,defaultNy
+			,defaultNY
 			,sort
 			,path
 			,originalName
 			,uuidName
 			,ext
 			,size
-			,delNy
+			,delNY
 			,pseq
+			,regIp
+			,regSeq
+			,regDeviceCd
+			,regDateTime
+			,regDateTimeSvr
 		) values (
 			#{type}
-			,#{defaultNy}
+			,#{defaultNY}
 			,#{sort}
 			,#{path}
 			,#{originalName}
@@ -38,7 +43,18 @@
 			,#{size}
 			,0
 			,#{pseq}
+			,#{regIp}
+			,#{regSeq}
+			,#{regDeviceCd}
+			,now()
+			,#{regDateTimeSvr}
 		)
 	</insert>
+	
+	<select id="selectLastSeq" resultType="Integer">
+		select
+			seq
+		from item
+	</select>
 	
 </mapper>

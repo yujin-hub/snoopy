@@ -1,8 +1,7 @@
 package com.oliveyoungyj.modules.codegroup;
 
-import com.oliveyoungyj.common.base.Base;
 
-public class CodeGroup extends Base{
+public class CodeGroup {
 
 	public String seq;
 	public Integer num;
@@ -13,6 +12,7 @@ public class CodeGroup extends Base{
 	public Integer delNY;
 	public String regDate;
 	public String modDate;
+	
 	
 	public String getSeq() {
 		return seq;
@@ -68,6 +68,7 @@ public class CodeGroup extends Base{
 	public void setModDate(String modDate) {
 		this.modDate = modDate;
 	}
+	
 	
 	
 }
