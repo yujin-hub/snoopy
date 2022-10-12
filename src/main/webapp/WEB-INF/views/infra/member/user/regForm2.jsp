@@ -120,6 +120,14 @@
 		    opacity: 1;
 		}
 		
+		.addScroll{
+			overflow-y:auto;
+			height: 200px;
+			background-color:#E9ECEF;
+			padding-top:5px; 
+			padding-left:5px;
+		}
+		
     </style>
 </head>
     
@@ -154,7 +162,7 @@
 	<br>
 	<br>	
 	<div class= "container" id="wid2">
-		<form name="formMem" method="post" action="/member/memberInst" autocomplete="off">
+		<form name="formMem" method="post" action="/member/memberInst" enctype="multipart/form-data" autocomplete="off">
 			<h4>기본사항</h4>
 			<hr>
 			<div class="row">
@@ -192,6 +200,15 @@
 				<div class="col-3">
 					<input type="text" class="form-control" id="tel" name="tel" value="<c:out value="${item.tel}"/>">
 				</div>
+				 <div class="row mt-sm-4"> 
+		        <div class="col-sm-6 mt-3 mt-sm-0">
+		            <label for="ifmmUploadedImage" class="form-label input-file-button">이미지첨부</label>
+		 			<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple">
+					<div id="ifmmUploadedImagePreview" class="addScroll">
+					</div>
+		        </div>
+		    </div>
+		    
 			</div>
 			<hr>
 			<br>

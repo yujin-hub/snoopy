@@ -252,4 +252,49 @@
 			seq = #{seq}
 	</update>
 	
+	
+	<insert id="insertUploaded">
+		INSERT INTO profileUploaded (
+			type
+			,defaultNY
+			,sort
+			,path
+			,originalName
+			,uuidName
+			,ext
+			,size
+			,delNY
+			,pseq
+			,regIp
+			,regSeq
+			,regDeviceCd
+			,regDateTime
+			,regDateTimeSvr
+		) values (
+			#{type}
+			,#{defaultNY}
+			,#{sort}
+			,#{path}
+			,#{originalName}
+			,#{uuidName}
+			,#{ext}
+			,#{size}
+			,0
+			,#{pseq}
+			,#{regIp}
+			,#{regSeq}
+			,#{regDeviceCd}
+			,now()
+			,#{regDateTimeSvr}
+		)
+	</insert>
+	
+	<select id="selectLastSeq" resultType="Integer">
+		select
+			seq
+		from user
+		order by seq desc
+		limit 1
+	</select>
+	
 </mapper>	

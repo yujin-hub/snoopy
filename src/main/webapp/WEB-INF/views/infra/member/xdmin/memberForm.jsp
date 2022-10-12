@@ -417,6 +417,13 @@
 			<br>
 			<br>
 			<br>
+			
+			
+			
+			
+			<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple">
+			
+			
 		</form>
 	</div>
 		

@@ -22,8 +22,8 @@ public class Constants {
 	
 	public static final long PASSWOPRD_CHANGE_INTERVAL = 90;
 	
-	public static final String UPLOAD_PATH_PREFIX = "D://factory/ws_sts_4151/aria/src/main/webapp/resources/uploaded";
-	public static final String UPLOAD_PATH_PREFIX_FOR_VIEW = "/resources/uploaded";
+	public static final String UPLOAD_PATH_PREFIX = "D://factory/ws_sts_4151/snoopy/src/main/webapp/resources/images";
+	public static final String UPLOAD_PATH_PREFIX_FOR_VIEW = "/resources/images";
 	
 	public static final int COOKIE_MAXAGE = 60 * 60 * 24 * 30;	//초 * 분 * 시간 * 일 : 30day
 	public static final String COOKIE_DOMAIN = "";

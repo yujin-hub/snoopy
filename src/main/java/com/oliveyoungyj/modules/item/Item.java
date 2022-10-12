@@ -1,6 +1,8 @@
 package com.oliveyoungyj.modules.item;
 
-public class Item {
+import com.oliveyoungyj.common.base.Base;
+
+public class Item extends Base{
 
 	public String seq;
 	public Integer brand_list_seq;
@@ -11,6 +13,7 @@ public class Item {
 	public String regist;
 	public String numPurchase;
 	public Integer stock;
+	
 	
 	public String getSeq() {
 		return seq;
@@ -67,6 +70,5 @@ public class Item {
 	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
-	
 	
 }
