@@ -194,7 +194,7 @@
 					<input type="text" class="form-control" name="tel" value="<c:out value="${item.tel}"/>">
 				</div>
 			</div>
-			<br>
+			<%-- <br>
 				<div class="row mt-sm-4"> 
 			        <div class="col-sm-6 mt-3 mt-sm-0">
 			            <label for="ifmmUploadedImage" class="form-label input-file-button">이미지첨부</label>
@@ -203,8 +203,7 @@
 							<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
 						</div>
 			        </div>
-		  	  	</div>
-		  	<br>
+		  	  	</div> --%>
 			<hr>
 			<br>
 			<br>

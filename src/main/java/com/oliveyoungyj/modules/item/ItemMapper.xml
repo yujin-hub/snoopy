@@ -11,13 +11,13 @@
 	
 	<sql id="selectCommon">
 		FROM item a 
-		LEFT JOIN brand_list b on a.seq = b.seq
+		INNER JOIN brand_list b on a.brand_list_seq = b.num
 		WHERE 1=1
 		
 		<if test="shStock != null and !shStock.equals('')">AND a.stock = #{shStock}</if>
 		
 		<choose>
-			<when test="shOption == 1">AND brand LIKE CONCAT('%',#{shValue },'%')</when>
+			<when test="shOption == 1">AND bname LIKE CONCAT('%',#{shValue },'%')</when>
 			<when test="shOption == 2">AND a.name LIKE CONCAT('%',#{shValue },'%')</when>
 			<when test="shOption == 3">AND numPurchase LIKE CONCAT('%',#{shValue },'%')</when>
 		</choose>
@@ -25,13 +25,14 @@
 		<choose>
 			<when test="shOptionDate == 4">AND a.regist BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 		</choose>	
+		
 	</sql>
 	
 	<select id="selectList" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql" />
 			SELECT 
 				a.seq
-				, (SELECT b.name FROM brand_list b WHERE 1=1 AND a.seq = b.seq) as brand
+				, b.bname
 				, a.name
 				, (SELECT FORMAT(a.price, 0)) as price
 				, (SELECT FORMAT((a.price * (100-discount)/100), 0)) as salePrice
@@ -39,6 +40,7 @@
 				, (SELECT FORMAT(a.numPurchase, 0)) as numPurchase
 				, a.stock
 		<include refid="selectCommon" />
+			ORDER BY a.seq 
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
 	
@@ -51,6 +53,7 @@
 		SELECT 
 			a.*
 		FROM item a
+		INNER JOIN brand_list b on a.brand_list_seq = b.num
 		WHERE 1=1
 			AND a.seq = #{seq}
 	</select>
