@@ -36,9 +36,6 @@ public class CodeController {
 		System.out.println("vo.getShUseNY(): " + vo.getShUseNY());
 		
 		
-		List<Code> list = service.selectList(vo);
-		model.addAttribute("list", list); 
-		
 		return "infra/code/xdmin/codeList";
 	}
 	

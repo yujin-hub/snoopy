@@ -1,5 +1,7 @@
 package com.oliveyoungyj.modules.item;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.oliveyoungyj.common.base.Base;
 
 public class Item extends Base{
@@ -8,12 +10,14 @@ public class Item extends Base{
 	public Integer brand_list_seq;
 	public String brand;
 	public String name;
+	public String bname;
 	public String price;
 	public String salePrice;
 	public String regist;
 	public String numPurchase;
 	public Integer stock;
 	
+	private MultipartFile[] MultipartFile;
 	
 	public String getSeq() {
 		return seq;
@@ -39,6 +43,12 @@ public class Item extends Base{
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getBname() {
+		return bname;
+	}
+	public void setBname(String bname) {
+		this.bname = bname;
 	}
 	public String getPrice() {
 		return price;
@@ -69,6 +79,12 @@ public class Item extends Base{
 	}
 	public void setStock(Integer stock) {
 		this.stock = stock;
+	}
+	public MultipartFile[] getMultipartFile() {
+		return MultipartFile;
+	}
+	public void setMultipartFile(MultipartFile[] multipartFile) {
+		MultipartFile = multipartFile;
 	}
 	
 }
