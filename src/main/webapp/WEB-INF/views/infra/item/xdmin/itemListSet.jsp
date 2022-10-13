@@ -378,8 +378,8 @@
 											<div class="col-3">
 												<select class="form-select" name="shStock">
 													<option value="" <c:if test="${empty vo.shStock}"></c:if>>::재고::</option>
-													<option value="1" <c:if test="${vo.shStock eq 1 }"></c:if>>Y</option>
-					 								<option value="0" <c:if test="${vo.shStock eq 0 }"></c:if>>N</option>
+													<option value="1" <c:if test="${vo.shStock eq 1 }">selected</c:if>>Y</option>
+					 								<option value="0" <c:if test="${vo.shStock eq 0 }">selected</c:if>>N</option>
 												</select>
 											</div>
 											<div class="col-3">
@@ -400,17 +400,17 @@
 											<div class="col-4">
 											<select class="form-select wid3" id="shOption" name="shOption">
 												<option value="" <c:if test="${empty vo.shOption}"></c:if>>::검색 조건::</option>
-												<option value="1" <c:if test="${vo.shOption eq 1 }"></c:if>>브랜드</option>
-												<option value="2" <c:if test="${vo.shOption eq 2 }"></c:if>>상품명</option>
-												<option value="3" <c:if test="${vo.shOption eq 3 }"></c:if>>총 구매수량</option>
+												<option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>브랜드</option>
+												<option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>상품명</option>
+												<option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>총 구매수량</option>
 											</select>
 											</div>
 											<div class="col-6">
 												<input type="text" class="form-control mid wid5" id="shValue" name="shValue" value="<c:out value="${vo.shValue }"/>" placeholder="검색어 입력" autocomplete="off">
 											</div>
 											<div class="col-2">
-												<button class="btn btn1 btn-space" style="margin-left: 9px;"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
-												<button class="btn btn1 btn-space" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+												<button class="btn btn1 btn-space" type="button" style="margin-left: 9px;" id="btnReset"><i class="fa-solid fa-arrow-rotate-left"></i></button> 
+												<button class="btn btn1 btn-space" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
 											</div>
 										</div>
 									</form>
@@ -458,10 +458,10 @@
 										</c:when>
 										<c:otherwise>
 											<c:forEach items="${list}" var="list" varStatus="status">
-												<tr class="cursor" onclick="form()">
+												<tr data-tr_value = "<c:out value="${list.seq }"/>">
 													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
 													<td><c:out value="${list.seq }"/></td>
-													<td><c:out value="${list.brand }"/></td>
+													<td><c:out value="${list.bname }"/></td>
 													<td><c:out value="${list.name }"/></td>
 													<td><c:out value="${list.price }"/>원</td>
 													<td><c:out value="${list.salePrice }"/>원</td>
@@ -500,7 +500,6 @@
 	
 	<!-- #Footer -->
 	<div id="Footer" class="m2105">
-		<div class="twoConts">
 			<div class="conts">
 				<ul class="list-area">
 					<li>

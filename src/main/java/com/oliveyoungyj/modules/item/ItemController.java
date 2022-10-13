@@ -18,10 +18,19 @@ public class ItemController {
 	
 	public void setSearchAndPaging(ItemVo vo) throws Exception{
 		vo.setParamsPaging(service.selectOneCount(vo));
+		
 	}
 
 	@RequestMapping(value = "itemListSet")
 	public String itemListSet(@ModelAttribute("vo") ItemVo vo, Model model) throws Exception {
+		
+		System.out.println("vo.getShValue(): " + vo.getShValue());
+		System.out.println("vo.getShOption(): " + vo.getShOption());
+		System.out.println("vo.getShStock(): " + vo.getShStock());
+		System.out.println("vo.getShDateStart(): " + vo.getShDateStart());
+		System.out.println("vo.getShDateEnd(): " + vo.getShDateEnd());
+		System.out.println("vo.getShOptionDate(): " + vo.getShOptionDate());
+		System.out.println("---------------------신범수"); 
 		
 		setSearchAndPaging(vo);
 		
@@ -29,14 +38,13 @@ public class ItemController {
 			List<Item> list = service.selectList(vo);
 			model.addAttribute("list", list);
 		}
-
+		
 		System.out.println("vo.getShValue(): " + vo.getShValue());
 		System.out.println("vo.getShOption(): " + vo.getShOption());
 		System.out.println("vo.getShStock(): " + vo.getShStock());
 		System.out.println("vo.getShDateStart(): " + vo.getShDateStart());
 		System.out.println("vo.getShDateEnd(): " + vo.getShDateEnd());
 		System.out.println("vo.getShOptionDate(): " + vo.getShOptionDate());
-		
 		
 		return "infra/item/xdmin/itemListSet";
 	}
