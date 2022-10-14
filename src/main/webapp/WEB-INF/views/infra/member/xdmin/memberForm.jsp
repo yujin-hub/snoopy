@@ -203,7 +203,7 @@
 							<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
 						</div>
 			        </div>
-		  	  	</div> --%>
+		  	  	</div>  --%>
 			<hr>
 			<br>
 			<br>

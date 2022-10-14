@@ -22,6 +22,7 @@
 			<when test="shOption == 3">AND numPurchase LIKE CONCAT('%',#{shValue },'%')</when>
 		</choose>
 		
+		
 		<choose>
 			<when test="shOptionDate == 4">AND a.regist BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 		</choose>	

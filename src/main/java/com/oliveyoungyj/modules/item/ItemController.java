@@ -2,6 +2,8 @@ package com.oliveyoungyj.modules.item;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,19 +20,10 @@ public class ItemController {
 	
 	public void setSearchAndPaging(ItemVo vo) throws Exception{
 		vo.setParamsPaging(service.selectOneCount(vo));
-		
 	}
 
 	@RequestMapping(value = "itemListSet")
 	public String itemListSet(@ModelAttribute("vo") ItemVo vo, Model model) throws Exception {
-		
-		System.out.println("vo.getShValue(): " + vo.getShValue());
-		System.out.println("vo.getShOption(): " + vo.getShOption());
-		System.out.println("vo.getShStock(): " + vo.getShStock());
-		System.out.println("vo.getShDateStart(): " + vo.getShDateStart());
-		System.out.println("vo.getShDateEnd(): " + vo.getShDateEnd());
-		System.out.println("vo.getShOptionDate(): " + vo.getShOptionDate());
-		System.out.println("---------------------신범수"); 
 		
 		setSearchAndPaging(vo);
 		
@@ -56,7 +49,13 @@ public class ItemController {
 	}
 	
 	@RequestMapping(value = "itemList")
-	public String itemList() throws Exception {
+	public String itemList(@ModelAttribute("vo") ItemVo vo, Model model, HttpSession httpSession) throws Exception {
+		
+		String seq = (String) httpSession.getAttribute("sessSeq");
+		vo.setSeq(seq);
+		
+		Item result = service.selectOne(vo);
+		model.addAttribute("item", result);
 		
 		return "infra/item/user/itemList";
 	}
@@ -85,9 +84,23 @@ public class ItemController {
 		return "infra/item/xdmin/itemListSet";
 	}
 	
+	@RequestMapping(value = "itemViewSet")
+	public String itemViewSet() throws Exception {
+		
+		return "infra/item/xdmin/itemViewSet";
+	}
+	
 	@RequestMapping(value = "itemListDmin")
-	public String itemListDmin() throws Exception {
+	public String itemListDmin(@ModelAttribute("vo") ItemVo vo, Model model, HttpSession httpSession) throws Exception {
+		
+		String seq = (String) httpSession.getAttribute("sessSeq");
+		vo.setSeq(seq);
+		
+		Item result = service.selectOne(vo);
+		model.addAttribute("item", result);
 		
 		return "infra/item/xdmin/itemListDmin";
 	}
 }
+
+

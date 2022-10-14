@@ -370,1167 +370,1172 @@
 	</div>
 	<br>
 	<br>
-	<div class= "container" id="wid"> 
-		<center><img src="../../resources/images/head.jpg"></center>
-		<br>
-		<br>
-		<h2>실시간 TOP3 <i class="fa-solid fa-crown"></i></h2>
-		<br>
-		<div class="row">
-			<div class="col-md-3" id="left">
-				<div>
-					<span id="num">1</span>
+	<form id="main" name="main">
+		<div class= "container" id="wid"> 
+		<input type="hidden" id="seq" name="seq">
+			<center><img src="../../resources/images/head.jpg"></center>
+			<br>
+			<br>
+			<h2>실시간 TOP3 <i class="fa-solid fa-crown"></i></h2>
+			<br>
+			<c:forEach items="${item}" var="list" varStatus="status">
+			<div class="row">
+				<div class="col-md-3" id="left">
+					<div>
+						<span id="num">1</span>
+					</div>
+						<a href = "../item/itemView"><div class="card" style="width: 16rem;" id="item">
+						<a href = "../item/itemView"><img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015771628ko.jpg?l=ko" class="card-img-top" alt="..."></a>
+						<br>
+						<span class="name" value="<c:out value="${item.name }"/>"</p>
+						<br>
+						<span class="before">32,000원</span>
+						<span class="sale">22,400원</span>
+						<span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
+						<span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
+					</div>
 				</div>
-					<a href = "../item/itemView"><div class="card" style="width: 16rem;" id="item">
-					<a href = "../item/itemView"><img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015771628ko.jpg?l=ko" class="card-img-top" alt="..."></a>
+				<div class="col-md-3" id="left"> 	
+					<div>
+						<span id="num">2</span>
+					</div>
+					<div class="card" style="width: 16rem;" id="item">
+					  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012595523ko.jpg?l=ko" class="card-img-top" alt="...">
+					  <br>
+					  <span class="name">[NEW!]<br>롬앤 쥬시 래스팅 틴트</p>
+					  <br>
+					  <span class="before2">9,900원</span>
+					  <span class="sale">8,910원</span>
+					  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
+					  <span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
+					</div>
+				</div>
+				<div class="col-md-3"  id="left"> 
+					<div>
+						<span id="num">3</span>
+					</div>
+					<div class="card" style="width: 16rem;" id="item">
+					  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016596806ko.jpg?l=ko" class="card-img-top" alt="...">
+					   <br>
+					  <span class="name">웨이크메이크 워터 컬러링 퓨어 틴트 (6 Color)</p>
+					  <br>
+					  <span class="before3">16,000원</span>
+					  <span class="sale">9,600원</span>
+					  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
+					  <span class="badge rounded-pill" style="background-color: #4aa828;">쿠폰</span>
+					  <span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
+					</div>
+				</div>
+			</div>
+			</c:forEach>
+			<br>
+			<hr>
+			<br>
+			<h2>Weekly Special</h2>
+			<br>
+			<div class="row">
+				<div class="col-md-3" id="left">
+					<div class="card" id="item">
+					  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015015308ko.jpg?l=ko" class="card-img-top" alt="...">
+					  <br>
+					  <span class="name">리얼베리어 아쿠아 수딩 크림 마스크</p>
+					  <br>
+					  <span class="before2">3,000원</span>
+					  <span class="sale">1,200원</span>
+					  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
+					  <span class="badge rounded-pill" style="background-color: #f2c202;">1+1</span>
+					</div>
+				</div>
+				<div class="col-md-3" id="left"> 	
+					<div class="card" id="item">
+					  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000167080148ko.jpg?l=ko" class="card-img-top" alt="...">
+					  <br>
+					  <span class="name">데싱디바 매직프레스 페디 사일런트 오션 2205</p>
+					  <br>
+					  <span class="before3">10,800원</span>
+					  <span class="sale">9,720원</span>
+					  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
+					</div>
+				</div>
+				<div class="col-md-3" id="left"> 
+					<div class="card" id="item">
+					  <img src= "https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013629656ko.jpg?l=ko" class="card-img-top" alt="...">
+					   <br>
+					  <span class="name">페리페라 올테이크 무드 팔레트</p>
+					  <br>
+					  <br>
+					  <span class="before">19,000원</span>
+					  <span class="sale">15,200원</span>
+					  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
+					  <span class="badge rounded-pill" style="background-color: #4aa828;">쿠폰</span>
+					</div>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<br>
+			<h2>인기행사만 모았어요!</h2>
+			<br>
+			<div class="row">
+				<div class="col-6">
+				<a href="https://www.oliveyoung.co.kr/store/planshop/getPlanShopDetail.do?dispCatNo=500000101780212&trackingCd=Home_Planshop3_PROD"><img src="../../resources/images/sale.jpg"></a>
+				</div>
+				<div class="col-6">
+				<a href="https://www.oliveyoung.co.kr/store/planshop/getPlanShopDetail.do?dispCatNo=500000102390043&trackingCd=Home_Planshop3_PROD"><img src="../../resources/images/sale2.jpg"></a>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<br>
+			<h2>주목해야 할 브랜드</h2>
+			<br>
+			<div class="main left2">
+				<input id="tab1" type="radio" name="tabs" checked> 
+				<label for="tab1">캘빈클라인</label>
+				
+				<input id="tab2" type="radio" name="tabs">
+				<label for="tab2">AHC</label>
+				
+				<input id="tab3" type="radio" name="tabs">
+				<label for="tab3">아비브</label>
+				
+				<input id="tab4" type="radio" name="tabs">
+				<label for="tab4">비욘드</label>
+				
+				<input id="tab5" type="radio" name="tabs">
+				<label for="tab5">데싱디바</label>
+				
+				<input id="tab6" type="radio" name="tabs">
+				<label for="tab6">바이오더마</label>
+				
+				<section id="content1">
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016911302ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">캘빈클라인</span>
+							  </div>
+							  <span class="name">CK 캘빈클라인 One EDT 50ml + 미니어처 15ml 기획</p>
+							  <br>
+							  <span class="sale">60,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016163406ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">캘빈클라인</span>
+							  </div>
+							  <span class="name">CK 캘빈클라인 디파이 EDT 30ml</p>
+							  <br>
+							  <span class="sale">71,000원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0017/A00000017113301ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">캘빈클라인</span>
+							  </div>
+							  <span class="name">CK 캘빈클라인 원 모이스처라이저 250ml</p>
+							  <br>
+							  <span class="before4">53,000원</span>
+							  <span class="sale">42,400원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013722104ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">캘빈클라인</span>
+							  </div>
+							  <span class="name">CK 캘빈클라인 에브리원 EDT 100ml</p>
+							  <br>
+							  <span class="sale">90,000원</span>
+							</div>
+						</div>
+					</div>
 					<br>
-					<span class="name">[에스파 윈터 PICK!] <br> 클리오 프로아이팔레트 MD</p>
 					<br>
-					<span class="before">32,000원</span>
-					<span class="sale">22,400원</span>
-					<span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-					<span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
-				</div>
-			</div>
-			<div class="col-md-3" id="left"> 	
-				<div>
-					<span id="num">2</span>
-				</div>
-				<div class="card" style="width: 16rem;" id="item">
-				  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012595523ko.jpg?l=ko" class="card-img-top" alt="...">
-				  <br>
-				  <span class="name">[NEW!]<br>롬앤 쥬시 래스팅 틴트</p>
-				  <br>
-				  <span class="before2">9,900원</span>
-				  <span class="sale">8,910원</span>
-				  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-				  <span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
-				</div>
-			</div>
-			<div class="col-md-3"  id="left"> 
-				<div>
-					<span id="num">3</span>
-				</div>
-				<div class="card" style="width: 16rem;" id="item">
-				  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016596806ko.jpg?l=ko" class="card-img-top" alt="...">
-				   <br>
-				  <span class="name">웨이크메이크 워터 컬러링 퓨어 틴트 (6 Color)</p>
-				  <br>
-				  <span class="before3">16,000원</span>
-				  <span class="sale">9,600원</span>
-				  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-				  <span class="badge rounded-pill" style="background-color: #4aa828;">쿠폰</span>
-				  <span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
-				</div>
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016768305ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">캘빈클라인</span>
+							  </div>
+							  <span class="name">CK 캘빈클라인 One 22 Summer EDT 100ml 기획세트 (15ml 추가증정)</p>
+							  <br>
+							  <span class="before5">85,000원</span>
+							  <span class="sale">59,500원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0017/A00000017086501ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">캘빈클라인</span>
+							  </div>
+							  <span class="name">CK 캘빈클라인 One EDT 200ml</p>
+							  <br>
+							  <br>
+							  <span class="before5">11,6000원</span>
+							  <span class="sale">92,800원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013530105ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">캘빈클라인</span>
+							  </div>
+							  <span class="name">CK 캘빈클라인 비 EDT 50ml</p>
+							  <br>
+							  <br>
+							  <br>
+							  <span class="before4">68,000원</span>
+							  <span class="sale">47,600원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012083102ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">캘빈클라인</span>
+							  </div>
+							  <span class="name">캘빈클라인 이터니티 에어 맨 EDT 30ml</p>
+							  <br>
+							  <br>
+							  <span class="sale">58,000원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015763501ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">캘빈클라인</span>
+							  </div>
+							  <span class="name">CK 캘빈클라인 디파이 EDT 50ml</p>
+							  <br>
+							  <br>
+							  <span class="sale">96,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012839703ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">캘빈클라인</span>
+							  </div>
+							  <span class="name">CK 캘빈클라인 이터니티 맨 EDT 30ml</p>
+							  <br>
+							  <br>
+							  <span class="before4">68,000원</span>
+							  <span class="sale">54,400원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016163407ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">캘빈클라인</span>
+							  </div>
+							  <span class="name">CK 캘빈클라인 디파이 EDT 50ml +1.2ml*2 + 에브리원 1.2ml *2</p>
+							  <br>
+							  <span class="sale">96,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013722701ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">캘빈클라인</span>
+							  </div>
+							  <span class="name">CK 캘빈클라인 에브리원 EDT 50ml</p>
+							  <br>
+							  <br>
+							  <span class="before4">64,000원</span>
+							  <span class="sale">57,600원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+				</section>
+				
+				<section id="content2">
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015562505ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">AHC</span>
+							  </div>
+							  <span class="name">AHC 아우라 시크릿 톤업 벨벳 (본품55g+10g 증정)</p>
+							  <br>
+							  <span class="before4">29,000원</span>
+							  <span class="sale">20,300원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016519202ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">AHC</span>
+							  </div>
+							  <span class="name">AHC 텐션 아이크림 스틱 포 페이스 기획</p>
+							  <br>
+							  <span class="sale">19,900원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016484501ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">AHC</span>
+							  </div>
+							  <span class="name">AHC 세이프온 마일드 선 쿠션 25g</p>
+							  <br>
+							  <span class="before4">29,000원</span>
+							  <span class="sale">17,400원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016536401ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">AHC</span>
+							  </div>
+							  <span class="name">AHC 허브솔루션 로즈 토너 500ml (온)</p>
+							  <br>
+							  <span class="before4">15,000원</span>
+							  <span class="sale">12,000원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015711504ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">AHC</span>
+							  </div>
+							  <span class="name">[단독기획] AHC 하이드라 B5 바이옴 앰플</p>
+							  <br>
+							  <br>
+							  <span class="before4">34,000원</span>
+							  <span class="sale">30,600원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013718101ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">AHC</span>
+							  </div>
+							  <span class="name">AHC 내추럴퍼펙션 프레쉬 선스틱</p>
+							  <br>
+							  <br>
+							  <span class="before4">19,000원</span>
+							  <span class="sale">15,200원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015101705ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">AHC</span>
+							  </div>
+							  <span class="name">AHC 유스 래스팅 리얼 아이크림 포 페이스 (30ml+30ml+36ml)</p>
+							  <br>
+							  <span class="before4">30,000원</span>
+							  <span class="sale">24,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015351003ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">AHC</span>
+							  </div>
+							  <span class="name">AHC 마스터즈 아쿠아 리치 선크림 더블 기획 (30ml+30ml)</p>
+							  <br>
+							  <br>
+							  <span class="sale">24,000원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014564103ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">AHC</span>
+							  </div>
+							  <span class="name">AHC 마이크로 비타민 착붙 마스크 시트 33ml 10매</p>
+							  <br>
+							  <span class="sale">30,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014564303ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">AHC</span>
+							  </div>
+							  <span class="name">AHC 마이크로 퓨어 워터 착붙 마스크 시트 33ml 10매</p>
+							  <br>
+							  <span class="sale">30,000원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014983402ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">AHC</span>
+							  </div>
+							  <span class="name">[단독기획] AHC 365 레드 퍼퓸드 핸드 기획</p>
+							  <br>
+							  <span class="before4">24,000원</span>
+							  <span class="sale">19,200원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013780502ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">AHC</span>
+							  </div>
+							  <span class="name">AHC 에센스케어 파우더워시 에메랄드 40g</p>
+							  <br>
+							  <span class="sale">22,000원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+				</section>
+				
+				<section id="content3">
+				 	<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014154811ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">아비브</span>
+							  </div>
+							  <span class="name">[조효진 Pick] 아비브 어성초 스팟 패드 카밍터치 75매</p>
+							  <br>
+							  <br>
+							  <span class="before4">24,000원</span>
+							  <span class="sale">16,800원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014840803ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">아비브</span>
+							  </div>
+							  <span class="name">[증량]아비브 아크네 폼 클렌저 어성초 폼 대용량 250ml</p>
+							  <br>
+							  <br>
+							  <span class="before4">21,000원</span>
+							  <span class="sale">16,800원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0017/A00000017029503ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">아비브</span>
+							  </div>
+							  <span class="name">[단독기획] 아비브 수분초 히알루론 패드 하이드레이팅 터치 75매 기획 (+10매)</p>
+							  <br>
+							  <span class="before4">24,000원</span>
+							  <span class="sale">16,800원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015404504ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">아비브</span>
+							  </div>
+							  <span class="name">아비브 유자 프로바이오틱스 잡티 패드 바이탈라이징 터치 60매</p>
+							  <br>
+							  <span class="sale">24,000원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014840905ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">아비브</span>
+							  </div>
+							  <span class="name">아비브 부활초 크림 뉴트리션 튜브 75ml</p>
+							  <br>
+							  <br>
+							  <span class="before4">35,000원</span>
+							  <span class="sale">24,500원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012093805ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">아비브</span>
+							  </div>
+							  <span class="name">아비브 약산성 pH 시트 마스크 어성초 핏 10P</p>
+							  <br>
+							  <br>
+							  <span class="sale">40,000원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016945201ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">아비브</span>
+							  </div>
+							  <span class="name">[NEW] 아비브 수분초 히알루론 패드 하이드레이팅 터치 75매</p>
+							  <br>
+							  <span class="before4">24,000원</span>
+							  <span class="sale">16,800원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012081915ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">아비브</span>
+							  </div>
+							  <span class="name">아비브 어성초 에센스 카밍펌프 50ml</p>
+							  <br>
+							  <br>
+							  <span class="before4">27,000원</span>
+							  <span class="sale">18,900원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013195803ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">아비브</span>
+							  </div>
+							  <span class="name">아비브 핸드크림 타입 W 프라그란트 튜브 50ml</p>
+							  <br>
+							  <span class="sale">17,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0011/A00000011684604ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">아비브</span>
+							  </div>
+							  <span class="name">아비브 퀵 선스틱 프로텍션 바 22g</p>
+							  <br>
+							  <span class="before4">28,000원</span>
+							  <span class="sale">14,000원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0011/A00000011208805ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">아비브</span>
+							  </div>
+							  <span class="name">아비브 껌딱지 시트 마스크 마데카소사이드 스티커 10P</p>
+							  <br>
+							  <span class="sale">40,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014437103ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">아비브</span>
+							  </div>
+							  <span class="name">아비브 카밍 페이셜 솝 어성초 스톤 100g</p>
+							  <br>
+							  <span class="sale">14,000원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+				</section>
+				
+				<section id="content4">
+				 	<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016859206ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">비욘드</span>
+							  </div>
+							  <span class="name">[NEW] 비욘드 엔젤 아쿠아 수분 선크림 50ml 1+1 기획</p>
+							  <br>
+							  <br>
+							  <span class="before4">17,000원</span>
+							  <span class="sale">15,300원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012523108ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">비욘드</span>
+							  </div>
+							  <span class="name">비욘드 오마이 선크림 더블 기획 (본품+본품)</p>
+							  <br>
+							  <br>
+							  <span class="sale">17,000원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015689605ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">비욘드</span>
+							  </div>
+							  <span class="name">[강태경PICK] 비욘드 엔젤아쿠아 포맨 올인원 에센스 더블 기획 (200ml+200ml)</p>
+							  <br>
+							  <span class="before4">25,000원</span>
+							  <span class="sale">17,500원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016570503ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">비욘드</span>
+							  </div>
+							  <span class="name">비욘드 토탈리커버리 버블배쓰 250ml</p>
+							  <br>
+							  <br>
+							  <span class="sale">17,500원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0011/A00000011943606ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">비욘드</span>
+							  </div>
+							  <span class="name">비욘드 엔젤아쿠아 데일리 세라마이드크림 더블 기획 (100ml+100ml)</p>
+							  <br>
+							  <span class="before4">25,000원</span>
+							  <span class="sale">20,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0017/A00000017029104ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">비욘드</span>
+							  </div>
+							  <span class="name">비욘드 엔젤아쿠아 모이스처 클렌징폼 300ml 1+1 기획l</p>
+							  <br>
+							  <br>
+							  <span class="before4">16,500원</span>
+							  <span class="sale">14,850원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016568201ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">비욘드</span>
+							  </div>
+							  <span class="name">비욘드 버베나 리프레싱 바디워시 500ml</p>
+							  <br>
+							  <br>
+							  <span class="sale">25,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015149101ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">비욘드</span>
+							  </div>
+							  <span class="name">비욘드 엔젤아쿠아 포맨 수분 크림 150ml</p>
+							  <br>
+							  <br>
+							  <span class="before4">20,000원</span>
+							  <span class="sale">14,000원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013159401ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">비욘드</span>
+							  </div>
+							  <span class="name">비욘드 엔젤아쿠아 시카 카밍 앰플 100ml</p>
+							  <br>
+							  <br>
+							  <span class="sale">22,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0011/A00000011943709ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">비욘드</span>
+							  </div>
+							  <span class="name">비욘드 엔젤아쿠아 데일리 톤업크림 더블 기획 (75ml+75ml)</p>
+							  <br>
+							  <span class="before4">25,000원</span>
+							  <span class="sale">20,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015489201ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">비욘드</span>
+							  </div>
+							  <span class="name">[증량] 비욘드 버베나 샤워젤 1L</p>
+							  <br>
+							  <br>
+							  <span class="sale">34,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015412001ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">비욘드</span>
+							  </div>
+							  <span class="name">비욘드 버베나 리프레싱 바디미스트120ml</p>
+							  <br>
+							  <br>
+							  <span class="sale">16,000원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+				</section>
+				
+				<section id="content5">
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016312114ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">데싱디바</span>
+							  </div>
+							  <span class="name">데싱디바 매직프레스 SS 기획세트</p>
+							  <br>
+							  <br>
+							  <span class="before4">21,600원</span>
+							  <span class="sale">19,440원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000167114122ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">데싱디바</span>
+							  </div>
+							  <span class="name">[조효진 PICK] 데싱디바 S/S(여름) 프리미엄 매직프레스 네일/페디</p>
+							  <br>
+							  <span class="before4">14,800원</span>
+							  <span class="sale">13,320원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000162720141ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">데싱디바</span>
+							  </div>
+							  <span class="name">데싱디바 매직프레스 프리미엄 스파클링 화이트(CF) 2203</p>
+							  <br>
+							  <span class="before4">14,800원</span>
+							  <span class="sale">13,320원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000167071125ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">데싱디바</span>
+							  </div>
+							  <span class="name">데싱디바 매직프레스 프리미엄 페디 스타 프리즘 2205</p>
+							  <br>
+							  <br>
+							  <span class="sale">14,800원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016621387ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">데싱디바</span>
+							  </div>
+							  <span class="name">데싱디바 S/S 글레이즈 매니 아트시리즈 골라담기</p>
+							  <br>
+							  <span class="before4">14,800원</span>
+							  <span class="sale">13,320원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016123176ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">데싱디바</span>
+							  </div>
+							  <span class="name">데싱디바 글레이즈 J026 화이트 링</p>
+							  <br>
+							  <span class="sale">14,800원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000162728148ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">데싱디바</span>
+							  </div>
+							  <span class="name">데싱디바 매직프레스 프리미엄 펄리 화이트(CF) 2203</p>
+							  <br>
+							  <span class="before4">68,000원</span>
+							  <span class="sale">20,400원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016397593ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">데싱디바</span>
+							  </div>
+							  <span class="name">데싱디바 글레이즈 A301 아이덴티티2203</p>
+							  <br>
+							  <span class="before4">14,800원</span>
+							  <span class="sale">13,320원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016130176ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">데싱디바</span>
+							  </div>
+							  <span class="name">데싱디바 글레이즈 A282 바람</p>
+							  <br>
+							  <br>
+							  <span class="sale">14,800원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000167061140ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">데싱디바</span>
+							  </div>
+							  <span class="name">데싱디바 매직프레스 엣지 플라워(CF) 2205</p>
+							  <br>
+							  <span class="sale">10,800원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000167088157ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">데싱디바</span>
+							  </div>
+							  <span class="name">데싱디바 매직프레스 페디 바이올렛 샌드 2205</p>
+							  <br>
+							  <span class="before4">14,500원</span>
+							  <span class="sale">11,600원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000162771138ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">데싱디바</span>
+							  </div>
+							  <span class="name">데싱디바 S/S 매직프레스 프리미엄 매니</p>
+							  <br>
+							  <span class="before4">14,800원</span>
+							  <span class="sale">13,320원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+				</section>
+				
+				<section id="content6">
+				 	<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014395912ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">바이오더마</span>
+							  </div>
+							  <span class="name">바이오더마 아토덤 인텐시브 밤 200ml</p>
+							  <br>
+							  <span class="before4">30,000원</span>
+							  <span class="sale">24,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016505505ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">바이오더마</span>
+							  </div>
+							  <span class="name">바이오더마 센시비오 디펜시브 리치 40ml</p>
+							  <br>
+							  <span class="before4">27,000원</span>
+							  <span class="sale">18,900원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0001/A00000001300410ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">바이오더마</span>
+							  </div>
+							  <span class="name">바이오더마 세비엄 젤무쌍 500ml</p>
+							  <br>
+							  <span class="before4">30,000원</span>
+							  <span class="sale">24,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015764807ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">바이오더마</span>
+							  </div>
+							  <span class="name">바이오더마 시카비오 데이 리페어 크림 30ml</p>
+							  <br>
+							  <span class="before4">30,000원</span>
+							  <span class="sale">18,000원</span>
+							</div>
+						</div>
+						
+					</div>
+					<br>
+					<br>
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0000/A00000000533607ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">바이오더마</span>
+							  </div>
+							  <span class="name">바이오더마 하이드라비오 세럼 40ml</p>
+							  <br>
+							  <span class="sale">39,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0011/A00000011780811ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">바이오더마</span>
+							  </div>
+							  <span class="name">바이오더마 하이드라비오 에센스로션 200ml</p>
+							  <br>
+							  <span class="sale">30,000원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0000/A00000000760637ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">바이오더마</span>
+							  </div>
+							  <span class="name">바이오더마 아토덤 립스틱 1+1기획</p>
+							  <br>
+							  <span class="sale">15,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0001/A00000001008815ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">바이오더마</span>
+							  </div>
+							  <span class="name">바이오더마 시카비오 포마드 40ml</p>
+							  <br>
+							  <span class="sale">23,000원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+					<div class="row">
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016071506ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">바이오더마</span>
+							  </div>
+							  <span class="name">바이오더마 아토덤 젤 두쉬 500ml + 고급 샤워볼</p>
+							  <br>
+							  <span class="sale">29,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013469004ko.jpg?l=ko" class="card-img-top" >
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">바이오더마</span>
+							  </div>
+							  <span class="name">바이오더마 세비엄 나이트 필 40ml</p>
+							  <br>
+							  <span class="before4">30,000원</span>
+							  <span class="sale">21,000원</span>
+							</div>
+						</div>
+						<div class="col-3">	
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0000/A00000000929809ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">바이오더마</span>
+							  </div>
+							  <span class="name">바이오더마 포토덤맥스크림 SPF50+</p>
+							  <br>
+							  <span class="sale">30,000원</span>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="card2" id="item">
+							  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0011/A00000011212807ko.jpg?l=ko" class="card-img-top">
+							  <br>
+							  <div class="mid">
+							  	<span class="brand">바이오더마</span>
+							  </div>
+							  <span class="name">바이오더마 센시비오 H2O 500ml (펌프형)</p>
+							  <br>
+							  <span class="before4">25,500원</span>
+							  <span class="sale">20,000원</span>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+				</section>
 			</div>
 		</div>
-		<br>
-		<hr>
-		<br>
-		<h2>Weekly Special</h2>
-		<br>
-		<div class="row">
-			<div class="col-md-3" id="left">
-				<div class="card" id="item">
-				  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015015308ko.jpg?l=ko" class="card-img-top" alt="...">
-				  <br>
-				  <span class="name">리얼베리어 아쿠아 수딩 크림 마스크</p>
-				  <br>
-				  <span class="before2">3,000원</span>
-				  <span class="sale">1,200원</span>
-				  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-				  <span class="badge rounded-pill" style="background-color: #f2c202;">1+1</span>
-				</div>
-			</div>
-			<div class="col-md-3" id="left"> 	
-				<div class="card" id="item">
-				  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000167080148ko.jpg?l=ko" class="card-img-top" alt="...">
-				  <br>
-				  <span class="name">데싱디바 매직프레스 페디 사일런트 오션 2205</p>
-				  <br>
-				  <span class="before3">10,800원</span>
-				  <span class="sale">9,720원</span>
-				  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-				</div>
-			</div>
-			<div class="col-md-3" id="left"> 
-				<div class="card" id="item">
-				  <img src= "https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013629656ko.jpg?l=ko" class="card-img-top" alt="...">
-				   <br>
-				  <span class="name">페리페라 올테이크 무드 팔레트</p>
-				  <br>
-				  <br>
-				  <span class="before">19,000원</span>
-				  <span class="sale">15,200원</span>
-				  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-				  <span class="badge rounded-pill" style="background-color: #4aa828;">쿠폰</span>
-				</div>
-			</div>
-		</div>
-		<br>
-		<hr>
-		<br>
-		<h2>인기행사만 모았어요!</h2>
-		<br>
-		<div class="row">
-			<div class="col-6">
-			<a href="https://www.oliveyoung.co.kr/store/planshop/getPlanShopDetail.do?dispCatNo=500000101780212&trackingCd=Home_Planshop3_PROD"><img src="../../resources/images/sale.jpg"></a>
-			</div>
-			<div class="col-6">
-			<a href="https://www.oliveyoung.co.kr/store/planshop/getPlanShopDetail.do?dispCatNo=500000102390043&trackingCd=Home_Planshop3_PROD"><img src="../../resources/images/sale2.jpg"></a>
-			</div>
-		</div>
-		<br>
-		<hr>
-		<br>
-		<h2>주목해야 할 브랜드</h2>
-		<br>
-		<div class="main left2">
-			<input id="tab1" type="radio" name="tabs" checked> 
-			<label for="tab1">캘빈클라인</label>
-			
-			<input id="tab2" type="radio" name="tabs">
-			<label for="tab2">AHC</label>
-			
-			<input id="tab3" type="radio" name="tabs">
-			<label for="tab3">아비브</label>
-			
-			<input id="tab4" type="radio" name="tabs">
-			<label for="tab4">비욘드</label>
-			
-			<input id="tab5" type="radio" name="tabs">
-			<label for="tab5">데싱디바</label>
-			
-			<input id="tab6" type="radio" name="tabs">
-			<label for="tab6">바이오더마</label>
-			
-			<section id="content1">
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016911302ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">캘빈클라인</span>
-						  </div>
-						  <span class="name">CK 캘빈클라인 One EDT 50ml + 미니어처 15ml 기획</p>
-						  <br>
-						  <span class="sale">60,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016163406ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">캘빈클라인</span>
-						  </div>
-						  <span class="name">CK 캘빈클라인 디파이 EDT 30ml</p>
-						  <br>
-						  <span class="sale">71,000원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0017/A00000017113301ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">캘빈클라인</span>
-						  </div>
-						  <span class="name">CK 캘빈클라인 원 모이스처라이저 250ml</p>
-						  <br>
-						  <span class="before4">53,000원</span>
-						  <span class="sale">42,400원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013722104ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">캘빈클라인</span>
-						  </div>
-						  <span class="name">CK 캘빈클라인 에브리원 EDT 100ml</p>
-						  <br>
-						  <span class="sale">90,000원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016768305ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">캘빈클라인</span>
-						  </div>
-						  <span class="name">CK 캘빈클라인 One 22 Summer EDT 100ml 기획세트 (15ml 추가증정)</p>
-						  <br>
-						  <span class="before5">85,000원</span>
-						  <span class="sale">59,500원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0017/A00000017086501ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">캘빈클라인</span>
-						  </div>
-						  <span class="name">CK 캘빈클라인 One EDT 200ml</p>
-						  <br>
-						  <br>
-						  <span class="before5">11,6000원</span>
-						  <span class="sale">92,800원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013530105ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">캘빈클라인</span>
-						  </div>
-						  <span class="name">CK 캘빈클라인 비 EDT 50ml</p>
-						  <br>
-						  <br>
-						  <br>
-						  <span class="before4">68,000원</span>
-						  <span class="sale">47,600원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012083102ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">캘빈클라인</span>
-						  </div>
-						  <span class="name">캘빈클라인 이터니티 에어 맨 EDT 30ml</p>
-						  <br>
-						  <br>
-						  <span class="sale">58,000원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015763501ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">캘빈클라인</span>
-						  </div>
-						  <span class="name">CK 캘빈클라인 디파이 EDT 50ml</p>
-						  <br>
-						  <br>
-						  <span class="sale">96,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012839703ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">캘빈클라인</span>
-						  </div>
-						  <span class="name">CK 캘빈클라인 이터니티 맨 EDT 30ml</p>
-						  <br>
-						  <br>
-						  <span class="before4">68,000원</span>
-						  <span class="sale">54,400원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016163407ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">캘빈클라인</span>
-						  </div>
-						  <span class="name">CK 캘빈클라인 디파이 EDT 50ml +1.2ml*2 + 에브리원 1.2ml *2</p>
-						  <br>
-						  <span class="sale">96,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013722701ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">캘빈클라인</span>
-						  </div>
-						  <span class="name">CK 캘빈클라인 에브리원 EDT 50ml</p>
-						  <br>
-						  <br>
-						  <span class="before4">64,000원</span>
-						  <span class="sale">57,600원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-			</section>
-			
-			<section id="content2">
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015562505ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">AHC</span>
-						  </div>
-						  <span class="name">AHC 아우라 시크릿 톤업 벨벳 (본품55g+10g 증정)</p>
-						  <br>
-						  <span class="before4">29,000원</span>
-						  <span class="sale">20,300원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016519202ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">AHC</span>
-						  </div>
-						  <span class="name">AHC 텐션 아이크림 스틱 포 페이스 기획</p>
-						  <br>
-						  <span class="sale">19,900원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016484501ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">AHC</span>
-						  </div>
-						  <span class="name">AHC 세이프온 마일드 선 쿠션 25g</p>
-						  <br>
-						  <span class="before4">29,000원</span>
-						  <span class="sale">17,400원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016536401ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">AHC</span>
-						  </div>
-						  <span class="name">AHC 허브솔루션 로즈 토너 500ml (온)</p>
-						  <br>
-						  <span class="before4">15,000원</span>
-						  <span class="sale">12,000원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015711504ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">AHC</span>
-						  </div>
-						  <span class="name">[단독기획] AHC 하이드라 B5 바이옴 앰플</p>
-						  <br>
-						  <br>
-						  <span class="before4">34,000원</span>
-						  <span class="sale">30,600원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013718101ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">AHC</span>
-						  </div>
-						  <span class="name">AHC 내추럴퍼펙션 프레쉬 선스틱</p>
-						  <br>
-						  <br>
-						  <span class="before4">19,000원</span>
-						  <span class="sale">15,200원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015101705ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">AHC</span>
-						  </div>
-						  <span class="name">AHC 유스 래스팅 리얼 아이크림 포 페이스 (30ml+30ml+36ml)</p>
-						  <br>
-						  <span class="before4">30,000원</span>
-						  <span class="sale">24,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015351003ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">AHC</span>
-						  </div>
-						  <span class="name">AHC 마스터즈 아쿠아 리치 선크림 더블 기획 (30ml+30ml)</p>
-						  <br>
-						  <br>
-						  <span class="sale">24,000원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014564103ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">AHC</span>
-						  </div>
-						  <span class="name">AHC 마이크로 비타민 착붙 마스크 시트 33ml 10매</p>
-						  <br>
-						  <span class="sale">30,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014564303ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">AHC</span>
-						  </div>
-						  <span class="name">AHC 마이크로 퓨어 워터 착붙 마스크 시트 33ml 10매</p>
-						  <br>
-						  <span class="sale">30,000원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014983402ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">AHC</span>
-						  </div>
-						  <span class="name">[단독기획] AHC 365 레드 퍼퓸드 핸드 기획</p>
-						  <br>
-						  <span class="before4">24,000원</span>
-						  <span class="sale">19,200원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013780502ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">AHC</span>
-						  </div>
-						  <span class="name">AHC 에센스케어 파우더워시 에메랄드 40g</p>
-						  <br>
-						  <span class="sale">22,000원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-			</section>
-			
-			<section id="content3">
-			 	<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014154811ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">아비브</span>
-						  </div>
-						  <span class="name">[조효진 Pick] 아비브 어성초 스팟 패드 카밍터치 75매</p>
-						  <br>
-						  <br>
-						  <span class="before4">24,000원</span>
-						  <span class="sale">16,800원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014840803ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">아비브</span>
-						  </div>
-						  <span class="name">[증량]아비브 아크네 폼 클렌저 어성초 폼 대용량 250ml</p>
-						  <br>
-						  <br>
-						  <span class="before4">21,000원</span>
-						  <span class="sale">16,800원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0017/A00000017029503ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">아비브</span>
-						  </div>
-						  <span class="name">[단독기획] 아비브 수분초 히알루론 패드 하이드레이팅 터치 75매 기획 (+10매)</p>
-						  <br>
-						  <span class="before4">24,000원</span>
-						  <span class="sale">16,800원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015404504ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">아비브</span>
-						  </div>
-						  <span class="name">아비브 유자 프로바이오틱스 잡티 패드 바이탈라이징 터치 60매</p>
-						  <br>
-						  <span class="sale">24,000원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014840905ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">아비브</span>
-						  </div>
-						  <span class="name">아비브 부활초 크림 뉴트리션 튜브 75ml</p>
-						  <br>
-						  <br>
-						  <span class="before4">35,000원</span>
-						  <span class="sale">24,500원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012093805ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">아비브</span>
-						  </div>
-						  <span class="name">아비브 약산성 pH 시트 마스크 어성초 핏 10P</p>
-						  <br>
-						  <br>
-						  <span class="sale">40,000원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016945201ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">아비브</span>
-						  </div>
-						  <span class="name">[NEW] 아비브 수분초 히알루론 패드 하이드레이팅 터치 75매</p>
-						  <br>
-						  <span class="before4">24,000원</span>
-						  <span class="sale">16,800원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012081915ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">아비브</span>
-						  </div>
-						  <span class="name">아비브 어성초 에센스 카밍펌프 50ml</p>
-						  <br>
-						  <br>
-						  <span class="before4">27,000원</span>
-						  <span class="sale">18,900원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013195803ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">아비브</span>
-						  </div>
-						  <span class="name">아비브 핸드크림 타입 W 프라그란트 튜브 50ml</p>
-						  <br>
-						  <span class="sale">17,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0011/A00000011684604ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">아비브</span>
-						  </div>
-						  <span class="name">아비브 퀵 선스틱 프로텍션 바 22g</p>
-						  <br>
-						  <span class="before4">28,000원</span>
-						  <span class="sale">14,000원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0011/A00000011208805ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">아비브</span>
-						  </div>
-						  <span class="name">아비브 껌딱지 시트 마스크 마데카소사이드 스티커 10P</p>
-						  <br>
-						  <span class="sale">40,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014437103ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">아비브</span>
-						  </div>
-						  <span class="name">아비브 카밍 페이셜 솝 어성초 스톤 100g</p>
-						  <br>
-						  <span class="sale">14,000원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-			</section>
-			
-			<section id="content4">
-			 	<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016859206ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">비욘드</span>
-						  </div>
-						  <span class="name">[NEW] 비욘드 엔젤 아쿠아 수분 선크림 50ml 1+1 기획</p>
-						  <br>
-						  <br>
-						  <span class="before4">17,000원</span>
-						  <span class="sale">15,300원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012523108ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">비욘드</span>
-						  </div>
-						  <span class="name">비욘드 오마이 선크림 더블 기획 (본품+본품)</p>
-						  <br>
-						  <br>
-						  <span class="sale">17,000원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015689605ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">비욘드</span>
-						  </div>
-						  <span class="name">[강태경PICK] 비욘드 엔젤아쿠아 포맨 올인원 에센스 더블 기획 (200ml+200ml)</p>
-						  <br>
-						  <span class="before4">25,000원</span>
-						  <span class="sale">17,500원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016570503ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">비욘드</span>
-						  </div>
-						  <span class="name">비욘드 토탈리커버리 버블배쓰 250ml</p>
-						  <br>
-						  <br>
-						  <span class="sale">17,500원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0011/A00000011943606ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">비욘드</span>
-						  </div>
-						  <span class="name">비욘드 엔젤아쿠아 데일리 세라마이드크림 더블 기획 (100ml+100ml)</p>
-						  <br>
-						  <span class="before4">25,000원</span>
-						  <span class="sale">20,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0017/A00000017029104ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">비욘드</span>
-						  </div>
-						  <span class="name">비욘드 엔젤아쿠아 모이스처 클렌징폼 300ml 1+1 기획l</p>
-						  <br>
-						  <br>
-						  <span class="before4">16,500원</span>
-						  <span class="sale">14,850원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016568201ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">비욘드</span>
-						  </div>
-						  <span class="name">비욘드 버베나 리프레싱 바디워시 500ml</p>
-						  <br>
-						  <br>
-						  <span class="sale">25,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015149101ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">비욘드</span>
-						  </div>
-						  <span class="name">비욘드 엔젤아쿠아 포맨 수분 크림 150ml</p>
-						  <br>
-						  <br>
-						  <span class="before4">20,000원</span>
-						  <span class="sale">14,000원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013159401ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">비욘드</span>
-						  </div>
-						  <span class="name">비욘드 엔젤아쿠아 시카 카밍 앰플 100ml</p>
-						  <br>
-						  <br>
-						  <span class="sale">22,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0011/A00000011943709ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">비욘드</span>
-						  </div>
-						  <span class="name">비욘드 엔젤아쿠아 데일리 톤업크림 더블 기획 (75ml+75ml)</p>
-						  <br>
-						  <span class="before4">25,000원</span>
-						  <span class="sale">20,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015489201ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">비욘드</span>
-						  </div>
-						  <span class="name">[증량] 비욘드 버베나 샤워젤 1L</p>
-						  <br>
-						  <br>
-						  <span class="sale">34,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015412001ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">비욘드</span>
-						  </div>
-						  <span class="name">비욘드 버베나 리프레싱 바디미스트120ml</p>
-						  <br>
-						  <br>
-						  <span class="sale">16,000원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-			</section>
-			
-			<section id="content5">
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016312114ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">데싱디바</span>
-						  </div>
-						  <span class="name">데싱디바 매직프레스 SS 기획세트</p>
-						  <br>
-						  <br>
-						  <span class="before4">21,600원</span>
-						  <span class="sale">19,440원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000167114122ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">데싱디바</span>
-						  </div>
-						  <span class="name">[조효진 PICK] 데싱디바 S/S(여름) 프리미엄 매직프레스 네일/페디</p>
-						  <br>
-						  <span class="before4">14,800원</span>
-						  <span class="sale">13,320원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000162720141ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">데싱디바</span>
-						  </div>
-						  <span class="name">데싱디바 매직프레스 프리미엄 스파클링 화이트(CF) 2203</p>
-						  <br>
-						  <span class="before4">14,800원</span>
-						  <span class="sale">13,320원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000167071125ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">데싱디바</span>
-						  </div>
-						  <span class="name">데싱디바 매직프레스 프리미엄 페디 스타 프리즘 2205</p>
-						  <br>
-						  <br>
-						  <span class="sale">14,800원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016621387ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">데싱디바</span>
-						  </div>
-						  <span class="name">데싱디바 S/S 글레이즈 매니 아트시리즈 골라담기</p>
-						  <br>
-						  <span class="before4">14,800원</span>
-						  <span class="sale">13,320원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016123176ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">데싱디바</span>
-						  </div>
-						  <span class="name">데싱디바 글레이즈 J026 화이트 링</p>
-						  <br>
-						  <span class="sale">14,800원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000162728148ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">데싱디바</span>
-						  </div>
-						  <span class="name">데싱디바 매직프레스 프리미엄 펄리 화이트(CF) 2203</p>
-						  <br>
-						  <span class="before4">68,000원</span>
-						  <span class="sale">20,400원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016397593ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">데싱디바</span>
-						  </div>
-						  <span class="name">데싱디바 글레이즈 A301 아이덴티티2203</p>
-						  <br>
-						  <span class="before4">14,800원</span>
-						  <span class="sale">13,320원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016130176ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">데싱디바</span>
-						  </div>
-						  <span class="name">데싱디바 글레이즈 A282 바람</p>
-						  <br>
-						  <br>
-						  <span class="sale">14,800원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000167061140ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">데싱디바</span>
-						  </div>
-						  <span class="name">데싱디바 매직프레스 엣지 플라워(CF) 2205</p>
-						  <br>
-						  <span class="sale">10,800원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000167088157ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">데싱디바</span>
-						  </div>
-						  <span class="name">데싱디바 매직프레스 페디 바이올렛 샌드 2205</p>
-						  <br>
-						  <span class="before4">14,500원</span>
-						  <span class="sale">11,600원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000162771138ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">데싱디바</span>
-						  </div>
-						  <span class="name">데싱디바 S/S 매직프레스 프리미엄 매니</p>
-						  <br>
-						  <span class="before4">14,800원</span>
-						  <span class="sale">13,320원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-			</section>
-			
-			<section id="content6">
-			 	<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0014/A00000014395912ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">바이오더마</span>
-						  </div>
-						  <span class="name">바이오더마 아토덤 인텐시브 밤 200ml</p>
-						  <br>
-						  <span class="before4">30,000원</span>
-						  <span class="sale">24,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016505505ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">바이오더마</span>
-						  </div>
-						  <span class="name">바이오더마 센시비오 디펜시브 리치 40ml</p>
-						  <br>
-						  <span class="before4">27,000원</span>
-						  <span class="sale">18,900원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0001/A00000001300410ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">바이오더마</span>
-						  </div>
-						  <span class="name">바이오더마 세비엄 젤무쌍 500ml</p>
-						  <br>
-						  <span class="before4">30,000원</span>
-						  <span class="sale">24,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015764807ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">바이오더마</span>
-						  </div>
-						  <span class="name">바이오더마 시카비오 데이 리페어 크림 30ml</p>
-						  <br>
-						  <span class="before4">30,000원</span>
-						  <span class="sale">18,000원</span>
-						</div>
-					</div>
-					
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0000/A00000000533607ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">바이오더마</span>
-						  </div>
-						  <span class="name">바이오더마 하이드라비오 세럼 40ml</p>
-						  <br>
-						  <span class="sale">39,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0011/A00000011780811ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">바이오더마</span>
-						  </div>
-						  <span class="name">바이오더마 하이드라비오 에센스로션 200ml</p>
-						  <br>
-						  <span class="sale">30,000원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0000/A00000000760637ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">바이오더마</span>
-						  </div>
-						  <span class="name">바이오더마 아토덤 립스틱 1+1기획</p>
-						  <br>
-						  <span class="sale">15,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0001/A00000001008815ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">바이오더마</span>
-						  </div>
-						  <span class="name">바이오더마 시카비오 포마드 40ml</p>
-						  <br>
-						  <span class="sale">23,000원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-				<div class="row">
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016071506ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">바이오더마</span>
-						  </div>
-						  <span class="name">바이오더마 아토덤 젤 두쉬 500ml + 고급 샤워볼</p>
-						  <br>
-						  <span class="sale">29,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013469004ko.jpg?l=ko" class="card-img-top" >
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">바이오더마</span>
-						  </div>
-						  <span class="name">바이오더마 세비엄 나이트 필 40ml</p>
-						  <br>
-						  <span class="before4">30,000원</span>
-						  <span class="sale">21,000원</span>
-						</div>
-					</div>
-					<div class="col-3">	
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0000/A00000000929809ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">바이오더마</span>
-						  </div>
-						  <span class="name">바이오더마 포토덤맥스크림 SPF50+</p>
-						  <br>
-						  <span class="sale">30,000원</span>
-						</div>
-					</div>
-					<div class="col-3">
-						<div class="card2" id="item">
-						  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0011/A00000011212807ko.jpg?l=ko" class="card-img-top">
-						  <br>
-						  <div class="mid">
-						  	<span class="brand">바이오더마</span>
-						  </div>
-						  <span class="name">바이오더마 센시비오 H2O 500ml (펌프형)</p>
-						  <br>
-						  <span class="before4">25,500원</span>
-						  <span class="sale">20,000원</span>
-						</div>
-					</div>
-				</div>
-				<br>
-				<br>
-			</section>
-		</div>
-	</div>
+	</form>
 	<br>
 	<br>
 	
@@ -1622,6 +1627,12 @@
 				}
 			});
 		});
+		
+	goView = function(seq) {
+		$("#seq").val(seq);
+		$("#main").attr("action", "/item/itemView");
+		$("#main").submit();
+	}
 		
 </script>
 

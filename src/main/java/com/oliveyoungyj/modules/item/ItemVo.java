@@ -30,7 +30,6 @@ public class ItemVo {
 
 	private int startRnumForMysql = 0;							// 쿼리 시작 row
 
-
 	
 	
 	public Integer getShOption() {

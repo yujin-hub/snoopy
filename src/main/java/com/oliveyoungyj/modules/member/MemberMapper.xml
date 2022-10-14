@@ -226,7 +226,6 @@
 			seq = #{seq}
 	</update>
 	
-	
 	<update id="infoUpdt">
 		UPDATE user
 		SET 
@@ -251,7 +250,6 @@
 		WHERE 
 			seq = #{seq}
 	</update>
-	
 	
 	<insert id="insertUploaded">
 		INSERT INTO profileUploaded (
