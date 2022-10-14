@@ -9,7 +9,6 @@
 		select aa.* from (
 	</sql>
 	
-	
 	<sql id="selectListLowerForMysql">	
 		) aa
 		limit #{rowNumToShow} offset #{startRnumForMysql}

@@ -643,7 +643,6 @@
 			form.attr("action", goUrlList).submit();
 		}
 	 	
-	 	
 		$(document).ready(function(){
 			$("input.shDate").datepicker();
 		}); 
