@@ -191,6 +191,10 @@
 			color: #ce63be;
 		}
 		
+		a:hover{
+			color: #ce63be;
+		}
+		
 	</style>
 </head>
     
@@ -329,13 +333,13 @@
 				<br>
 				<ul class="nav flex-column">
 					<li class="nav-item">
-						<a class="nav-link" href="../member/memberList">회원 관리</a>
+						<a class="nav-link" href="/member/memberList">회원 관리</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="itemListSet">상품 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../payment/paySet">주문 관리</a>
+						<a class="nav-link" href="/payment/paySet">주문 관리</a>
 					</li>
 				<br>
 				<br>
@@ -356,10 +360,6 @@
 					
 					<input class="input" id="tab2" type="radio" name="tabs" disabled>
 					<label for="tab2">상품정보 확인</label>
-					
-					<input class="input" id="tab3" type="radio" name="tabs" disabled>
-					<label for="tab3">상품정보 수정</label>
-					
 					
 					<section id="content1">
 						<div class="container wid2">
@@ -462,7 +462,9 @@
 													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
 													<td><c:out value="${list.seq }"/></td>
 													<td><c:out value="${list.bname }"/></td>
-													<td><c:out value="${list.name }"/></td>
+													<td>
+														<a href="javascript:goForm(<c:out value="${list.seq}"/>)"><c:out value="${list.name }"/></a>
+													</td>
 													<td><c:out value="${list.price }"/>원</td>
 													<td><c:out value="${list.salePrice }"/>원</td>
 													<td><c:out value="${list.regist }"/></td>
@@ -487,7 +489,7 @@
 							
 							<br>
 							<a class="btn btn2 btn-space" role="button"><i class="fa-solid fa-trash-can"></i></a>							
-							<a class="btn btn2 btn-space" role="button"><i class="fa-solid fa-plus"></i></a> 
+							<a href="/item/itemForm" class="btn btn2 btn-space" role="button"><i class="fa-solid fa-plus"></i></a> 
 							<br>
 							<br>
 							<br>
@@ -500,6 +502,7 @@
 	
 	<!-- #Footer -->
 	<div id="Footer" class="m2105">
+		<div class="twoConts">
 			<div class="conts">
 				<ul class="list-area">
 					<li>
@@ -543,7 +546,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<a id="back-to-top" href="#" class="btn btn-outline-dark back-to-top-css" role="button" title="Move Top" data-toggle="tooltip" data-placement="left">
 		<span class="glyphicon glyphicon-chevron-up"><i class="fa-solid fa-angles-up"></i><br>TOP</span>
 	</a>

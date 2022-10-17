@@ -378,21 +378,20 @@
 			<br>
 			<h2>실시간 TOP3 <i class="fa-solid fa-crown"></i></h2>
 			<br>
-			<c:forEach items="${item}" var="list" varStatus="status">
 			<div class="row">
 				<div class="col-md-3" id="left">
 					<div>
 						<span id="num">1</span>
 					</div>
-						<a href = "../item/itemView"><div class="card" style="width: 16rem;" id="item">
-						<a href = "../item/itemView"><img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015771628ko.jpg?l=ko" class="card-img-top" alt="..."></a>
-						<br>
-						<span class="name" value="<c:out value="${item.name }"/>"</p>
-						<br>
-						<span class="before">32,000원</span>
-						<span class="sale">22,400원</span>
-						<span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-						<span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
+					<div class="card" style="width: 16rem;" id="item">
+					  <a href="/item/itemView"><img src="../../resources/images/winter.jpg" class="card-img-top" alt="..."></a>
+					  <br>
+					  <span class="name">[NEW!]<br>롬앤 쥬시 래스팅 틴트</p>
+					  <br>
+					  <span class="before2">9,900원</span>
+					  <span class="sale">8,910원</span>
+					  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
+					  <span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
 					</div>
 				</div>
 				<div class="col-md-3" id="left"> 	
@@ -427,7 +426,6 @@
 					</div>
 				</div>
 			</div>
-			</c:forEach>
 			<br>
 			<hr>
 			<br>

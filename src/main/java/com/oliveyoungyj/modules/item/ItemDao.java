@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public class ItemDao {
 	@Inject
@@ -21,6 +22,10 @@ public class ItemDao {
 		return list; 
 	}
 	
+	public int insert(Item dto) { 
+		return sqlSession.insert(namespace + ".insert", dto); 
+	}
+	
 	public Item selectOne(ItemVo vo) {
 		Item result = sqlSession.selectOne(namespace + ".selectOne", vo);
 		System.out.println("dao result: " + result);
@@ -30,4 +35,20 @@ public class ItemDao {
 	public int selectOneCount(ItemVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
 
+	public List<Item> itemNameAdd(ItemVo vo) {
+		return sqlSession.selectList(namespace + ".itemNameAdd", vo);
+	}
+	
+	public int selectLastSeq(Item dto) {
+		return sqlSession.selectOne(namespace + ".selectLastSeq", dto);
+	}
+
+	public void insertUploaded(Item dto) {
+		sqlSession.selectOne(namespace + ".insertUploaded", dto);
+	}
+	
+	public Item imageUpload(Item dto) {
+		return sqlSession.selectOne(namespace + ".imageUpload", dto);
+	}
+	
 }

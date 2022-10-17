@@ -52,8 +52,7 @@
 		<include refid="selectCommon" />
 	</select>
 
-	<select id="selectListCachedCodeArrayList"
-		resultMap="resultMapObj">
+	<select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
 		SELECT
 			seq
 			, name

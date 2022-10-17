@@ -50,6 +50,37 @@
 		<include refid="selectCommon" />
 	</select>
 	
+	<insert id="insert">
+		INSERT INTO Item (
+			name
+			,discount
+			,price
+			,info_item
+			,info_purchase
+			,regist
+			,stock
+			,useNY
+			,delNY
+			,brand_list_seq
+		)
+		VALUES (
+			#{name}
+			,#{discount}
+			,#{price}
+			,#{info_item}
+			,#{info_purchase}
+			,now()
+			,1
+			,1
+			,0
+			,#{brand_list_seq}
+		)
+
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
 	<select id="selectOne" resultMap ="resultMapObj">
 		SELECT 
 			a.*
@@ -57,6 +88,67 @@
 		INNER JOIN brand_list b on a.brand_list_seq = b.num
 		WHERE 1=1
 			AND a.seq = #{seq}
+	</select>
+	
+	<select id="itemNameAdd" resultMap="resultMapObj">
+		SELECT
+			seq
+			, bname
+		FROM
+			brand_list
+		WHERE 1=1
+	</select>
+	
+	<insert id="insertUploaded">
+		INSERT INTO itemUploaded (
+			type
+			,defaultNY
+			,sort
+			,path
+			,originalName
+			,uuidName
+			,ext
+			,size
+			,delNY
+			,pseq
+			,regIp
+			,regSeq
+			,regDeviceCd
+			,regDateTime
+			,regDateTimeSvr
+		) values (
+			#{type}
+			,#{defaultNY}
+			,#{sort}
+			,#{path}
+			,#{originalName}
+			,#{uuidName}
+			,#{ext}
+			,#{size}
+			,0
+			,#{pseq}
+			,#{regIp}
+			,#{regSeq}
+			,#{regDeviceCd}
+			,now()
+			,#{regDateTimeSvr}
+		)
+	</insert>
+	
+	<select id="selectLastSeq" resultType="Integer">
+		SELECT
+			seq
+		FROM item
+		ORDER BY seq DESC
+		limit 1
+	</select>
+	
+	<select id="imageUpload" resultMap="resultMapObj">
+		SELECT 
+			*
+		FROM itemUploaded
+		WHERE 1=1
+			AND pseq = #{pseq}
 	</select>
 	
 </mapper>	

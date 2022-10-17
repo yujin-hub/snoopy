@@ -90,6 +90,24 @@ public class ItemController {
 		return "infra/item/xdmin/itemViewSet";
 	}
 	
+	@RequestMapping(value = "itemForm")
+	public String itemForm(@ModelAttribute("vo") ItemVo vo, Model model, Item dto) throws Exception {
+		
+		System.out.println("vo.getSeq(): " + vo.getSeq());
+		Item result = service.selectOne(vo);
+		model.addAttribute("item", result);
+		
+		List<Item> add = service.itemNameAdd(vo);
+		model.addAttribute("add", add);
+		
+		// 업로드
+		dto.setPseq(vo.getSeq());
+		Item imageUpload = service.imageUpload(dto);
+		model.addAttribute("imageUpload", imageUpload);
+		
+		return "infra/item/xdmin/itemForm";
+	}
+	
 	@RequestMapping(value = "itemListDmin")
 	public String itemListDmin(@ModelAttribute("vo") ItemVo vo, Model model, HttpSession httpSession) throws Exception {
 		
