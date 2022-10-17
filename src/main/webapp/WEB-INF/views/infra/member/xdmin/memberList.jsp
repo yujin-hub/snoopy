@@ -354,13 +354,6 @@
 					<input class="input" id="tab1" type="radio" name="tabs" checked> 
 					<label for="tab1">회원 목록</label>
 					
-					<input class="input" id="tab2" type="radio" name="tabs" disabled>
-					<label for="tab2">회원정보 확인</label>
-					
-					<input class="input" id="tab3" type="radio" name="tabs" disabled>
-					<label for="tab3">회원정보 수정</label>
-					
-					
 					<section id="content1">
 						<div class="container wid2">
 							<br>

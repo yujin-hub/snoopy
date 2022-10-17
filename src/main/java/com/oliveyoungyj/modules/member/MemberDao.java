@@ -83,13 +83,13 @@ public class MemberDao {
 		return sqlSession.selectOne(namespace + ".selectLastSeq", dto);
 	}
 
-	public void insertUploaded(Member dto) {
-		sqlSession.selectOne(namespace + ".insertUploaded", dto);
-	}
-	
-	public Member imageUpload(Member dto) {
-		return sqlSession.selectOne(namespace + ".imageUpload", dto);
-	}
+//	public void insertUploaded(Member dto) {
+//		sqlSession.selectOne(namespace + ".insertUploaded", dto);
+//	}
+//	
+//	public Member imageUpload(Member dto) {
+//		return sqlSession.selectOne(namespace + ".imageUpload", dto);
+//	}
 	
 }
 

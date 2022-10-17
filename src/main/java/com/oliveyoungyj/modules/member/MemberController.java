@@ -90,11 +90,11 @@ public class MemberController {
 		Member result = service.selectOne(vo);
 		model.addAttribute("item", result);
 		
-		// 업로드
-		dto.setPseq(vo.getSeq());
-		Member imageUpload = service.imageUpload(dto);
-		model.addAttribute("imageUpload", imageUpload);
-		
+//		// 업로드
+//		dto.setPseq(vo.getSeq());
+//		Member imageUpload = service.imageUpload(dto);
+//		model.addAttribute("imageUpload", imageUpload);
+//		
 		return "infra/member/xdmin/memberForm";
 	}
 
@@ -278,7 +278,6 @@ public class MemberController {
 
 		return "infra/member/user/mypageSecession2";
 	}
-
 
 	@RequestMapping(value = "itemList")
 	public String itemList() throws Exception {
