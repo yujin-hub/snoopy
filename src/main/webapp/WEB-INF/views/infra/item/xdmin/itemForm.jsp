@@ -281,7 +281,7 @@
 				</ul>
 			</div>
 			<div class="col-10">
-				<form method="form" name="form" action="/item/itemInst" autocomplete="off">
+				<form method="form" name="form" action="/item/itemInst" enctype="multipart/form-data" autocomplete="off">
 					<%-- <%@include file="itemVo.jsp"%>	 --%>
 					<input type="hidden" name="seq" value="<c:out value="${vo.seq}"/>"/>
 						<div class="main left2">

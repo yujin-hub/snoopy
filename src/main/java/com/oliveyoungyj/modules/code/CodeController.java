@@ -82,7 +82,7 @@ public class CodeController {
 	}
 	
 	@RequestMapping(value = "codeDele")
-	public String codeGroupDele(CodeVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	public String codeDele(CodeVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		
 		service.delete(vo);
 		redirectAttributes.addFlashAttribute("vo", vo);

@@ -26,6 +26,18 @@ public class ItemDao {
 		return sqlSession.insert(namespace + ".insert", dto); 
 	}
 	
+	public int update(Item dto) { 
+		return sqlSession.update(namespace + ".update", dto); 
+	}
+	
+	public int uelete(Item dto) { 
+		return sqlSession.update(namespace + ".uelete", dto); 
+	}
+	
+	public int delete(ItemVo vo) { 
+		return sqlSession.delete(namespace + ".delete", vo); 
+	}
+	
 	public Item selectOne(ItemVo vo) {
 		Item result = sqlSession.selectOne(namespace + ".selectOne", vo);
 		System.out.println("dao result: " + result);
