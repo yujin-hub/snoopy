@@ -251,7 +251,7 @@
 			seq = #{seq}
 	</update>
 	
-	<insert id="insertUploaded">
+	<!-- <insert id="insertUploaded">
 		INSERT INTO profileUploaded (
 			type
 			,defaultNY
@@ -302,5 +302,6 @@
 		WHERE 1=1
 			AND pseq = #{pseq}
 	</select>
-	
+	 -->
+	 
 </mapper>	
