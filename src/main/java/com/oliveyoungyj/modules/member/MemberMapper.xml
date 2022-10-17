@@ -240,6 +240,10 @@
 			, email = CONCAT(#{emailID},
 				<choose>
 					<when test="emailseq eq 15">'@naver.com')</when>
+					
+					
+					
+					
 					<when test="emailseq eq 16">'@gmail.com')</when>
 					<when test="emailseq eq 17">'@hanmail.com')</when>
 					<when test="emailseq eq 18">'@nate.com')</when>

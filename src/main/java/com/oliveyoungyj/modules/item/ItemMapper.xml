@@ -85,7 +85,6 @@
 		SELECT 
 			a.*
 		FROM item a
-		INNER JOIN brand_list b on a.brand_list_seq = b.num
 		WHERE 1=1
 			AND a.seq = #{seq}
 	</select>
@@ -98,6 +97,23 @@
 			brand_list
 		WHERE 1=1
 	</select>
+	
+	<update id="update">
+		UPDATE user
+		SET 
+			name
+			,discount
+			,price
+			,info_item
+			,info_purchase
+			,regist
+			,stock
+			,useNY
+			,delNY
+			,brand_list_seq
+		WHERE 
+			seq = #{seq}
+	</update>
 	
 	<insert id="insertUploaded">
 		INSERT INTO itemUploaded (
@@ -150,5 +166,18 @@
 		WHERE 1=1
 			AND pseq = #{pseq}
 	</select>
+	
+	<update id="uelete">
+		UPDATE item
+		SET
+			useNY = 0
+			, delNY = 1
+		WHERE
+			seq = #{seq}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM item WHERE seq = #{seq}
+	</delete>
 	
 </mapper>	

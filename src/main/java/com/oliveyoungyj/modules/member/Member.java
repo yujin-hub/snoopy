@@ -1,7 +1,5 @@
 package com.oliveyoungyj.modules.member;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import com.oliveyoungyj.common.base.Base;
 
 public class Member extends Base{
@@ -27,7 +25,7 @@ public class Member extends Base{
 	public String userID;
 	public String pw;
 	
-	private MultipartFile[] MultipartFile;
+//	private MultipartFile[] MultipartFile;
 
 	
 	public String getSeq() {
@@ -150,11 +148,11 @@ public class Member extends Base{
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	public MultipartFile[] getMultipartFile() {
-		return MultipartFile;
-	}
-	public void setMultipartFile(MultipartFile[] multipartFile) {
-		MultipartFile = multipartFile;
-	}
+//	public MultipartFile[] getMultipartFile() {
+//		return MultipartFile;
+//	}
+//	public void setMultipartFile(MultipartFile[] multipartFile) {
+//		MultipartFile = multipartFile;
+//	}
 	
 }

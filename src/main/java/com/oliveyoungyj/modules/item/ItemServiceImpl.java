@@ -45,6 +45,20 @@ public class ItemServiceImpl implements ItemService{
 		return result;
 	}
 	
+	@Override
+	public int update(Item dto) throws Exception {
+		return dao.update(dto);
+	}
+	
+	@Override
+	public int uelete(Item dto) throws Exception {
+		return dao.uelete(dto);
+	}
+	
+	@Override
+	public int delete(ItemVo vo) throws Exception {
+		return dao.delete(vo);
+	}
 	
 	@Override
 	public List<Item> selectList(ItemVo vo) throws Exception {
