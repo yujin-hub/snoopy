@@ -348,52 +348,35 @@
 			<h2>실시간 TOP3 <i class="fa-solid fa-crown"></i></h2>
 			<br>
 			<div class="row">
-				<div class="col-md-3" id="left">
-					<div>
-						<span id="num">1</span>
+				<c:forEach items="${list}" var="list" varStatus="status">
+					<div class="col-md-3" id="left">
+						<div>
+							<span id="num"><c:out value="${list.seq }"/></span>
+						</div>
+						<div class="card" style="width: 16rem;" id="item">
+							<a href="/item/itemView"><img src="../../resources/images/winter.jpg" class="card-img-top"></a>
+							<br>
+							<span class="name">
+								<c:out value="${list.name }"/>
+							</span>
+							<br>
+							<li class="list-group-item">
+								<span class="before2">
+									<c:out value="${list.price }"/>원
+								</span>
+								<span class="sale">
+									<c:out value="${list.salePrice }"/>원
+								</span>
+							</li>
+							<li class="list-group-item">
+								<span class="badge rounded-pill red">세일</span>
+								<span class="badge rounded-pill blue">오늘드림</span>
+							</li>
+							<br>
+							<br>
+						</div>
 					</div>
-					<a href = "/item/itemViewSet"><div class="card" style="width: 16rem;" id="item">
-					  <a href = "/item/itemViewSet"><img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015771628ko.jpg?l=ko" class="card-img-top" alt="..."></a>
-					  <br>
-					  <span class="name">[에스파 윈터 PICK!] <br> 클리오 프로아이팔레트 MD</p>
-					  <br>
-					  <span class="before">32,000원</span>
-					  <span class="sale">22,400원</span>
-					  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-					  <span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
-					</div>
-				</div>
-				<div class="col-md-3" id="left"> 	
-					<div>
-						<span id="num">2</span>
-					</div>
-					<div class="card" style="width: 16rem;" id="item">
-					  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012595523ko.jpg?l=ko" class="card-img-top" alt="...">
-					  <br>
-					  <span class="name">[NEW!]<br>롬앤 쥬시 래스팅 틴트</p>
-					  <br>
-					  <span class="before2">9,900원</span>
-					  <span class="sale">8,910원</span>
-					  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-					  <span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
-					</div>
-				</div>
-				<div class="col-md-3"  id="left"> 
-					<div>
-						<span id="num">3</span>
-					</div>
-					<div class="card" style="width: 16rem;" id="item">
-					  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016596806ko.jpg?l=ko" class="card-img-top" alt="...">
-					   <br>
-					  <span class="name">웨이크메이크 워터 컬러링 퓨어 틴트 (6 Color)</p>
-					  <br>
-					  <span class="before3">16,000원</span>
-					  <span class="sale">9,600원</span>
-					  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-					  <span class="badge rounded-pill" style="background-color: #4aa828;">쿠폰</span>
-					  <span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 			<br>
 			<hr>

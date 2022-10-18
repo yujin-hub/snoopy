@@ -180,4 +180,26 @@
 		DELETE FROM item WHERE seq = #{seq}
 	</delete>
 	
+	
+	
+	<!-- 메인페이지 실시간 top3-->
+	<select id="top">
+		SELECT 
+			*
+		FROM item
+		ORDER BY numPurchase DESC
+		LIMIT 3;
+	</select>
+	
+	<!-- 메인페이지 weeklyspecial-->
+	<select id="weeklyspecial">
+		SELECT 
+			*
+		FROM item
+		ORDER BY RAND()
+		LIMIT 3;
+	</select>
+	
+	<!-- 메인페이지 브랜드별 -->
+	
 </mapper>	
