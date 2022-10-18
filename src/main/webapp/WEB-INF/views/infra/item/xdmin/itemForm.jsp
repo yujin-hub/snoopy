@@ -296,11 +296,10 @@
 									<div class="col-6">
 										<br>
 										<label for="itemImg" class="form-label">상품 이미지</label>
-								            <label for="ifmmUploadedImage" class="form-label input-file-button">이미지첨부</label>
-								 			<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple">
-											<div class="addScroll">
-												<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
-											</div>
+							 			<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple">
+										<div class="addScroll">
+											<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
+										</div>
 									</div>
 									<div class="col-6">
 										<br>

@@ -54,8 +54,8 @@ public class ItemController {
 		String seq = (String) httpSession.getAttribute("sessSeq");
 		vo.setSeq(seq);
 
-		Item result = service.selectOne(vo);
-		model.addAttribute("item", result);
+		List<Item> list = service.selectList(vo);
+		model.addAttribute("list", list);
 
 		return "infra/item/user/itemList";
 	}
@@ -148,8 +148,8 @@ public class ItemController {
 		String seq = (String) httpSession.getAttribute("sessSeq");
 		vo.setSeq(seq);
 
-		Item result = service.selectOne(vo);
-		model.addAttribute("item", result);
+		List<Item> list = service.selectList(vo);
+		model.addAttribute("list", list);
 
 		return "infra/item/xdmin/itemListDmin";
 	}
