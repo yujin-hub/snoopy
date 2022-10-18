@@ -73,7 +73,7 @@
 		
 		.before2 {
 			font-family: 'MICEGothic Bold';
-			margin-left: 95px;
+			margin-left: 75px;
 			text-decoration-line: line-through;
 			color: #7E7474;
 			font-size: 17px;
@@ -81,7 +81,7 @@
 		
 		.before3 {
 			font-family: 'MICEGothic Bold';
-			margin-left: 85px;
+			margin-left: 70px;
 			text-decoration-line: line-through;
 			color: #7E7474;
 			font-size: 17px;
@@ -191,6 +191,20 @@
   			text-decoration: none;
   		}
   		
+  		.red{
+  			background-color: #E85858;
+  			width: 50px;
+  		}
+  		
+  		.blue{
+  			background-color: #6C9FC3;
+  			width: 50px;
+  		}
+  		
+		::marker {
+		   display: hidden;
+		}
+		
 	</style>
 </head>
     
@@ -379,52 +393,35 @@
 			<h2>실시간 TOP3 <i class="fa-solid fa-crown"></i></h2>
 			<br>
 			<div class="row">
-				<div class="col-md-3" id="left">
-					<div>
-						<span id="num">1</span>
+				<c:forEach items="${list}" var="list" varStatus="status">
+					<div class="col-md-3" id="left">
+						<div>
+							<span id="num"><c:out value="${list.seq }"/></span>
+						</div>
+						<div class="card" style="width: 16rem;" id="item">
+							<a href="/item/itemView"><img src="../../resources/images/winter.jpg" class="card-img-top"></a>
+							<br>
+							<span class="name">
+								<c:out value="${list.name }"/>
+							</span>
+							<br>
+							<li class="list-group-item">
+								<span class="before2">
+									<c:out value="${list.price }"/>원
+								</span>
+								<span class="sale">
+									<c:out value="${list.salePrice }"/>원
+								</span>
+							</li>
+							<li class="list-group-item">
+								<span class="badge rounded-pill red">세일</span>
+								<span class="badge rounded-pill blue">오늘드림</span>
+							</li>
+							<br>
+							<br>
+						</div>
 					</div>
-					<div class="card" style="width: 16rem;" id="item">
-					  <a href="/item/itemView"><img src="../../resources/images/winter.jpg" class="card-img-top" alt="..."></a>
-					  <br>
-					  <span class="name">[NEW!]<br>롬앤 쥬시 래스팅 틴트</p>
-					  <br>
-					  <span class="before2">9,900원</span>
-					  <span class="sale">8,910원</span>
-					  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-					  <span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
-					</div>
-				</div>
-				<div class="col-md-3" id="left"> 	
-					<div>
-						<span id="num">2</span>
-					</div>
-					<div class="card" style="width: 16rem;" id="item">
-					  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0012/A00000012595523ko.jpg?l=ko" class="card-img-top" alt="...">
-					  <br>
-					  <span class="name">[NEW!]<br>롬앤 쥬시 래스팅 틴트</p>
-					  <br>
-					  <span class="before2">9,900원</span>
-					  <span class="sale">8,910원</span>
-					  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-					  <span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
-					</div>
-				</div>
-				<div class="col-md-3"  id="left"> 
-					<div>
-						<span id="num">3</span>
-					</div>
-					<div class="card" style="width: 16rem;" id="item">
-					  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016596806ko.jpg?l=ko" class="card-img-top" alt="...">
-					   <br>
-					  <span class="name">웨이크메이크 워터 컬러링 퓨어 틴트 (6 Color)</p>
-					  <br>
-					  <span class="before3">16,000원</span>
-					  <span class="sale">9,600원</span>
-					  <span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-					  <span class="badge rounded-pill" style="background-color: #4aa828;">쿠폰</span>
-					  <span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
 			<br>
 			<hr>
@@ -434,7 +431,7 @@
 			<div class="row">
 				<div class="col-md-3" id="left">
 					<div class="card" id="item">
-					  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015015308ko.jpg?l=ko" class="card-img-top" alt="...">
+					  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015015308ko.jpg?l=ko" class="card-img-top">
 					  <br>
 					  <span class="name">리얼베리어 아쿠아 수딩 크림 마스크</p>
 					  <br>
@@ -446,7 +443,7 @@
 				</div>
 				<div class="col-md-3" id="left"> 	
 					<div class="card" id="item">
-					  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000167080148ko.jpg?l=ko" class="card-img-top" alt="...">
+					  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A000000167080148ko.jpg?l=ko" class="card-img-top">
 					  <br>
 					  <span class="name">데싱디바 매직프레스 페디 사일런트 오션 2205</p>
 					  <br>
@@ -457,7 +454,7 @@
 				</div>
 				<div class="col-md-3" id="left"> 
 					<div class="card" id="item">
-					  <img src= "https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013629656ko.jpg?l=ko" class="card-img-top" alt="...">
+					  <img src= "https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0013/A00000013629656ko.jpg?l=ko" class="card-img-top">
 					   <br>
 					  <span class="name">페리페라 올테이크 무드 팔레트</p>
 					  <br>
