@@ -56,7 +56,32 @@ public class ItemController {
 
 		List<Item> list = service.selectList(vo);
 		model.addAttribute("list", list);
+		
+		//메인페이지
+		List<Item> listTop = service.top(vo); 
+		model.addAttribute("listTop", listTop);
 
+		List<Item> listWeek = service. weeklyspecial(vo); 
+		model.addAttribute("listWeek", listWeek);
+		
+		List<Item> listCK = service.CK(vo); 
+		model.addAttribute("listCK", listCK);
+
+		List<Item> listAHC = service.AHC(vo); 
+		model.addAttribute("listAHC", listAHC);
+		
+		List<Item> listAB = service.AB(vo); 
+		model.addAttribute("listAB", listAB);
+		
+		List<Item> listBeyond = service.Beyond(vo); 
+		model.addAttribute("listBeyond", listBeyond);
+		
+		List<Item> listDD = service.DD(vo); 
+		model.addAttribute("listDD", listDD);
+		
+		List<Item> listBO = service.BO(vo); 
+		model.addAttribute("listBO", listBO);
+		
 		return "infra/item/user/itemList";
 	}
 

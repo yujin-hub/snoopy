@@ -35,7 +35,7 @@
 				a.seq
 				, b.bname
 				, a.name
-				, (SELECT FORMAT(a.price, 0)) as price
+				, a.price
 				, (SELECT FORMAT((a.price * (100-discount)/100), 0)) as salePrice
 				, a.regist
 				, (SELECT FORMAT(a.numPurchase, 0)) as numPurchase
@@ -181,9 +181,8 @@
 	</delete>
 	
 	
-	
 	<!-- 메인페이지 실시간 top3-->
-	<select id="top">
+	<select id="top" resultMap="resultMapObj">
 		SELECT 
 			*
 		FROM item
@@ -192,7 +191,7 @@
 	</select>
 	
 	<!-- 메인페이지 weeklyspecial-->
-	<select id="weeklyspecial">
+	<select id="weeklyspecial" resultMap="resultMapObj">
 		SELECT 
 			*
 		FROM item
@@ -201,5 +200,50 @@
 	</select>
 	
 	<!-- 메인페이지 브랜드별 -->
+	<select id="CK" resultMap="resultMapObj">
+		SELECT
+			b.bname
+			, a.name
+			, a.price
+			, (SELECT FORMAT((a.price * (100-discount)/100), 0)) as salePrice
+		FROM item a
+		INNER JOIN brand_list b ON a.brand_list_seq = b.num
+		WHERE brand_list_seq = 7;  
+	</select>
+		
+	<select id="AHC" resultMap="resultMapObj">
+		SELECT
+			*
+		FROM item 
+		WHERE brand_list_seq = 8;  
+	</select>
+	
+	<select id="AB" resultMap="resultMapObj">
+		SELECT
+			*
+		FROM item 
+		WHERE brand_list_seq = 9;  
+	</select>
+	
+	<select id="Beyond" resultMap="resultMapObj">	
+		SELECT
+			*
+		FROM item 
+		WHERE brand_list_seq = 10;  
+	</select>
+	
+	<select id="DD" resultMap="resultMapObj">
+		SELECT
+			*
+		FROM item 
+		WHERE brand_list_seq = 5;  
+	</select>
+	
+	<select id="BO" resultMap="resultMapObj">	
+		SELECT
+			*
+		FROM item 
+		WHERE brand_list_seq = 11;  
+	</select>
 	
 </mapper>	

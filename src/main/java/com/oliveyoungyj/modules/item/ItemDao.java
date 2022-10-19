@@ -71,4 +71,39 @@ public class ItemDao {
 		return sqlSession.selectOne(namespace + ".imageUpload", dto);
 	}
 	
+	
+	//메인페이지
+	public List<Item> top(ItemVo vo) {
+		return sqlSession.selectList(namespace + ".top", vo);
+	}
+
+	public List<Item> weeklyspecial(ItemVo vo) {
+		return sqlSession.selectList(namespace + ".weeklyspecial", vo);
+	}
+	
+	public List<Item> CK(ItemVo vo) {
+		return sqlSession.selectList(namespace + ".CK", vo);
+	}
+	
+	public List<Item> AHC(ItemVo vo) {
+		return sqlSession.selectList(namespace + ".AHC", vo);
+	}
+	
+	public List<Item> AB(ItemVo vo) {
+		return sqlSession.selectList(namespace + ".AB", vo);
+	}
+	
+	public List<Item> Beyond(ItemVo vo) {
+		return sqlSession.selectList(namespace + ".Beyond", vo);
+	}
+	
+	public List<Item> DD(ItemVo vo) {
+		return sqlSession.selectList(namespace + ".DD", vo);
+	}
+	
+	public List<Item> BO(ItemVo vo) {
+		return sqlSession.selectList(namespace + ".BO", vo);
+	}
+	
+	
 }

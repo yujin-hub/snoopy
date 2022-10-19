@@ -86,4 +86,45 @@ public class ItemServiceImpl implements ItemService{
 	public Item imageUpload(Item dto) throws Exception {
 		return dao.imageUpload(dto);
 	}
+	
+	//메인페이지
+	@Override
+	public List<Item> top(ItemVo vo) throws Exception {
+		return dao.top(vo); 
+	}
+	
+	@Override
+	public List<Item> weeklyspecial(ItemVo vo) throws Exception {
+		return dao.weeklyspecial(vo); 
+	}
+	
+	@Override
+	public List<Item> CK(ItemVo vo) throws Exception {
+		return dao.CK(vo); 
+	}
+	
+	@Override
+	public List<Item> AHC(ItemVo vo) throws Exception {
+		return dao.AHC(vo); 
+	}
+	
+	@Override
+	public List<Item> AB(ItemVo vo) throws Exception {
+		return dao.AB(vo); 
+	}
+	
+	@Override
+	public List<Item> Beyond(ItemVo vo) throws Exception {
+		return dao.Beyond(vo); 
+	}
+	
+	@Override
+	public List<Item> DD(ItemVo vo) throws Exception {
+		return dao.DD(vo); 
+	}
+
+	@Override
+	public List<Item> BO(ItemVo vo) throws Exception {
+		return dao.BO(vo); 
+	}
 }
