@@ -439,12 +439,13 @@
 							<br>
 							<table class="table table-striped table-hover">
 								<thead>
+								
 							  		<tr>
 							  			<th><input type="checkbox" id="chkAll" name="chkAll"></th>
 										<th>NO</th>
 										<th>브랜드</th>
 										<th>상품명</th>
-										<th>원가</th>
+										<th>할인</th>
 										<th>판매가</th>
 										<th>상품등록일</th>
 										<th>총 구매수량</th>
@@ -465,8 +466,8 @@
 													<td>
 														<a href="javascript:goForm(<c:out value="${list.seq}"/>)"><c:out value="${list.name }"/></a>
 													</td>
+													<td><c:out value="${list.discount }"/>%</td>
 													<td><c:out value="${list.price }"/>원</td>
-													<td><c:out value="${list.salePrice }"/>원</td>
 													<td><c:out value="${list.regist }"/></td>
 													<td><c:out value="${list.numPurchase }"/>개</td>
 													<td>

@@ -61,11 +61,12 @@
 			font-family: 'MICEGothic Bold';
 			color: #4c4c4c;
 			font-size: 18px;
+			width: 220px;
+			height: 45px;
 		}
 		
 		.before {
 			font-family: 'MICEGothic Bold';
-			text-decoration-line: line-through;
 			color: #7E7474;
 			font-size: 17px;
 			margin-left: 75px;
@@ -74,31 +75,6 @@
 		.before2 {
 			font-family: 'MICEGothic Bold';
 			margin-left: 75px;
-			text-decoration-line: line-through;
-			color: #7E7474;
-			font-size: 17px;
-		}
-		
-		.before3 {
-			font-family: 'MICEGothic Bold';
-			margin-left: 70px;
-			text-decoration-line: line-through;
-			color: #7E7474;
-			font-size: 17px;
-		}
-		
-		.before4 {
-			font-family: 'MICEGothic Bold';
-			margin-left: 60px;
-			text-decoration-line: line-through;
-			color: #7E7474;
-			font-size: 17px;
-		}
-		
-		.before5 {
-			font-family: 'MICEGothic Bold';
-			margin-left: 50px;
-			text-decoration-line: line-through;
 			color: #7E7474;
 			font-size: 17px;
 		}
@@ -408,12 +384,21 @@
 							</span>
 							<br>
 							<li class="list-group-item">
-								<span class="before2">
-									<c:out value="${listTop.price }"/>원
-								</span>
-								<span class="sale">
-									<c:out value="${listTop.salePrice }"/>원
-								</span>
+								<c:choose>
+									<c:when test="${listTop.discount eq null}">
+										<span class="sale">
+											<fmt:formatNumber value="${listTop.price}" pattern="#,###" />원
+										</span>
+									</c:when>
+									<c:otherwise>
+										<span class="before2">
+											<c:out value="${listTop.discount }"/>%
+										</span>
+										<span class="sale">
+											<fmt:formatNumber value="${listTop.price}" pattern="#,###" />원
+										</span>
+									</c:otherwise>
+								</c:choose>
 							</li>
 							<li class="list-group-item">
 								<span class="badge rounded-pill red">세일</span>
@@ -445,12 +430,21 @@
 							</span>
 							<br>
 							<li class="list-group-item">
-								<span class="before2">
-									<c:out value="${listWeek.price }"/>원
-								</span>
-								<span class="sale">
-									<c:out value="${listWeek.salePrice }"/>원
-								</span>
+								<c:choose>
+									<c:when test="${listWeek.discount eq null}">
+										<span class="sale">
+											<fmt:formatNumber value="${listWeek.price}" pattern="#,###" />원
+										</span>
+									</c:when>
+									<c:otherwise>
+										<span class="before2">
+											<c:out value="${listWeek.discount }"/>%
+										</span>
+										<span class="sale">
+											<fmt:formatNumber value="${listWeek.price}" pattern="#,###" />원
+										</span>
+									</c:otherwise>
+								</c:choose>
 							</li>
 							<li class="list-group-item">
 								<span class="badge rounded-pill red">세일</span>
@@ -511,16 +505,21 @@
 									<div class="card2" id="item">
 										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016911302ko.jpg?l=ko" class="card-img-top">
 										<br>
-										<span class="name">
+										<p class="name">
 											<c:out value="${listCK.name }"/>
-										</span>
+										</p>
 										<br>
 										<li class="list-group-item">
-											<span class="before2">
-												<fmt:formatNumber value="${listCK.price }" pattern="#,###"/>원
-											</span>
+											<c:choose>
+												<c:when test="${listCK.discount eq null}"></c:when>
+												<c:otherwise>
+													<span class="before2">
+														<c:out value="${listCK.discount }"/>%
+													</span>
+												</c:otherwise>
+											</c:choose>
 											<span class="sale">
-												<fmt:formatNumber value="${listCK.salePrice }" pattern="#,###"/>원
+												<fmt:formatNumber value="${listCK.price}" pattern="#,###" />원
 											</span>
 										</li>
 									</div>
@@ -543,21 +542,27 @@
 									<div class="card2" id="item">
 										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015562505ko.jpg?l=ko" class="card-img-top">
 										<br>
-										<div class="mid">
-											<span class="brand">
-												<c:out value="${listAHC.bname }"/>
-											</span>
-										</div>
-										<br>
-										<span class="name">
+										<p class="name">
 											<c:out value="${listAHC.name }"/>
-										</span>
+										</p>
 										<br>
-										<span class="sale">
-											<fmt:formatNumber value="${listAHC.salePrice }" pattern="#,###"/>원
-										</span>
+										<li class="list-group-item">
+											<c:choose>
+												<c:when test="${listAHC.discount eq null}"></c:when>
+												<c:otherwise>
+													<span class="before2">
+														<c:out value="${listAHC.discount }"/>%
+													</span>
+												</c:otherwise>
+											</c:choose>
+											<span class="sale">
+												<fmt:formatNumber value="${listAHC.price}" pattern="#,###" />원
+											</span>
+										</li>
 									</div>
 								</div>
+								<br>
+								<br>
 							</c:forEach>
 							<br>
 							<br>
@@ -576,21 +581,27 @@
 									<div class="card2" id="item">
 										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015562505ko.jpg?l=ko" class="card-img-top">
 										<br>
-										<div class="mid">
-											<span class="brand">
-												<c:out value="${listAB.bname }"/>
-											</span>
-										</div>
-										<br>
-										<span class="name">
+										<p class="name">
 											<c:out value="${listAB.name }"/>
-										</span>
+										</p>
 										<br>
-										<span class="sale">
-											<c:out value="${listAB.salePrice }"/>원
-										</span>
+										<li class="list-group-item">
+											<c:choose>
+												<c:when test="${listAB.discount eq null}"></c:when>
+												<c:otherwise>
+													<span class="before2">
+														<c:out value="${listAB.discount }"/>%
+													</span>
+												</c:otherwise>
+											</c:choose>
+											<span class="sale">
+												<fmt:formatNumber value="${listAB.price}" pattern="#,###" />원
+											</span>
+										</li>
 									</div>
 								</div>
+								<br>
+								<br>
 							</c:forEach>
 							<br>
 							<br>
@@ -609,21 +620,27 @@
 									<div class="card2" id="item">
 										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015562505ko.jpg?l=ko" class="card-img-top">
 										<br>
-										<div class="mid">
-											<span class="brand">
-												<c:out value="${listBeyond.bname }"/>
-											</span>
-										</div>
-										<br>
-										<span class="name">
+										<p class="name">
 											<c:out value="${listBeyond.name }"/>
-										</span>
+										</p>
 										<br>
-										<span class="sale">
-											<c:out value="${listBeyond.salePrice }"/>원
-										</span>
+										<li class="list-group-item">
+											<c:choose>
+												<c:when test="${listBeyond.discount eq null}"></c:when>
+												<c:otherwise>
+													<span class="before2">
+														<c:out value="${listBeyond.discount }"/>%
+													</span>
+												</c:otherwise>
+											</c:choose>
+											<span class="sale">
+												<fmt:formatNumber value="${listBeyond.price}" pattern="#,###" />원
+											</span>
+										</li>
 									</div>
 								</div>
+								<br>
+								<br>
 							</c:forEach>
 							<br>
 							<br>
@@ -642,21 +659,27 @@
 									<div class="card2" id="item">
 										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015562505ko.jpg?l=ko" class="card-img-top">
 										<br>
-										<div class="mid">
-											<span class="brand">
-												<c:out value="${listDD.bname }"/>
-											</span>
-										</div>
-										<br>
-										<span class="name">
+										<p class="name">
 											<c:out value="${listDD.name }"/>
-										</span>
+										</p>
 										<br>
-										<span class="sale">
-											<c:out value="${listDD.salePrice }"/>원
-										</span>
+										<li class="list-group-item">
+											<c:choose>
+												<c:when test="${listDD.discount eq null}"></c:when>
+												<c:otherwise>
+													<span class="before2">
+														<c:out value="${listDD.discount }"/>%
+													</span>
+												</c:otherwise>
+											</c:choose>
+											<span class="sale">
+												<fmt:formatNumber value="${listDD.price}" pattern="#,###" />원
+											</span>
+										</li>
 									</div>
 								</div>
+								<br>
+								<br>
 							</c:forEach>
 							<br>
 							<br>
@@ -675,21 +698,27 @@
 									<div class="card2" id="item">
 										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015562505ko.jpg?l=ko" class="card-img-top">
 										<br>
-										<div class="mid">
-											<span class="brand">
-												<c:out value="${listBO.bname }"/>
-											</span>
-										</div>
-										<br>
-										<span class="name">
+										<p class="name">
 											<c:out value="${listBO.name }"/>
-										</span>
+										</p>
 										<br>
-										<span class="sale">
-											<c:out value="${listBO.salePrice }"/>원
-										</span>
+										<li class="list-group-item">
+											<c:choose>
+												<c:when test="${listBO.discount eq null}"></c:when>
+												<c:otherwise>
+													<span class="before2">
+														<c:out value="${listBO.discount }"/>%
+													</span>
+												</c:otherwise>
+											</c:choose>
+											<span class="sale">
+												<fmt:formatNumber value="${listBO.price}" pattern="#,###" />원
+											</span>
+										</li>
 									</div>
 								</div>
+								<br>
+								<br>
 							</c:forEach>
 							<br>
 							<br>

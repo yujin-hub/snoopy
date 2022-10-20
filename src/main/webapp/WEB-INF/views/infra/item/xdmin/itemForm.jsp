@@ -282,7 +282,6 @@
 			</div>
 			<div class="col-10">
 				<form method="form" name="form" action="/item/itemInst" enctype="multipart/form-data" autocomplete="off">
-					<%-- <%@include file="itemVo.jsp"%>	 --%>
 					<input type="hidden" name="seq" value="<c:out value="${vo.seq}"/>"/>
 						<div class="main left2">
 							<input class="input" id="tab1" type="radio" name="tabs" disabled> 
@@ -296,9 +295,11 @@
 									<div class="col-6">
 										<br>
 										<label for="itemImg" class="form-label">상품 이미지</label>
-							 			<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple">
+										<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple">
 										<div class="addScroll">
-											<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
+											<c:forEach items="${imageUpload}" var="imageUpload" varStatus="status">
+												<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
+											</c:forEach>
 										</div>
 									</div>
 									<div class="col-6">
@@ -318,7 +319,7 @@
 									</div>
 									<div class="col-6">
 										<br>
-										<label for="price" class="form-label">원가</label>
+										<label for="price" class="form-label">가격</label>
 										<input type="text" class="form-control" id="price" name="price" value="<c:out value="${item.price }"/>">
 									</div>
 									<div class="col-6">

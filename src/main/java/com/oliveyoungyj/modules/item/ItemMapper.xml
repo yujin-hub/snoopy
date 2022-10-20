@@ -35,8 +35,8 @@
 				a.seq
 				, b.bname
 				, a.name
+				, a.discount
 				, a.price
-				, (SELECT FORMAT((a.price * (100-discount)/100), 0)) as salePrice
 				, a.regist
 				, (SELECT FORMAT(a.numPurchase, 0)) as numPurchase
 				, a.stock
@@ -205,7 +205,7 @@
 			b.bname
 			, a.name
 			, a.price
-			, (SELECT FORMAT((a.price * (100-discount)/100), 0)) as salePrice
+			, a.discount
 		FROM item a
 		INNER JOIN brand_list b ON a.brand_list_seq = b.num
 		WHERE brand_list_seq = 7;  
