@@ -238,19 +238,19 @@
 			<br>
 			<br>
 			<div class="row gy-2">
-			<div class="d-grid gap-2 btn-sm">
-			  <button class="btn btn-warning" type="button"><i class="fa-solid fa-comments"></i> Kakao로 시작하기</button>
+				<div class="d-grid gap-2 btn-sm">
+				  <button class="btn btn-warning" type="button"><i class="fa-solid fa-comments"></i> Kakao로 시작하기</button>
+				</div>
+				<div class="d-grid gap-2 btn-sm">
+				  <button class="btn btn-success" type="button"><i class="fa-brands fa-neos"></i> Naver로 시작하기</button>
+				</div>
+				<div class="d-grid gap-2 btn-sm">
+				  <button class="btn btn-danger" type="button"><i class="fa-brands fa-google"></i> Google로 시작하기</button>
+				</div>
+				<div class="d-grid gap-2 btn-sm">
+				  <button class="btn btn-primary" type="button"><i class="fa-brands fa-facebook"></i> Facebook으로 시작하기</button>
+				</div>
 			</div>
-			<div class="d-grid gap-2 btn-sm">
-			  <button class="btn btn-success" type="button"><i class="fa-brands fa-neos"></i> Naver로 시작하기</button>
-			</div>
-			<div class="d-grid gap-2 btn-sm">
-			  <button class="btn btn-danger" type="button"><i class="fa-brands fa-google"></i> Google로 시작하기</button>
-			</div>
-			<div class="d-grid gap-2 btn-sm">
-			  <button class="btn btn-primary" type="button"><i class="fa-brands fa-facebook"></i> Facebook으로 시작하기</button>
-			</div>
-		</div>
 			<br>
 			<br>
 			<br>
