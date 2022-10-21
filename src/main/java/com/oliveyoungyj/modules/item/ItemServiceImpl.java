@@ -44,8 +44,58 @@ public class ItemServiceImpl implements ItemService{
 	}
 	
 	@Override
+	public int insertUploaded(Item dto) throws Exception {
+		
+		//여기부터 파일
+        int seq = dao.selectLastSeq(dto); //seq 자동으로 부여되기때문
+
+        int j = 0;
+        for(MultipartFile myFile : dto.getMultipartFile()) {
+
+            if(!myFile.isEmpty()) {
+                // postServiceImpl
+                String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", "");
+                UtilUpload.upload(myFile, pathModule, dto);
+
+                dto.setType("1");
+                dto.setDefaultNY(j == 0 ? "1" : "0");
+                dto.setSort(j+1+"");
+                dto.setPseq(seq+"");
+
+                dao.insertUploaded(dto);
+                j++;
+            }
+        }
+		return 0;
+	}
+	
+	@Override
 	public int update(Item dto) throws Exception {
-		return dao.update(dto);
+		 
+		dao.update(dto); //상품정보만 업데이트 
+		 
+		//실제로 이미지 multipartfile 넘기는 곳
+
+		int j = 0;
+        for(MultipartFile myFile : dto.getMultipartFile()) {
+
+            if(!myFile.isEmpty()) {
+                // postServiceImpl
+                String pathModule = this.getClass().getSimpleName().toString().toLowerCase().replace("serviceimpl", ""); //item
+                UtilUpload.upload(myFile, pathModule, dto);
+
+                dto.setType("1");
+                dto.setDefaultNY(j == 0 ? "1" : "0");
+                dto.setSort(j+1+"");
+                dto.setPseq(dto.getSeq()+""); //사진이 들어갈 상품의 seq 
+
+                dao.insertUploaded(dto);
+                j++;
+            }
+        }
+		 
+		 
+		 return 0;
 	}
 	
 	@Override
@@ -83,6 +133,8 @@ public class ItemServiceImpl implements ItemService{
 	
 	@Override
 	public Item imageUpload(Item dto) throws Exception {
+		
+		
 		return dao.imageUpload(dto);
 	}
 	

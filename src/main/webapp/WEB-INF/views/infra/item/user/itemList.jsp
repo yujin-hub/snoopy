@@ -377,7 +377,7 @@
 							</span>
 						</div>
 						<div class="card" style="width: 16rem;" id="item">
-							<a href="/item/itemView"><img src="../../resources/images/winter.jpg" class="card-img-top"></a>
+							<a href="/item/itemView"><img src="${imageUpload.path }${imageUpload.uuidName}" id="img" class="card-img-top"></a>
 							<br>
 							<span class="name">
 								<c:out value="${listTop.name }"/>

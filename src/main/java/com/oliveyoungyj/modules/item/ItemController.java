@@ -98,7 +98,8 @@ public class ItemController {
 	@RequestMapping(value = "itemUpdt")
 	public String itemUpdt(ItemVo vo, Item dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
 
-		service.update(dto);
+		service.update(dto); //기존에 상품 업데이트 & 이미지 업로드
+		
 		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/item/itemForm";
 	}
@@ -166,6 +167,8 @@ public class ItemController {
 
 		return "infra/item/xdmin/itemForm";
 	}
+	
+	
 
 	@RequestMapping(value = "itemListDmin")
 	public String itemListDmin(@ModelAttribute("vo") ItemVo vo, Model model, HttpSession httpSession) throws Exception {

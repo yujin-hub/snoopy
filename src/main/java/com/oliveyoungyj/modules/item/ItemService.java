@@ -14,6 +14,7 @@ public interface ItemService {
 	
 	//업로드
 	public Item imageUpload(Item dto) throws Exception;
+	public int insertUploaded(Item dto) throws Exception;
 	
 	//메인페이지
 	public List<Item> top(ItemVo vo) throws Exception;
