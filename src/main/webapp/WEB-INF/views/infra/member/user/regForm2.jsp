@@ -200,13 +200,13 @@
 				<div class="col-3">
 					<input type="text" class="form-control" id="tel" name="tel" value="<c:out value="${item.tel}"/>">
 				</div>
-				<div class="row mt-sm-4"> 
+				<!-- <div class="row mt-sm-4"> 
 			        <div class="col-sm-6 mt-3 mt-sm-0">
 			            <label for="ifmmUploadedImage" class="form-label input-file-button">이미지첨부</label>
 			 			<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple">
 						<div id="ifmmUploadedImagePreview" class="addScroll"></div>
 			        </div>
-		  	  	</div>
+		  	  	</div> -->
 			</div>
 			<hr>
 			<br>
@@ -464,7 +464,6 @@
 	var goUrlList = "/item/itemList"; 			/* #-> */
 	var goUrlInst = "/member/memberInst"; 
 
-	
 	$("#btnSave").on("click", function(){
 		
    		form.attr("action", goUrlJoin).submit();
@@ -580,10 +579,6 @@
 	 */
  
  
-	 function idCheck () {
-		 
-	 }
-	 
 	 $("#userID").on("focusout", function(){
 	 /* 		
  		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {

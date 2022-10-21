@@ -44,7 +44,6 @@
 		    bottom: 20px;
 		    right: 20px;
 		}
-
 		#wid{
 			width: 1050px;
 		}
@@ -108,6 +107,7 @@
 		.font{
 			font-size: 17px;
 			margin-top: 30px;
+			margin-left: 70px;
 		}
 		
 		.font2{
@@ -425,7 +425,7 @@
 			</div>
 			<br>
 			<br>
-			<div class="col-10 bg">
+				<div class="col-10 bg">
 				<div class="row">
 					<div class="col-1 sort">
 						<span class="user"><i class="fa-solid fa-circle-user"></i></span>
@@ -434,9 +434,9 @@
 						<span>PINK OLIVE &nbsp;&nbsp;최유진님 반갑습니다.</span>
 					</div>
 					<div class="col-2 profile">
-						<span class="cursor"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp; ></a></span>
+						<span class="cursor font7"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp;></a></span>
 					</div>
-					<div class="row left">
+					<div class="row mid left">
 						<div class="col-4">
 							<div class="font">
 								<span>CJ ONE 포인트</span>

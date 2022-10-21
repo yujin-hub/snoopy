@@ -22,4 +22,6 @@ public interface MemberService {
 	
 //	//업로드
 //	public Member imageUpload(Member dto) throws Exception;
+	
 }
+

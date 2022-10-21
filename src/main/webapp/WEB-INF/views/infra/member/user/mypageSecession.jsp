@@ -52,7 +52,6 @@
 		    bottom: 20px;
 		    right: 20px;
 		}
-
 		#wid{
 			width: 1050px;
 		}
