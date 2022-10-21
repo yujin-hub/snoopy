@@ -40,7 +40,6 @@ public class ItemServiceImpl implements ItemService{
                 j++;
             }
         }
-        
 		return result;
 	}
 	
@@ -86,6 +85,7 @@ public class ItemServiceImpl implements ItemService{
 	public Item imageUpload(Item dto) throws Exception {
 		return dao.imageUpload(dto);
 	}
+	
 	
 	//메인페이지
 	@Override

@@ -385,7 +385,7 @@
 							<br>
 							<li class="list-group-item">
 								<c:choose>
-									<c:when test="${listTop.discount eq null}">
+									<c:when test="${listTop.discount eq 0}">
 										<span class="sale">
 											<fmt:formatNumber value="${listTop.price}" pattern="#,###" />원
 										</span>
@@ -423,7 +423,7 @@
 				<c:forEach items="${listWeek}" var="listWeek" varStatus="status">
 					<div class="col-md-3" id="left">
 						<div class="card" id="item">
-							<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015015308ko.jpg?l=ko" class="card-img-top">
+							<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
 							<br>
 							<span class="name">
 								<c:out value="${listWeek.name }"/>
@@ -431,7 +431,7 @@
 							<br>
 							<li class="list-group-item">
 								<c:choose>
-									<c:when test="${listWeek.discount eq null}">
+									<c:when test="${listWeek.discount eq 0}">
 										<span class="sale">
 											<fmt:formatNumber value="${listWeek.price}" pattern="#,###" />원
 										</span>
@@ -511,7 +511,7 @@
 										<br>
 										<li class="list-group-item">
 											<c:choose>
-												<c:when test="${listCK.discount eq null}"></c:when>
+												<c:when test="${listCK.discount eq 0}"></c:when>
 												<c:otherwise>
 													<span class="before2">
 														<c:out value="${listCK.discount }"/>%
@@ -548,7 +548,7 @@
 										<br>
 										<li class="list-group-item">
 											<c:choose>
-												<c:when test="${listAHC.discount eq null}"></c:when>
+												<c:when test="${listAHC.discount eq 0}"></c:when>
 												<c:otherwise>
 													<span class="before2">
 														<c:out value="${listAHC.discount }"/>%
@@ -587,7 +587,7 @@
 										<br>
 										<li class="list-group-item">
 											<c:choose>
-												<c:when test="${listAB.discount eq null}"></c:when>
+												<c:when test="${listAB.discount eq 0}"></c:when>
 												<c:otherwise>
 													<span class="before2">
 														<c:out value="${listAB.discount }"/>%
@@ -626,7 +626,7 @@
 										<br>
 										<li class="list-group-item">
 											<c:choose>
-												<c:when test="${listBeyond.discount eq null}"></c:when>
+												<c:when test="${listBeyond.discount eq 0}"></c:when>
 												<c:otherwise>
 													<span class="before2">
 														<c:out value="${listBeyond.discount }"/>%
@@ -665,7 +665,7 @@
 										<br>
 										<li class="list-group-item">
 											<c:choose>
-												<c:when test="${listDD.discount eq null}"></c:when>
+												<c:when test="${listDD.discount eq 0}"></c:when>
 												<c:otherwise>
 													<span class="before2">
 														<c:out value="${listDD.discount }"/>%
@@ -704,7 +704,7 @@
 										<br>
 										<li class="list-group-item">
 											<c:choose>
-												<c:when test="${listBO.discount eq null}"></c:when>
+												<c:when test="${listBO.discount eq 0}"></c:when>
 												<c:otherwise>
 													<span class="before2">
 														<c:out value="${listBO.discount }"/>%

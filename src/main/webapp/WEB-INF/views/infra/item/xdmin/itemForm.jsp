@@ -281,7 +281,7 @@
 				</ul>
 			</div>
 			<div class="col-10">
-				<form method="form" name="form" action="/item/itemInst" enctype="multipart/form-data" autocomplete="off">
+				<form method="post" name="form" action="/item/itemInst" enctype="multipart/form-data" autocomplete="off">
 					<input type="hidden" name="seq" value="<c:out value="${vo.seq}"/>"/>
 						<div class="main left2">
 							<input class="input" id="tab1" type="radio" name="tabs" disabled> 
@@ -296,16 +296,14 @@
 										<br>
 										<label for="itemImg" class="form-label">상품 이미지</label>
 										<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple">
-										<div class="addScroll">
-											<c:forEach items="${imageUpload}" var="imageUpload" varStatus="status">
-												<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
-											</c:forEach>
+										<div id="ifmmUploadedImagePreview" class="addScroll">
+											<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
 										</div>
 									</div>
 									<div class="col-6">
 										<br>
 										<label for="brand_list_seq" class="form-label">브랜드</label>
-										<select class="form-select">
+										<select class="form-select" name="brand_list_seq">
 											<option value="" hidden selected>::브랜드명::</option>
 											<c:forEach items="${add}" var="add" varStatus="status">
 												<option value="<c:out value="${add.seq}"/>" <c:if test="${add.seq eq item.brand_list_seq }"> selected</c:if>><c:out value="${add.bname }"/></option>
@@ -325,7 +323,7 @@
 									<div class="col-6">
 										<br>
 										<label for="salePrice" class="form-label">할인가</label>
-										<input type="text" class="form-control" id="salePrice" name="salePrice" value="<c:out value="${item.discount }"/>%">
+										<input type="text" class="form-control" id="discount" name="discount" value="<c:out value="${item.discount }"/>%">
 									</div>
 									<div class="col-6">
 										<br>
@@ -502,7 +500,6 @@
 		$("#btnDelete").on("click", function() {
 			form.attr("action", goUrlDele).submit();
 		});
-		
 		
 </script>
 

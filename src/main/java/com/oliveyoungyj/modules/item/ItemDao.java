@@ -59,6 +59,8 @@ public class ItemDao {
 		return sqlSession.selectList(namespace + ".itemNameAdd", vo);
 	}
 	
+	
+	// 업로드
 	public int selectLastSeq(Item dto) {
 		return sqlSession.selectOne(namespace + ".selectLastSeq", dto);
 	}

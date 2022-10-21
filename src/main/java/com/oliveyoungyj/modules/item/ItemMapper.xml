@@ -11,7 +11,7 @@
 	
 	<sql id="selectCommon">
 		FROM item a 
-		INNER JOIN brand_list b on a.brand_list_seq = b.num
+		INNER JOIN brand_list b on a.brand_list_seq = b.seq
 		WHERE 1=1
 		
 		<if test="shStock != null and !shStock.equals('')">AND a.stock = #{shStock}</if>
@@ -51,12 +51,11 @@
 	</select>
 	
 	<insert id="insert">
-		INSERT INTO Item (
+		INSERT INTO item (
 			name
 			,discount
 			,price
 			,info_item
-			,info_purchase
 			,regist
 			,stock
 			,useNY
@@ -68,7 +67,6 @@
 			,#{discount}
 			,#{price}
 			,#{info_item}
-			,#{info_purchase}
 			,now()
 			,1
 			,1
@@ -99,18 +97,12 @@
 	</select>
 	
 	<update id="update">
-		UPDATE user
+		UPDATE item
 		SET 
-			name
-			,discount
-			,price
-			,info_item
-			,info_purchase
-			,regist
-			,stock
-			,useNY
-			,delNY
-			,brand_list_seq
+			name = #{name}
+			,price = #{price}
+			,info_item = #{info_item}
+			,brand_list_seq = #{brand_list_seq}
 		WHERE 
 			seq = #{seq}
 	</update>
