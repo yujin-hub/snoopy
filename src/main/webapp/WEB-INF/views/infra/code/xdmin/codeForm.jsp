@@ -298,8 +298,8 @@
 									</div>
 									<div class="col-6">
 										<br>
-										<label for="code" class="form-label">코드그룹명</label>
-										<select class="form-select">
+										<label for="codeGroup_seq" class="form-label">코드그룹명</label>
+										<select class="form-select" name="codeGroup_seq">
 											<option value="" hidden selected>::코드그룹명::</option>
 											<c:forEach items="${add}" var="add" varStatus="status">
 												<option value="<c:out value="${add.seq}"/>" <c:if test="${add.seq eq item.codeGroup_seq }"> selected</c:if>><c:out value="${add.propertyKor }"/></option>

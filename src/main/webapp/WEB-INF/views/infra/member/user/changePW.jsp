@@ -42,7 +42,6 @@
 		    bottom: 20px;
 		    right: 20px;
 		}
-
 		#wid{
 			width: 1050px;
 		}
@@ -102,6 +101,7 @@
 		.font{
 			font-size: 17px;
 			margin-top: 30px;
+			margin-left: 80px;
 		}
 		
 		.font2{
@@ -353,7 +353,7 @@
 					<div class="col-2 profile">
 						<span class="cursor font7"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp;></a></span>
 					</div>
-					<div class="row mid">
+					<div class="row mid left">
 						<div class="col-4">
 							<div class="font">
 								<span>CJ ONE 포인트</span>
