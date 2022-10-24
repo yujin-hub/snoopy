@@ -162,7 +162,7 @@ public class ItemController {
 
 		// 업로드
 		dto.setPseq(vo.getSeq());
-		Item imageUpload = service.imageUpload(dto);
+		List<Item> imageUpload = service.imageUpload(vo);
 		model.addAttribute("imageUpload", imageUpload);
 
 		return "infra/item/xdmin/itemForm";

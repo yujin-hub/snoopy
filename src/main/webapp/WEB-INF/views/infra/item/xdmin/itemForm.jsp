@@ -121,6 +121,11 @@
 			background-color:#E9ECEF;
 		}
 		
+		#img {
+			width: 100px;
+			height: 100px;
+		}
+		
 	</style>
 </head>
     
@@ -297,7 +302,9 @@
 										<label for="itemImg" class="form-label">상품 이미지</label>
 										<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple">
 										<div id="ifmmUploadedImagePreview" class="addScroll">
-											<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
+											<c:forEach items="${imageUpload}" var="imageUpload" varStatus="status">
+												<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
+											</c:forEach>											
 										</div>
 									</div>
 									<div class="col-6">

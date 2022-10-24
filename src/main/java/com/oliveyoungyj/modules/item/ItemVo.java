@@ -1,8 +1,9 @@
 package com.oliveyoungyj.modules.item;
 
+import com.oliveyoungyj.common.base.Base;
 import com.oliveyoungyj.common.constants.Constants;
 
-public class ItemVo {
+public class ItemVo extends Base{
 
 	private Integer shOption;
 	private String shValue;
@@ -141,7 +142,7 @@ public class ItemVo {
 		this.startRnumForMysql = startRnumForMysql;
 	}
 
-
+	
 
 	public void setParamsPaging(int totalRows) {
 		

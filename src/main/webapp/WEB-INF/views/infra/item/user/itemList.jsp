@@ -377,7 +377,9 @@
 							</span>
 						</div>
 						<div class="card" style="width: 16rem;" id="item">
-							<a href="/item/itemView"><img src="${imageUpload.path }${imageUpload.uuidName}" id="img" class="card-img-top"></a>
+							<a href="javascript:goView(<c:out value="${listTop.seq}"/>)">
+								<img src="${imageUpload.path }${imageUpload.uuidName}" id="img" class="card-img-top">
+							</a>
 							<br>
 							<span class="name">
 								<c:out value="${listTop.name }"/>
@@ -423,7 +425,9 @@
 				<c:forEach items="${listWeek}" var="listWeek" varStatus="status">
 					<div class="col-md-3" id="left">
 						<div class="card" id="item">
-							<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
+							<a href="javascript:goView(<c:out value="${listWeek.seq}"/>)">
+								<img src="${imageUpload.path }${imageUpload.uuidName}" id="img" class="card-img-top">
+							</a>
 							<br>
 							<span class="name">
 								<c:out value="${listWeek.name }"/>
@@ -503,7 +507,9 @@
 							<c:forEach items="${listCK}" var="listCK" varStatus="status">
 								<div class="col-3">
 									<div class="card2" id="item">
-										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0016/A00000016911302ko.jpg?l=ko" class="card-img-top">
+										<a href="javascript:goView(<c:out value="${listCK.seq}"/>)">
+											<img src="${imageUpload.path }${imageUpload.uuidName}" id="img" class="card-img-top">
+										</a>
 										<br>
 										<p class="name">
 											<c:out value="${listCK.name }"/>
@@ -540,7 +546,9 @@
 							<c:forEach items="${listAHC}" var="listAHC" varStatus="status">
 								<div class="col-3">
 									<div class="card2" id="item">
-										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015562505ko.jpg?l=ko" class="card-img-top">
+										<a href="javascript:goView(<c:out value="${listAHC.seq}"/>)">
+											<img src="${imageUpload.path }${imageUpload.uuidName}" id="img" class="card-img-top">
+										</a>
 										<br>
 										<p class="name">
 											<c:out value="${listAHC.name }"/>
@@ -579,7 +587,9 @@
 							<c:forEach items="${listAB}" var="listAB" varStatus="status">
 								<div class="col-3">
 									<div class="card2" id="item">
-										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015562505ko.jpg?l=ko" class="card-img-top">
+										<a href="javascript:goView(<c:out value="${listAB.seq}"/>)">
+											<img src="${imageUpload.path }${imageUpload.uuidName}" id="img" class="card-img-top">
+										</a>
 										<br>
 										<p class="name">
 											<c:out value="${listAB.name }"/>
@@ -618,7 +628,9 @@
 							<c:forEach items="${listBeyond}" var="listBeyond" varStatus="status">
 								<div class="col-3">
 									<div class="card2" id="item">
-										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015562505ko.jpg?l=ko" class="card-img-top">
+										<a href="javascript:goView(<c:out value="${listBeyond.seq}"/>)">
+											<img src="${imageUpload.path }${imageUpload.uuidName}" id="img" class="card-img-top">
+										</a>
 										<br>
 										<p class="name">
 											<c:out value="${listBeyond.name }"/>
@@ -657,7 +669,9 @@
 							<c:forEach items="${listDD}" var="listDD" varStatus="status">
 								<div class="col-3">
 									<div class="card2" id="item">
-										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015562505ko.jpg?l=ko" class="card-img-top">
+										<a href="javascript:goView(<c:out value="${listDD.seq}"/>)">
+											<img src="${imageUpload.path }${imageUpload.uuidName}" id="img" class="card-img-top">
+										</a>
 										<br>
 										<p class="name">
 											<c:out value="${listDD.name }"/>
@@ -696,7 +710,9 @@
 							<c:forEach items="${listBO}" var="listBO" varStatus="status">
 								<div class="col-3">
 									<div class="card2" id="item">
-										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015562505ko.jpg?l=ko" class="card-img-top">
+										<a href="javascript:goView(<c:out value="${listBO.seq}"/>)">
+											<img src="${imageUpload.path }${imageUpload.uuidName}" id="img" class="card-img-top">
+										</a>
 										<br>
 										<p class="name">
 											<c:out value="${listBO.name }"/>
@@ -819,11 +835,14 @@
 			});
 		});
 		
-	goView = function(seq) {
-		$("#seq").val(seq);
-		$("#main").attr("action", "/item/itemView");
-		$("#main").submit();
-	}
+		var goUrlView = "/item/itemView";
+		
+		var seq = $("input:hidden[name=seq]");		
+		
+		goForm = function(keyValue) {
+	    	seq.val(keyValue);
+	    	form.attr("action", goUrlView).submit();
+		}
 		
 </script>
 

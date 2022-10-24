@@ -65,12 +65,12 @@ public class ItemDao {
 		return sqlSession.selectOne(namespace + ".selectLastSeq", dto);
 	}
 
-	public void insertUploaded(Item dto) {
-		sqlSession.selectOne(namespace + ".insertUploaded", dto);
+	public int  insertUploaded(Item dto) {
+		return sqlSession.selectOne(namespace + ".insertUploaded", dto);
 	}
 	
-	public Item imageUpload(Item dto) {
-		return sqlSession.selectOne(namespace + ".imageUpload", dto);
+	public List<Item> imageUpload(ItemVo vo) {
+		return sqlSession.selectList(namespace + ".imageUpload", vo);
 	}
 	
 	

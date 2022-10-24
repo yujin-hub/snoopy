@@ -13,7 +13,7 @@ public interface ItemService {
 	public int selectOneCount(ItemVo vo) throws Exception;
 	
 	//업로드
-	public Item imageUpload(Item dto) throws Exception;
+	public List<Item> imageUpload(ItemVo vo) throws Exception;
 	public int insertUploaded(Item dto) throws Exception;
 	
 	//메인페이지

@@ -152,11 +152,14 @@
 	</select>
 	
 	<select id="imageUpload" resultMap="resultMapObj">
-		SELECT 
-			*
-		FROM itemUploaded
+		SELECT
+			a.*
+			,b.*
+		FROM item a
+		LEFT JOIN itemUploaded b ON a.seq = b.pseq
 		WHERE 1=1
-			AND pseq = #{pseq}
+			AND a.seq = #{seq}
+			ORDER BY b.sort
 	</select>
 	
 	<update id="uelete">
