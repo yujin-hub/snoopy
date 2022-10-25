@@ -258,7 +258,7 @@
 				</div>
 				<div class="col-4">
 					<!-- <input type="hidden" id="pwAllowNY" name="pwAllowNY" value="0"> -->
-					<input type="password" class="form-control" id="pwCheck" name="pwCheck" placeholder="4자리 이상의 영문 + 숫자">
+					<input type="password" class="form-control" id="pwCheck" name="pwCheck" placeholder="비밀번호 재입력">
 					<!-- <div class="invalid-feedback" id="pwFeedback"></div> -->
 				</div>
 				<div class="col-5">
