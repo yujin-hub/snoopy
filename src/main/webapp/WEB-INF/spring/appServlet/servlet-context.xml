@@ -50,6 +50,7 @@
 			<exclude-mapping path="/member/idCheck" />
 			<exclude-mapping path="/member/nickCheck" />
 			<exclude-mapping path="/member/memberJoin" />
+			<exclude-mapping path="/item/access" />
 			<beans:bean id="checkLoginSessionInterception" class="com.oliveyoungyj.common.interceptor.CheckLoginSessionInterception"/>
 		</interceptor>
 	</interceptors>	
