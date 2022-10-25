@@ -179,8 +179,12 @@
 	<!-- 메인페이지 실시간 top3-->
 	<select id="top" resultMap="resultMapObj">
 		SELECT 
-			*
-		FROM item
+			a.*
+			, b.*
+		FROM item a
+		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		WHERE 1=1
+		AND b.defaultNY = 1
 		ORDER BY numPurchase DESC
 		LIMIT 3;
 	</select>
@@ -188,57 +192,81 @@
 	<!-- 메인페이지 weeklyspecial-->
 	<select id="weeklyspecial" resultMap="resultMapObj">
 		SELECT 
-			*
-		FROM item
+			a.*
+			, b.*
+		FROM item a
+		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		WHERE 1=1
+		AND b.defaultNY = 1
 		ORDER BY RAND()
 		LIMIT 3;
 	</select>
 	
 	<!-- 메인페이지 브랜드별 -->
 	<select id="CK" resultMap="resultMapObj">
-		SELECT
-			b.bname
-			, a.name
-			, a.price
-			, a.discount
+		SELECT 
+			a.*
+			, b.*
 		FROM item a
-		INNER JOIN brand_list b ON a.brand_list_seq = b.num
-		WHERE brand_list_seq = 7;  
+		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		WHERE 1=1
+			AND b.defaultNY = 1
+			AND brand_list_seq = 7;  
 	</select>
 		
 	<select id="AHC" resultMap="resultMapObj">
-		SELECT
-			*
-		FROM item 
-		WHERE brand_list_seq = 8;  
+		SELECT 
+			a.*
+			, b.*
+		FROM item a
+		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		WHERE 1=1
+			AND b.defaultNY = 1
+			AND brand_list_seq = 8;  
 	</select>
 	
 	<select id="AB" resultMap="resultMapObj">
-		SELECT
-			*
-		FROM item 
-		WHERE brand_list_seq = 9;  
+		SELECT 
+			a.*
+			, b.*
+		FROM item a
+		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		WHERE 1=1
+			AND b.defaultNY = 1
+			AND brand_list_seq = 9;  
 	</select>
 	
 	<select id="Beyond" resultMap="resultMapObj">	
-		SELECT
-			*
-		FROM item 
-		WHERE brand_list_seq = 10;  
+		SELECT 
+			a.*
+			, b.*
+		FROM item a
+		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		WHERE 1=1
+			AND b.defaultNY = 1
+			AND brand_list_seq = 10;  
 	</select>
 	
 	<select id="DD" resultMap="resultMapObj">
-		SELECT
-			*
-		FROM item 
-		WHERE brand_list_seq = 5;  
+		SELECT 
+			a.*
+			, b.*
+		FROM item a
+		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		WHERE 1=1
+			AND b.defaultNY = 1
+			AND brand_list_seq = 5;    
 	</select>
 	
 	<select id="BO" resultMap="resultMapObj">	
-		SELECT
-			*
-		FROM item 
-		WHERE brand_list_seq = 11;  
+		SELECT 
+			a.*
+			, b.*
+		FROM item a
+		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		WHERE 1=1
+			AND b.defaultNY = 1
+			AND brand_list_seq = 11;  
 	</select>
 	
 </mapper>	

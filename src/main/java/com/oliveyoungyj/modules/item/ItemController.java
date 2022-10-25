@@ -121,8 +121,14 @@ public class ItemController {
 	}
 
 	@RequestMapping(value = "itemView")
-	public String itemView() throws Exception {
-
+	public String itemView(@ModelAttribute("vo") ItemVo vo, Model model, HttpSession httpSession) throws Exception {
+		
+		String seq = (String) httpSession.getAttribute("sessSeq");
+		vo.setSeq(seq);
+		
+		Item result = service.selectOne(vo);
+		model.addAttribute("view", result);
+		
 		return "infra/item/user/itemView";
 	}
 
