@@ -1,5 +1,6 @@
 package com.oliveyoungyj.modules.item;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -126,13 +127,30 @@ public class ItemController {
 		Item result = service.selectOne(vo);
 		model.addAttribute("view", result);
 		
-		List<Item> imageUpload = service.imageUpload(vo);
-		model.addAttribute("imageUpload", imageUpload);
-
+		
+		// type 별로 사진 업로드
+		List<Item> listMain = new ArrayList<Item>();
+		List<Item> listSub = new ArrayList<Item>();
+		
+		for ( Item item : service.imageUpload(vo) ) {
+			
+			if(item.getType().equals("1")) { // "== 말고 equals" 사용
+				listMain.add(item);
+			}
+			else if(item.getType().equals("2")) {
+				listSub.add(item);
+			} 
+		}		
+		
+		System.out.println("main :"+listMain.size() + " sub :" + listSub.size());
+		
+		model.addAttribute("listMain", listMain);
+		model.addAttribute("listSub", listSub);
+ 
 		return "infra/item/user/itemView";
 	}
 
-	@RequestMapping(value = "payForm")
+	@RequestMapping(value = "payForm") 
 	public String payForm() throws Exception {
 
 		return "infra/payment/user/payForm";

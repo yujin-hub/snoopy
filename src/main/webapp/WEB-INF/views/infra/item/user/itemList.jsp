@@ -382,7 +382,7 @@
 									<c:out value="${listTop.seq }"/>
 								</span>
 							</div>
-							<div class="card" style="width: 16rem;" id="item">
+							<div class="card" id="item">
 								<a href="javascript:goView(<c:out value="${listTop.seq}"/>)">
 									<img src="${listTop.path }${listTop.uuidName}" id="img" class="card-img-top">
 									<br>
@@ -433,33 +433,33 @@
 							<div class="card" id="item">
 								<a href="javascript:goView(<c:out value="${listWeek.seq}"/>)">
 									<img src="${listWeek.path }${listWeek.uuidName}" id="img" class="card-img-top">
+									<br>
+									<span class="name">
+										<c:out value="${listWeek.name }"/>
+									</span>
+									<br>
+									<li class="list-group-item">
+										<c:choose>
+											<c:when test="${listWeek.discount eq 0}">
+												<span class="sale">
+													<fmt:formatNumber value="${listWeek.price}" pattern="#,###" />원
+												</span>
+											</c:when>
+											<c:otherwise>
+												<span class="before2">
+													<c:out value="${listWeek.discount }"/>%
+												</span>
+												<span class="sale">
+													<fmt:formatNumber value="${listWeek.price}" pattern="#,###" />원
+												</span>
+											</c:otherwise>
+										</c:choose>
+									</li>
+									<li class="list-group-item">
+										<span class="badge rounded-pill red">세일</span>
+										<span class="badge rounded-pill blue">오늘드림</span>
+									</li>
 								</a>
-								<br>
-								<span class="name">
-									<c:out value="${listWeek.name }"/>
-								</span>
-								<br>
-								<li class="list-group-item">
-									<c:choose>
-										<c:when test="${listWeek.discount eq 0}">
-											<span class="sale">
-												<fmt:formatNumber value="${listWeek.price}" pattern="#,###" />원
-											</span>
-										</c:when>
-										<c:otherwise>
-											<span class="before2">
-												<c:out value="${listWeek.discount }"/>%
-											</span>
-											<span class="sale">
-												<fmt:formatNumber value="${listWeek.price}" pattern="#,###" />원
-											</span>
-										</c:otherwise>
-									</c:choose>
-								</li>
-								<li class="list-group-item">
-									<span class="badge rounded-pill red">세일</span>
-									<span class="badge rounded-pill blue">오늘드림</span>
-								</li>
 							</div>
 						</div>
 					</c:forEach>
@@ -515,25 +515,25 @@
 										<div class="card2" id="item">
 											<a href="javascript:goView(<c:out value="${listCK.seq}"/>)">
 												<img src="${listCK.path }${listCK.uuidName}" id="img" class="card-img-top">
+												<br>
+												<p class="name">
+													<c:out value="${listCK.name }"/>
+												</p>
+												<br>
+												<li class="list-group-item">
+													<c:choose>
+														<c:when test="${listCK.discount eq 0}"></c:when>
+														<c:otherwise>
+															<span class="before2">
+																<c:out value="${listCK.discount }"/>%
+															</span>
+														</c:otherwise>
+													</c:choose>
+													<span class="sale">
+														<fmt:formatNumber value="${listCK.price}" pattern="#,###" />원
+													</span>
+												</li>
 											</a>
-											<br>
-											<p class="name">
-												<c:out value="${listCK.name }"/>
-											</p>
-											<br>
-											<li class="list-group-item">
-												<c:choose>
-													<c:when test="${listCK.discount eq 0}"></c:when>
-													<c:otherwise>
-														<span class="before2">
-															<c:out value="${listCK.discount }"/>%
-														</span>
-													</c:otherwise>
-												</c:choose>
-												<span class="sale">
-													<fmt:formatNumber value="${listCK.price}" pattern="#,###" />원
-												</span>
-											</li>
 										</div>
 										<br>
 										<br>
@@ -554,25 +554,25 @@
 										<div class="card2" id="item">
 											<a href="javascript:goView(<c:out value="${listAHC.seq}"/>)">
 												<img src="${listAHC.path }${listAHC.uuidName}" id="img" class="card-img-top">
+												<br>
+												<p class="name">
+													<c:out value="${listAHC.name }"/>
+												</p>
+												<br>
+												<li class="list-group-item">
+													<c:choose>
+														<c:when test="${listAHC.discount eq 0}"></c:when>
+														<c:otherwise>
+															<span class="before2">
+																<c:out value="${listAHC.discount }"/>%
+															</span>
+														</c:otherwise>
+													</c:choose>
+													<span class="sale">
+														<fmt:formatNumber value="${listAHC.price}" pattern="#,###" />원
+													</span>
+												</li>
 											</a>
-											<br>
-											<p class="name">
-												<c:out value="${listAHC.name }"/>
-											</p>
-											<br>
-											<li class="list-group-item">
-												<c:choose>
-													<c:when test="${listAHC.discount eq 0}"></c:when>
-													<c:otherwise>
-														<span class="before2">
-															<c:out value="${listAHC.discount }"/>%
-														</span>
-													</c:otherwise>
-												</c:choose>
-												<span class="sale">
-													<fmt:formatNumber value="${listAHC.price}" pattern="#,###" />원
-												</span>
-											</li>
 										</div>
 									</div>
 									<br>
@@ -595,25 +595,25 @@
 										<div class="card2" id="item">
 											<a href="javascript:goView(<c:out value="${listAB.seq}"/>)">
 												<img src="${listAB.path }${listAB.uuidName}" id="img" class="card-img-top">
+												<br>
+												<p class="name">
+													<c:out value="${listAB.name }"/>
+												</p>
+												<br>
+												<li class="list-group-item">
+													<c:choose>
+														<c:when test="${listAB.discount eq 0}"></c:when>
+														<c:otherwise>
+															<span class="before2">
+																<c:out value="${listAB.discount }"/>%
+															</span>
+														</c:otherwise>
+													</c:choose>
+													<span class="sale">
+														<fmt:formatNumber value="${listAB.price}" pattern="#,###" />원
+													</span>
+												</li>
 											</a>
-											<br>
-											<p class="name">
-												<c:out value="${listAB.name }"/>
-											</p>
-											<br>
-											<li class="list-group-item">
-												<c:choose>
-													<c:when test="${listAB.discount eq 0}"></c:when>
-													<c:otherwise>
-														<span class="before2">
-															<c:out value="${listAB.discount }"/>%
-														</span>
-													</c:otherwise>
-												</c:choose>
-												<span class="sale">
-													<fmt:formatNumber value="${listAB.price}" pattern="#,###" />원
-												</span>
-											</li>
 										</div>
 									</div>
 									<br>
@@ -636,25 +636,25 @@
 										<div class="card2" id="item">
 											<a href="javascript:goView(<c:out value="${listBeyond.seq}"/>)">
 												<img src="${listBeyond.path }${listBeyond.uuidName}" id="img" class="card-img-top">
+												<br>
+												<p class="name">
+													<c:out value="${listBeyond.name }"/>
+												</p>
+												<br>
+												<li class="list-group-item">
+													<c:choose>
+														<c:when test="${listBeyond.discount eq 0}"></c:when>
+														<c:otherwise>
+															<span class="before2">
+																<c:out value="${listBeyond.discount }"/>%
+															</span>
+														</c:otherwise>
+													</c:choose>
+													<span class="sale">
+														<fmt:formatNumber value="${listBeyond.price}" pattern="#,###" />원
+													</span>
+												</li>
 											</a>
-											<br>
-											<p class="name">
-												<c:out value="${listBeyond.name }"/>
-											</p>
-											<br>
-											<li class="list-group-item">
-												<c:choose>
-													<c:when test="${listBeyond.discount eq 0}"></c:when>
-													<c:otherwise>
-														<span class="before2">
-															<c:out value="${listBeyond.discount }"/>%
-														</span>
-													</c:otherwise>
-												</c:choose>
-												<span class="sale">
-													<fmt:formatNumber value="${listBeyond.price}" pattern="#,###" />원
-												</span>
-											</li>
 										</div>
 									</div>
 									<br>
@@ -677,25 +677,25 @@
 										<div class="card2" id="item">
 											<a href="javascript:goView(<c:out value="${listDD.seq}"/>)">
 												<img src="${listDD.path }${listDD.uuidName}" id="img" class="card-img-top">
+												<br>
+												<p class="name">
+													<c:out value="${listDD.name }"/>
+												</p>
+												<br>
+												<li class="list-group-item">
+													<c:choose>
+														<c:when test="${listDD.discount eq 0}"></c:when>
+														<c:otherwise>
+															<span class="before2">
+																<c:out value="${listDD.discount }"/>%
+															</span>
+														</c:otherwise>
+													</c:choose>
+													<span class="sale">
+														<fmt:formatNumber value="${listDD.price}" pattern="#,###" />원
+													</span>
+												</li>
 											</a>
-											<br>
-											<p class="name">
-												<c:out value="${listDD.name }"/>
-											</p>
-											<br>
-											<li class="list-group-item">
-												<c:choose>
-													<c:when test="${listDD.discount eq 0}"></c:when>
-													<c:otherwise>
-														<span class="before2">
-															<c:out value="${listDD.discount }"/>%
-														</span>
-													</c:otherwise>
-												</c:choose>
-												<span class="sale">
-													<fmt:formatNumber value="${listDD.price}" pattern="#,###" />원
-												</span>
-											</li>
 										</div>
 									</div>
 									<br>
@@ -718,25 +718,25 @@
 										<div class="card2" id="item">
 											<a href="javascript:goView(<c:out value="${listBO.seq}"/>)">
 												<img src="${listBO.path }${listBO.uuidName}" id="img" class="card-img-top">
+												<br>
+												<p class="name">
+													<c:out value="${listBO.name }"/>
+												</p>
+												<br>
+												<li class="list-group-item">
+													<c:choose>
+														<c:when test="${listBO.discount eq 0}"></c:when>
+														<c:otherwise>
+															<span class="before2">
+																<c:out value="${listBO.discount }"/>%
+															</span>
+														</c:otherwise>
+													</c:choose>
+													<span class="sale">
+														<fmt:formatNumber value="${listBO.price}" pattern="#,###" />원
+													</span>
+												</li>
 											</a>
-											<br>
-											<p class="name">
-												<c:out value="${listBO.name }"/>
-											</p>
-											<br>
-											<li class="list-group-item">
-												<c:choose>
-													<c:when test="${listBO.discount eq 0}"></c:when>
-													<c:otherwise>
-														<span class="before2">
-															<c:out value="${listBO.discount }"/>%
-														</span>
-													</c:otherwise>
-												</c:choose>
-												<span class="sale">
-													<fmt:formatNumber value="${listBO.price}" pattern="#,###" />원
-												</span>
-											</li>
 										</div>
 									</div>
 									<br>

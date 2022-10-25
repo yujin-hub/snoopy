@@ -159,7 +159,7 @@
 			width: 1000px;
 		}
 		
-		input {
+		.input {
 			display: none;
 		} 
 		
@@ -298,6 +298,34 @@
 		
 		a:hover{
 			color: #4f4f4f;
+		}
+		
+		.gray{
+			background-color: #f7f7f7;
+			height: 45px;
+			width: 820px;
+			border-radius: 10px;
+			display:table-cell;
+			vertical-align:middle;
+		}
+		
+		h6{
+			font-size: 15px;
+			margin-left: 20px;	
+			margin-top: 9px;		
+		}
+		
+		.num{
+			width: 35px;
+		}
+		
+		.btnplus{
+			width: 35px;
+			height: 35px;
+		}
+		
+		.fr{
+			margin-left: 210px;
 		}
 		
     </style>
@@ -447,15 +475,11 @@
 							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 						</div>
 						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<img src="${imageUpload[0].path }${imageUpload[0].uuidName}" id="img" class="card-img-top">
-							</div>
-							<div class="carousel-item">
-								<img src="${imageUpload[1].path }${imageUpload[1].uuidName}" id="img" class="card-img-top">
-							</div>
-							<div class="carousel-item">
-								<img src="${imageUpload[2].path }${imageUpload[2].uuidName}" id="img" class="card-img-top">
-							</div>
+							<c:forEach items="${listMain }" var="list" varStatus="status">
+								<div class="carousel-item active">
+									<img src="${list.path }${list.uuidName}" id="img" class="card-img-top">
+								</div>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
@@ -480,7 +504,7 @@
 					<br>
 					<span id="ship">오늘드림 | </span>
 					<span id="ship2">&nbsp;2,500원 또는 5,000원<br></span>
-					<hr>
+					<!-- <hr>
 					<h5>상품선택</h5>
 					<br>
 					<select class="form-select" aria-label="Default select example" style="width: 300px;">
@@ -491,7 +515,20 @@
 						<option value="4">015. 캔버스 위 봄햇살</option>
 						<option value="5">013. 저녁노을 피크닉</option>
 						<option value="6">008. 인 투 레이스</option>
-					</select>
+					</select> -->
+					<hr>
+					<div class="gray">
+						<div class="row">
+							<div class="col-3">
+								<h6>구매수량</h6>
+							</div>
+							<div class="col-3 fr">
+								<button type="button" class="btn btnplus btn-outline-dark"><i class="fa-solid fa-minus"></i></button>
+								<input class="num" type="text" value="0" readonly>
+								<button type="button" class="btn btnplus btn-outline-dark" id="increaseQuantity"><i class="fa-solid fa-plus"></i></button>
+							</div>
+						</div>
+					</div>
 					<hr>
 					<br>
 					<br>
@@ -511,24 +548,25 @@
 			<br>
 			<br>
 			<div class="main left2">
-				<input id="tab1" type="radio" name="tabs" checked> 
+				<input class="input" id="tab1" type="radio" name="tabs" checked> 
 				<label for="tab1">상품설명</label>
 				
-				<input id="tab2" type="radio" name="tabs" disabled>
+				<input class="input" id="tab2" type="radio" name="tabs" disabled>
 				<label for="tab2">리뷰</label>
 				
-				<input id="tab3" type="radio" name="tabs">
+				<input class="input" id="tab3" type="radio" name="tabs">
 				<label for="tab3">Q&A</label>
 				
-				<input id="tab4" type="radio" name="tabs">
+				<input class="input" id="tab4" type="radio" name="tabs">
 				<label for="tab4">구매정보</label>
 				
 				<section id="content1">
 					<center>
-						<img src="../../resources/images/detail.jpg" id="pic">
-						<img src="../../resources/images/detail2.jpg" id="pic">
+						<c:forEach items="${listSub}" var="list" varStatus="status">
+							<img src="${list.path }${list.uuidName}" id="pic">
+						</c:forEach>
 					</center>
-				</section>
+				</section> 
 				
 				<section id="content3">
 					<div class="row">
@@ -1288,6 +1326,7 @@
 			
 	var seq = $("input:hidden[name=seq]");
 	 
+
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
