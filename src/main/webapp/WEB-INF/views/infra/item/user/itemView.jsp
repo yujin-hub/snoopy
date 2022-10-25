@@ -62,7 +62,6 @@
 		
 		#before { 
 			font-family: 'MICEGothic Bold';
-			text-decoration-line: line-through;
 			color: #7E7474;
 			font-size: 20px;
 			line-height: 2em
@@ -72,7 +71,8 @@
 			font-family: 'MICEGothic Bold';
 			color: #C63B3B;
 			font-size: 25px;
-			line-height: 2em
+			line-height: 2em;
+			margin-left: 13px;
 		}
 		
 		.badge {
@@ -436,79 +436,78 @@
 	<br>
 	<br>
 	<br>
-	<form method="post" name="ViewForm" enctype="multipart/form-data">
-	<input type="hidden" name="seq" value="${vo.seq}">
+	<form method="post" name="ViewForm">
 		<div class= "container" id="wid">
 			<div class="row">
-				<div class="col-5">
-					<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" style="width: 450px; height: 450px;">
-						<div class="carousel-indicators">
-							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-						</div>
-						<c:forEach items="${card }" var="card" varStatus="status">
+				<%-- <c:forEach items="${view}" var="view" varStatus="status"> --%>
+					<div class="col-5">
+						<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" style="width: 450px; height: 450px;">
+							<div class="carousel-indicators">
+								<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+								<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+								<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+							</div>
 							<div class="carousel-inner">
 								<div class="carousel-item active">
-									<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015771628ko.jpg?l=ko" class="d-block w-100" alt="...">
+									<img src="${imageUpload[0].path }${imageUpload[0].uuidName}" id="img" class="card-img-top">
 								</div>
 								<div class="carousel-item">
-									<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015771617ko.jpg?l=ko" class="d-block w-100" alt="...">
+									<img src="${imageUpload[1].path }${imageUpload[1].uuidName}" id="img" class="card-img-top">
 								</div>
 								<div class="carousel-item">
-									<img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0015/A00000015771626ko.jpg?l=ko" class="d-block w-100" alt="...">
+									<img src="${imageUpload[2].path }${imageUpload[2].uuidName}" id="img" class="card-img-top">
 								</div>
 							</div>
-						</c:forEach>
+						</div>
 					</div>
-				</div>
-				<div class="col-6" id="pad">
-					<span>클리오 > </span>
-					<br>
-					<br>
-					<h3><c:out value="${view.name}"/></h3>
-					<span id="before">32,000원</span>
-					<span id="sale">&nbsp;&nbsp;&nbsp;22,400원</span>
-					<br>
-					<span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
-					<span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
-					<br>
-					<hr>
-					<h5>배송정보 <i class="fa-solid fa-circle-info"></i></h5>
-					<br>
-					<span id="ship">일반배송 | </span>
-					<span id="ship2">&nbsp;2,500원 (20,000원 이상 무료배송)<br></span>
-					<span id="left">올리브영 배송 | 평균 3일 이내 배송</span>
-					<br>
-					<br>
-					<span id="ship">오늘드림 | </span>
-					<span id="ship2">&nbsp;2,500원 또는 5,000원<br></span>
-					<hr>
-					<h5>상품선택</h5>
-					<br>
-					<select class="form-select" aria-label="Default select example" style="width: 300px;">
-						<option selected>옵션을 선택하세요.</option>
-						<option value="1">011. 아늑한 골목산책</option>
-						<option value="2">012. 서울숲 가을바람</option>
-						<option value="3">014. 한남동 아뜰리에</option>
-						<option value="4">015. 캔버스 위 봄햇살</option>
-						<option value="5">013. 저녁노을 피크닉</option>
-						<option value="6">008. 인 투 레이스</option>
-					</select>
-					<hr>
-					<br>
-					<br>
-					<span id="sum">상품금액 합계</span>
-					<span id="sum" style="float: right;">0원</span>
-					<hr>
-					<br>
-					<div id="btn">
-						<a href="/payment/payForm">
-							<button type="button" class="btn btn1 btn-lg">바로구매</button>
-						</a>
-						<button type="button" class="btn btn2 btn-lg">장바구니</button>
+					<div class="col-6" id="pad">
+						<span>클리오 > </span>
+						<br>
+						<br>
+						<h3><c:out value="${view.name}"/></h3>
+						<span id="before"><c:out value="${view.discount}"/>%</span>
+						<span id="sale"><fmt:formatNumber value="${view.price}" pattern="#,###" />원</span>
+						<br>
+						<span class="badge rounded-pill" style="background-color: #6C9FC3;">오늘드림</span>
+						<span class="badge rounded-pill" style="background-color: #E85858;">세일</span>
+						<br>
+						<hr>
+						<h5>배송정보 <i class="fa-solid fa-circle-info"></i></h5>
+						<br>
+						<span id="ship">일반배송 | </span>
+						<span id="ship2">&nbsp;2,500원 (20,000원 이상 무료배송)<br></span>
+						<span id="left">올리브영 배송 | 평균 3일 이내 배송</span>
+						<br>
+						<br>
+						<span id="ship">오늘드림 | </span>
+						<span id="ship2">&nbsp;2,500원 또는 5,000원<br></span>
+						<hr>
+						<h5>상품선택</h5>
+						<br>
+						<select class="form-select" aria-label="Default select example" style="width: 300px;">
+							<option selected>옵션을 선택하세요.</option>
+							<option value="1">011. 아늑한 골목산책</option>
+							<option value="2">012. 서울숲 가을바람</option>
+							<option value="3">014. 한남동 아뜰리에</option>
+							<option value="4">015. 캔버스 위 봄햇살</option>
+							<option value="5">013. 저녁노을 피크닉</option>
+							<option value="6">008. 인 투 레이스</option>
+						</select>
+						<hr>
+						<br>
+						<br>
+						<span id="sum">상품금액 합계</span>
+						<span id="sum" style="float: right;">0원</span>
+						<hr>
+						<br>
+						<div id="btn">
+							<a href="/payment/payForm">
+								<button type="button" class="btn btn1 btn-lg">바로구매</button>
+							</a>
+							<button type="button" class="btn btn2 btn-lg">장바구니</button>
+						</div>
 					</div>
-				</div>
+				<%-- </c:forEach> --%>
 			</div>
 			<br>
 			<br>

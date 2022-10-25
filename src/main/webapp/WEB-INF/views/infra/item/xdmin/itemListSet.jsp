@@ -467,7 +467,7 @@
 														<a href="javascript:goForm(<c:out value="${list.seq}"/>)"><c:out value="${list.name }"/></a>
 													</td>
 													<td><c:out value="${list.discount }"/>%</td>
-													<td><c:out value="${list.price }"/>원</td>
+													<td><fmt:formatNumber value="${list.price}" pattern="#,###" />원</td>
 													<td><c:out value="${list.regist }"/></td>
 													<td><c:out value="${list.numPurchase }"/>개</td>
 													<td>

@@ -121,14 +121,14 @@ public class ItemController {
 	}
 
 	@RequestMapping(value = "itemView")
-	public String itemView(@ModelAttribute("vo") ItemVo vo, Model model, HttpSession httpSession) throws Exception {
-		
-		String seq = (String) httpSession.getAttribute("sessSeq");
-		vo.setSeq(seq);
+	public String itemView(@ModelAttribute("vo") ItemVo vo, Item dto, Model model) throws Exception {
 		
 		Item result = service.selectOne(vo);
 		model.addAttribute("view", result);
 		
+		List<Item> imageUpload = service.imageUpload(vo);
+		model.addAttribute("imageUpload", imageUpload);
+
 		return "infra/item/user/itemView";
 	}
 

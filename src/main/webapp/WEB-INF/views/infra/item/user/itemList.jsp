@@ -181,6 +181,11 @@
 		   display: hidden;
 		}
 		
+		.card-img-top{
+			height: 210px;
+			width: 210px;			
+		}
+		
 	</style>
 </head>
     

@@ -65,7 +65,7 @@ public class ItemDao {
 		return sqlSession.selectOne(namespace + ".selectLastSeq", dto);
 	}
 
-	public int  insertUploaded(Item dto) {
+	public int insertUploaded(Item dto) {
 		return sqlSession.selectOne(namespace + ".insertUploaded", dto);
 	}
 	
