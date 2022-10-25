@@ -182,8 +182,8 @@
 		}
 		
 		.card-img-top{
-			height: 210px;
-			width: 210px;			
+			height: 230px;
+			width: 230px;			
 		}
 		
 	</style>
