@@ -39,6 +39,7 @@
 				, a.accessDate
 				, a.userDelNY
 		<include refid="selectCommon" />
+		ORDER BY a.seq DESC
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
 	
