@@ -262,8 +262,14 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "mypageOrder")
-	public String mypageOrder() throws Exception {
+	public String mypageOrder(@ModelAttribute("vo") MemberVo vo, Model model, HttpSession httpSession) throws Exception {
 
+		String seq = (String) httpSession.getAttribute("sessSeq");
+		vo.setSeq(seq);
+		
+		Member result = service.selectOne(vo);
+		model.addAttribute("order", result);
+		
 		return "infra/member/user/mypageOrder";
 	}
 
@@ -310,8 +316,14 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "changePW")
-	public String changePW() throws Exception {
+	public String changePW(@ModelAttribute("vo") MemberVo vo, Model model, HttpSession httpSession) throws Exception {
 
+		String seq = (String) httpSession.getAttribute("sessSeq");
+		vo.setSeq(seq);
+		
+		Member result = service.selectOne(vo);
+		model.addAttribute("ch", result);
+		
 		return "infra/member/user/changePW";
 	}
 

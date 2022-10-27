@@ -194,7 +194,7 @@
 					<span>생년월일</span>
 				</div>
 				<div class="col-4">
-					<input type="text" class="form-control shDate" id="shDate" name="shDate" value="<c:out value="${vo.shDate}"/>">
+					<input type="text" class="form-control shDate" id="shDate" name="dob" value="<c:out value="${vo.shDate}"/>">
 				</div>
 				<div class="col-2" id="cdiv">
 					<span>휴대폰</span>
@@ -648,6 +648,7 @@
 							
 							document.getElementById("nicknameAllowNY").value = 0;
 						}
+
 					}
 				});
 		});

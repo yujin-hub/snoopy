@@ -192,7 +192,7 @@
 		        	</c:if>
 		            <c:if test="${sessSeq ne null}">
 			           	<div class="after">
-							<a href="/member/login" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
+							<a href="/item/itemList" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
 							&nbsp; | &nbsp; 
 							<a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
 							&nbsp; | &nbsp; 
@@ -394,7 +394,7 @@
 								<span>휴대폰</span>
 							</div>
 							<div class="col-9 font3">
-								<span><c:out value="${pro.name }"/></span>
+								<span><c:out value="${pro.tel }"/></span>
 							</div>
 						</div>
 						<br>

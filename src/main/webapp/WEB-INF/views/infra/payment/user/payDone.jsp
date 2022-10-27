@@ -188,7 +188,7 @@
 		        	</c:if>
 		            <c:if test="${sessSeq ne null}">
 			           	<div class="after">
-			              	<a href="/member/login" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
+			              	<a href="/item/itemList" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
 							&nbsp; | &nbsp; 
 							<a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
 							&nbsp; | &nbsp; 
@@ -464,6 +464,22 @@
 
 	    });
 	 
+	 $("#btnLogout").on("click", function(){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/member/logoutProc"
+				,data: {}
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/member/login";
+					} else {
+						alert("다시 시도해주세요.")
+					}
+				}
+			});
+		});
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

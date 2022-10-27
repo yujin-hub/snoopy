@@ -288,7 +288,7 @@
 		        	</c:if>
 		            <c:if test="${sessSeq ne null}">
 			           	<div class="after">
-			              	<a href="/member/login" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
+			              	<a href="/item/itemList" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
 							&nbsp; | &nbsp; 
 							<a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
 							&nbsp; | &nbsp; 
@@ -431,7 +431,7 @@
 						<span class="user"><i class="fa-solid fa-circle-user"></i></span>
 					</div>
 					<div class="col-5 white">
-						<span>PINK OLIVE &nbsp;&nbsp;최유진님 반갑습니다.</span>
+						<span><c:out value="${order.userGrade }"/> &nbsp;&nbsp;<c:out value="${order.nickname }"/>님 반갑습니다.</span>
 					</div>
 					<div class="col-2 profile">
 						<span class="cursor font7"><a href="/member/mypageProfile">나의 프로필 &nbsp;&nbsp;&nbsp;></a></span>
