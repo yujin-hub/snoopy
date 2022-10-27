@@ -813,7 +813,7 @@
 					}
 				}
 			});
-		});
+		})
 	 
 	 
 	 goView = function(seq) {

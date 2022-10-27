@@ -206,7 +206,7 @@
 		        	</c:if>
 		            <c:if test="${sessSeq ne null}">
 			           	<div class="after">
-							<a href="/member/login" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
+							<a href="/item/itemList" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
 							&nbsp; | &nbsp; 
 							<a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
 							&nbsp; | &nbsp; 
@@ -425,7 +425,7 @@
 				<br>
 				<hr>
 				<br>
-				<h2>Weekly Special</h2>
+				<h2>이 상품 어때요?</h2>
 				<br>
 				<div class="row">
 					<c:forEach items="${listWeek}" var="listWeek" varStatus="status">
@@ -454,10 +454,6 @@
 												</span>
 											</c:otherwise>
 										</c:choose>
-									</li>
-									<li class="list-group-item">
-										<span class="badge rounded-pill red">세일</span>
-										<span class="badge rounded-pill blue">오늘드림</span>
 									</li>
 								</a>
 							</div>

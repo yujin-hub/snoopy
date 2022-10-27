@@ -338,9 +338,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="itemListSet">상품 관리</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/payment/paySet">주문 관리</a>
-					</li>
+					<!-- <li class="nav-item">
+						<a class="nav-link" href="#">주문 관리</a>
+					</li> -->
 				<br>
 				<br>
 				<span class="font">Code</span>
