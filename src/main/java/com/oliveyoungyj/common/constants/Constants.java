@@ -22,6 +22,9 @@ public class Constants {
 	
 	public static final long PASSWOPRD_CHANGE_INTERVAL = 90;
 	
+	
+//	public static final String UPLOAD_PATH_PREFIX = "D://factory/ws_sts_4151/snoopy/src/main/webapp/resources/images";
+	// 실서버에 업로드 할 때는 경로 다시 설정
 	public static final String UPLOAD_PATH_PREFIX = "D://factory/ws_sts_4151/snoopy/src/main/webapp/resources/images";
 	public static final String UPLOAD_PATH_PREFIX_FOR_VIEW = "/resources/images";
 	
@@ -29,6 +32,5 @@ public class Constants {
 	public static final String COOKIE_DOMAIN = "";
 	public static final String COOKIE_PATH = "/";
 	public static final String COOKIE_NAME_SEQ = "cookieSeq";
-	
 	
 }
