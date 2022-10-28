@@ -1297,8 +1297,13 @@
 	function count(type)  {
 		if(type === 'plus') {
 			var tmp = document.getElementById("countresult").value;
+			var max = 5;
 			tmp++;
 			document.getElementById("countresult").value = tmp;
+			if (tmp > max) {
+				alert("최대 구매 수량은 5개입니다.")
+				return false;
+			} 
 		} else if (type === 'minus')  {
 			var tmp = document.getElementById("countresult").value;
 				if(tmp < 2) {

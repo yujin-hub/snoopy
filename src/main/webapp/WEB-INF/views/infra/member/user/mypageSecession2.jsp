@@ -448,7 +448,23 @@
 
 	    });
 	 
-	 </script>
+	 $("#btnLogout").on("click", function(){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/member/logoutProc"
+				,data: {}
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/member/login";
+					} else {
+						alert("다시 시도해주세요.")
+					}
+				}
+			});
+		});
+</script>
 	 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
