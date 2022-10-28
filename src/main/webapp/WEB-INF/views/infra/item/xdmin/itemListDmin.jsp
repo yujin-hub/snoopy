@@ -816,11 +816,16 @@
 		})
 	 
 	 
-	 goView = function(seq) {
-		seq.val(seq);
-		form.attr("action", goUrlForm).submit();
-	 }
-	 
+	var goUrlView = "/item/itemView";
+		
+	var form = $("form[name=formList]");
+	var seq = $("input:hidden[name=seq]");
+	
+	goView = function(pseq) {
+		seq.val(pseq);
+		form.attr("action", goUrlView).submit();
+	}
+		
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

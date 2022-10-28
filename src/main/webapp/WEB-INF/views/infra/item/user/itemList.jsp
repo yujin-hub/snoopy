@@ -62,7 +62,6 @@
 			color: #4c4c4c;
 			font-size: 18px;
 			width: 220px;
-			height: 45px;
 		}
 		
 		.before {
@@ -186,6 +185,10 @@
 			width: 230px;			
 		}
 		
+		p{
+			width: 220px;
+			height: 60px;
+		}
 	</style>
 </head>
     
@@ -434,9 +437,9 @@
 								<a href="javascript:goView(<c:out value="${listWeek.seq}"/>)">
 									<img src="${listWeek.path }${listWeek.uuidName}" id="img" class="card-img-top">
 									<br>
-									<span class="name">
+									<p class="name">
 										<c:out value="${listWeek.name }"/>
-									</span>
+									</p>
 									<br>
 									<li class="list-group-item">
 										<c:choose>
@@ -570,9 +573,9 @@
 												</li>
 											</a>
 										</div>
+										<br>
+										<br>
 									</div>
-									<br>
-									<br>
 								</c:forEach>
 								<br>
 								<br>
@@ -611,9 +614,9 @@
 												</li>
 											</a>
 										</div>
+										<br>
+										<br>
 									</div>
-									<br>
-									<br>
 								</c:forEach>
 								<br>
 								<br>
@@ -652,9 +655,9 @@
 												</li>
 											</a>
 										</div>
+										<br>
+										<br>
 									</div>
-									<br>
-									<br>
 								</c:forEach>
 								<br>
 								<br>
@@ -693,9 +696,9 @@
 												</li>
 											</a>
 										</div>
+										<br>
+										<br>
 									</div>
-									<br>
-									<br>
 								</c:forEach>
 								<br>
 								<br>
@@ -734,9 +737,9 @@
 												</li>
 											</a>
 										</div>
+										<br>
+										<br>
 									</div>
-									<br>
-									<br>
 								</c:forEach>
 								<br>
 								<br>
