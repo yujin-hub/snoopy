@@ -452,11 +452,11 @@
 			</div>
 			<div class="col-7" style="margin-top: 6px;">
 				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="option1" checked>
+				  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="option1">
 				  <label class="form-check-label" for="flexRadioDefault2">기존 배송지</label>
 				</div>
 				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault63" value="option2">
+				  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault63" value="option2" checked>
 				  <label class="form-check-label" for="inlineRadio2">신규 배송지</label>
 				</div>
 			</div>
@@ -723,55 +723,37 @@
 		<br>
 		<div class="accordion" id="accordionExample">
 			<div class="accordion-item">
-				<h2 class="accordion-header" id="headingOne">
-				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-					주문 상품정보 및 결제대행 서비스 이용약관에 모두 동의하십니까? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="flexCheckDefault2">
-						<label class="form-check-label" for="flexCheckDefault">
-							모두 동의
-						</label>
-					</div>
-				</button>
+				<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> 주문 상품정보 및 결제대행 서비스 이용약관에 모두 동의하십니까?
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="checkboxAll" name="checkboxAll">
+							<label class="form-check-label" for="defaultCheck1"> 모두 동의 </label>
+						</div>
+					</button>
 				</h2>
-				<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+				<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
 					<div class="accordion-body">
 						<hr class="hr2">
 						<span id="font4">주문상품정보에 대한 동의</span>
-						<br>
-						<br>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="flexCheckDefault">
-							<label class="form-check-label" for="flexCheckDefault">
-								주문하실 상품, 가격, 배송정보, 할인내역등을 최종 확인하였으며, 구매에 동의합니다. (전상거래법 제8조 제2항)
-							</label>
-						</div>
-						<br>
-						<hr class="hr2">
-						<span id="font4">결제대행 서비스 이용약관 동의</span>
-						<br>
-						<br>
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="flexCheckDefault2">
-							<label class="form-check-label" for="flexCheckDefault">
-								전자금융거래 기본약관
-							</label>
-						</div>
-						<br>
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="flexCheckDefault2">
-							<label class="form-check-label" for="flexCheckDefault">
-								개인정보 수집 및 이용 동의
-							</label>
-						</div>
-						<br>
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="flexCheckDefault2">
-							<label class="form-check-label" for="flexCheckDefault">
-								개인정보 제공 및 위탁 동의
+							<input class="form-check-input" type="checkbox" value="" id="checkboxSeq" name="checkboxSeq">
+							<label class="form-check-label" for="defaultCheck1">주문하실 상품, 가격, 배송정보, 할인내역등을 최종 확인하였으며, 구매에 동의합니다. (전상거래법 제8조 제2항)
 							</label>
 						</div>
 						<hr class="hr2">
+						<strong>결제대행 서비스 이용약관 동의</strong>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="checkboxSeq" name="checkboxSeq">
+							<label class="form-check-label" for="defaultCheck1">전자금융거래 기본약관</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="checkboxSeq" name="checkboxSeq">
+							<label class="form-check-label" for="defaultCheck1">개인정보 수집 및 이용 동의</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="checkboxSeq" name="checkboxSeq">
+							<label class="form-check-label" for="defaultCheck1">개인정보 제공 및 위탁 동의</label>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -938,6 +920,23 @@
 					}
 				}
 			});
+		});
+		
+		$('#checkboxAll').click(function() {
+			if ($("#checkboxAll").is(':checked'))
+				$("input[name=checkboxSeq]").prop("checked", true);
+			else
+				$("input[name=checkboxSeq]").prop("checked", false);
+		});
+		$("input[name=checkboxSeq]").click(function() {
+
+			var total = $("input[name=checkboxSeq]").length;
+			var checked = $("input[name=checkboxSeq]:checked").length;
+
+			if (total != checked)
+				$("checkboxAll").prop("checked", false);
+			else
+				$("checkboxAll").prop("checked", true);
 		});
 		
 </script>
