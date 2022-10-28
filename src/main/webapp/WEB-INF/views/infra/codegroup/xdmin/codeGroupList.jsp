@@ -645,6 +645,23 @@
 		});
 		
 	 	
+	 	$("#btnLogout").on("click", function(){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/member/logoutProc"
+				,data: {}
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/member/login";
+					} else {
+						alert("다시 시도해주세요.")
+					}
+				}
+			});
+		});
+	 	
  	var goUrlList = "/codeGroup/codeGroupList";				// var: 변수 선언 예약어			/* #-> */
 	var goUrlInst = "/codeGroup/codeGroupInst"; 			/* #-> */
 	var goUrlUpdt = "/codeGroup/codeGroupUpdt";				/* #-> */
