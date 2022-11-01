@@ -38,6 +38,7 @@
 			<mapping path="/**"/>
 			<exclude-mapping path="/" />
 			<exclude-mapping path="/resources/**" />
+			<exclude-mapping path="/rest/**" />
 			<exclude-mapping path="/item/itemList" />
 			<exclude-mapping path="/member/login" />
 			<exclude-mapping path="/member/loginDmin" />
