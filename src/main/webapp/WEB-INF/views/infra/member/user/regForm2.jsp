@@ -467,7 +467,6 @@
 	var goUrlInst = "/member/memberInst"; 
 
 	$("#btnSave").on("click", function(){
-		
    		form.attr("action", goUrlJoin).submit();
 	}); 
 

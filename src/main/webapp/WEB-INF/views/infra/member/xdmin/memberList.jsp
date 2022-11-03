@@ -190,6 +190,11 @@
 			color: black;		
 		}
 		
+		.left{
+			float: left;
+			
+		}
+		
 	</style>
 </head>
     
@@ -494,6 +499,7 @@
 							<!-- pagination e -->
 							
 							<br>
+							<button type="button" class="left btn btn-success" id="btnExcel"><i class="fa-solid fa-file-excel"></i></button>
 							<a class="btn btn2 btn-space" role="button"><i class="fa-solid fa-trash-can"></i></a>							
 							<a href="memberForm" class="btn btn2 btn-space" role="button"><i class="fa-solid fa-plus"></i></a>
 							<br>
@@ -591,6 +597,7 @@
 	 	var goUrlUele = "/member/memberUele";
 	 	var goUrlDele = "/member/memberDele";
 	 	var goUrlForm = "/member/memberForm";
+	 	var excelUri = "/member/excelDownload";
 
 		var form = $("form[name=formMem]");
 
@@ -610,6 +617,10 @@
 		 });
 		 
 		 
+		$("#btnExcel").click(function() {
+			form.attr("action", excelUri).submit();
+		});
+			
 		goForm = function(keyValue) {
 		    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
 	    	seq.val(keyValue);

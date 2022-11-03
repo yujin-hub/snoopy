@@ -81,18 +81,19 @@ public class CodeServiceImpl implements CodeService{
 //		return rt;
 //	}
 //	
-//	public static String selectOneCachedCode(int code) throws Exception {
-//		String rt = "";
-//		for(Code codeRow : Code.cachedCodeArrayList) {
-//			if (codeRow.getSeq().equals(Integer.toString(code))) {
-//				rt = codeRow.getName();
-//			} else {
-//				// by pass
-//			}
-//		}
-//		return rt;
-//	}    // 코드가 뭔지 알아보는 코드, controller 엑셀 다운로드 부분에 "성별" 부분 
-//	
+	public static String selectOneCachedCode(int code) throws Exception {
+		String rt = "";
+		for(Code codeRow : Code.cachedCodeArrayList) {
+			if (codeRow.getSeq().equals(Integer.toString(code))) {
+				rt = codeRow.getName();
+			} else {
+				// by pass
+			}
+		}
+		return rt;
+	}    
+	
+// 코드가 뭔지 알아보는 코드, controller 엑셀 다운로드 부분에 "성별" 부분 /	
 	
 	public static List<Code> selectListCachedCode(String seq) throws Exception {
 		List<Code> rt = new ArrayList<Code>();
