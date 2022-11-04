@@ -530,12 +530,6 @@
 					<div class="col-6">
 						<input type="text" id="addr3" class="form-control" placeholder="참고항목">
 					</div>
-					<div class="col-6">
-						<input type="text" id="memLat" name="memLat" class="form-control" placeholder="위도">
-					</div>
-					<div class="col-6">
-						<input type="text" name="memLng" class="form-control" placeholder="경도">
-					</div>
 				</div>
 			</div>
 		</div>
@@ -551,12 +545,11 @@
 			</div>
 			<div class="col-5">
 				<select class="form-select" aria-label=".form-select example" required>
-					<option selected>배송메시지를 선택해주세요.</option>
+					<option selected>::배송메시지를 선택해주세요.::</option>
 					<option value="1">문 앞에 놔주세요.</option>
 					<option value="2">경비실에 맡겨주세요.</option>
 					<option value="3">배송 전에 전화주세요.</option>
 					<option value="4">부재시 연락주세요.</option>
-					<option value="5">직접 입력</option>
 				</select> 
 			</div>
 		</div>
@@ -592,7 +585,7 @@
 						<span>2022.06.30 ~ 2022.12.31</span>
 					</div>
 					<div class="col-2">
-						<button type="button" class="btn btn2">적용</button>
+						<button type="button" class="btn btn2" value="5000" id="coupon1">적용</button>
 					</div>
 				</div>
 				<hr class="hr1">
@@ -608,7 +601,7 @@
 						<span>2022.07.03 ~ 2022.11.30</span>
 					</div>
 					<div class="col-2">
-						<button type="button" class="btn btn2">적용</button>
+						<button type="button" class="btn btn2" value="7000" id="coupon2">적용</button>
 					</div>
 				</div>
 				<hr class="hr1">
@@ -624,25 +617,10 @@
 						<span>2022.07.26 ~ 2022.11.26</span>
 					</div>
 					<div class="col-2">
-						<button type="button" class="btn btn2">적용</button>
+						<button type="button" class="btn btn2" value="3000" id="coupon3">적용</button>
 					</div>
 				</div>
 				<hr class="hr1">
-				<div class="row" id="text">
-					<div class="col-3 top">
-						<span>8월, 여름아 잘가</span>
-					</div>
-					<div class="col-3">
-						<span>8,000원</span><br>
-						<span>(20,000원 이상 구매시)</span>
-					</div>
-					<div class="col-4 top">
-						<span>2022.08.12 ~ 2022.10.15</span>
-					</div>
-					<div class="col-2">
-						<button type="button" class="btn btn2">적용</button>
-					</div>
-				</div>
 			</div>
 			<div class="col-4 left">
 				<span id="font1">최종 결제 정보</span>
@@ -712,10 +690,6 @@
 		<div class="form-check form-check-inline">
 			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
 			<label class="form-check-label" for="inlineRadio1">카카오페이</label>
-		</div>
-		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-			<label class="form-check-label" for="inlineRadio2">네이버페이</label>
 		</div>
 		<hr class="hr1">
 		<br>

@@ -20,6 +20,10 @@ public interface MemberService {
 	public Member selectOneID(Member dto) throws Exception;
 	public Member selectOneLogin(Member dto) throws Exception;
 	
+	//카카오 로그인
+	public int kakaoInst(Member dto) throws Exception;
+	public Member snsLoginCheck(Member dto) throws Exception;
+	 
 //	//업로드
 //	public Member imageUpload(Member dto) throws Exception;
 	

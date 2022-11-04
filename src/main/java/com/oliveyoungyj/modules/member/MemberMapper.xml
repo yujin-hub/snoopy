@@ -252,6 +252,48 @@
 			seq = #{seq}
 	</update>
 	
+	
+	
+	<!-- 카카오 로그인 -->
+	<insert id="kakaoInst">
+		INSERT INTO user (
+			userID
+			,name
+			,email
+			,gender
+			,dob
+			,userDelNY
+			,snsImg
+		)
+		VALUES (
+			#{snsID}
+			,#{name}
+			,#{email}
+			,#{gender}
+			,#{dob}
+			,0
+			,#{snsImg}
+		)
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	<select id="snsLoginCheck" resultMap="resultMapObj">
+		select 
+			u.seq
+			,u.userID
+			,u.name
+			,u.email
+			,u.pw
+			,u.snsImg
+		from user u
+		where 1=1 
+			and userID = #{snsID} 
+			and name = #{name}
+	</select>
+	
+	
 	<!-- <insert id="insertUploaded">
 		INSERT INTO profileUploaded (
 			type

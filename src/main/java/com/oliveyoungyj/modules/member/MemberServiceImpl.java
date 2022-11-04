@@ -106,6 +106,22 @@ public class MemberServiceImpl implements MemberService{
 		return dao.secession(dto);
 	}
 	
+	//카카오 로그인
+	@Override
+	public Member snsLoginCheck(Member dto) throws Exception {
+	    return dao.snsLoginCheck(dto);
+	}
+	
+	@Override
+    public int kakaoInst(Member dto) throws Exception {
+    	try {
+    		dao.kakaoInst(dto);
+    		return 1;
+    	} catch (Exception e) {
+    		throw new Exception();
+		}
+    }
+	
 //	@Override
 //	public Member imageUpload(Member dto) throws Exception {
 //		return dao.imageUpload(dto);

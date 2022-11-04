@@ -25,6 +25,11 @@ public class Member extends Base{
 	public String userID;
 	public String pw;
 	
+	
+	public String token;
+	public String snsID;
+	public String snsImg;
+	
 //	private MultipartFile[] MultipartFile;
 
 	
@@ -148,6 +153,27 @@ public class Member extends Base{
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
+	public String getSnsID() {
+		return snsID;
+	}
+	public void setSnsID(String snsID) {
+		this.snsID = snsID;
+	}
+	public String getSnsImg() {
+		return snsImg;
+	}
+	public void setSnsImg(String snsImg) {
+		this.snsImg = snsImg;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	
+	
+	
 //	public MultipartFile[] getMultipartFile() {
 //		return MultipartFile;
 //	}
