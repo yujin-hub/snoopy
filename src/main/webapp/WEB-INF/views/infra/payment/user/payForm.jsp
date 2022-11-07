@@ -113,30 +113,30 @@
 			font-weight: bold;
 		}
 		
-		#font5{
+		.font5{
 			font-size: 17px;
 			margin-left: 20px;
 		}
 		
-		#font6{
+		.font6{
 			font-size: 17px;
 			float: right;
 		}
 		
-		#font7{
+		.font7{
 			font-size: 17px;
 			float: right;
 			color: #A70F0F;
 		}
 		
-		#font8{
+		.font8{
 			font-size: 19px;
 			margin-left: 20px;
 			font-weight: bold;
 			color: black;
 		}
 		
-		#font9{
+		.font9{
 			font-size: 19px;
 			float: right;
 			color: #A70F0F;
@@ -254,6 +254,9 @@
 			height: 210px;
 		}
 		
+		.right{
+			float: right;		
+		}
 	</style>
 </head>
     
@@ -296,14 +299,6 @@
 						<div class="layer_inner"></div>
 					</div>
 				</div>
-				<ul class="mymenu_area">
-					<li class="store ">
-						<a href="#" class="mymenu_layer" title="관심 매장소식 자세히보기 열기/닫기">관심 매장소식</a>
-					</li>
-					<li class="recent">
-						<a href="javascript:;" class="mymenu_layer" title="최근 본 상품 자세히보기 열기/닫기">최근 본 상품</a>
-					</li>
-				</ul>
 			</div>
 		</form>
 	</div>
@@ -497,7 +492,6 @@
 					<option selected>010</option>
 					<option value="2">070</option>
 					<option value="3">02</option>
-					<option value="4">기타</option>
 				</select> 
 			</div>
 			<div class="col-2">
@@ -621,6 +615,17 @@
 					</div>
 				</div>
 				<hr class="hr1">
+				<!-- <div class="row" id="text">
+					<div class="col-3">
+					</div>
+					<div class="col-3">
+					</div>
+					<div class="col-3">
+					</div>
+					<div class="col-3">
+						<button type="button" class="btn btn2" id="delCoupon" style="margin-right: 10px;">쿠폰 적용 취소</button>
+					</div>
+				</div> -->
 			</div>
 			<div class="col-4 left">
 				<span id="font1">최종 결제 정보</span>
@@ -629,48 +634,54 @@
 				<div class="row left totalbox">
 					<div class="col-4">
 						<br>
-						<span id="font5">총 상품 금액</span>
+						<span class="font5">총 상품 금액</span>
 					</div>
 					<div class="col-7">
 						<br>
-						<span id="font6">22,400원</span>
+						<span class="font6 right">원</span>
+						<span class="font6 right" id="totalPrice"></span>
 					</div>
 					<div class="col-4">
 						<br>
-						<span id="font5">쿠폰 할인 금액</span>
+						<span class="font5">쿠폰 할인 금액</span>
 					</div>
 					<div class="col-7">
 						<br>
-						<span id="font7">0원</span>
+						<span class="font7 right">원</span>
+						<span class="font7 right" id="couponPrice"></span>
 						<br>
 						<br>
 					</div>
 					<hr class="hr3">
 					<div class="col-4">
-						<span id="font5">총 배송비</span>
+						<span class="font5">총 배송비</span>
 					</div>
 					<div class="col-7">
-						<span id="font7">0원</span>
+						<span class="font7 right">원</span>
+						<span class="font7 right" id="fee"></span>
 						<br>
 						<br>
 					</div>
 					<hr class="hr3">
 					<div class="col-5">
-						<span id="font5">CJ ONE 포인트</span>
+						<span class="font5">CJ ONE 포인트</span>
 					</div>
 					<div class="col-6">
-						<span id="font6">+672원</span>
+						<span class="font6 right">원</span>
+						<span class="font6 right" id="point1"></span>
+						<span class="font6 right">+ </span>
 						<br>
 						<br>
 					</div>
 					<hr class="hr3">
 					<div class="col-5">
 						<br>
-						<span id="font8">최종 결제 금액</span>
+						<span class="font8">최종 결제 금액</span>
 					</div>
 					<div class="col-6">
 						<br>
-						<span id="font9">22,400원</span>
+						<span class="font9 right">원</span>
+						<span class="font9 right" id="totalPrice2"></span>
 						<br>
 						<br>
 						<br>
@@ -875,6 +886,7 @@
 			if (status === kakao.maps.services.Status.OK) {
 				console.log(result);
 				document.getElementById("memLat").value = result[0].x;
+				
 				$("input[name=memLng]").val(result[0].y);
 			}
 		};
@@ -896,12 +908,14 @@
 			});
 		});
 		
+		//약관 전체 체크
 		$('#checkboxAll').click(function() {
 			if ($("#checkboxAll").is(':checked'))
 				$("input[name=checkboxSeq]").prop("checked", true);
 			else
 				$("input[name=checkboxSeq]").prop("checked", false);
 		});
+		
 		$("input[name=checkboxSeq]").click(function() {
 
 			var total = $("input[name=checkboxSeq]").length;
@@ -912,6 +926,61 @@
 			else
 				$("checkboxAll").prop("checked", true);
 		});
+		
+
+		//쿠폰 할인 적용
+		var price1 = 22400;
+		var oliveCount = 1;
+		var totalPrice = (price1*oliveCount);
+		if(totalPrice < 20000){
+			var deliFee = 2500;
+		}else if(totalPrice >= 20000){
+			var deliFee = 0;
+		}else{
+			/* by pass */
+		}
+		var finalPrice = totalPrice + deliFee;
+		var finalPoint = (22400*0.05)*oliveCount;
+		
+		$("#totalPrice").text(totalPrice.toLocaleString());
+		$("#couponPrice").text("0");
+		$("#totalPrice2").text(finalPrice.toLocaleString()); 
+		$("#fee").text(deliFee.toLocaleString()); 
+		$("#point").text(finalPoint.toLocaleString()); 
+		$("#point1").text(finalPoint.toLocaleString()); 
+		
+		$(document).ready(function() {
+		   $("#coupon1").click(function(){
+		      var coupon1Price = $(this).attr('value');   
+		      $("#couponPrice").text((coupon1Price)/1000 + ",000");
+		      $("#totalPrice2").text((finalPrice-coupon1Price).toLocaleString());
+		      $('#rtFinalPrice').val(totalPrice-coupon1Price);
+		      $('#rtCoupon').val(coupon1Price); 
+		      
+		   });
+		   $("#coupon2").click(function(){
+		      var coupon2Price = $(this).attr('value');      
+		      $("#couponPrice").text((coupon2Price)/1000 + ",000");
+		      $("#totalPrice2").text((finalPrice-coupon2Price).toLocaleString());
+		      $('#rtFinalPrice').val(totalPrice-coupon2Price);
+		      $('#rtCoupon').val(coupon2Price); 
+		   });
+		   $("#coupon3").click(function(){
+		      var coupon3Price = $(this).attr('value');      
+		      $("#couponPrice").text((coupon3Price)/1000 + ",000");
+		      $("#totalPrice2").text((finalPrice-coupon3Price).toLocaleString());
+		      $('#rtFinalPrice').val(totalPrice-coupon3Price); 
+		      $('#rtCoupon').val(coupon3Price); 
+		   });
+		});
+			
+		$("#rtCount").val(oliveCount);
+		$("#rtPoint").val(finalPoint);	  
+		$("#rtFinalPrice").val(finalPrice);
+		
+		/* $("#delCoupon").on("click", function(){
+			$("#couponPrice").val("0");
+		}); */
 		
 </script>
 

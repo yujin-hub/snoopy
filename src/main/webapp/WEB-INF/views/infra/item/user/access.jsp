@@ -143,7 +143,7 @@
 						<p class="card-text">코드그룹 / 코드 / 회원 / 상품관리</p>
 						<br>
 						<br>
-					    <a href="/member/loginDmin" class="btn btn1">바로가기</a>
+					    <a href="/member/memberList" class="btn btn1">바로가기</a>
 					    <br>
 						<br>
 						<br>

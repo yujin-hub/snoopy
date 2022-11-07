@@ -369,14 +369,6 @@
 						<div class="layer_inner"></div>
 					</div>
 				</div>
-				<ul class="mymenu_area">
-					<li class="store ">
-						<a href="#" class="mymenu_layer" title="관심 매장소식 자세히보기 열기/닫기">관심 매장소식</a>
-					</li>
-					<li class="recent">
-						<a href="javascript:;" class="mymenu_layer" title="최근 본 상품 자세히보기 열기/닫기">최근 본 상품</a>
-					</li>
-				</ul>
 			</div>
 		</form>
 	</div>
@@ -540,9 +532,8 @@
 					<br>
 					<div id="btn">
 						<a href="/payment/payForm">
-							<button type="button" class="btn btn1 btn-lg">바로구매</button>
+							<button type="button" class="btn btn1 btn-lg" style="margin-left: 55px;">바로구매</button>
 						</a>
-						<button type="button" class="btn btn2 btn-lg">장바구니</button>
 					</div>
 				</div>
 			</div>
@@ -1298,12 +1289,13 @@
 		if(type === 'plus') {
 			var tmp = document.getElementById("countresult").value;
 			var max = 5;
-			tmp++;
-			document.getElementById("countresult").value = tmp;
-			if (tmp > max) {
-				alert("최대 구매 수량은 5개입니다.")
-				return false;
+			if (tmp >= max) {
+				alert("최대 구매 수량은 5개입니다.");
+				return;
+			}else {
+				tmp++;
 			} 
+			document.getElementById("countresult").value = tmp;
 		} else if (type === 'minus')  {
 			var tmp = document.getElementById("countresult").value;
 				if(tmp < 2) {

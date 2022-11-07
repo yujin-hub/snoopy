@@ -44,7 +44,6 @@
 		    bottom: 20px;
 		    right: 20px;
 		}
-
 		#wid{
 			width: 1050px;
 		}
@@ -92,7 +91,6 @@
     		width: 620px !important;
     		margin-left: 15px;
 		}
-
 		.btn1{
 			background-color: white;
 			--bs-btn-hover-border-color: white; 
@@ -123,12 +121,10 @@
 		.font4{
 			font-size: 12px;
 		}
-
 		.left{
 			margin-left: 16px;
 			font-size: 13px;
 		}
-
 		.left1{
 			margin-left: 25px;
 		}
@@ -146,7 +142,6 @@
    			--bs-btn-active-border-color: #9DCC30;
    			--bs-btn-active-color: #9DCC30;
 		}
-
 		.btn-space{
 		    margin-right: 5px;
 		}
@@ -173,7 +168,6 @@
 			padding-left: 0em;		
 			margin-top: 10px;
 		}
-
 		.wid{
 			width: 470px;
 		}
@@ -440,6 +434,12 @@
 										<div class="col-6">
 											<input type="text" id="addr3" name="addr3" class="form-control" value="<c:out value="${pro.addr3}"/>" placeholder="참고항목" readonly>
 										</div>
+										<div class="col-6">
+											<input type="text" id="memLat" name="memLat" class="form-control" placeholder="위도" readonly>
+										</div>
+										<div class="col-6">
+											<input type="text" name="memLng" class="form-control" placeholder="경도" readonly>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -680,9 +680,7 @@
 	            }, 800);
 	            return false;
 	        });
-
 	        $('#back-to-top').tooltip('show');
-
 	    });
 	 
 	 $("#btnLogout").on("click", function(){
@@ -705,98 +703,83 @@
 		openZipSearch();
 	});
 		
-		
 	 $("#clearButton").on("click", function(){
-			$("#zip").val('');
-			$("#addr1").val('');
-			$("#arrd2").val('');
-			$("#addr3").val('');
-		});
+		$("#zip").val('');
+		$("#addr1").val('');
+		$("#arrd2").val('');
+		$("#addr3").val('');
+	});
 	 
-		function openZipSearch() {
-		    new daum.Postcode({
-		          oncomplete: function(data) {
-	        	    var addr = '';
-		  		    var extraAddr = '';
-
-					if (data.userSelectedType === 'R') { 
-		                  addr = data.roadAddress;
-		              } else { 
-		                  addr = data.jibunAddress;
-		              }
-
-		              if(data.userSelectedType === 'R'){
-		                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-		                      extraAddr += data.bname;
-		                  }
-		                  if(data.buildingName !== '' && data.apartment === 'Y'){
-		                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-		                  }
-		                  if(extraAddr !== ''){
-		                      extraAddr = ' (' + extraAddr + ')';
-		                  }
-		                  document.getElementById("addr3").value = extraAddr;
-		              
-		              } else {
-		                  document.getElementById("addr3").value = '';
-		              }
-
-		              document.getElementById('zip').value = data.zonecode;
-		              document.getElementById("addr1").value = addr;
-		              document.getElementById("addr2").focus();
-		              
-		              geocoder.addressSearch(addr, callback);
-					}
-		    
-		    }).open();
-		}
-		
-		var geocoder = new kakao.maps.services.Geocoder();
-		
-		var callback = function(result, status) {
-			if (status === kakao.maps.services.Status.OK) {
-				console.log(result);
-				document.getElementById("memLat").value = result[0].x;
-				$("input[name=memLng]").val(result[0].y);
-			}
-		};
-		
-		 $("#nickname").on("focusout", function(){
-			 /* 		
-		 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
-		 		 	 return false;
-		 	 	}else {*/
-		 	 		$.ajax({
-		 	 			async: true 
-		 				,cache: false
-		 				,type: "post"
-		 				/* ,dataType:"json" */
-		 				,url: "/member/nickCheck"
-		 				/* ,data : $("#formLogin").serialize() */
-		 				,data : { "nickname" : $("#nickname").val() }
-		 				,success: function(response) {
-		 					if(response.rt == "success") {
-		 						document.getElementById("nickname").classList.add('is-valid');
-		 	
-		 						document.getElementById("nicknameFeedback").classList.remove('invalid-feedback');
-		 						document.getElementById("nicknameFeedback").classList.add('valid-feedback');
-		 						document.getElementById("nicknameFeedback").innerText = "사용 가능한 닉네임입니다.";
-		 						
-		 						document.getElementById("nicknameAllowNY").value = 1;
-		 						
-		 					} else {
-		 						document.getElementById("nickname").classList.add('is-invalid');
-		 						
-		 						document.getElementById("nicknameFeedback").classList.remove('valid-feedback');
-		 						document.getElementById("nicknameFeedback").classList.add('invalid-feedback');
-		 						document.getElementById("nicknameFeedback").innerText = "이미 사용중인 닉네임입니다.";
-		 						
-		 						document.getElementById("nicknameAllowNY").value = 0;
-		 					}
-		 				}
-		 			});
-		 	});
-		 
+	function openZipSearch() {
+	    new daum.Postcode({
+	          oncomplete: function(data) {
+        	    var addr = '';
+	  		    var extraAddr = '';
+				if (data.userSelectedType === 'R') { 
+	                  addr = data.roadAddress;
+	              } else { 
+	                  addr = data.jibunAddress;
+	              }
+	              if(data.userSelectedType === 'R'){
+	                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+	                      extraAddr += data.bname;
+	                  }
+	                  if(data.buildingName !== '' && data.apartment === 'Y'){
+	                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+	                  }
+	                  if(extraAddr !== ''){
+	                      extraAddr = ' (' + extraAddr + ')';
+	                  }
+	                  document.getElementById("addr3").value = extraAddr;
+	              
+	              } else {
+	                  document.getElementById("addr3").value = '';
+	              }
+	              document.getElementById('zip').value = data.zonecode;
+	              document.getElementById("addr1").value = addr;
+	              document.getElementById("addr2").focus();
+				}
+	    
+	    }).open();
+	}
+	
+	
+	 $("#nickname").on("focusout", function(){
+		 /* 		
+	 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
+	 		 	 return false;
+	 	 	}else {*/
+	 	 		$.ajax({
+	 	 			async: true 
+	 				,cache: false
+	 				,type: "post"
+	 				/* ,dataType:"json" */
+	 				,url: "/member/nickCheck"
+	 				/* ,data : $("#formLogin").serialize() */
+	 				,data : { "nickname" : $("#nickname").val() }
+	 				,success: function(response) {
+	 					if(response.rt == "success") {
+	 						document.getElementById("nickname").classList.add('is-valid');
+	 	
+	 						document.getElementById("nicknameFeedback").classList.remove('invalid-feedback');
+	 						document.getElementById("nicknameFeedback").classList.add('valid-feedback');
+	 						document.getElementById("nicknameFeedback").innerText = "사용 가능한 닉네임입니다.";
+	 						
+	 						document.getElementById("nicknameAllowNY").value = 1;
+	 						
+	 					} else {
+	 						document.getElementById("nickname").classList.add('is-invalid');
+	 						
+	 						document.getElementById("nicknameFeedback").classList.remove('valid-feedback');
+	 						document.getElementById("nicknameFeedback").classList.add('invalid-feedback');
+	 						document.getElementById("nicknameFeedback").innerText = "이미 사용중인 닉네임입니다.";
+	 						
+	 						document.getElementById("nicknameAllowNY").value = 0;
+	 					}
+	 				}
+	 			});
+	 	});
+	 
 	
 	var goUrlUpdt = "/member/infoUpdt";
 	 
