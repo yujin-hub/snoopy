@@ -615,41 +615,41 @@
  			});
 	 	});
 	 	 
-	 	 $("#nickname").on("focusout", function(){
-	 		 /* 		
- 		 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
- 		 		 	 return false;
- 		 	 	}else {*/
-		 		$.ajax({
-		 			async: true 
-					,cache: false
-					,type: "post"
-					/* ,dataType:"json" */
-					,url: "/member/nickCheck"
-					/* ,data : $("#formLogin").serialize() */
-					,data : { "nickname" : $("#nickname").val() }
-					,success: function(response) {
-						if(response.rt == "success") {
-							document.getElementById("nickname").classList.add('is-valid');
-		
-							document.getElementById("nicknameFeedback").classList.remove('invalid-feedback');
-							document.getElementById("nicknameFeedback").classList.add('valid-feedback');
-							document.getElementById("nicknameFeedback").innerText = "사용 가능한 닉네임입니다.";
-							
-							document.getElementById("nicknameAllowNY").value = 1;
-							
-						} else {
-							document.getElementById("nickname").classList.add('is-invalid');
-							
-							document.getElementById("nicknameFeedback").classList.remove('valid-feedback');
-							document.getElementById("nicknameFeedback").classList.add('invalid-feedback');
-							document.getElementById("nicknameFeedback").innerText = "이미 사용중인 닉네임입니다.";
-							
-							document.getElementById("nicknameAllowNY").value = 0;
-						}
-
+ 	 $("#nickname").on("focusout", function(){
+ 		 /* 		
+		 		if(!idCheck('userID'), 2, 0, "4자리 이상의 영문 + 숫자로만 입력해주세요.") {
+		 		 	 return false;
+		 	 	}else {*/
+	 		$.ajax({
+	 			async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/member/nickCheck"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "nickname" : $("#nickname").val() }
+				,success: function(response) {
+					if(response.rt == "success") {
+						document.getElementById("nickname").classList.add('is-valid');
+	
+						document.getElementById("nicknameFeedback").classList.remove('invalid-feedback');
+						document.getElementById("nicknameFeedback").classList.add('valid-feedback');
+						document.getElementById("nicknameFeedback").innerText = "사용 가능한 닉네임입니다.";
+						
+						document.getElementById("nicknameAllowNY").value = 1;
+						
+					} else {
+						document.getElementById("nickname").classList.add('is-invalid');
+						
+						document.getElementById("nicknameFeedback").classList.remove('valid-feedback');
+						document.getElementById("nicknameFeedback").classList.add('invalid-feedback');
+						document.getElementById("nicknameFeedback").innerText = "이미 사용중인 닉네임입니다.";
+						
+						document.getElementById("nicknameAllowNY").value = 0;
 					}
-				});
+
+				}
+			});
 		});
 	 	 
 	 	 

@@ -394,6 +394,11 @@
 			<br>
 		</div>
 	</div> 
+	
+	<form  id="form" name="form" method="post" >
+	<input type="hidden" name="seq" value="${vo.seq}"/>  
+	<input type="hidden" name="sessSeq" value="${sessSeq}"/>  
+	
 	<div class="container" id="wid">
 		<br>
 		<br>
@@ -820,6 +825,16 @@
 
 	    });
 	 
+		var goUrlInst = "/payment/payInst"; 			
+		
+		var seq = $("input:hidden[name=seq]");			/* #-> */
+		
+		var form = $("form[name=form]");
+		
+		$("#btnPay").on("click", function(){
+		   form.attr("action", goUrlInst).submit();
+		});
+		
 		$("#addrButton").on("click", function(){
 			openZipSearch();
 		});

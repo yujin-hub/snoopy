@@ -434,12 +434,6 @@
 										<div class="col-6">
 											<input type="text" id="addr3" name="addr3" class="form-control" value="<c:out value="${pro.addr3}"/>" placeholder="참고항목" readonly>
 										</div>
-										<div class="col-6">
-											<input type="text" id="memLat" name="memLat" class="form-control" placeholder="위도" readonly>
-										</div>
-										<div class="col-6">
-											<input type="text" name="memLng" class="form-control" placeholder="경도" readonly>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -710,38 +704,43 @@
 		$("#addr3").val('');
 	});
 	 
-	function openZipSearch() {
-	    new daum.Postcode({
-	          oncomplete: function(data) {
-        	    var addr = '';
-	  		    var extraAddr = '';
-				if (data.userSelectedType === 'R') { 
-	                  addr = data.roadAddress;
-	              } else { 
-	                  addr = data.jibunAddress;
-	              }
-	              if(data.userSelectedType === 'R'){
-	                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-	                      extraAddr += data.bname;
-	                  }
-	                  if(data.buildingName !== '' && data.apartment === 'Y'){
-	                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-	                  }
-	                  if(extraAddr !== ''){
-	                      extraAddr = ' (' + extraAddr + ')';
-	                  }
-	                  document.getElementById("addr3").value = extraAddr;
-	              
-	              } else {
-	                  document.getElementById("addr3").value = '';
-	              }
-	              document.getElementById('zip').value = data.zonecode;
-	              document.getElementById("addr1").value = addr;
-	              document.getElementById("addr2").focus();
-				}
-	    
-	    }).open();
-	}
+	 function openZipSearch() {
+		    new daum.Postcode({
+		          oncomplete: function(data) {
+	        	    var addr = '';
+		  		    var extraAddr = '';
+
+					if (data.userSelectedType === 'R') { 
+		                  addr = data.roadAddress;
+		              } else { 
+		                  addr = data.jibunAddress;
+		              }
+
+		              if(data.userSelectedType === 'R'){
+		                  if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+		                      extraAddr += data.bname;
+		                  }
+		                  if(data.buildingName !== '' && data.apartment === 'Y'){
+		                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+		                  }
+		                  if(extraAddr !== ''){
+		                      extraAddr = ' (' + extraAddr + ')';
+		                  }
+		                  document.getElementById("addr3").value = extraAddr;
+		              
+		              } else {
+		                  document.getElementById("addr3").value = '';
+		              }
+
+		              document.getElementById('zip').value = data.zonecode;
+		              document.getElementById("addr1").value = addr;
+		              document.getElementById("addr2").focus();
+		              
+					}
+		    
+		    }).open();
+		}
+		
 	
 	
 	 $("#nickname").on("focusout", function(){

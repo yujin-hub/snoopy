@@ -173,7 +173,6 @@
 			nickname = #{nickname}
 	</select>
 	
-	
 	<select id="selectOneCheckNick" resultType="Integer">
 		SELECT
 			COUNT(*)
