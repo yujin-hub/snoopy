@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oliveyoungyj.modules.payment.PaymentMapper">
+
+    <resultMap id="resultMapObj" type="com.oliveyoungyj.modules.payment.Payment"></resultMap>
+	<sql id="selectCommon">
+		FROM payList a
+		WHERE 1=1
+			
+			<!-- <if test="shGender != null and !shGender.equals('')">AND a.gender = #{shGender}</if>
+			<if test="shUserDelNY != null and !shUserDelNY.equals('')">AND a.userDelNY = #{shUserDelNY}</if>
+			
+			<choose>
+				<when test="shOption == 1">AND a.seq = #{shValue }</when>
+				<when test="shOption == 2">AND a.userGrade LIKE CONCAT('%',#{shValue },'%')</when>
+				<when test="shOption == 3">AND a.name LIKE CONCAT('%',#{shValue },'%')</when>
+				<when test="shOption == 4">AND a.email LIKE CONCAT('%',#{shValue },'%')</when>
+			</choose>
+			
+			<choose>
+				<when test="shOptionDate == 7">AND a.accessDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>		 -->
+	</sql>
+	
+	<select id="selectList" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+			SELECT 
+				a.seq
+				, a.bname
+				, a.name
+				, a.payNum
+				, a.price
+				, a.totalPrice
+				, a.shipmentMessage
+				, a.payDate
+		<include refid="selectCommon" />
+		ORDER BY a.seq DESC
+		<include refid="Base.selectListLowerForMysql" />
+	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="selectCommon" />
+	</select>
+	
+	<!-- 주문하기 -->
+	<insert id="insert">
+		INSERT INTO payList (
+			item_seq
+			,user_seq
+			,bname
+			,name
+			,payNum
+			,price
+			,shippingName
+			,recipient
+			,telecom
+			,tel
+			,telMid
+			,telEnd
+			,addr1
+			,addr2
+			,addr3
+			,addr4
+			,shipmentMessage
+			,coupon
+			,totalPrice
+			,payDate
+		)
+		VALUES (
+			#{item_seq}
+			,#{user_seq}
+			,#{bname}
+			,#{name}
+			,#{payNum}
+			,#{price}
+			,#{shippingName}
+			,#{recipient}
+			,#{telecom}
+			,#{tel}
+			,#{telMid}
+			,#{telEnd}
+			,#{addr1}
+			,#{addr2}
+			,#{addr3}
+			,#{addr4}
+			,#{shipmentMessage}
+			,#{coupon}
+			,#{totalPrice}
+			,now()
+		)
+		
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	<!-- 주문 정보 불러오기 -->
+	
+	<!-- 이미지 불러오기 -->
+	
+</mapper>

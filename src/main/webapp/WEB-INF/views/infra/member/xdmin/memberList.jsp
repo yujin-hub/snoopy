@@ -376,8 +376,8 @@
 											<div class="col-2">
 												<select name="shGender" class="form-select">
 													<option value="" <c:if test="${empty vo.shGender}">selected</c:if>>::성별::</option>
-													<option value="21" <c:if test="${vo.shGender eq 21 }">selected</c:if>>남성</option>
-													<option value="22" <c:if test="${vo.shGender eq 22 }">selected</c:if>>여성</option>
+													<option value="21" <c:if test="${vo.shGender eq 20 }">selected</c:if>>남성</option>
+													<option value="22" <c:if test="${vo.shGender eq 21 }">selected</c:if>>여성</option>
 												</select>
 											</div>
 											<div class="col-2">
