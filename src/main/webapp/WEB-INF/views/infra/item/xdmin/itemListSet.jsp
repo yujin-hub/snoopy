@@ -361,7 +361,7 @@
 								<br>
 								<div class="container wid6">
 									<form method="post" name="formItem">
-										<input type="hidden" name="seq">
+										<input type="hidden" name="itemSeq">
 										<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
 										<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
 										<input type="hidden" name="checkboxSeqArray" >
@@ -451,12 +451,12 @@
 										</c:when>
 										<c:otherwise>
 											<c:forEach items="${list}" var="list" varStatus="status">
-												<tr data-tr_value = "<c:out value="${list.seq }"/>">
+												<tr data-tr_value = "<c:out value="${list.itemSeq }"/>">
 													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
-													<td><c:out value="${list.seq }"/></td>
+													<td><c:out value="${list.itemSeq }"/></td>
 													<td><c:out value="${list.bname }"/></td>
 													<td>
-														<a href="javascript:goForm(<c:out value="${list.seq}"/>)"><c:out value="${list.name }"/></a>
+														<a href="javascript:goForm(<c:out value="${list.itemSeq}"/>)"><c:out value="${list.name }"/></a>
 													</td>
 													<td><c:out value="${list.discount }"/>%</td>
 													<td><fmt:formatNumber value="${list.price}" pattern="#,###" />원</td>
@@ -598,7 +598,7 @@
 
 		var form = $("form[name=formItem]");
 
-		var seq = $("input:hidden[name=seq]");
+		var seq = $("input:hidden[name=itemSeq]");
 		
 		$('#btnForm').on("click", function() {
 			goForm(0);                

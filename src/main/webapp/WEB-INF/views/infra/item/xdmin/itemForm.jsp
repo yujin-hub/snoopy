@@ -287,7 +287,7 @@
 			</div>
 			<div class="col-10">
 				<form method="post" name="form" action="/item/itemInst" enctype="multipart/form-data" autocomplete="off">
-					<input type="hidden" name="seq" value="<c:out value="${vo.seq}"/>"/>
+					<input type="hidden" name="seq" value="<c:out value="${vo.itemSeq}"/>"/>
 						<div class="main left2">
 							<input class="input" id="tab1" type="radio" name="tabs" disabled> 
 							<label for="tab1" class="label1">상품</label>
@@ -313,7 +313,7 @@
 										<select class="form-select" name="brand_list_seq">
 											<option value="" hidden selected>::브랜드명::</option>
 											<c:forEach items="${add}" var="add" varStatus="status">
-												<option value="<c:out value="${add.seq}"/>" <c:if test="${add.seq eq item.brand_list_seq }"> selected</c:if>><c:out value="${add.bname }"/></option>
+												<option value="<c:out value="${add.itemSeq}"/>" <c:if test="${add.itemSeq eq item.brand_list_seq }"> selected</c:if>><c:out value="${add.bname }"/></option>
 											</c:forEach>
 										</select>
 									</div>
@@ -500,7 +500,7 @@
 		var goUrlUele = "/item/itemUele";			
 		var goUrlDele = "/item/itemDele";				
 		
-		var seq = $("input:hidden[name=seq]");			
+		var seq = $("input:hidden[name=itemSeq]");			
 		
 		var form = $("form[name=form]");
 		var formVo = $("form[name=formVo]");

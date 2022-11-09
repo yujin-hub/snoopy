@@ -21,8 +21,8 @@ public class ItemServiceImpl implements ItemService{
 		System.out.println("service result: " + result);
 		
 		//여기부터 파일
-        int seq = dao.selectLastSeq(dto); //seq 자동으로 부여되기때문
-
+        int pseq = dao.selectLastSeq(dto); //seq 자동으로 부여되기때문
+        
         int j = 0;
         for(MultipartFile myFile : dto.getMultipartFile()) {
 
@@ -34,14 +34,14 @@ public class ItemServiceImpl implements ItemService{
                 dto.setType("1");
                 dto.setDefaultNY(j == 0 ? "1" : "0");
                 dto.setSort(j+1+"");
-                dto.setPseq(seq+"");
+                dto.setPseq(pseq+"");
 
                 dao.insertUploaded(dto);
                 j++;
             }
         }
 		return result;
-	}
+	} 
 	
 	@Override
 	public int insertUploaded(Item dto) throws Exception {
