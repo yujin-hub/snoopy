@@ -32,7 +32,7 @@
 	<select id="selectList" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql" />
 			SELECT 
-				a.seq
+				a.itemSeq
 				, b.bname
 				, a.name
 				, a.discount
@@ -41,7 +41,7 @@
 				, (SELECT FORMAT(a.numPurchase, 0)) as numPurchase
 				, a.stock
 		<include refid="selectCommon" />
-			ORDER BY a.seq DESC
+			ORDER BY a.itemSeq DESC
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
 	
@@ -74,17 +74,22 @@
 			,#{brand_list_seq}
 		)
 
-		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+		<selectKey resultType="String" keyProperty="itemSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
 	
 	<select id="selectOne" resultMap ="resultMapObj">
 		SELECT 
-			a.*
+			c.*
+			, a.*
+			, b.bname 
 		FROM item a
+		JOIN brand_list b ON a.brand_list_seq = b.num
+		JOIN itemUploaded c ON c.pseq = a.itemSeq
 		WHERE 1=1
-			AND a.seq = #{seq}
+			AND a.itemSeq = #{itemSeq}
+			AND c.defaultNY = 1
 	</select>
 	
 	<select id="itemNameAdd" resultMap="resultMapObj">
@@ -104,7 +109,7 @@
 			,info_item = #{info_item}
 			,brand_list_seq = #{brand_list_seq}
 		WHERE 
-			seq = #{seq}
+			itemSeq = #{itemSeq}
 	</update>
 	
 	<insert id="insertUploaded">
@@ -145,9 +150,9 @@
 	
 	<select id="selectLastSeq" resultType="Integer">
 		SELECT
-			seq
+			itemSeq
 		FROM item
-		ORDER BY seq DESC
+		ORDER BY itemSeq DESC
 		limit 1
 	</select>
 	
@@ -156,9 +161,9 @@
 			a.*
 			,b.*
 		FROM item a
-		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		LEFT JOIN itemUploaded b ON a.itemSeq = b.pseq
 		WHERE 1=1
-			AND a.seq = #{seq}
+			AND a.itemSeq = #{itemSeq}
 			ORDER BY b.sort
 	</select>
 	
@@ -168,11 +173,11 @@
 			useNY = 0
 			, delNY = 1
 		WHERE
-			seq = #{seq}
+			itemSeq = #{itemSeq}
 	</update>
 
 	<delete id="delete">
-		DELETE FROM item WHERE seq = #{seq}
+		DELETE FROM item WHERE itemSeq = #{itemSeq}
 	</delete>
 	
 	
@@ -182,7 +187,7 @@
 			a.*
 			, b.*
 		FROM item a
-		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		LEFT JOIN itemUploaded b ON a.itemSeq = b.pseq
 		WHERE 1=1
 		AND b.defaultNY = 1
 		ORDER BY numPurchase DESC
@@ -195,7 +200,7 @@
 			a.*
 			, b.*
 		FROM item a
-		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		LEFT JOIN itemUploaded b ON a.itemSeq = b.pseq
 		WHERE 1=1
 		AND b.defaultNY = 1
 		ORDER BY RAND()
@@ -208,7 +213,7 @@
 			a.*
 			, b.*
 		FROM item a
-		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		LEFT JOIN itemUploaded b ON a.itemSeq = b.pseq
 		WHERE 1=1
 			AND b.defaultNY = 1
 			AND brand_list_seq = 7;  
@@ -219,7 +224,7 @@
 			a.*
 			, b.*
 		FROM item a
-		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		LEFT JOIN itemUploaded b ON a.itemSeq = b.pseq
 		WHERE 1=1
 			AND b.defaultNY = 1
 			AND brand_list_seq = 8;  
@@ -230,7 +235,7 @@
 			a.*
 			, b.*
 		FROM item a
-		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		LEFT JOIN itemUploaded b ON a.itemSeq = b.pseq
 		WHERE 1=1
 			AND b.defaultNY = 1
 			AND brand_list_seq = 9;  
@@ -241,7 +246,7 @@
 			a.*
 			, b.*
 		FROM item a
-		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		LEFT JOIN itemUploaded b ON a.itemSeq = b.pseq
 		WHERE 1=1
 			AND b.defaultNY = 1
 			AND brand_list_seq = 10;  
@@ -252,7 +257,7 @@
 			a.*
 			, b.*
 		FROM item a
-		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		LEFT JOIN itemUploaded b ON a.itemSeq = b.pseq
 		WHERE 1=1
 			AND b.defaultNY = 1
 			AND brand_list_seq = 5;    
@@ -263,7 +268,7 @@
 			a.*
 			, b.*
 		FROM item a
-		LEFT JOIN itemUploaded b ON a.seq = b.pseq
+		LEFT JOIN itemUploaded b ON a.itemSeq = b.pseq
 		WHERE 1=1
 			AND b.defaultNY = 1
 			AND brand_list_seq = 11;  

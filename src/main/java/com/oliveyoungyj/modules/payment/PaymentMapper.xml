@@ -100,7 +100,19 @@
 	</insert>
 	
 	<!-- 주문 정보 불러오기 -->
+	<select id="selectOne" resultMap="resultMapObj">
+    	SELECT
+    		b.bname
+    		, a.name
+    		, a.discount
+    		, a.price
+    	FROM item a 
+    	INNER JOIN brand_list b ON a.brand_list_seq = b.num
+    	WHERE 1=1
+    		AND a.seq = #{seq}
+    </select>		
 	
 	<!-- 이미지 불러오기 -->
+	
 	
 </mapper>

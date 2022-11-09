@@ -363,7 +363,7 @@
 	<form method="post" name="formList">
 		<form method="post" id="main" name="top">
 			<div class= "container" id="wid"> 
-			<input type="hidden" id="seq" name="seq">
+			<input type="hidden" id="seq" name="itemSeq">
 				<center><img src="../../resources/images/head.jpg"></center>
 				<br>
 				<br>
@@ -374,11 +374,11 @@
 						<div class="col-md-3" id="left">
 							<div>
 								<span id="num">
-									<c:out value="${listTop.seq }"/>
+									<c:out value="${listTop.itemSeq }"/>
 								</span>
 							</div>
 							<div class="card" id="item">
-								<a href="javascript:goView(<c:out value="${listTop.seq}"/>)">
+								<a href="javascript:goView(<c:out value="${listTop.itemSeq}"/>)">
 									<img src="${listTop.path }${listTop.uuidName}" id="img" class="card-img-top">
 									<br>
 									<span class="name">
@@ -416,7 +416,7 @@
 		
 		<form method="post" name="weeklyspecial">
 			<div class= "container" id="wid"> 
-			<input type="hidden" id="seq" name="seq">
+			<input type="hidden" id="seq" name="itemSeq">
 				<br>
 				<hr>
 				<br>
@@ -426,7 +426,7 @@
 					<c:forEach items="${listWeek}" var="listWeek" varStatus="status">
 						<div class="col-md-3" id="left">
 							<div class="card" id="item">
-								<a href="javascript:goView(<c:out value="${listWeek.seq}"/>)">
+								<a href="javascript:goView(<c:out value="${listWeek.itemSeq}"/>)">
 									<img src="${listWeek.path }${listWeek.uuidName}" id="img" class="card-img-top">
 									<br>
 									<p class="name">
@@ -498,13 +498,13 @@
 		
 				<section id="content1">
 					<div class="container" id="wid"> 	
-					<input type="hidden" id="seq" name="seq">
+					<input type="hidden" id="seq" name="itemSeq">
 						<form method="post" id="main" name="CK">
 							<div class="row">
 								<c:forEach items="${listCK}" var="listCK" varStatus="status">
 									<div class="col-3">
 										<div class="card2" id="item">
-											<a href="javascript:goView(<c:out value="${listCK.seq}"/>)">
+											<a href="javascript:goView(<c:out value="${listCK.itemSeq}"/>)">
 												<img src="${listCK.path }${listCK.uuidName}" id="img" class="card-img-top">
 												<br>
 												<p class="name">
@@ -537,13 +537,13 @@
 				
 				<section id="content2">
 					<div class= "container" id="wid"> 	
-					<input type="hidden" id="seq" name="seq">
+					<input type="hidden" id="seq" name="itemSeq">
 						<form method="post" id="main" name="AHC">
 							<div class="row">
 								<c:forEach items="${listAHC}" var="listAHC" varStatus="status">
 									<div class="col-3">
 										<div class="card2" id="item">
-											<a href="javascript:goView(<c:out value="${listAHC.seq}"/>)">
+											<a href="javascript:goView(<c:out value="${listAHC.itemSeq}"/>)">
 												<img src="${listAHC.path }${listAHC.uuidName}" id="img" class="card-img-top">
 												<br>
 												<p class="name">
@@ -578,13 +578,13 @@
 				
 				<section id="content3">
 					<div class= "container" id="wid"> 	
-					<input type="hidden" id="seq" name="seq">
+					<input type="hidden" id="seq" name="itemSeq">
 						<form method="post" id="main" name="AB">	
 							<div class="row">
 								<c:forEach items="${listAB}" var="listAB" varStatus="status">
 									<div class="col-3">
 										<div class="card2" id="item">
-											<a href="javascript:goView(<c:out value="${listAB.seq}"/>)">
+											<a href="javascript:goView(<c:out value="${listAB.itemSeq}"/>)">
 												<img src="${listAB.path }${listAB.uuidName}" id="img" class="card-img-top">
 												<br>
 												<p class="name">
@@ -619,13 +619,13 @@
 				
 				<section id="content4">
 					<div class= "container" id="wid"> 	
-					<input type="hidden" id="seq" name="seq">
+					<input type="hidden" id="seq" name="itemSeq">
 						<form method="post" id="main" name="Beyond">
 							<div class="row">
 								<c:forEach items="${listBeyond}" var="listBeyond" varStatus="status">
 									<div class="col-3">
 										<div class="card2" id="item">
-											<a href="javascript:goView(<c:out value="${listBeyond.seq}"/>)">
+											<a href="javascript:goView(<c:out value="${listBeyond.itemSeq}"/>)">
 												<img src="${listBeyond.path }${listBeyond.uuidName}" id="img" class="card-img-top">
 												<br>
 												<p class="name">
@@ -660,13 +660,13 @@
 				
 				<section id="content5">
 					<div class= "container" id="wid"> 	
-					<input type="hidden" id="seq" name="seq">
+					<input type="hidden" id="seq" name="itemSeq">
 						<form method="post" id="main" name="DD">
 							<div class="row">
 								<c:forEach items="${listDD}" var="listDD" varStatus="status">
 									<div class="col-3">
 										<div class="card2" id="item">
-											<a href="javascript:goView(<c:out value="${listDD.seq}"/>)">
+											<a href="javascript:goView(<c:out value="${listDD.itemSeq}"/>)">
 												<img src="${listDD.path }${listDD.uuidName}" id="img" class="card-img-top">
 												<br>
 												<p class="name">
@@ -701,13 +701,13 @@
 			
 				<section id="content6">	
 					<div class= "container" id="wid"> 	
-					<input type="hidden" id="seq" name="seq">
+					<input type="hidden" id="seq" name="itemSeq">
 						<form method="post" id="main" name="BO">
 							<div class="row">
 								<c:forEach items="${listBO}" var="listBO" varStatus="status">
 									<div class="col-3">
 										<div class="card2" id="item">
-											<a href="javascript:goView(<c:out value="${listBO.seq}"/>)">
+											<a href="javascript:goView(<c:out value="${listBO.itemSeq}"/>)">
 												<img src="${listBO.path }${listBO.uuidName}" id="img" class="card-img-top">
 												<br>
 												<p class="name">
@@ -836,7 +836,7 @@
 		var goUrlView = "/item/itemView";
 		
 		var form = $("form[name=formList]");
-		var seq = $("input:hidden[name=seq]");
+		var seq = $("input:hidden[name=itemSeq]");
 		
 		goView = function(pseq) {
 			seq.val(pseq);

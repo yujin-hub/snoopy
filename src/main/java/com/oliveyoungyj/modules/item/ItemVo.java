@@ -12,7 +12,7 @@ public class ItemVo extends Base{
 	private String shDateEnd;
 	private Integer shOptionDate;
 	
-	private String seq;
+	private String itemSeq;
 	
 	
 //	paging
@@ -69,11 +69,11 @@ public class ItemVo extends Base{
 	public void setShOptionDate(Integer shOptionDate) {
 		this.shOptionDate = shOptionDate;
 	}
-	public String getSeq() {
-		return seq;
+	public String getItemSeq() {
+		return itemSeq;
 	}
-	public void setSeq(String seq) {
-		this.seq = seq;
+	public void setItemSeq(String itemSeq) {
+		this.itemSeq = itemSeq;
 	}
 	public int getThisPage() {
 		return thisPage;

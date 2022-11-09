@@ -12,6 +12,7 @@ public class Payment extends Base{
 	public String name;
 	public Integer payNum;
 	public Integer price;
+	public Integer discount;
 	
 	//주문 정보
 	public String user_seq;
@@ -66,6 +67,12 @@ public class Payment extends Base{
 	}
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+	public Integer getDiscount() {
+		return discount;
+	}
+	public void setDiscount(Integer discount) {
+		this.discount = discount;
 	}
 	public String getUser_seq() {
 		return user_seq;

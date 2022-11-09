@@ -457,6 +457,7 @@
 	<br>
 	<br>
 	<form method="post" name="ViewForm">
+	<input type="hidden" name="itemSeq" value="${view.itemSeq}">
 		<div class= "container" id="wid">
 			<div class="row">
 				<div class="col-5">
@@ -476,7 +477,7 @@
 					</div>
 				</div>
 				<div class="col-6" id="pad">
-					<span>클리오 > </span>
+					<span><c:out value="${view.bname}"/> ></span>
 					<br>
 					<br>
 					<h3><c:out value="${view.name}"/></h3>
@@ -531,9 +532,7 @@
 					<hr>
 					<br>
 					<div id="btn">
-						<a href="/payment/payForm">
-							<button type="button" class="btn btn1 btn-lg" style="margin-left: 55px;">바로구매</button>
-						</a>
+						<button type="button" class="btn btn1 btn-lg" style="margin-left: 55px;" id="btnPay">바로구매</button>
 					</div>
 				</div>
 			</div>
@@ -1266,7 +1265,7 @@
 	 
 	var form = $("form[name=ViewForm]");
 			
-	var seq = $("input:hidden[name=seq]");
+	var seq = $("input:hidden[name=itemSeq]");
 	 
 	$("#btnLogout").on("click", function(){
 		$.ajax({
@@ -1321,7 +1320,17 @@
 	/* 화면에 보여지는 부분 */
 	$("#totalprice").text(totalPrice.toLocaleString());
 	
+</script>
 
+<script type="text/javascript">
+	var goUrlPay ="/payment/payForm";
+	var seq = $("input:hidden[name=itemSeq]");
+	var form = $("form[name=ViewForm]");
+	
+	$("#btnPay").on("click", function(){
+		form.attr("action", goUrlPay).submit();
+	});
+	
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

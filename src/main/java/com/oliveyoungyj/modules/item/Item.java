@@ -4,9 +4,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.oliveyoungyj.common.base.Base;
 
-public class Item extends Base{
+public class Item extends Base {
 
-	public String seq;
+	public String itemSeq;
 	public Integer brand_list_seq;
 	public String brand;
 	public String name;
@@ -20,15 +20,15 @@ public class Item extends Base{
 	public String info_purchase;
 	public Integer useNY;
 	public Integer stock;
-	
+
 	private MultipartFile[] MultipartFile;
 
-	public String getSeq() {
-		return seq;
+	public String getItemSeq() {
+		return itemSeq;
 	}
 
-	public void setSeq(String seq) {
-		this.seq = seq;
+	public void setItemSeq(String itemSeq) {
+		this.itemSeq = itemSeq;
 	}
 
 	public Integer getBrand_list_seq() {
@@ -142,6 +142,5 @@ public class Item extends Base{
 	public void setMultipartFile(MultipartFile[] multipartFile) {
 		MultipartFile = multipartFile;
 	}
-	
-	
+
 }

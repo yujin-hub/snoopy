@@ -102,12 +102,6 @@
 			font-weight: bold;
 		}
 		
-		#font3{
-			font-size: 12px;
-			color: #595959;
-			text-decoration-line: line-through;
-		}
-		
 		#font4{
 			font-size: 15px;
 			font-weight: bold;
@@ -396,8 +390,13 @@
 	</div> 
 	
 	<form  id="form" name="form" method="post" >
-	<input type="hidden" name="seq" value="${vo.seq}"/>  
+	<input type="hidden" name="itemSeq" value="${pay.itemSeq}"/>  
 	<input type="hidden" name="sessSeq" value="${sessSeq}"/>  
+	<input type="hidden" name="bname" value="${pay.bname}"/>  
+	<input type="hidden" name="name" value="${pay.name}"/>  
+	<input type="hidden" name="discount" value="${pay.discount}"/>  
+	<input type="hidden" name="price" value="${pay.price}"/>  
+	
 	
 	<div class="container" id="wid">
 		<br>
@@ -409,7 +408,7 @@
 				<span>상품정보</span>
 			</div>
 			<div class="col-2" id="text1">
-				<span>판매가</span>
+				<span>할인율</span>
 			</div>
 			<div class="col-1" id="text2">
 				<span>수량</span>
@@ -421,23 +420,23 @@
 		<hr>
 		<div class="row">
 			<div class="col-2">
-				<img src="../../resources/images/winter.jpg" class="img">
+				<img src="${pay.path }${pay.uuidName}" class="img">
 			</div>
 			<div class="col-4 text">
-				<span>클리오</span>
+				<span><c:out value="${pay.bname}"/></span>
 				<br>
-				<span id="font2">클리오 프로아이팔레트 AD</span>
+				<span id="font2"><c:out value="${pay.name}"/></span>
 			</div>
-			<div class="col-1 text1">
-				<span id="font2">32,000원</span>
+			<div class="col-1 text1" style="margin-left: 50px;">
+				<span id="font2"><c:out value="${pay.discount}"/></span>
+				<span id="font2">%</span>
 			</div>
-			<div class="col-1 text2">
+			<div class="col-1 text2" style="margin-left: 105px;"> 
 				<span id="font2">1개</span>
 			</div>
-			<div class="col-1 text3">
-				<span id="font3">32,000원</span>
-				<br>
-				<span id="font2">22,400원</span>
+			<div class="col-1 text1" style="margin-left: 60px;">
+				<span id="font2"><c:out value="${pay.price}"/></span>
+				<span id="font2">원</span>
 			</div>
 		</div>
 		<hr>
@@ -827,7 +826,7 @@
 	 
 		var goUrlInst = "/payment/payInst"; 			
 		
-		var seq = $("input:hidden[name=seq]");			/* #-> */
+		var seq = $("input:hidden[name=itemSeq]");			/* #-> */
 		
 		var form = $("form[name=form]");
 		

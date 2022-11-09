@@ -53,7 +53,7 @@ public class ItemController {
 	public String itemList(@ModelAttribute("vo") ItemVo vo, Model model, HttpSession httpSession) throws Exception {
 
 		String seq = (String) httpSession.getAttribute("sessSeq");
-		vo.setSeq(seq);
+		vo.setItemSeq(seq);
 
 		List<Item> list = service.selectList(vo);
 		model.addAttribute("list", list);
@@ -90,7 +90,7 @@ public class ItemController {
 	public String itemInst(ItemVo vo, Item dto, RedirectAttributes redirectAttributes) throws Exception {
 
 		service.insert(dto);
-		vo.setSeq(dto.getSeq());
+		vo.setItemSeq(dto.getItemSeq());
 
 		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/item/itemForm";
@@ -126,7 +126,6 @@ public class ItemController {
 		
 		Item result = service.selectOne(vo);
 		model.addAttribute("view", result);
-		
 		
 		// type 별로 사진 업로드
 		List<Item> listMain = new ArrayList<Item>();
@@ -177,7 +176,7 @@ public class ItemController {
 	@RequestMapping(value = "itemForm")
 	public String itemForm(@ModelAttribute("vo") ItemVo vo, Model model, Item dto) throws Exception {
 
-		System.out.println("vo.getSeq(): " + vo.getSeq());
+		System.out.println("vo.getItemSeq(): " + vo.getItemSeq());
 		Item result = service.selectOne(vo);
 		model.addAttribute("item", result);
 
@@ -185,7 +184,7 @@ public class ItemController {
 		model.addAttribute("add", add);
 
 		// 업로드
-		dto.setPseq(vo.getSeq());
+		dto.setPseq(vo.getItemSeq());
 		List<Item> imageUpload = service.imageUpload(vo);
 		model.addAttribute("imageUpload", imageUpload);
 
@@ -198,7 +197,7 @@ public class ItemController {
 	public String itemListDmin(@ModelAttribute("vo") ItemVo vo, Model model, HttpSession httpSession) throws Exception {
 
 		String seq = (String) httpSession.getAttribute("sessSeq");
-		vo.setSeq(seq);
+		vo.setItemSeq(seq);
 
 		List<Item> list = service.selectList(vo);
 		model.addAttribute("list", list);
