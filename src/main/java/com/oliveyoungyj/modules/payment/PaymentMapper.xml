@@ -112,7 +112,4 @@
     		AND a.seq = #{seq}
     </select>		
 	
-	<!-- 이미지 불러오기 -->
-	
-	
 </mapper>

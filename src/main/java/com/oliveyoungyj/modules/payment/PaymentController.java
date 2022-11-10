@@ -42,7 +42,7 @@ public class PaymentController {
 	}
 	
 	@RequestMapping(value = "payForm")
-	public String payForm(Model model, Payment dto, ItemVo vo) throws Exception {
+	public String payForm(Model model, @ModelAttribute("dto") Payment dto, @ModelAttribute("vo") ItemVo vo) throws Exception {
 		
 		Item result = itemService.selectOne(vo);
 		model.addAttribute("pay", result);

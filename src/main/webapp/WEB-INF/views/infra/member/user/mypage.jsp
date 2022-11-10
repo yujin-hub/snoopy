@@ -354,7 +354,7 @@
 							<div class="font">
 								<span>CJ ONE 포인트</span>
 								&nbsp;&nbsp;&nbsp;&nbsp;
-								<span class="font2">200 p</span>
+								<span class="font2">0 p</span>
 							</div>
 						</div>
 						<div class="col-3">

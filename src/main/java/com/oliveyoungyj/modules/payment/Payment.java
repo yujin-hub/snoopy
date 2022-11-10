@@ -10,7 +10,7 @@ public class Payment extends Base{
 	public String item_seq;
 	public String bname;
 	public String name;
-	public Integer payNum;
+	public Integer itemCount;
 	public Integer price;
 	public Integer discount;
 	
@@ -56,11 +56,11 @@ public class Payment extends Base{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getPayNum() {
-		return payNum;
+	public Integer getItemCount() {
+		return itemCount;
 	}
-	public void setPayNum(Integer payNum) {
-		this.payNum = payNum;
+	public void setItemCount(Integer itemCount) {
+		this.itemCount = itemCount;
 	}
 	public Integer getPrice() {
 		return price;

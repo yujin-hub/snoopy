@@ -458,6 +458,7 @@
 	<br>
 	<form method="post" name="ViewForm">
 	<input type="hidden" name="itemSeq" value="${view.itemSeq}">
+	<input type="hidden" id="rtCount">
 		<div class= "container" id="wid">
 			<div class="row">
 				<div class="col-5">
@@ -518,7 +519,7 @@
 							</div>
 							<div class="col-3 fr">
 								<button type="button" class="btn btnplus btn-outline-dark" onclick='count("minus")'><i class="fa-solid fa-minus"></i></button>
-								<input class="num" type="text" value="1" id="countresult" readonly>
+								<input class="num" type="text" value="1" id="countresult" name="itemCount" readonly>
 								<button type="button" class="btn btnplus btn-outline-dark" onclick='count("plus")'><i class="fa-solid fa-plus"></i></button>
 							</div>
 						</div>
@@ -1305,6 +1306,7 @@
 				}
 			document.getElementById("countresult").value = tmp;
 		}
+		
 		var itemCount = document.getElementById("countresult").value;
 		var price1 = $("#pricetmp").val();
 		var totalPrice = (price1*itemCount);
@@ -1316,6 +1318,7 @@
 	var itemCount = document.getElementById("countresult").value;
 	var price1 = $("#pricetmp").val();
 	var totalPrice = (price1*itemCount);
+	
 
 	/* 화면에 보여지는 부분 */
 	$("#totalprice").text(totalPrice.toLocaleString());
