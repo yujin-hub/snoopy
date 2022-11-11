@@ -192,7 +192,7 @@ hr {
 }
 
 #text3 {
-	margin-left: 70px;
+	margin-left: 90px;
 }
 
 .text {
@@ -275,36 +275,38 @@ a:hover {
 	<div id="Header">
 		<div class="top_util">
 			<ul class="menu_list" id="menu_list_header">
-				<li class="login"><c:if test="${sessSeq eq null}">
-						<!-- 로그인전 -->
-						<div class="before">
-							<a href="/member/regForm" data-attr='공통^헤더^회원가입' title="회원가입">회원가입</a>
-							&nbsp; | &nbsp; <a href="/member/login" data-attr='공통^헤더^로그인'
-								title="로그인">로그인</a>
-						</div>
-					</c:if> <c:if test="${sessSeq ne null}">
-						<div class="after">
-							<a href="/item/itemList" data-attr='공통^헤더^로그인'><c:out
-									value="${sessId }" />님, 반갑습니다</a> &nbsp; | &nbsp; <a
-								href="/member/mypage" data-attr='공통^헤더^장바구니'>마이페이지<span
-								id="cartToCnt"></span></a> &nbsp; | &nbsp; <a
-								href="/member/logoutProc" data-attr='공통^헤더^로그아웃' title="로그아웃"
-								type="button" id="btnLogout">로그아웃</a>
-						</div>
-					</c:if></li>
+				<li class="login">
+					<c:if test="${sessSeq eq null}">
+		        		<!-- 로그인전 -->
+		            	<div class="before">
+		            		<a href="/member/regForm" data-attr='공통^헤더^회원가입' title="회원가입">회원가입</a>
+		            		&nbsp; | &nbsp; 
+		                	<a href="/member/login" data-attr='공통^헤더^로그인' title="로그인">로그인</a>
+		            	</div>
+		        	</c:if>
+		            <c:if test="${sessSeq ne null}">
+			           	<div class="after">
+							<a href="/item/itemList" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
+							&nbsp; | &nbsp; 
+							<a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
+							&nbsp; | &nbsp; 
+							<a href="/member/logoutProc" data-attr='공통^헤더^로그아웃' title="로그아웃" type="button" id="btnLogout">로그아웃</a>
+			            </div>
+		            </c:if>
+				</li>
 			</ul>
 		</div>
 
 		<form autocomplete="off">
 			<div class="header_inner">
 				<h1>
-					<a href="../item/itemList"><img
-						src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png"
-						alt="올리브영"></a>
+					<a href="../item/itemList">
+						<img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영">
+					</a>
 				</h1>
 				<div class="search_box" id="w_search_box">
-					<input type="hidden" name="chkButton" id="chkButton"> <input
-						type="text" id="query" class="inp_placeholder">
+					<input type="hidden" name="chkButton" id="chkButton">
+					<input type="text" id="query" class="inp_placeholder">
 					<button id="searchSubmit">검색</button>
 					<div class="search_layer">
 						<div class="layer_inner"></div>
@@ -378,22 +380,24 @@ a:hover {
 
 	<div class="container-fluid mydiv">
 		<div class="container mydiv2">
-			<br> <br> <span id="font">주문 / 결제</span> <br> <br>
+			<br> 
+			<br> 
+			<span id="font">주문 / 결제</span> 
+			<br> 
+			<br>
 			<br>
 		</div>
 	</div>
 
 	<form id="form" name="form" method="post">
-		<input type="hidden" name="itemSeq" value="${pay.itemSeq}" /> <input
-			type="hidden" name="sessSeq" value="${sessSeq}" /> <input
-			type="hidden" name="bname" value="${pay.bname}" /> <input
-			type="hidden" name="name" value="${pay.name}" /> <input
-			type="hidden" name="discount" value="${pay.discount}" /> <input
-			type="hidden" name="price" id="price" value="${pay.price}" /> <input
-			type="hidden" id="itemCount" name="itemCount"
-			value="${dto.itemCount}" /> <input type="hidden" id="rtFinalPrice"
-			name="rtFinalPrice"> <input type="hidden" id="rtPoint"
-			name="rtPoint">
+		<input type="hidden" name="itemSeq" value="${pay.itemSeq}" /> 
+		<input type="hidden" name="sessSeq" value="${sessSeq}" /> 
+		<input type="hidden" name="bname" value="${pay.bname}" /> 
+		<input type="hidden" name="name" value="${pay.name}" /> 
+		<input type="hidden" name="discount" value="${pay.discount}" /> 
+		<input type="hidden" name="price" id="price" value="${pay.price}" /> 
+		<input type="hidden" id="itemCount" name="itemCount" value="${dto.itemCount}" /> 
+		<input type="hidden" id="rtFinalPrice" name="rtFinalPrice"> 
 
 
 		<div class="container" id="wid">
@@ -419,12 +423,19 @@ a:hover {
 					<img src="${pay.path }${pay.uuidName}" class="img">
 				</div>
 				<div class="col-4 text">
-					<span><c:out value="${pay.bname}" /></span> <br> <span
-						id="font2"><c:out value="${pay.name}" /></span>
+					<span>
+						<c:out value="${pay.bname}" />
+					</span> 
+					<br> 
+					<span id="font2">
+						<c:out value="${pay.name}" />
+					</span>
 				</div>
 				<div class="col-1 text1" style="margin-left: 50px;">
-					<span id="font2"><c:out value="${pay.discount}" /></span> <span
-						id="font2">%</span>
+					<span id="font2">
+						<c:out value="${pay.discount}" />
+					</span> 
+					<span id="font2">%</span>
 				</div>
 				<div class="col-1 text2" style="margin-left: 92px;">
 					<span id="font2"> 
@@ -433,7 +444,9 @@ a:hover {
 					<span id="font2">원</span>
 				</div>
 				<div class="col-1 text1" style="margin-left: 100px;">
-					<span id="font2"><c:out value="${dto.itemCount}" /></span> 
+					<span id="font2">
+						<c:out value="${dto.itemCount}" />
+					</span> 
 					<span id="font2">개</span>
 				</div>
 			</div>
@@ -512,43 +525,39 @@ a:hover {
 					<div class="row">
 						<div class="col-5">
 							<div class="input-group">
-								<input type="text" id="zip" class="form-control"
-									placeholder="우편번호">
-								<button type="button" class="btn btn-outline-secondary"
-									id="addrButton">
+								<input type="text" id="zip" class="form-control" placeholder="우편번호">
+								<button type="button" class="btn btn-outline-secondary" id="addrButton">
 									<i class="fa-solid fa-magnifying-glass"></i>
 								</button>
-								<button class="btn btn-outline-secondary" type="button"
-									id="clearButton">
+								<button class="btn btn-outline-secondary" type="button" id="clearButton">
 									<i class="fa-solid fa-arrow-rotate-left"></i>
 								</button>
 							</div>
 						</div>
 						<div>
-							<input type="text" id="addr1" class="form-control"
-								placeholder="주소">
+							<input type="text" id="addr1" class="form-control" placeholder="주소">
 						</div>
 						<div class="col-6">
-							<input type="text" id="addr2" class="form-control"
-								placeholder="상세주소">
+							<input type="text" id="addr2" class="form-control" placeholder="상세주소">
 						</div>
 						<div class="col-6">
-							<input type="text" id="addr3" class="form-control"
-								placeholder="참고항목">
+							<input type="text" id="addr3" class="form-control" placeholder="참고항목">
 						</div>
 					</div>
 				</div>
 			</div>
 			<hr>
-			<br> <br> <br> <span id="font1">배송 요청사항</span>
+			<br> 
+			<br> 
+			<br> 
+			<span id="font1">배송 요청사항</span>
 			<hr>
 			<div class="row">
 				<div class="col-3" id="cdiv">
 					<span>배송 메시지</span>
 				</div>
 				<div class="col-5">
-					<select class="form-select" aria-label=".form-select example"
-						required>
+					<select class="form-select" aria-label=".form-select example" required>
 						<option selected>::배송메시지를 선택해주세요.::</option>
 						<option value="1">문 앞에 놔주세요.</option>
 						<option value="2">경비실에 맡겨주세요.</option>
@@ -558,7 +567,9 @@ a:hover {
 				</div>
 			</div>
 			<hr>
-			<br> <br> <br>
+			<br> 
+			<br> 
+			<br>
 			<div class="row">
 				<div class="col-7">
 					<span id="font1">보유 쿠폰</span>
@@ -633,98 +644,104 @@ a:hover {
 				</div> -->
 				</div>
 				<div class="col-4 left">
-					<span id="font1">최종 결제 정보</span> <br> <br>
+					<span id="font1">최종 결제 정보</span> 
+					<br> 
+					<br>
 					<div class="row left totalbox">
 						<div class="col-4">
-							<br> <span class="font5">총 상품 금액</span>
+							<br> 
+							<span class="font5">총 상품 금액</span>
 						</div>
 						<div class="col-7">
-							<br> <span class="font6 right">원</span> 
+							<br>
+							<span class="font6 right">원</span> 
 							<span class="font6 right" id="totalPrice">
 								<fmt:formatNumber pattern="#,###" value="${((pay.price)*(dto.itemCount))}" />
 							</span>
 						</div>
 						<div class="col-4">
-							<br> <span class="font5">쿠폰 할인 금액</span>
+							<br> 
+							<span class="font5">쿠폰 할인 금액</span>
 						</div>
 						<div class="col-7">
-							<br> <span class="font7 right">원</span> <span
-								class="font7 right" id="couponPrice"></span> <br> <br>
+							<br> 
+							<span class="font7 right">원</span> 
+							<span class="font7 right" id="couponPrice"></span> 
+							<br> 
+							<br>
 						</div>
 						<hr class="hr3">
 						<div class="col-4">
 							<span class="font5">총 배송비</span>
 						</div>
 						<div class="col-7">
-							<span class="font7 right">원</span> <span class="font7 right"
-								id="fee"></span> <br> <br>
+							<span class="font7 right">원</span> 
+							<span class="font7 right" id="fee"></span> 
+							<br> 
+							<br>
 						</div>
 						<hr class="hr3">
 						<div class="col-5">
-							<br> <span class="font8">최종 결제 금액</span>
+							<br> 
+							<span class="font8">최종 결제 금액</span>
 						</div>
 						<div class="col-6">
-							<br> <span class="font9 right">원</span> <span
-								class="font9 right" id="totalPrice2"></span> <br> <br>
+							<br> 
+							<span class="font9 right">원</span> 
+							<span class="font9 right" id="totalPrice2"></span> 
+							<br> 
+							<br>
 							<br>
 						</div>
 						<div style="text-align: center;">
 							<a href="/payment/payDone">
 								<button type="button" class="btn btn3">결제하기</button>
-							</a> <br> <br>
+							</a> 
+							<br> 
+							<br>
 						</div>
 					</div>
 				</div>
 			</div>
-			<br> <span id="font1">결제수단</span>
+			<br> 
+			<span id="font1">결제수단</span>
 			<hr class="hr1">
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="radio"
-					name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
+				<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>
 				<label class="form-check-label" for="inlineRadio1">카카오페이</label>
 			</div>
 			<hr class="hr1">
-			<br> <br> <br>
+			<br> 
+			<br> 
+			<br>
 			<div class="accordion" id="accordionExample">
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="panelsStayOpen-headingOne">
-						<button class="accordion-button" type="button"
-							data-bs-toggle="collapse"
-							data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-							aria-controls="panelsStayOpen-collapseOne">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
 							주문 상품정보 및 결제대행 서비스 이용약관에 모두 동의하십니까?
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value=""
-									id="checkboxAll" name="checkboxAll"> <label
-									class="form-check-label" for="defaultCheck1"> 모두 동의 </label>
+								<input class="form-check-input" type="checkbox" value="" id="checkboxAll" name="checkboxAll"> 
+								<label class="form-check-label" for="defaultCheck1"> 모두 동의 </label>
 							</div>
 						</button>
 					</h2>
-					<div id="panelsStayOpen-collapseOne"
-						class="accordion-collapse collapse show"
-						aria-labelledby="panelsStayOpen-headingOne">
+					<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
 						<div class="accordion-body">
 							<hr class="hr2">
 							<span id="font4">주문상품정보에 대한 동의</span>
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value=""
-									id="checkboxSeq" name="checkboxSeq"> <label
-									class="form-check-label" for="defaultCheck1">주문하실 상품,
-									가격, 배송정보, 할인내역등을 최종 확인하였으며, 구매에 동의합니다. (전상거래법 제8조 제2항) </label>
+								<input class="form-check-input" type="checkbox" value="" id="checkboxSeq" name="checkboxSeq"> 
+								<label class="form-check-label" for="defaultCheck1">주문하실 상품, 가격, 배송정보, 할인내역등을 최종 확인하였으며, 구매에 동의합니다. (전상거래법 제8조 제2항) </label>
 							</div>
 							<hr class="hr2">
 							<strong>결제대행 서비스 이용약관 동의</strong>
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value=""
-									id="checkboxSeq" name="checkboxSeq"> <label
-									class="form-check-label" for="defaultCheck1">전자금융거래
-									기본약관</label>
+								<input class="form-check-input" type="checkbox" value="" id="checkboxSeq" name="checkboxSeq"> 
+								<label class="form-check-label" for="defaultCheck1">전자금융거래 기본약관</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value=""
-									id="checkboxSeq" name="checkboxSeq"> <label
-									class="form-check-label" for="defaultCheck1">개인정보 수집 및
-									이용 동의</label>
+								<input class="form-check-input" type="checkbox" value="" id="checkboxSeq" name="checkboxSeq"> 
+								<label class="form-check-label" for="defaultCheck1">개인정보 수집 및 이용 동의</label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" value="" id="checkboxSeq" name="checkboxSeq"> 
@@ -744,9 +761,7 @@ a:hover {
 					<ul class="list-area">
 						<li>
 							<p class="logo">
-								<a href="javascript:common.link.moveMainHome();"><img
-									src="https://image.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png"
-									alt="OLIVEYOUNG"></a>
+								<a href="javascript:common.link.moveMainHome();"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="OLIVEYOUNG"></a>
 							</p>
 							<h2>씨제이올리브영 주식회사</h2>
 							<p>대표이사 : 구창근 | 사업자등록번호 : 809-81-01574</p>
@@ -756,8 +771,7 @@ a:hover {
 							<p>호스팅사업자 : CJ 올리브네트웍스</p>
 							<p>통신판매업신고번호 : 2019-서울용산-1428</p>
 							<p>
-								<a href="mailto:oliveweb@cj.net" class="email_addr">이메일 :
-									oliveweb@cj.net</a>
+								<a href="mailto:oliveweb@cj.net" class="email_addr">이메일 : oliveweb@cj.net</a>
 							</p>
 						</li>
 						<li>
@@ -941,8 +955,13 @@ a:hover {
 					$("checkboxAll").prop("checked", true);
 			});
 
+			
 			//쿠폰 할인 적용
-			var price1 = document.getElementByName("totalPrice").value;  //상품 가격
+			var price1 =  document.getElementById("totalPrice").value;  //상품 가격
+			
+			$("#couponPrice").text("0");
+			$("#totalPrice2").text(finalPrice.toLocaleString()); 
+			$("#fee").text(deliFee.toLocaleString()); 
 			
 			if(price1 < 20000){
 				var deliFee = 2500;
@@ -951,14 +970,7 @@ a:hover {
 			}else{ 
 			/* by pass */
 			 }
-			var finalPrice = totalPrice + deliFee;
-			
-			$("#totalPrice").text(totalPrice.toLocaleString());
-			$("#couponPrice").text("0");
-			$("#totalPrice2").text(finalPrice.toLocaleString()); 
-			$("#fee").text(deliFee.toLocaleString()); 
-			$("#point").text(finalPoint.toLocaleString()); 
-			$("#point1").text(finalPoint.toLocaleString()); 
+			var finalPrice = price1 + deliFee;
 			
 			$(document).ready(function() {
 			   $("#coupon1").click(function(){
