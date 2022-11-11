@@ -4,7 +4,7 @@ import com.oliveyoungyj.common.base.Base;
 
 public class Payment extends Base{
 	
-	public String seq;
+	public String seq; 
 	
 	//상품 정보
 	public String item_seq;
