@@ -961,7 +961,7 @@ a:hover {
 			
 			$("#couponPrice").text("0");
 			$("#totalPrice2").text(finalPrice.toLocaleString()); 
-			$("#fee").text(deliFee.toLocaleString()); 
+			$("#fee").text(deliFee.toLocaleString());  
 			
 			if(price1 < 20000){
 				var deliFee = 2500;
