@@ -18,7 +18,7 @@ import com.oliveyoungyj.modules.item.ItemVo;
 public class PaymentController {
 	
 	@Autowired
-	PaymentServiceImpl service;
+	PaymentServiceImpl service; 
 	
 	@Autowired
 	ItemServiceImpl itemService;
