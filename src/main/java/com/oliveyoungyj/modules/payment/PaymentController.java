@@ -35,7 +35,7 @@ public class PaymentController {
 	@RequestMapping(value = "payInst")
 	public String payInst(PaymentVo vo, Payment dto, RedirectAttributes redirectAttributes) throws Exception {
 
-		service.insert(dto);
+		service.insert(dto); 
 		vo.setSeq(dto.getSeq());
 		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/payment/payDone";
