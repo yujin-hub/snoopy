@@ -957,7 +957,7 @@ a:hover {
 
 			
 			//쿠폰 할인 적용
-			var price1 =  document.getElementById("totalPrice").value;  //상품 가격
+			var price1 = $("totalPrice").text(totalPrice.toLocaleString());
 			
 			$("#couponPrice").text("0");
 			$("#totalPrice2").text(finalPrice.toLocaleString()); 
@@ -969,7 +969,7 @@ a:hover {
 				var deliFee = 0;
 			}else{ 
 			/* by pass */
-			 }
+			}
 			var finalPrice = price1 + deliFee;
 			
 			$(document).ready(function() {
