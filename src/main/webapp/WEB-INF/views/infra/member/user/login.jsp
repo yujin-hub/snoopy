@@ -426,20 +426,16 @@
 		}
 	);
 
-	naverLogin.init();
-
-    naverLoginClick = function(){
+   	naverLogin.init();
+   	
+   	loginNaver = function(){
 		naverLogin.getLoginStatus(function (status) {
-			
-			if(!status)
-				naverLogin.authorize();
-           
-            //여러분 여기서 if(로그인이 안되어있으면) 네이버 로그인창을 띄운뒤...
-            //else를 빼고 아래처럼 작성해주셔야 로그인버튼 클릭 한번만에 동작합니다
-
-            setLoginStatus();  //하늘님 메소드 실행 -> Ajax
+			if (status) {
+				setLoginStatus();
+			}
+   		
 		});
-    }
+   	}
    	
 	function setLoginStatus() {
  			
