@@ -41,7 +41,6 @@
 	<link rel="stylesheet" href="/resources/demos/style.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-	<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 	
 	<style type="text/css">
 		h1 {
@@ -232,19 +231,16 @@
 			<br>
 			<div class="row gy-2">
 				<div class="d-grid gap-2 btn-sm">
-				  	<button class="btn btn-warning" type="button" id="kakaoLogin"><i class="fa-solid fa-comments"></i> Kakao로 시작하기</button>
+				  <button class="btn btn-warning" type="button" id="kakaoLogin"><i class="fa-solid fa-comments"></i> Kakao로 시작하기</button>
 				</div>
 				<div class="d-grid gap-2 btn-sm">
-					<div class="btn_login_wrap">
-						<div id="naverIdLogin"></div>
-                    </div>
-				<button class="btn btn-success" type="button" id="loginNaver" onclick="loginNaver();"><i class="fa-brands fa-neos"></i> Naver로 시작하기</button>
+				  <button class="btn btn-success" type="button"><i class="fa-brands fa-neos"></i> Naver로 시작하기</button>
 				</div>
 				<div class="d-grid gap-2 btn-sm">
-				  	<button class="btn btn-danger" type="button"><i class="fa-brands fa-google"></i> Google로 시작하기</button>
+				  <button class="btn btn-danger" type="button"><i class="fa-brands fa-google"></i> Google로 시작하기</button>
 				</div>
 				<div class="d-grid gap-2 btn-sm">
-				  	<button class="btn btn-primary" type="button"><i class="fa-brands fa-facebook"></i> Facebook으로 시작하기</button>
+				  <button class="btn btn-primary" type="button"><i class="fa-brands fa-facebook"></i> Facebook으로 시작하기</button>
 				</div>
 			</div>
 			<br>
@@ -352,6 +348,7 @@
 		        	  
 		        	  var accessToken = Kakao.Auth.getAccessToken();
 		        	  Kakao.Auth.setAccessToken(accessToken);
+
 		        	  var account = response.kakao_account;
 		        	  
 		        	  console.log(response)
@@ -383,16 +380,7 @@
 						,cache: false
 						,type:"POST"
 						,url: "/member/kakaoLoginProc"
-						,data: {
-							"name": $("input[name=name]").val(), 
-							"snsID": "카카오로그인", 
-							"tel": $("input[name=tel]").val(), 
-							"email": $("input[name=email]").val(), 
-							"gender": $("input[name=gender]").val(),
-							"dob": $("input[name=dob]").val(), 
-							"snsImg": $("input[name=snsImg]").val(),
-							"token": $("input[name=token]").val()
-						}
+						,data: {"name": $("input[name=name]").val(), "snsID": $("input[name=snsID]").val(), "tel": $("input[name=tel]").val(), "email": $("input[name=email]").val(), "gender": $("input[name=gender]").val(), "dob": $("input[name=dob]").val(), "snsImg": $("input[name=snsImg]").val(), "token": $("input[name=token]").val()}
 						,success : function(response) {
 							if (response.rt == "fail") {
 								alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
@@ -416,70 +404,12 @@
 			      },
 			    })
 		});
-
-	//네이버 로그인
-	var naverLogin = new naver.LoginWithNaverId(
-		{
-			clientId: "bCx7uqXKlr6Zn4qi3Ls0",
-			callbackUrl: "http://localhost:8080/member/login",
-			isPopup: true 
-		}
-	);
-
-   	naverLogin.init();
-   	
-   	loginNaver = function(){
-		naverLogin.getLoginStatus(function (status) {
-			if (status) {
-				setLoginStatus();
-			}
-   		
-		});
-   	}
-   	
-	function setLoginStatus() {
- 			
-		if (naverLogin.user.gender == 'M'){
-			$("input[name=gender]").val(20);
-		} else {
-			$("input[name=gender]").val(21);
-		} 
-		
-		$.ajax({
-			async: true
-			,cache: false
-			,type: "POST"
-			,url: "/member/naverLoginProc"
-			,data: {
-				"name": naverLogin.user.name, 
-				"snsID": "네이버로그인", 
-				"phone": naverLogin.user.tel, 
-				"email": naverLogin.user.email, 
-				"gender": $("input[name=gender]").val(), 
-				"dob": naverLogin.user.birthyear + "-" + naverLogin.user.birthday, 
-				"snsImg": naverLogin.user.profile_image, 
-				"userID": naverLogin.user.userID
-			}
-			,success : function(response) {
-				if (response.rt == "fail") {
-					alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
-					return false;
-				} else {
-					window.location.href = "/item/itemList";
-				}
-			},
-			error : function(jqXHR, status, error) {
-				alert("알 수 없는 에러 [ " + error + " ]");
-			}
-		});
-	}
-  		
+	
 	/* validation = function() {
 		if(!checkNull($("#userID"), $.trim($("#userID").val()), "아이디를 입력해주세요")) return false;
 		if(!checkNull($("#pw"), $.trim($("#pw").val()), "비밀번호를 입력해주세요")) return false;
 	}   */
 	
-    
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

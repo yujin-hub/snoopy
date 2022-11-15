@@ -189,6 +189,10 @@
 			width: 220px;
 			height: 60px;
 		}
+		
+		.point{
+			cursor: pointer;
+		}
 	</style>
 </head>
     
@@ -378,7 +382,7 @@
 								</span>
 							</div>
 							<div class="card" id="item">
-								<a href="javascript:goView(<c:out value="${listTop.itemSeq}"/>)">
+								<a href="javascript:goView(<c:out value="${listTop.itemSeq}"/>)" class="point">
 									<img src="${listTop.path }${listTop.uuidName}" id="img" class="card-img-top">
 									<br>
 									<span class="name">
@@ -426,7 +430,7 @@
 					<c:forEach items="${listWeek}" var="listWeek" varStatus="status">
 						<div class="col-md-3" id="left">
 							<div class="card" id="item">
-								<a href="javascript:goView(<c:out value="${listWeek.itemSeq}"/>)">
+								<a href="javascript:goView(<c:out value="${listWeek.itemSeq}"/>)" class="point">
 									<img src="${listWeek.path }${listWeek.uuidName}" id="img" class="card-img-top">
 									<br>
 									<p class="name">
@@ -504,7 +508,7 @@
 								<c:forEach items="${listCK}" var="listCK" varStatus="status">
 									<div class="col-3">
 										<div class="card2" id="item">
-											<a href="javascript:goView(<c:out value="${listCK.itemSeq}"/>)">
+											<a href="javascript:goView(<c:out value="${listCK.itemSeq}"/>)" class="point">
 												<img src="${listCK.path }${listCK.uuidName}" id="img" class="card-img-top">
 												<br>
 												<p class="name">
@@ -543,7 +547,7 @@
 								<c:forEach items="${listAHC}" var="listAHC" varStatus="status">
 									<div class="col-3">
 										<div class="card2" id="item">
-											<a href="javascript:goView(<c:out value="${listAHC.itemSeq}"/>)">
+											<a href="javascript:goView(<c:out value="${listAHC.itemSeq}"/>)" class="point">
 												<img src="${listAHC.path }${listAHC.uuidName}" id="img" class="card-img-top">
 												<br>
 												<p class="name">
@@ -584,7 +588,7 @@
 								<c:forEach items="${listAB}" var="listAB" varStatus="status">
 									<div class="col-3">
 										<div class="card2" id="item">
-											<a href="javascript:goView(<c:out value="${listAB.itemSeq}"/>)">
+											<a href="javascript:goView(<c:out value="${listAB.itemSeq}"/>)" class="point">
 												<img src="${listAB.path }${listAB.uuidName}" id="img" class="card-img-top">
 												<br>
 												<p class="name">
@@ -625,7 +629,7 @@
 								<c:forEach items="${listBeyond}" var="listBeyond" varStatus="status">
 									<div class="col-3">
 										<div class="card2" id="item">
-											<a href="javascript:goView(<c:out value="${listBeyond.itemSeq}"/>)">
+											<a href="javascript:goView(<c:out value="${listBeyond.itemSeq}"/>)" class="point">
 												<img src="${listBeyond.path }${listBeyond.uuidName}" id="img" class="card-img-top">
 												<br>
 												<p class="name">
@@ -666,7 +670,7 @@
 								<c:forEach items="${listDD}" var="listDD" varStatus="status">
 									<div class="col-3">
 										<div class="card2" id="item">
-											<a href="javascript:goView(<c:out value="${listDD.itemSeq}"/>)">
+											<a href="javascript:goView(<c:out value="${listDD.itemSeq}"/>)" class="point">
 												<img src="${listDD.path }${listDD.uuidName}" id="img" class="card-img-top">
 												<br>
 												<p class="name">
@@ -707,7 +711,7 @@
 								<c:forEach items="${listBO}" var="listBO" varStatus="status">
 									<div class="col-3">
 										<div class="card2" id="item">
-											<a href="javascript:goView(<c:out value="${listBO.itemSeq}"/>)">
+											<a href="javascript:goView(<c:out value="${listBO.itemSeq}"/>)" class="point">
 												<img src="${listBO.path }${listBO.uuidName}" id="img" class="card-img-top">
 												<br>
 												<p class="name">

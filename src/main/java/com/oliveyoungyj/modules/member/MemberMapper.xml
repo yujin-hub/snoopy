@@ -252,7 +252,6 @@
 	</update>
 	
 	
-	
 	<!-- 카카오 로그인 -->
 	<insert id="kakaoInst">
 		INSERT INTO user (
@@ -292,6 +291,33 @@
 			and name = #{name}
 	</select>
 	
+	
+	<!-- 네이버 로그인 -->
+	<insert id="naverInst">
+		INSERT INTO user (
+			userID
+			,name
+			,email
+			,gender
+			,dob
+			,userDelNY
+			,snsImg
+			,snsID
+		)
+		VALUES (
+			#{snsID}
+			,#{name}
+			,#{email}
+			,#{gender}
+			,#{dob}
+			,0
+			,#{snsImg}
+			,"네이버로그인"
+		)
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
 	
 	<!-- <insert id="insertUploaded">
 		INSERT INTO profileUploaded (

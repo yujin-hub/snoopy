@@ -24,6 +24,9 @@ public interface MemberService {
 	public int kakaoInst(Member dto) throws Exception;
 	public Member snsLoginCheck(Member dto) throws Exception;
 	 
+	//네이버 로그인
+	public int naverInst(Member dto) throws Exception;
+	  
 //	//업로드
 //	public Member imageUpload(Member dto) throws Exception;
 	

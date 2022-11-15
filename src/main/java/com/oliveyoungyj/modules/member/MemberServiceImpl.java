@@ -122,6 +122,12 @@ public class MemberServiceImpl implements MemberService{
 		}
     }
 	
+	//네이버 로그인
+	 @Override
+    public int naverInst(Member dto) throws Exception {
+		return dao.naverInst(dto);
+    }
+	
 //	@Override
 //	public Member imageUpload(Member dto) throws Exception {
 //		return dao.imageUpload(dto);

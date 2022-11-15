@@ -78,7 +78,6 @@ public class MemberDao {
 	public Member selectOneID(Member dto) {
 		return sqlSession.selectOne(namespace + ".selectOneID", dto);
 	}
-
 	
 	//카카오 로그인
 	public int kakaoInst(Member dto) {
@@ -87,6 +86,11 @@ public class MemberDao {
 	
 	public Member snsLoginCheck(Member dto) {
 	    return sqlSession.selectOne(namespace + ".snsLoginCheck", dto);
+	}
+	
+	//네이버 로그인
+	public int naverInst(Member dto) {
+		return sqlSession.insert(namespace + ".naverInst", dto);
 	}
 	
 //	public int selectLastSeq(Member dto) {
