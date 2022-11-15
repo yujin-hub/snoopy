@@ -946,17 +946,17 @@
 
 		
 		var myPrice = $("#totalPrice").text();
-		var applyPrice = $("#totalPrice").text();
 		
 		myPrice = myPrice.replace(',',''); // , 빼주기
 		myPrice = myPrice.trim(); // 공백지우기
 		$("#discount").text('0');
 		
 		window.onload = function(){
-			if(myPrice >= 20000)
+			if(myPrice >= 20000){
 				fee = 0;
-			else
+			}else{
 				fee = 2500;
+			}
 			
 			$("#fee").html(fee.toLocaleString());
 		}
@@ -976,6 +976,7 @@
 		/* $("#delCoupon").on("click", function(){
 			$("#couponPrice").val("0");
 		}); */
+		
 	</script>
 
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
