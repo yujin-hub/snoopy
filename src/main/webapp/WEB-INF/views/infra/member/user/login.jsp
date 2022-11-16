@@ -430,12 +430,13 @@
    	
    	loginNaver = function(){
 		naverLogin.getLoginStatus(function (status) {
-			if (status) {
-				setLoginStatus();
-			}
-   		
+			
+			if(!status)
+				naverLogin.authorize();
+           
+            setLoginStatus();  
 		});
-   	}
+    }
    	
 	function setLoginStatus() {
  			

@@ -944,31 +944,35 @@
 				$("checkboxAll").prop("checked", true);
 		});
 
-		
-		var myPrice = $("#totalPrice").text();
-		
-		myPrice = myPrice.replace(',',''); // , 빼주기
-		myPrice = myPrice.trim(); // 공백지우기
-		$("#discount").text('0');
-		
+		//쿠폰 적용
 		window.onload = function(){
 			if(myPrice >= 20000){
-				fee = 0;
+				fee = 0; 
 			}else{
 				fee = 2500;
 			}
+			$("#fee").html(fee.toLocaleString()); // 배송비 출력
 			
-			$("#fee").html(fee.toLocaleString());
+			Price = parseInt(myPrice); 
+			delifee = parseInt(fee);
+			finalPrice = parseInt(Price + delifee); // 최종 금액(string 값 int로 받아오기)
+			$("#totalPrice2").html(finalPrice.toLocaleString()); // 최종 금액(쿠폰 적용 전)
 		}
-	
+		
+		var myPrice = $("#totalPrice").text();
+		myPrice = myPrice.replace(',',''); // , 빼주기
+		myPrice = myPrice.trim(); // 공백지우기
+		$("#discount").text('0'); // 처음 쿠폰 할인 금액 0원
+		
 		function applyCoupon(discount,minPrice){  
 			if(myPrice < minPrice){
 				alert("구매 금액이 쿠폰 사용 최소 금액보다 적습니다.");
 				return;
 			}else{
-				applyPrice = myPrice - discount + fee;	
+				applyPrice = myPrice - discount + fee;	// 최종 금액(쿠폰 적용 후)
 			}
-			$("#totalPrice2").html(applyPrice.toLocaleString());
+			$("#discount").html(discount.toLocaleString()); // 쿠폰 할인 금액 값 입력
+			$("#totalPrice2").html(applyPrice.toLocaleString()); // 최종 금액 값 입력
 		};
 		
 		$("#rtCount").val(itemCount);
