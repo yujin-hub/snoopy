@@ -11,7 +11,7 @@
 	
 	<sql id="selectCommon">
 		FROM item a 
-		INNER JOIN brand_list b on a.brand_list_seq = b.seq
+		INNER JOIN brand_list b on a.brand_list_seq = b.num
 		WHERE 1=1
 		
 		<if test="shStock != null and !shStock.equals('')">AND a.stock = #{shStock}</if>

@@ -281,7 +281,7 @@
 						<a class="nav-link" href="/codeGroup/codeGroupList">코드 그룹 관리</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="codeList">코드 관리</a>
+						<a class="nav-link" href="/code/codeList">코드 관리</a>
 					</li>
 				</ul>
 			</div>
@@ -300,7 +300,7 @@
 									<div class="col-6">
 										<br>
 										<label for="itemImg" class="form-label">상품 이미지</label>
-										<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple">
+										<input class="form-control" id="winter" name="MultipartFile" type="file" multiple="multiple" accept=".jpg,.png,.jpeg">
 										<div id="ifmmUploadedImagePreview" class="addScroll">
 											<c:forEach items="${imageUpload}" var="imageUpload" varStatus="status">
 												<img src="${imageUpload.path }${imageUpload.uuidName}" id="img">
@@ -477,22 +477,21 @@
 	            return false;
 	        });
 	 	
-	 $("#btnLogout").on("click", function(){
+		$("#btnLogout").on("click", function() {
 			$.ajax({
-				async: true 
-				,cache: false
-				,type: "post"
-				,url: "/member/logoutProc"
-				,data: {}
-				,success: function(response) {
-					if(response.rt == "success") {
-						location.href = "/member/login";
-					} else {
-						alert("다시 시도해주세요.")
+					async: true 
+					,cache: false
+					,type: "post"
+					,url: "/member/logoutProc"
+					,success: function(response) {
+						if(response.rt == "success") {
+							location.href = "/member/login";
+						} else {
+							alert("다시 시도해주세요.");
+						}
 					}
-				}
-			});
-		});
+				});
+		});	
 	 
 	 	var goUrlList = "/item/itemListSet"; 			
 		var goUrlInst = "/item/itemInst"; 			

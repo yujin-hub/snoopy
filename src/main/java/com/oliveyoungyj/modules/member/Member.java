@@ -25,7 +25,6 @@ public class Member extends Base{
 	public String userID;
 	public String pw;
 	
-	
 	public String token;
 	public String snsID;
 	public String snsImg;

@@ -436,131 +436,58 @@
 						<br>
 						<br>
 						<br>
-						<div class="container">
-							<div class="row">
-								<div class="col-2 font2">
-									<span>total : </span><c:out value="${vo.totalRows - ((vo.thisPage -1) * vo.rowNumToShow + status.index) }"/>
-								</div>
-								<div class="col-9">
-								</div>
-								<div class="col-1">
-									<select class="form-select form-select-sm" aria-label="Default select example">
-										<option selected>10</option>
-										<option value="1">15</option>
-										<option value="2">20</option>
-									</select>
+						<div id="Lita"></div>
+						<br>
+						<!-- x버튼 Modal -->
+						<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel2"><b>Olive Young</b></h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										정말로 삭제하시겠습니까?
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+										<button type="button" class="btn btn-dark" id="btnDelete">삭제 </button>
+									</div>
 								</div>
 							</div>
-							<br>
-							<table class="table table-striped table-hover">
-								<thead>
-							  		<tr>
-							  			<th><input type="checkbox" id="chkAll" name="chkAll"></th>
-										<th>#</th>
-										<th>코드그룹 코드</th>
-										<th>코드그룹 이름(한글)</th>
-										<th>코드그룹 이름(영문)</th>
-										<th>코드갯수</th>
-										<th>등록일</th>
-										<th>수정일</th>
-										<th>사용여부</th>
-										<th>삭제여부</th>
-									</tr>
-								</thead>
-								<tbody class="table-group-divider">
-									<c:choose>
-										<c:when test="${fn:length(list) eq 0 }">
-											<td class="text-center" colspan="10">There is no data!</td>
-										</c:when>
-										<c:otherwise>
-											<c:forEach items="${list}" var="list" varStatus="status">
-												<tr class="cursor">
-													<td onClick="event.cancelBubble = true"><input class="form-check-input" type="checkbox" name="chk"></td>
-													<td><c:out value="${list.seq }"/></td>
-													<td><c:out value="${list.num }"/></td>
-													<td>
-														<a href="javascript:goForm(<c:out value="${list.seq}"/>)"><c:out value="${list.propertyKor }"/></a>
-													</td>
-													<td><c:out value="${list.property }"/></td>
-													<td><c:out value="${list.codeNum }"/></td>
-													<td><c:out value="${list.regDate }"/></td>
-													<td><c:out value="${list.modDate }"/></td>
-													<td>
-														<c:choose>
-															<c:when test="${list.useNY eq 0 }">N</c:when>
-															<c:otherwise>Y</c:otherwise>
-														</c:choose>
-														</td>
-													<td>
-														<c:choose>
-															<c:when test="${list.delNY eq 0 }">N</c:when>
-															<c:otherwise>Y</c:otherwise>
-														</c:choose>
-													</td>
-												</tr>
-											</c:forEach>
-										</c:otherwise>
-									</c:choose>
-								</tbody>
-							</table>
-							<br>
-							
-							<!-- pagination s -->
-							<%@include file="../../../common/xdmin/include/pagination.jsp"%>
-							<!-- pagination e -->
-							
-							<br>
-							<!-- x버튼 Modal -->
-							<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-							  <div class="modal-dialog">
-							    <div class="modal-content">
-							      <div class="modal-header">
-							        <h5 class="modal-title" id="exampleModalLabel2"><b>Olive Young</b></h5>
-							        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							      </div>
-							      <div class="modal-body">
-							        정말로 삭제하시겠습니까?
-							      </div>
-							      <div class="modal-footer">
-							        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-							        <button type="button" class="btn btn-dark" id="btnDelete">삭제 </button>
-							      </div>
-							    </div>
-							  </div>
-							</div>
-							
-							 <!-- 휴지통 Modal -->
-							<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-							  <div class="modal-dialog">
-							    <div class="modal-content">
-							      <div class="modal-header">
-							        <h5 class="modal-title" id="exampleModalLabel"><b>Olive Young</b></h5>
-							        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							      </div>
-							      <div class="modal-body">
-							        정말로 삭제하시겠습니까?
-							      </div>
-							      <div class="modal-footer">
-							        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-							        <button type="button" class="btn btn-dark" id="btnUelete">삭제 </button>
-							      </div>
-							    </div>
-							  </div>
-							</div>
-			
-							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2" id="btnDelete"><i class="fa-solid fa-x"></i></button>
-							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnUelete"><i class="fa-solid fa-trash-can"></i></button>
-							
-						<!-- 	<button class="btn btn3 btn-space btn-danger" id="btnUelete"><i class="fa-solid fa-trash-can"></i></button> 
-							<button class="btn btn3 btn-space btn-danger" role="button" id="btnDelete"><i class="fa-solid fa-x"></i></button> -->			
-							<a href="codeGroupForm" class="btn btn2 btn-space" role="button"><i class="fa-solid fa-plus"></i></a> 
-							<a class="btn btn-success btn-space" role="button"><i class="fa-solid fa-file-excel"></i></a>							
-							<br>
-							<br>
-							<br>
 						</div>
-					</section>
-				</div>
+							
+						<!-- 휴지통 Modal -->
+						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel"><b>Olive Young</b></h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										정말로 삭제하시겠습니까?
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+										<button type="button" class="btn btn-dark" id="btnUelete">삭제 </button>
+									</div>
+								</div>	
+							</div>
+						</div>
+			
+						<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal2" id="btnDelete"><i class="fa-solid fa-x"></i></button>
+						<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnUelete"><i class="fa-solid fa-trash-can"></i></button>
+							
+					<!-- <button class="btn btn3 btn-space btn-danger" id="btnUelete"><i class="fa-solid fa-trash-can"></i></button> 
+						<button class="btn btn3 btn-space btn-danger" role="button" id="btnDelete"><i class="fa-solid fa-x"></i></button> -->			
+						<a href="codeGroupForm" class="btn btn2 btn-space" role="button"><i class="fa-solid fa-plus"></i></a> 
+						<a class="btn btn-success btn-space" role="button"><i class="fa-solid fa-file-excel"></i></a>							
+						<br>
+						<br>
+						<br>
+					</div>
+				</section>
 			</div>
 		</div>
 	</div> 	
