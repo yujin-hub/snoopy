@@ -199,6 +199,16 @@ public class MemberController {
 		}
 		return returnMap;
 	}
+	
+	//로그아웃
+	@ResponseBody
+	@RequestMapping(value = "logoutProc")
+	public Map<String, Object> logoutProc(HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		httpSession.invalidate();
+		returnMap.put("rt", "success");
+		return returnMap;
+	}
 
 	//카카오 로그인
 	@ResponseBody
@@ -274,16 +284,6 @@ public class MemberController {
 		return "infra/member/user/mypageProfile";
 	}
 	
-	// 로그아웃
-	@ResponseBody
-	@RequestMapping(value = "logoutProc")
-	public Map<String, Object> logoutProc(HttpSession httpSession) throws Exception {
-		Map<String, Object> returnMap = new HashMap<String, Object>();
-		httpSession.invalidate();
-		returnMap.put("rt", "success");
-		return returnMap;
-	}
-
 	@RequestMapping(value = "login")
 	public String login() throws Exception {
 
