@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>		
+
 	<%@include file="../../../common/xdmin/include/head.jsp"%>
 	
 	<style type="text/css">
@@ -85,12 +86,12 @@
                     </div>
 				<button class="btn btn-success" type="button" id="loginNaver" onclick="loginNaver();"><i class="fa-brands fa-neos"></i> Naver로 시작하기</button>
 				</div>
-				<div class="d-grid gap-2 btn-sm">
+				<!-- <div class="d-grid gap-2 btn-sm">
 				  	<button class="btn btn-danger" type="button"><i class="fa-brands fa-google"></i> Google로 시작하기</button>
 				</div>
 				<div class="d-grid gap-2 btn-sm">
 				  	<button class="btn btn-primary" type="button"><i class="fa-brands fa-facebook"></i> Facebook으로 시작하기</button>
-				</div>
+				</div> -->
 			</div>
 			<br>
 			<br>

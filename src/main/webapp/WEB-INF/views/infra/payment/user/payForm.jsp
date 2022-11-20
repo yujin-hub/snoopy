@@ -547,10 +547,18 @@
 						<br>
 						<br>
 					</div>
+					<%-- <form id="formVo" name="formVo">
+						<input type="hidden" name="sessSeq" value="${sessSeq}" id="ifMmSeq">
+						<input type="hidden" name="sessName" value="${sessName}" id="ifMmName">
+						<input type="hidden" name="sessId" value="${sessId}" id="ifMmId">
+						<input type="hidden" name="tid" value="" id="tid">
+						<input type="hidden" name="created_at" value="" id="created_at">
+					</form> --%>
 					<div style="text-align: center;">
 						<a href="/payment/payDone">
-							<button type="button" class="btn btn3">결제하기</button>
-						</a> 
+							 <button type="button" class="btn btn3">결제하기</button>
+							<%-- <a type="button" class="btn btn3" href="javascript:kakao(''${dto.bname}', ${dto.name}', '${price}','${sessId}')"></a> --%>
+						</a>
 						<br> 
 						<br>
 					</div>
@@ -656,11 +664,14 @@
 	});
 
 	var goUrlInst = "/payment/payInst";
-
 	var seq = $("input:hidden[name=itemSeq]"); /* #-> */
-
 	var form = $("form[name=form]");
-
+	/* var formVo = $("form[name=formVo]");
+	var goPurchase = "/payment/ticketingForm";				
+	var goAfter = "/payment/payDone";
+	var goPay = "/payment/kakaopay"
+  */
+  
 	$("#btnPay").on("click", function() {
 		form.attr("action", goUrlInst).submit();
 	});
@@ -796,6 +807,58 @@
 	/* $("#delCoupon").on("click", function(){
 		$("#couponPrice").val("0");
 	}); */
+	/* 
+	//카카오페이
+	function kakao(bname, name, total, id) {
+		$.ajax({
+			dataType:"json" 	
+			,url: "/purchase/kakaopay"
+			,data:{
+				bname : bname,
+				name : name,
+				total : total,
+				id : id
+			}
+			,success: function(data) {
+				console.log(data);
+				var box = data.next_redirect_pc_url;
+				var tid = data.tid;
+				var created_at = data.created_at;	
+			    $("input[name=tid]").val(data.tid);
+			    $("input[name=created_at]").val(data.created_at);
+			    $("input[name=pc_url]").val(box);
+			    $.ajax({
+					dataType:"json" 	
+					,url: "/purchase/test"
+					,data:{
+						bname : bname,
+						name : name,
+						total : total,
+						id : id
+						"tid": $("input[name=tid]").val(),
+			    		"created_at" : $("input[name=created_at]").val(),
+						"bname" : $("input[name=bname]").val(),
+						"src" : $("input[name=src]").val(),
+						"name" : $("input[name=name]").val(),  
+						"total" : $("input[id=totalPrice]").val()  
+					}
+					,success: function(response) {
+						if (response.rt == "success") {
+						    window.location.href = box; 
+						} else {
+							alert("실패");
+						}					    
+					} ,
+					error:function(error){
+						alert(error);
+					}
+				});
+			} ,
+			error:function(error){
+				alert(error);
+			}
+		});
+	}; */
 	
 </script>
 	

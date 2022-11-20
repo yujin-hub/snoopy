@@ -4,35 +4,16 @@
 	<div id="Header">
 		<div class="top_util">
 			<ul class="menu_list" id="menu_list_header">
-				<li class="login">
-					<c:if test="${sessSeq eq null}">
-		        		<!-- 로그인전 -->
-		            	<div class="before1">
-		            		<a href="/member/regForm" data-attr='공통^헤더^회원가입' title="회원가입">회원가입</a>
-		            		&nbsp; | &nbsp; 
-		                	<a href="/member/login" data-attr='공통^헤더^로그인' title="로그인">로그인</a>
-		                	&nbsp; | &nbsp; 
-                	 		<a href="/item/access" data-attr='공통^헤더^홈' title="선택화면">처음으로</a>
-		            	</div>
-		        	</c:if>
-		            <c:if test="${sessSeq ne null}">
-			           	<div class="after">
-							<a href="/item/itemList" data-attr='공통^헤더^로그인'><c:out value="${sessId }"/>님, 반갑습니다</a>
-							&nbsp; | &nbsp; 
-							<a href="/member/mypage"data-attr='공통^헤더^장바구니'>마이페이지<span id="cartToCnt"></span></a>
-							&nbsp; | &nbsp; 
-							<a href="" data-attr='공통^헤더^로그아웃' title="로그아웃" type="button" id="btnLogout">로그아웃</a>
-							&nbsp; | &nbsp; 
-							<a href="/item/access" data-attr='공통^헤더^홈' title="선택화면">처음으로</a>
-			            </div>
-		            </c:if>
-				</li>
+				<li class="login"><a href="/member/memberList" data-attr='공통^헤더^로그인'><i class="fa-solid fa-wrench"></i> 매니저 님, 반갑습니다</a></li>
+				<li class="cart"><a href="/codeGroup/codeGroupList" data-attr='공통^헤더^장바구니'>관리 홈<span id="cartToCnt"></span></a></li>
+				<li class="cart"><a href="" data-attr='공통^헤더^로그아웃' title="로그아웃" type="button" id="btnLogout">로그아웃</a></li>
+				<li class="cart"><a href="/item/access" data-attr='공통^헤더^홈' title="선택화면">처음으로</a></li>
 			</ul>
-		</div
+		</div>
 		
 		<form autocomplete="off">
-			<div class="header_inner" >
-	            <h1><a href="/item/itemList"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
+			<div class="header_inner">
+	            <h1><a href="/item/itemListDmin"><img src="https://image.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영"></a></h1>
 				<div class="search_box" id="w_search_box">
 					<input type="hidden" name="chkButton" id="chkButton">		
 					<input type="text" id="query" class="inp_placeholder">
@@ -41,6 +22,14 @@
 						<div class="layer_inner"></div>
 					</div>
 				</div>
+				<ul class="mymenu_area">
+					<li class="store ">
+						<a href="#" class="mymenu_layer" title="관심 매장소식 자세히보기 열기/닫기">관심 매장소식</a>
+					</li>
+					<li class="recent">
+						<a href="javascript:;" class="mymenu_layer" title="최근 본 상품 자세히보기 열기/닫기">최근 본 상품</a>
+					</li>
+				</ul>
 			</div>
 		</form>
 	</div>

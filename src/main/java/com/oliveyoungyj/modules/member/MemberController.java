@@ -117,8 +117,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "memberSecession")
-	public String memberSecession(MemberVo vo, Member dto, RedirectAttributes redirectAttributes,
-			HttpSession httpSession) throws Exception {
+	public String memberSecession(MemberVo vo, Member dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
 
 		service.secession(dto);
 		redirectAttributes.addFlashAttribute("vo", vo);
@@ -345,8 +344,14 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "mypageSecession")
-	public String mypageSecession() throws Exception {
+	public String mypageSecession(@ModelAttribute("vo") MemberVo vo, Model model, HttpSession httpSession) throws Exception {
 
+		String seq = (String) httpSession.getAttribute("sessSeq");
+		vo.setSeq(seq);
+		
+		Member result = service.selectOne(vo);
+		model.addAttribute("de", result);
+		
 		return "infra/member/user/mypageSecession";
 	}
 
@@ -399,8 +404,10 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "loginDmin")
-	public String loginDmin() throws Exception {
+	public String loginDmin(HttpSession httpSession) throws Exception {
 
+		httpSession.invalidate();
+		
 		return "infra/member/xdmin/loginDmin";
 	}
 	

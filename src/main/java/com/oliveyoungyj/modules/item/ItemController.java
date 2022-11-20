@@ -44,8 +44,7 @@ public class ItemController {
 	}
 
 	@RequestMapping(value = "access")
-	public String access() throws Exception {
-
+	public String access(HttpSession httpSession) throws Exception {
 		return "infra/item/user/access";
 	}
 
@@ -141,7 +140,7 @@ public class ItemController {
 			} 
 		}		
 		
-		System.out.println("main :"+listMain.size() + " sub :" + listSub.size());
+		System.out.println("main :"+ listMain.size() + " sub :" + listSub.size());
 		
 		model.addAttribute("listMain", listMain);
 		model.addAttribute("listSub", listSub);
