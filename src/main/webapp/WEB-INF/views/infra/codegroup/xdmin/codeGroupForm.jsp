@@ -116,7 +116,7 @@
     
 <body>
 
-	<%@include file="../../../common/xdmin/include/header.jsp"%>
+	<%@include file="../../../common/xdmin/include/headerDmin.jsp"%>
 
 	<div class="container-fluid mydiv">
 		<div class="container mydiv2">
