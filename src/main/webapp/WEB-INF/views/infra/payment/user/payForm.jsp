@@ -240,7 +240,7 @@
 			<br>
 			<br>
 		</div>
-	</div>
+	</div> 
 
 	<form id="form" name="form" method="post">
 	<input type="hidden" name="itemSeq" value="${pay.itemSeq}" /> 

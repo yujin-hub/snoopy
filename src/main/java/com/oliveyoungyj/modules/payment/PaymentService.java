@@ -7,3 +7,4 @@ public interface PaymentService {
 	public int insert(Payment dto) throws Exception;
 	public Payment selectOne(PaymentVo vo) throws Exception;
 }
+ 
