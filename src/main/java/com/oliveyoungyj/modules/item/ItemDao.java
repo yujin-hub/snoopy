@@ -66,7 +66,7 @@ public class ItemDao {
 	}
 
 	public int insertUploaded(Item dto) {
-		return sqlSession.selectOne(namespace + ".insertUploaded", dto);
+		return sqlSession.insert(namespace + ".insertUploaded", dto);
 	}
 	
 	public List<Item> imageUpload(ItemVo vo) {
