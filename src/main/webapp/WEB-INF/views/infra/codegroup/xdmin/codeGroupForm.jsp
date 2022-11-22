@@ -252,7 +252,7 @@
 								</div>
 								<div class="col-6">
 								</div>
-								<div class="col-6">
+								<!-- <div class="col-6">
 									<br>
 									<br>
 									<label for="gender12" class="form-label">분야</label>
@@ -271,7 +271,7 @@
 				  					<label class="form-check-label" for="inlineCheckbox2">지성</label>
 				  					<input class="form-check-input" type="checkbox" id="ch3" name="sel" value="multi">
 				  					<label class="form-check-label" for="inlineCheckbox3">복합성</label>
-								</div>
+								</div> -->
 							</div>
 							<br>
 							<br>

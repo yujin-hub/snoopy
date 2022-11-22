@@ -57,9 +57,9 @@
 			<label class="form-check-label" for="flexCheckChecked">자동 로그인</label>
 		</div>
 		<div class= "container" style="width: 400px; margin: auto;">
-			<span style="float:right;"><a href="../member/findPW">비밀번호 찾기</a></span>
+			<!-- <span style="float:right;"><a href="../member/findPW">비밀번호 찾기</a></span>
 			<span style="float:right;">&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; </span>
-			<span style="float:right;"><a href="../member/findID">아이디 찾기</a></span>
+			<span style="float:right;"><a href="../member/findID">아이디 찾기</a></span> -->
 			<br>
 			<br>
 			<br>
@@ -69,7 +69,7 @@
 			<br>
 			<br>
 		</div>
-		<div class= "container" style="width: 550px;">
+		<!-- <div class= "container" style="width: 550px;">
 			<hr style="border:1px solid; display: block !important; width: 100% !important;">
 		</div>
 		<div class= "container" style="width: 400px; margin: auto;">
@@ -97,7 +97,7 @@
 			<br>
 			<br>
 			<br>
-		</div>
+		</div> -->
 	</div>
 	
 	<%@include file="../../../common/xdmin/include/footer.jsp"%>	
