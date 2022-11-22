@@ -217,7 +217,7 @@ public class MemberController {
 	    
 		Member kakaoLogin = service.snsLoginCheck(dto);
 		
-		 System.out.println("test : " + dto.getToken());
+		System.out.println("test : " + dto.getToken());
 		
 		if (kakaoLogin == null) {
 			service.kakaoInst(dto);
