@@ -804,11 +804,11 @@
 	
 	$("#rtCount").val(itemCount); 
 
-	/* $("#delCoupon").on("click", function(){
+	/* /* $("#delCoupon").on("click", function(){
 		$("#couponPrice").val("0");
 	}); */
-	/* 
-	//카카오페이
+	
+/* 	//카카오페이
 	function kakao(bname, name, total, id) {
 		$.ajax({
 			dataType:"json" 	
@@ -858,7 +858,7 @@
 				alert(error);
 			}
 		});
-	}; */
+	};  */
 	
 </script>
 	
