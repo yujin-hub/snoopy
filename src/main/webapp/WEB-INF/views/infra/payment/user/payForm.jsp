@@ -556,7 +556,7 @@
 					</form> --%>
 					<div style="text-align: center;">
 						<a href="/payment/payDone">
-							 <button type="button" class="btn btn3">결제하기</button>
+							 <a type="button" class="btn btn3" href="javascript:kakao()">결제하기</button>
 							<%-- <a type="button" class="btn btn3" href="javascript:kakao(''${dto.bname}', ${dto.name}', '${price}','${sessId}')"></a> --%>
 						</a>
 						<br> 
@@ -808,58 +808,29 @@
 		$("#couponPrice").val("0");
 	}); */
 	
-/* 	//카카오페이
-	function kakao(bname, name, total, id) {
+	//카카오페이
+	var tid = $("input:hidden[name=tid]").val();
+	
+	kakao = function(){
+		
 		$.ajax({
-			dataType:"json" 	
-			,url: "/purchase/kakaopay"
-			,data:{
-				bname : bname,
-				name : name,
-				total : total,
-				id : id
+			async: true
+			,cach: false
+			,method: "post"  //
+			,url: "/booking/kakaopayReady"
+			,data: {
+					form : $("#form").serialize()
+					//input hidden 으로 선언한 dto 내용 전부 넘김
 			}
-			,success: function(data) {
-				console.log(data);
-				var box = data.next_redirect_pc_url;
-				var tid = data.tid;
-				var created_at = data.created_at;	
-			    $("input[name=tid]").val(data.tid);
-			    $("input[name=created_at]").val(data.created_at);
-			    $("input[name=pc_url]").val(box);
-			    $.ajax({
-					dataType:"json" 	
-					,url: "/purchase/test"
-					,data:{
-						bname : bname,
-						name : name,
-						total : total,
-						id : id
-						"tid": $("input[name=tid]").val(),
-			    		"created_at" : $("input[name=created_at]").val(),
-						"bname" : $("input[name=bname]").val(),
-						"src" : $("input[name=src]").val(),
-						"name" : $("input[name=name]").val(),  
-						"total" : $("input[id=totalPrice]").val()  
-					}
-					,success: function(response) {
-						if (response.rt == "success") {
-						    window.location.href = box; 
-						} else {
-							alert("실패");
-						}					    
-					} ,
-					error:function(error){
-						alert(error);
-					}
-				});
-			} ,
-			error:function(error){
-				alert(error);
+			,success: function(response){
+				location.href= response.next_redirect_pc_url
+				//카카오에서 제공하는 url로 바로 이동
+			}
+			,error : function(){
+				alert("ajax error..");
 			}
 		});
-	};  */
-	
+	}
 </script>
 	
 </body>
