@@ -826,7 +826,7 @@
 				//카카오에서 제공하는 url로 바로 이동
 			}
 			,error : function(){
-				alert("ajax error..");
+				alert("결제에 실패했습니다.");
 			}
 		});
 	}

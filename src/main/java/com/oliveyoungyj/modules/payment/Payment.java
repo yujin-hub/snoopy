@@ -28,7 +28,7 @@ public class Payment extends Base{
 	public String addr4;
 	public String shipmentMessage;
 	public String coupon;
-	public Integer totalPrice;
+	public String totalPrice;
 	public String payDate;
 	public Integer state;
 	
@@ -152,10 +152,10 @@ public class Payment extends Base{
 	public void setCoupon(String coupon) {
 		this.coupon = coupon;
 	}
-	public Integer getTotalPrice() {
+	public String getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(Integer totalPrice) {
+	public void setTotalPrice(String totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	public String getPayDate() {
