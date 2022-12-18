@@ -555,10 +555,10 @@
 						<input type="hidden" name="created_at" value="" id="created_at">
 					</form> --%>
 					<div style="text-align: center;">
-						<a href="/payment/payDone">
-							 <a type="button" class="btn btn3" href="javascript:kakao()">결제하기</button>
+						<!-- <a href="/payment/payDone"> -->
+							 <a type="button" class="btn btn3" href="javascript:kakao()">결제하기</a>
 							<%-- <a type="button" class="btn btn3" href="javascript:kakao(''${dto.bname}', ${dto.name}', '${price}','${sessId}')"></a> --%>
-						</a>
+						<!-- </a> -->
 						<br> 
 						<br>
 					</div>
@@ -812,12 +812,11 @@
 	var tid = $("input:hidden[name=tid]").val();
 	
 	kakao = function(){
-		
 		$.ajax({
 			async: true
 			,cach: false
 			,method: "post"  //
-			,url: "/booking/kakaopayReady"
+			,url: "/payment/kakaopayReady"
 			,data: {
 					form : $("#form").serialize()
 					//input hidden 으로 선언한 dto 내용 전부 넘김
