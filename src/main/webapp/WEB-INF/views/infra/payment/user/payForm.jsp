@@ -809,8 +809,6 @@
 	}); */
 	
 	//카카오페이
-	var tid = $("input:hidden[name=tid]").val();
-	
 	kakao = function(){
 		$.ajax({
 			async: true
@@ -818,8 +816,8 @@
 			,method: "post"  //
 			,url: "/payment/kakaopayReady"
 			,data: {
-					form : $("#form").serialize()
-					//input hidden 으로 선언한 dto 내용 전부 넘김
+				form : $("#form").serialize()
+				//input hidden 으로 선언한 dto 내용 전부 넘김
 			}
 			,success: function(response){
 				location.href= response.next_redirect_pc_url

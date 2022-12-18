@@ -1,6 +1,5 @@
 package com.oliveyoungyj.modules.payment;
 
-import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,9 +57,9 @@ public class PaymentServiceImpl implements PaymentService{
 		params.add("cid", "TC0ONETIME");  //테스트용으로 제공되는 cid
 		params.add("partner_order_id", "oliveyoung");
 		params.add("partner_user_id", "oliveyoung");
-		params.add("item_name", "틴트");
+		params.add("item_name", "OliveYoung");
 		params.add("quantity", "1");
-		params.add("total_amount", "23000");
+		params.add("total_amount", "38000");
 		params.add("tax_free_amount", "0");
 		params.add("approval_url", "http://localhost:8080/payment/kakaopayApproval");
 		params.add("cancel_url", "http://localhost:8080/payment/kakaopayCancel");

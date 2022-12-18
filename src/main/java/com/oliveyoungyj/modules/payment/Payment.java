@@ -11,7 +11,7 @@ public class Payment extends Base{
 	public String bname;
 	public String name;
 	public Integer itemCount;
-	public Integer price;
+	public String price;
 	public Integer discount;
 	
 	//주문 정보
@@ -28,7 +28,7 @@ public class Payment extends Base{
 	public String addr4;
 	public String shipmentMessage;
 	public String coupon;
-	public String totalPrice;
+	public Integer totalPrice;
 	public String payDate;
 	public Integer state;
 	
@@ -62,10 +62,10 @@ public class Payment extends Base{
 	public void setItemCount(Integer itemCount) {
 		this.itemCount = itemCount;
 	}
-	public Integer getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(Integer price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 	public Integer getDiscount() {
@@ -152,10 +152,10 @@ public class Payment extends Base{
 	public void setCoupon(String coupon) {
 		this.coupon = coupon;
 	}
-	public String getTotalPrice() {
+	public Integer getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(String totalPrice) {
+	public void setTotalPrice(Integer totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	public String getPayDate() {

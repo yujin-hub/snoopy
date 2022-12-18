@@ -38,7 +38,6 @@ public class PaymentController {
 		return new Payment();
 	}
 
-
 	@RequestMapping(value = "payList")
 	public String payList(@ModelAttribute("vo") PaymentVo vo, Model model) throws Exception {
 
@@ -111,7 +110,7 @@ public class PaymentController {
 		
 		//결제 후 db에 insert
 		dto.setName(map.get("item_name").toString());
-		dto.setTotalPrice(amount.get("total").toString());
+		dto.setPrice(amount.get("total").toString());
 		dto.setUser_seq((String)httpSession.getAttribute("sessSeq"));
 		
 		Payment payment = (Payment) httpSession.getAttribute("dtoPay");
@@ -126,7 +125,7 @@ public class PaymentController {
 	}
     
 	// 결제 실패시 실행 url    	
-	@GetMapping("/kakaopayFail")
+	@GetMapping("kakaopayFail")
 	public String payFail() {
 		return "redirect:/payment/payForm"; 
 	}
