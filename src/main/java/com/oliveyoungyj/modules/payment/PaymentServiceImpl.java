@@ -57,13 +57,13 @@ public class PaymentServiceImpl implements PaymentService{
 		params.add("cid", "TC0ONETIME");  //테스트용으로 제공되는 cid
 		params.add("partner_order_id", "oliveyoung");
 		params.add("partner_user_id", "oliveyoung");
-		params.add("item_name", "OliveYoung");
+		params.add("item_name", dto.getName());
 		params.add("quantity", "1");
-		params.add("total_amount", "38000");
+		params.add("total_amount", dto.getPrice());
 		params.add("tax_free_amount", "0");
-		params.add("approval_url", "http://3.38.214.188//payment/kakaopayApproval");
-		params.add("cancel_url", "http://3.38.214.188/payment/kakaopayCancel");
-		params.add("fail_url", "http://3.38.214.188/payment/kakaopayFail");
+		params.add("approval_url", "http://localhost:8080/payment/kakaopayApproval");
+		params.add("cancel_url", "http://localhost:8080/payment/kakaopayCancel");
+		params.add("fail_url", "http://localhost:8080/payment/kakaopayFail");
 		//url은 앱 정보에 등록된 웹 플랫폼 도메인과 일치해야 함.
 		
 		HttpEntity<MultiValueMap<String, String>> body  = new HttpEntity<MultiValueMap<String, String>>(params, this.getHeaders());
